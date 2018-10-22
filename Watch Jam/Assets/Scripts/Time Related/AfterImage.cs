@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class AfterImage : MonoBehaviour {
+    public TimeController timeController;
     float delay = 0.2f;
     float timer;
     bool spawn;
@@ -18,8 +19,9 @@ public class AfterImage : MonoBehaviour {
         GameObject trailPart = new GameObject();
         SpriteRenderer trailPartRenderer = trailPart.AddComponent<SpriteRenderer>();
         trailPartRenderer.sprite = sprite.sprite;
-        trailPart.transform.position = transform.position;
-        trailPart.transform.localScale = transform.localScale;
+        trailPartRenderer.sortingLayerID = sprite.sortingLayerID;
+        trailPart.transform.position = sprite.transform.position;
+        trailPart.transform.localScale = sprite.transform.lossyScale;
         Destroy(trailPart, 0.5f); // replace 0.5f with needed lifeTime
 
         StartCoroutine("FadeTrailPart", trailPartRenderer);
@@ -45,11 +47,11 @@ public class AfterImage : MonoBehaviour {
                 SpawnTrail();
             }
         }
-        if (Input.GetKeyDown(KeyCode.E))
+        if (PierInputManager.GetButtonDown(timeController.inputManager.playerNumber,timeController.Rewind))
         {
                 spawn = true;
         }
-        if (Input.GetKeyUp(KeyCode.E))
+        if (PierInputManager.GetButtonUp(timeController.inputManager.playerNumber, timeController.Rewind))
         {
             spawn = false;
 

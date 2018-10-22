@@ -15,7 +15,9 @@ public class TimeController : MonoBehaviour {
     public Vector2 vel;
     public float factor = 0.25f;
     public PierInputManager inputManager;
-    public PierInputManager.ButtonName button;
+    public PierInputManager.ButtonName TimeStop;
+    public PierInputManager.ButtonName Rewind;
+
     public float timeScale
     {
         get { return _timeScale; }
@@ -36,7 +38,7 @@ public class TimeController : MonoBehaviour {
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Q))
+        if (PierInputManager.GetButtonDown(inputManager.playerNumber, TimeStop))
         {
             //timeFactor = 0;
             body.isKinematic = true;
@@ -45,12 +47,21 @@ public class TimeController : MonoBehaviour {
             body.angularVelocity = 0;
             myTimeBody.isRecording = false;
         }
-        if (Input.GetKeyUp(KeyCode.Q))
+        if (PierInputManager.GetButtonUp(inputManager.playerNumber, TimeStop))
         {
             //timeFactor = 1;
             body.isKinematic = false;
             body.velocity = oldVelocity;
             myTimeBody.isRecording = true;
+
+        }
+        if (PierInputManager.GetButtonDown(inputManager.playerNumber, Rewind))
+        {
+            myTimeBody.rewind = true;
+        }
+        if (PierInputManager.GetButtonUp(inputManager.playerNumber, Rewind))
+        {
+            myTimeBody.rewind = false;
 
         }
         if (Input.GetButtonDown("Fire2"))

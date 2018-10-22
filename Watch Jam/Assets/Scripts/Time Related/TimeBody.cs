@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class TimeBody : MonoBehaviour, IRewindAble
 {
+    public bool rewind = false;
     Rigidbody2D rb;
     public bool isRewinding = false;
     public List<PointInTime> pointsInTime;
@@ -24,7 +25,7 @@ public class TimeBody : MonoBehaviour, IRewindAble
     }
     private void FixedUpdate()
     {
-        if (TimeManager._instance.isRewinding)
+        if (rewind)
         {
             Rewind();
         }

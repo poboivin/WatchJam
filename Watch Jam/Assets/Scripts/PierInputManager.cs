@@ -34,5 +34,17 @@ public class PierInputManager : MonoBehaviour
 
         }
     }
+    public static bool GetButtonUp(PlayerNumber player, ButtonName buttonName)
+    {
+        if (player != PlayerNumber.PC)
+        {
+            return Input.GetButtonUp(player.ToString() + buttonName.ToString());
 
+        }
+        else
+        {
+            return Input.GetButtonUp(buttonName.ToString());
+
+        }
+    }
 }
