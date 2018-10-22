@@ -3,7 +3,9 @@ using System.Collections;
 
 public class Gun : MonoBehaviour
 {
-	public Rigidbody2D rocket;				// Prefab of the rocket.
+    public PierInputManager inputManager;
+    public PierInputManager.ButtonName button;
+    public Rigidbody2D rocket;				// Prefab of the rocket.
 	public float speed = 20f;				// The speed the rocket will fire at.
 
 
@@ -22,7 +24,7 @@ public class Gun : MonoBehaviour
 	void Update ()
 	{
 		// If the fire button is pressed...
-		if(Input.GetButtonDown("Fire1"))
+		if(PierInputManager.GetButtonDown(inputManager.playerNumber, button))
 		{
 			// ... set the animator Shoot trigger parameter and play the audioclip.
 			anim.SetTrigger("Shoot");
