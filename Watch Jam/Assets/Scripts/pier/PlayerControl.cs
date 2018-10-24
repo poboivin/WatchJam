@@ -46,29 +46,37 @@ public class PlayerControl : MonoBehaviour
 
 	void FixedUpdate ()
 	{
+
 		// Cache the horizontal input.
 		float h = PierInputManager.GetAxis(inputManager.playerNumber, "Horizontal");
 
-		// The Speed animator parameter is set to the absolute value of the horizontal input.
-		//anim.SetFloat("Speed", Mathf.Abs(h));
+        // The Speed animator parameter is set to the absolute value of the horizontal input.
+        //anim.SetFloat("Speed", Mathf.Abs(h));
+        if (Mathf.Abs(GetComponent<Rigidbody2D>().velocity.x) > maxSpeed)
+        {
+            // ... set the player's velocity to the maxSpeed in the x axis.
+            GetComponent<Rigidbody2D>().velocity = (new Vector2(Mathf.Sign(GetComponent<Rigidbody2D>().velocity.x) * maxSpeed, GetComponent<Rigidbody2D>().velocity.y));
 
-		// If the player is changing direction (h has a different sign to velocity.x) or hasn't reached maxSpeed yet...
-		if(h * GetComponent<Rigidbody2D>().velocity.x < maxSpeed)
+            // GetComponent<Rigidbody2D>().AddForce(new Vector2(Mathf.Sign(GetComponent<Rigidbody2D>().velocity.x) * maxSpeed, GetComponent<Rigidbody2D>().velocity.y));
+        }
+
+        // If the player is changing direction (h has a different sign to velocity.x) or hasn't reached maxSpeed yet...
+        if (h * GetComponent<Rigidbody2D>().velocity.x < maxSpeed)
         {
             // ... add a force to the player.
             GetComponent<Rigidbody2D>().AddForce(Vector2.right * h * moveForce);
 
         }
-           
 
-		// If the player's horizontal velocity is greater than the maxSpeed...
-		if(Mathf.Abs(GetComponent<Rigidbody2D>().velocity.x) > maxSpeed)
+
+        // If the player's horizontal velocity is greater than the maxSpeed...
+        if (Mathf.Abs(GetComponent<Rigidbody2D>().velocity.x) > maxSpeed)
         {
             // ... set the player's velocity to the maxSpeed in the x axis.
+            GetComponent<Rigidbody2D>().velocity  = (new Vector2(Mathf.Sign(GetComponent<Rigidbody2D>().velocity.x) * maxSpeed, GetComponent<Rigidbody2D>().velocity.y));
 
-            GetComponent<Rigidbody2D>().AddForce(new Vector2(Mathf.Sign(GetComponent<Rigidbody2D>().velocity.x) * maxSpeed, GetComponent<Rigidbody2D>().velocity.y));
+            // GetComponent<Rigidbody2D>().AddForce(new Vector2(Mathf.Sign(GetComponent<Rigidbody2D>().velocity.x) * maxSpeed, GetComponent<Rigidbody2D>().velocity.y));
         }
-            
         // If the input is moving the player right and the player is facing left...
         if (h > 0 &&  transform.localScale.x < 0)
         {

@@ -25,6 +25,7 @@ public class TimeController : MonoBehaviour {
     private float AmmoTimer = 0;
     public float rewindAmmoFactor = 4f;
     public float stopTimeAmmoFactor = 2f;
+    public bool noLimits = false;
     public float timeScale
     {
         get { return _timeScale; }
@@ -45,18 +46,20 @@ public class TimeController : MonoBehaviour {
 
     void Update()
     {
-        if (PierInputManager.GetButtonDown(inputManager.playerNumber, TimeStop) && myAmmo.CurrentAmmo < myAmmo.MaxAmmo)
+        if (PierInputManager.GetButton(inputManager.playerNumber, TimeStop) == false)
         {
-            
-            
-            StartTimeStop();
+            if (isStopped == false)
+                StartTimeStop();
+
         }
-        if (PierInputManager.GetButtonUp(inputManager.playerNumber, TimeStop) && isStopped == true)
+        if (PierInputManager.GetButton(inputManager.playerNumber, TimeStop) )
         {
-           
-            StopTimeStop();
+            if(isStopped == true)
+                StopTimeStop();
+        
         }
-        if (PierInputManager.GetButtonDown(inputManager.playerNumber, Rewind) && myAmmo.CurrentAmmo < myAmmo.MaxAmmo)
+
+        if (PierInputManager.GetButtonDown(inputManager.playerNumber, Rewind) && (myAmmo.CurrentAmmo < myAmmo.MaxAmmo || noLimits))
         {
             StartRewind();
         }
@@ -86,7 +89,7 @@ public class TimeController : MonoBehaviour {
             }
             if (myAmmo.CurrentAmmo == myAmmo.MaxAmmo)
             {
-                if (isRewinding)
+                if (isRewinding && noLimits == false)
                     StopRewind();
 
             }
@@ -99,7 +102,7 @@ public class TimeController : MonoBehaviour {
                 myAmmo.CurrentAmmo++;
                 AmmoTimer = 0;
             }
-            if(myAmmo.CurrentAmmo == myAmmo.MaxAmmo)
+            if(myAmmo.CurrentAmmo == myAmmo.MaxAmmo && noLimits == false)
             {
                 if(isStopped)
                     StopTimeStop();
