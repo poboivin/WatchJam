@@ -25,10 +25,10 @@ public class Rocket : MonoBehaviour
 	void OnTriggerEnter2D (Collider2D col) 
 	{
 		// If it hits an enemy...
-		if(col.tag == "Enemy")
+		if(col.tag == "Player")
 		{
 			// ... find the Enemy script and call the Hurt function.
-			col.gameObject.GetComponent<Enemy>().Hurt();
+			//col.gameObject.GetComponent<Enemy>().Hurt();
 
 			// Call the explosion instantiation.
 			OnExplode();
@@ -55,5 +55,10 @@ public class Rocket : MonoBehaviour
 			OnExplode();
 			Destroy (gameObject);
 		}
+        else if (col.gameObject.tag == "glass")
+        {
+            Debug.Log("test");
+            //col.gameObject.GetComponent<Glass>().shatter();
+        }
 	}
 }
