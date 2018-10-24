@@ -24,41 +24,46 @@ public class Rocket : MonoBehaviour
 	
 	void OnTriggerEnter2D (Collider2D col) 
 	{
-		// If it hits an enemy...
-		if(col.tag == "Player")
-		{
-			// ... find the Enemy script and call the Hurt function.
-			//col.gameObject.GetComponent<Enemy>().Hurt();
-
-			// Call the explosion instantiation.
-			OnExplode();
-
-			// Destroy the rocket.
-			Destroy (gameObject);
-		}
-		// Otherwise if it hits a bomb crate...
-		else if(col.tag == "BombPickup")
-		{
-			// ... find the Bomb script and call the Explode function.
-			col.gameObject.GetComponent<Bomb>().Explode();
-
-			// Destroy the bomb crate.
-			Destroy (col.transform.root.gameObject);
-
-			// Destroy the rocket.
-			Destroy (gameObject);
-		}
-		// Otherwise if the player manages to shoot himself...
-		else if(col.gameObject.tag != "Player")
-		{
-			// Instantiate the explosion and destroy the rocket.
-			OnExplode();
-			Destroy (gameObject);
-		}
-        else if (col.gameObject.tag == "glass")
+        // If it hits an enemy...
+        if (col.tag == "Player")
         {
-            Debug.Log("test");
-            //col.gameObject.GetComponent<Glass>().shatter();
+            // ... find the Enemy script and call the Hurt function.
+            //col.gameObject.GetComponent<Enemy>().Hurt();
+
+            // Call the explosion instantiation.
+            OnExplode();
+
+            // Destroy the rocket.
+            Destroy(gameObject);
+        }
+        // Otherwise if it hits a bomb crate...
+        else if (col.tag == "BombPickup")
+        {
+            // ... find the Bomb script and call the Explode function.
+            col.gameObject.GetComponent<Bomb>().Explode();
+
+            // Destroy the bomb crate.
+            Destroy(col.transform.root.gameObject);
+
+            // Destroy the rocket.
+            Destroy(gameObject);
+        }
+        else if (col.gameObject.tag == "destructable")
+        {
+            OnExplode();
+            col.gameObject.GetComponent<destructable>().shatter();
+            Destroy(gameObject);
+        }
+        else if (col.tag == "pickup")
+        { }
+
+
+        // Otherwise if the player manages to shoot himself...
+        else if (col.gameObject.tag != "Player")
+        {
+            // Instantiate the explosion and destroy the rocket.
+            OnExplode();
+            Destroy(gameObject);
         }
 	}
 }

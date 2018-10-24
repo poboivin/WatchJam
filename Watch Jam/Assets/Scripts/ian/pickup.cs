@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Destructable : MonoBehaviour {
+public class pickup : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
@@ -14,10 +14,13 @@ public class Destructable : MonoBehaviour {
 		
 	}
 
-    public void shatter()
+    void OnTriggerEnter2D(Collider2D collision)
     {
-        //AudioSource.PlayClipAtPoint(smash, transform.position);
-        //play shattering animation
-        Destroy (gameObject);
+        if (collision.tag == "Player")
+        {
+            Destroy(gameObject);
+            //play pickup sound
+        }
+
     }
 }

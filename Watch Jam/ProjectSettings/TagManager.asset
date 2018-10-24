@@ -14,7 +14,8 @@ TagManager:
   - ExplosionFX
   - HealthBar
   - enemy
-  - glass
+  - destructable
+  - pickup
   layers:
   - Default
   - TransparentFX
