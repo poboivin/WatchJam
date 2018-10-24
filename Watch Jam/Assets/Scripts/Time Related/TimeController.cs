@@ -18,10 +18,13 @@ public class TimeController : MonoBehaviour {
     public PierInputManager inputManager;
     public PierInputManager.ButtonName TimeStop;
     public PierInputManager.ButtonName Rewind;
-    private bool isUsingTimePower = false;
+    [SerializeField]
     private bool isRewinding = false;
+    [SerializeField]
     private bool isStopped = false;
     private float AmmoTimer = 0;
+    public float rewindAmmoFactor = 4f;
+    public float stopTimeAmmoFactor = 2f;
     public float timeScale
     {
         get { return _timeScale; }
@@ -75,7 +78,7 @@ public class TimeController : MonoBehaviour {
         }
         if (isRewinding)
         {
-            AmmoTimer += Time.deltaTime;
+            AmmoTimer += Time.deltaTime * rewindAmmoFactor;
             if (AmmoTimer >= 1)
             {
                 myAmmo.CurrentAmmo++;
@@ -90,7 +93,7 @@ public class TimeController : MonoBehaviour {
         }
         else if (isStopped)
         {
-            AmmoTimer += Time.deltaTime;
+            AmmoTimer += Time.deltaTime * stopTimeAmmoFactor;
             if (AmmoTimer >= 1)
             {
                 myAmmo.CurrentAmmo++;
@@ -112,13 +115,13 @@ public class TimeController : MonoBehaviour {
     public void StartRewind()
     {
         myTimeBody.rewind = true;
-        isUsingTimePower = true;
+        isRewinding = true;
 
     }
     public void StopRewind()
     {
         myTimeBody.rewind = false;
-        isUsingTimePower = false;
+        isRewinding = false;
     }
     public void StartTimeStop()
     {
@@ -137,7 +140,6 @@ public class TimeController : MonoBehaviour {
         body.isKinematic = false;
         body.velocity = oldVelocity;
         myTimeBody.isRecording = true;
-        isUsingTimePower = false;
     }
     public void AddForce(Vector2 force)
     {
