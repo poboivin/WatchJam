@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class PhysicsObject : MonoBehaviour
 {
-
+    public bool slow = false;
     public float minGroundNormalY = .65f;
     public float gravityModifier = 1f;
 
     protected Vector2 targetVelocity;
+    [SerializeField]
     protected bool grounded;
     protected Vector2 groundNormal;
     protected Rigidbody2D rb2d;
@@ -56,11 +57,14 @@ public class PhysicsObject : MonoBehaviour
         Vector2 moveAlongGround = new Vector2(groundNormal.y, -groundNormal.x);
 
         Vector2 move = moveAlongGround * deltaPosition.x;
-
+  if (slow)
+        {
+            move /= 2;
+        }
         Movement(move, false);
 
         move = Vector2.up * deltaPosition.y;
-
+      
         Movement(move, true);
     }
 

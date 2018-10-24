@@ -7,27 +7,28 @@ public class Gun : MonoBehaviour
     public PierInputManager.ButtonName button;
     public Rigidbody2D rocket;				// Prefab of the rocket.
 	public float speed = 20f;				// The speed the rocket will fire at.
-
+    public Transform gunPivot;
 
 	private PlayerControl playerCtrl;		// Reference to the PlayerControl script.
-	private Animator anim;					// Reference to the Animator component.
+	//private Animator anim;					// Reference to the Animator component.
 
 
 	void Awake()
 	{
 		// Setting up the references.
-		anim = transform.root.gameObject.GetComponent<Animator>();
+		//anim = transform.root.gameObject.GetComponent<Animator>();
 		playerCtrl = transform.root.GetComponent<PlayerControl>();
 	}
 
 
 	void Update ()
 	{
+        Vector2 dir = new Vector2(inputManager.GetAxis("Horizontal"), inputManager.GetAxis("Vertical"));
 		// If the fire button is pressed...
-		if(PierInputManager.GetButtonDown(inputManager.playerNumber, button))
+		if(inputManager.GetButtonDown(button))
 		{
 			// ... set the animator Shoot trigger parameter and play the audioclip.
-			anim.SetTrigger("Shoot");
+		//	anim.SetTrigger("Shoot");
 			GetComponent<AudioSource>().Play();
 
 			// If the player is facing right...
