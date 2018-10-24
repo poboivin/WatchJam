@@ -6,6 +6,7 @@ public class TimeController : MonoBehaviour {
     public Rigidbody2D body;
     public TimeBody myTimeBody;
     public Vector2 oldVelocity;
+    public Ammo myAmmo;
     bool first = true;
 
     [SerializeField]
@@ -17,7 +18,10 @@ public class TimeController : MonoBehaviour {
     public PierInputManager inputManager;
     public PierInputManager.ButtonName TimeStop;
     public PierInputManager.ButtonName Rewind;
-
+    private bool isUsingTimePower = false;
+    private bool isRewinding = false;
+    private bool isStopped = false;
+    private float AmmoTimer = 0;
     public float timeScale
     {
         get { return _timeScale; }
@@ -38,31 +42,24 @@ public class TimeController : MonoBehaviour {
 
     void Update()
     {
-        if (PierInputManager.GetButtonDown(inputManager.playerNumber, TimeStop))
+        if (PierInputManager.GetButtonDown(inputManager.playerNumber, TimeStop) && myAmmo.CurrentAmmo < myAmmo.MaxAmmo)
         {
-            //timeFactor = 0;
-            body.isKinematic = true;
-            oldVelocity = body.velocity;
-            body.velocity = Vector2.zero;
-            body.angularVelocity = 0;
-            myTimeBody.isRecording = false;
+            
+            
+            StartTimeStop();
         }
-        if (PierInputManager.GetButtonUp(inputManager.playerNumber, TimeStop))
+        if (PierInputManager.GetButtonUp(inputManager.playerNumber, TimeStop) && isStopped == true)
         {
-            //timeFactor = 1;
-            body.isKinematic = false;
-            body.velocity = oldVelocity;
-            myTimeBody.isRecording = true;
-
+           
+            StopTimeStop();
         }
-        if (PierInputManager.GetButtonDown(inputManager.playerNumber, Rewind))
+        if (PierInputManager.GetButtonDown(inputManager.playerNumber, Rewind) && myAmmo.CurrentAmmo < myAmmo.MaxAmmo)
         {
-            myTimeBody.rewind = true;
+            StartRewind();
         }
-        if (PierInputManager.GetButtonUp(inputManager.playerNumber, Rewind))
+        if (PierInputManager.GetButtonUp(inputManager.playerNumber, Rewind)&& isRewinding == true)
         {
-            myTimeBody.rewind = false;
-
+            StopRewind();
         }
         if (Input.GetButtonDown("Fire2"))
         {
@@ -76,6 +73,71 @@ public class TimeController : MonoBehaviour {
 
 
         }
+        if (isRewinding)
+        {
+            AmmoTimer += Time.deltaTime;
+            if (AmmoTimer >= 1)
+            {
+                myAmmo.CurrentAmmo++;
+                AmmoTimer = 0;
+            }
+            if (myAmmo.CurrentAmmo == myAmmo.MaxAmmo)
+            {
+                if (isRewinding)
+                    StopRewind();
+
+            }
+        }
+        else if (isStopped)
+        {
+            AmmoTimer += Time.deltaTime;
+            if (AmmoTimer >= 1)
+            {
+                myAmmo.CurrentAmmo++;
+                AmmoTimer = 0;
+            }
+            if(myAmmo.CurrentAmmo == myAmmo.MaxAmmo)
+            {
+                if(isStopped)
+                    StopTimeStop();
+
+            }
+        }
+        else
+        {
+            AmmoTimer = 0;
+        }
+       
+    }
+    public void StartRewind()
+    {
+        myTimeBody.rewind = true;
+        isUsingTimePower = true;
+
+    }
+    public void StopRewind()
+    {
+        myTimeBody.rewind = false;
+        isUsingTimePower = false;
+    }
+    public void StartTimeStop()
+    {
+        isStopped = true;
+        //timeFactor = 0;
+        body.isKinematic = true;
+        oldVelocity = body.velocity;
+        body.velocity = Vector2.zero;
+        body.angularVelocity = 0;
+        myTimeBody.isRecording = false;
+    }
+    public void StopTimeStop()
+    {
+        isStopped = false;
+        //timeFactor = 1;
+        body.isKinematic = false;
+        body.velocity = oldVelocity;
+        myTimeBody.isRecording = true;
+        isUsingTimePower = false;
     }
     public void AddForce(Vector2 force)
     {
