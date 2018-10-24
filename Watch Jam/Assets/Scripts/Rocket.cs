@@ -54,12 +54,14 @@ public class Rocket : MonoBehaviour
             col.gameObject.GetComponent<destructable>().shatter();
             Destroy(gameObject);
         }
-        else if (col.tag == "pickup")
+        /*else if (col.tag == "pickup")
         { }
+        else if (col.tag == "obstacle")
+        { }*/
 
 
         // Otherwise if the player manages to shoot himself...
-        else if (col.gameObject.tag != "Player")
+        else if (col.gameObject.tag == null)
         {
             // Instantiate the explosion and destroy the rocket.
             OnExplode();
