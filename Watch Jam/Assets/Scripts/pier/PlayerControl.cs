@@ -70,17 +70,22 @@ public class PlayerControl : MonoBehaviour
         }
             
         // If the input is moving the player right and the player is facing left...
-        if (h > 0 && !facingRight)
+        if (h > 0 &&  transform.localScale.x < 0)
         {
-            // ... flip the player.
-            Flip();
+            Vector3 theScale = transform.localScale;
+            theScale.x *= -1;
+            transform.localScale = theScale;
+            facingRight = true;
+
         }
-			
-		// Otherwise if the input is moving the player left and the player is facing right...
-		else if(h < 0 && facingRight)
+
+        // Otherwise if the input is moving the player left and the player is facing right...
+        else if(h < 0 && transform.localScale.x > 0)
         {
-            // ... flip the player.
-			Flip();
+            Vector3 theScale = transform.localScale;
+            theScale.x *= -1;
+            transform.localScale = theScale;
+            facingRight = false;
         }
 			
 

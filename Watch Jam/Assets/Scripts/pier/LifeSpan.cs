@@ -30,5 +30,9 @@ public class LifeSpan : MonoBehaviour {
 	void Update () {
         currentLife -= Time.deltaTime;
         lifeDisplay.fillAmount = currentLife / totalLife;
-	}
+        if (currentLife <= 0)
+        {
+            Destroy(this.gameObject);
+        }
+    }
 }
