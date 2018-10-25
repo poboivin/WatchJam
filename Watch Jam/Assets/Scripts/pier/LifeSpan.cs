@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class LifeSpan : MonoBehaviour {
+    TimeController myTimeController;
     public Image lifeDisplay;
     [SerializeField]
     private float totalLife = 24;
@@ -11,7 +12,7 @@ public class LifeSpan : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         currentLife = totalLife;
-
+        myTimeController = gameObject.GetComponent<TimeController>();
     }
 	public void AddLife(float amount)
     {
@@ -20,19 +21,22 @@ public class LifeSpan : MonoBehaviour {
     public void SubstactLife(float amount)
     {
         currentLife -= amount;
-        Debug.Log(currentLife);
+      //  Debug.Log(currentLife);
         if(currentLife <= 0)
         {
-            Destroy(this.gameObject);
+            Death();
+
         }
     }
 	// Update is called once per frame
-	void Update () {
-        currentLife -= Time.deltaTime;
+	void Update ()
+    {
+        SubstactLife(Time.deltaTime);
         lifeDisplay.fillAmount = currentLife / totalLife;
-        if (currentLife <= 0)
-        {
-            Destroy(this.gameObject);
-        }
+    }
+    void Death()
+    {
+        MatchCounter.Remove(myTimeController);
+        Destroy(this.gameObject);
     }
 }

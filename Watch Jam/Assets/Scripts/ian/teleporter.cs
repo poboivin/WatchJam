@@ -18,7 +18,12 @@ public class teleporter : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        collision.transform.position = Destination.position;
-        collision.transform.rotation = Destination.rotation;
+        Rigidbody2D other = collision.GetComponent<Rigidbody2D>();
+        if(other != null)
+        {
+            other.position = Destination.position;
+            other.transform.rotation = Destination.rotation;
+        }
+        
     }
 }

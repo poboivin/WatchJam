@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TimeController : MonoBehaviour {
+public class TimeController : MonoBehaviour
+{
     public Rigidbody2D body;
     public TimeBody myTimeBody;
     public Vector2 oldVelocity;
