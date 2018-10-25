@@ -7,6 +7,7 @@ public class PierInputManager : MonoBehaviour
     public enum PlayerNumber { P1, P2, P3, P4, PC }
     public enum ButtonName { Fire1 , Fire2, Fire3 ,Jump,Rtrigger,Ltrigger }
     public PlayerNumber playerNumber;
+
     public float GetAxis( string axisName)
     {
         if (playerNumber != PlayerNumber.PC)
@@ -35,14 +36,28 @@ public class PierInputManager : MonoBehaviour
     }
     public static bool GetButton(PlayerNumber player, ButtonName buttonName)
     {
-        if (player != PlayerNumber.PC)
+        if (buttonName == ButtonName.Rtrigger || buttonName == ButtonName.Ltrigger)
         {
-            return Input.GetButton(player.ToString() + buttonName.ToString());
+            float input = Input.GetAxis(player.ToString() + buttonName.ToString());
+            Debug.Log(input);
+            if (input == 1)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        else if (player == PlayerNumber.PC)
+        {
+                        return Input.GetButton(buttonName.ToString());
 
         }
         else
         {
-            return Input.GetButton(buttonName.ToString());
+            return Input.GetButton(player.ToString() + buttonName.ToString());
+
 
         }
     }

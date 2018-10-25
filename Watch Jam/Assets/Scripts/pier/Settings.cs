@@ -37,8 +37,24 @@ public class Settings : MonoBehaviour
     {
         s.gunKockBack = val;
     }
-	// Update is called once per frame
-	void Update ()
+    public void LifeSteal(bool val)
+    {
+        s.lifeSteal = val;
+    }
+    public void TimeStopStore(bool val)
+    {
+        s.timeStopStore = val;
+    }
+    public void RewindKillVelocity(bool val)
+    {
+        s.rewindKillVelocity = val;
+    }
+    public void StopTimeKillVelocity(bool val)
+    {
+        s.timeStopKillVelocity = val;
+    }
+    // Update is called once per frame
+    void Update ()
     {
 		
 	}

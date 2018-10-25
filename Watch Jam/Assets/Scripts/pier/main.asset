@@ -13,8 +13,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   noLimits: 1
   lifeDecay: 0
-  gunKockBack: 22.825441
-  airControl: 0.265
+  gunKockBack: 39.69
+  airControl: 0.542
   timeStopStore: 1
-  timeStopKillVelocity: 0
+  timeStopKillVelocity: 1
+  timeStopAmmoRegen: 0
   rewindKillVelocity: 1
+  lifeSteal: 0
+  rewindInvincibility: 0

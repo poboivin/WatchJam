@@ -27,6 +27,7 @@ public class TimeController : MonoBehaviour
     public float rewindAmmoFactor = 4f;
     public float stopTimeAmmoFactor = 2f;
     private Vector2 storedMomentum;
+    private bool rt_pressed = false; //right trigger
     public float timeScale
     {
         get { return _timeScale; }
@@ -54,6 +55,11 @@ public class TimeController : MonoBehaviour
             Gizmos.DrawLine(transform.position, transform.position + new Vector3(oldVelocity.x, oldVelocity.y, 0).normalized * (oldVelocity.magnitude / 1000));
 
         }
+    }
+
+    bool getTimeStopInput()
+    {
+        return false;
     }
     void Update()
     {
@@ -96,13 +102,13 @@ public class TimeController : MonoBehaviour
                 myAmmo.CurrentAmmo++;
                 AmmoTimer = 0;
             }
-            if (myAmmo.CurrentAmmo == myAmmo.MaxAmmo)
+            if (myAmmo.CurrentAmmo >= myAmmo.MaxAmmo)
             {
                 if (isRewinding && Settings.s.noLimits == false)
                 {
                     StopRewind();
                 }
-
+                myAmmo.CurrentAmmo = myAmmo.MaxAmmo;
             }
         }
         else if (isStopped)
@@ -113,13 +119,13 @@ public class TimeController : MonoBehaviour
                 myAmmo.CurrentAmmo++;
                 AmmoTimer = 0;
             }
-            if(myAmmo.CurrentAmmo == myAmmo.MaxAmmo)
+            if(myAmmo.CurrentAmmo >= myAmmo.MaxAmmo)
             {
                 if(isStopped && Settings.s.noLimits == false)
                 {
                     StopTimeStop();
                 }
-
+                myAmmo.CurrentAmmo = myAmmo.MaxAmmo;
             }
         }
         else

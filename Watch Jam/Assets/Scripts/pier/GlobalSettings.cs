@@ -12,5 +12,8 @@ public class GlobalSettings : ScriptableObject
     public float airControl = 0;
     public bool timeStopStore = true;
     public bool timeStopKillVelocity = true;
+    public bool timeStopAmmoRegen = false;
     public bool rewindKillVelocity = true;
+    public bool lifeSteal = false;
+    public bool rewindInvincibility = false;
 }

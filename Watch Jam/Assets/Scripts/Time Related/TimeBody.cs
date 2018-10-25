@@ -43,7 +43,7 @@ public class TimeBody : MonoBehaviour, IRewindAble
         if (pointsInTime.Count > 0)
         {
             PointInTime p = pointsInTime[0];
-            transform.position = p.Position;
+            rb.MovePosition(new Vector2(p.Position.x,p.Position.y));
             transform.rotation = p.Rotation;
             transform.localScale = p.Scale;
             pointsInTime.RemoveAt(0);
@@ -76,7 +76,8 @@ public class TimeBody : MonoBehaviour, IRewindAble
         if (rb != null)
         {
             rb.isKinematic = true;
-            rb.simulated = false;
+            if(Settings.s.rewindInvincibility == true)
+                rb.simulated = false;
         }
     }
     public void stopRewind()
