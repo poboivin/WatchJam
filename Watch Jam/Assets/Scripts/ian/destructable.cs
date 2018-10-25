@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class destructable : MonoBehaviour {
 
-    int hp = 2;
+    public int hp = 2;
 
 	// Use this for initialization
 	void Start () {
@@ -24,7 +24,8 @@ public class destructable : MonoBehaviour {
         {
             //AudioSource.PlayClipAtPoint(smash, transform.position);
             //play shattering animation
-            Destroy(gameObject);
+            gameObject.SetActive(false);
+            // Destroy(gameObject);
         }
     }
 }

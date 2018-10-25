@@ -17,8 +17,8 @@ public class BulletLeach : MonoBehaviour {
         if(otherLife != null)
         {
        //     Debug.Log("hey");
-            Owner.AddLife(amount);
-            otherLife.SubstactLife(amount);
+            Owner.AddLife(otherLife.SubstactLife(amount));
+           
         }
     }
 }

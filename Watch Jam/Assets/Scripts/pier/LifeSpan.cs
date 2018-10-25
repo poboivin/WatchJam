@@ -9,6 +9,7 @@ public class LifeSpan : MonoBehaviour {
     [SerializeField]
     private float totalLife = 24;
     private float currentLife = 0;
+  
 	// Use this for initialization
 	void Start () {
         currentLife = totalLife;
@@ -17,21 +18,39 @@ public class LifeSpan : MonoBehaviour {
 	public void AddLife(float amount)
     {
         currentLife += amount;
+        if(currentLife > totalLife)
+        {
+            currentLife = totalLife;
+
+
+        }
     }
-    public void SubstactLife(float amount)
+    public float SubstactLife(float amount)
     {
         currentLife -= amount;
       //  Debug.Log(currentLife);
         if(currentLife <= 0)
         {
-            Death();
+          
+            return currentLife + amount;
+        
 
+        }
+        else
+        {
+            return amount;
         }
     }
 	// Update is called once per frame
 	void Update ()
     {
-        SubstactLife(Time.deltaTime);
+        if(Settings.s.lifeDecay)
+            SubstactLife(Time.deltaTime);
+
+        if  (currentLife <= 0)
+        {
+                Death();
+        }
         lifeDisplay.fillAmount = currentLife / totalLife;
     }
     void Death()

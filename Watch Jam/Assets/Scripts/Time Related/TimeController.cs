@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class TimeController : MonoBehaviour
 {
-    public Rigidbody2D body;
+    private Rigidbody2D myRigidbody2D;
     public TimeBody myTimeBody;
     public Vector2 oldVelocity;
     public Ammo myAmmo;
@@ -26,7 +26,7 @@ public class TimeController : MonoBehaviour
     private float AmmoTimer = 0;
     public float rewindAmmoFactor = 4f;
     public float stopTimeAmmoFactor = 2f;
-    public bool noLimits;
+    private Vector2 storedMomentum;
     public float timeScale
     {
         get { return _timeScale; }
@@ -42,12 +42,12 @@ public class TimeController : MonoBehaviour
     void Awake()
     {
         timeScale = _timeScale;
-
+        myRigidbody2D = GetComponent<Rigidbody2D>();
     }
 
     void Update()
     {
-        if (PierInputManager.GetButtonDown(inputManager.playerNumber, TimeStop) && (myAmmo.CurrentAmmo < myAmmo.MaxAmmo || noLimits))
+        if (PierInputManager.GetButtonDown(inputManager.playerNumber, TimeStop) && (myAmmo.CurrentAmmo < myAmmo.MaxAmmo || Settings.s.noLimits))
         {
             
             
@@ -58,7 +58,7 @@ public class TimeController : MonoBehaviour
            
             StopTimeStop();
         }
-        if (PierInputManager.GetButtonDown(inputManager.playerNumber, Rewind) && (myAmmo.CurrentAmmo < myAmmo.MaxAmmo || noLimits))
+        if (PierInputManager.GetButtonDown(inputManager.playerNumber, Rewind) && (myAmmo.CurrentAmmo < myAmmo.MaxAmmo || Settings.s.noLimits))
         {
             StartRewind();
         }
@@ -88,7 +88,7 @@ public class TimeController : MonoBehaviour
             }
             if (myAmmo.CurrentAmmo == myAmmo.MaxAmmo)
             {
-                if (isRewinding && noLimits == false)
+                if (isRewinding && Settings.s.noLimits == false)
                 {
                     StopRewind();
                 }
@@ -105,7 +105,7 @@ public class TimeController : MonoBehaviour
             }
             if(myAmmo.CurrentAmmo == myAmmo.MaxAmmo)
             {
-                if(isStopped && noLimits == false)
+                if(isStopped && Settings.s.noLimits == false)
                 {
                     StopTimeStop();
                 }
@@ -131,27 +131,44 @@ public class TimeController : MonoBehaviour
     }
     public void StartTimeStop()
     {
+        storedMomentum = Vector2.zero;
         isStopped = true;
         //timeFactor = 0;
-        body.isKinematic = true;
-        oldVelocity = body.velocity;
-        body.velocity = Vector2.zero;
-        body.angularVelocity = 0;
+        myRigidbody2D.isKinematic = true;
+        oldVelocity = myRigidbody2D.velocity;
+        myRigidbody2D.velocity = Vector2.zero;
+        myRigidbody2D.angularVelocity = 0;
         myTimeBody.isRecording = false;
     }
     public void StopTimeStop()
     {
         isStopped = false;
         //timeFactor = 1;
-        body.isKinematic = false;
-        body.velocity = oldVelocity;
+        myRigidbody2D.isKinematic = false;
+        if(Settings.s.timeStopKillVelocity == false)
+        {
+            myRigidbody2D.velocity = oldVelocity;
+        }
         myTimeBody.isRecording = true;
+
+        AddForce(storedMomentum);
+        storedMomentum = Vector2.zero;
     }
     public void AddForce(Vector2 force)
     {
     //    force = (force / timeScale);
         // force /= newTimeScale / lastTimeScale; f = m * a
-        body.AddForce(force, ForceMode2D.Force);
+        if(isStopped == true && Settings.s.timeStopStore == true)
+        {
+            storedMomentum += force;
+            Debug.Log("biding my time");
+        }
+        else
+        {
+            myRigidbody2D.AddForce(force, ForceMode2D.Force);
+        }
+     
+       
     }
     public void AddImpulse(Vector2 force)
     {
@@ -159,16 +176,17 @@ public class TimeController : MonoBehaviour
         //force = (force /timeScale) /2; 
         force /= timeScale;
        //force /= newTimeScale / lastTimeScale; //f = m * a
-        body.AddForce(force, ForceMode2D.Impulse);
+        myRigidbody2D.AddForce(force, ForceMode2D.Impulse);
+        Debug.Log("realease");
 
-       // body.velocity += force;
-        
+        // body.velocity += force;
+
     }
     void FixedUpdate()
     {
-       body.gravityScale *= newTimeScale / lastTimeScale;
+       myRigidbody2D.gravityScale *= newTimeScale / lastTimeScale;
       //  body.velocity *= newTimeScale / lastTimeScale;
-       body.mass /= newTimeScale  / lastTimeScale;
+       myRigidbody2D.mass /= newTimeScale  / lastTimeScale;
        // body.drag /= newTimeScale / lastTimeScale;
      
         // body.angularVelocity *= newTimeScale / lastTimeScale;
