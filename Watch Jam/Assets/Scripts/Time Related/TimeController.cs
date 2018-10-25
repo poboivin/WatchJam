@@ -44,7 +44,17 @@ public class TimeController : MonoBehaviour
         timeScale = _timeScale;
         myRigidbody2D = GetComponent<Rigidbody2D>();
     }
+    public void OnDrawGizmos()
+    {
 
+        Gizmos.DrawLine(transform.position, transform.position + new Vector3(storedMomentum.x, storedMomentum.y, 0).normalized * (storedMomentum.magnitude /1000));
+        Gizmos.color = Color.red;
+        if (isStopped)
+        {
+            Gizmos.DrawLine(transform.position, transform.position + new Vector3(oldVelocity.x, oldVelocity.y, 0).normalized * (oldVelocity.magnitude / 1000));
+
+        }
+    }
     void Update()
     {
         if (PierInputManager.GetButtonDown(inputManager.playerNumber, TimeStop) && (myAmmo.CurrentAmmo < myAmmo.MaxAmmo || Settings.s.noLimits))
@@ -68,13 +78,13 @@ public class TimeController : MonoBehaviour
         }
         if (Input.GetButtonDown("Fire2"))
         {
-            timeScale = factor;
+      //      timeScale = factor;
             //body.massh /= factor;
            // body.gravityScale *= factor;
         }
         if (Input.GetButtonUp("Fire2"))
         {
-            timeScale = 1f;
+         //   timeScale = 1f;
 
 
         }
@@ -161,7 +171,7 @@ public class TimeController : MonoBehaviour
         if(isStopped == true && Settings.s.timeStopStore == true)
         {
             storedMomentum += force;
-            Debug.Log("biding my time");
+            //Debug.Log("biding my time");
         }
         else
         {
@@ -177,7 +187,7 @@ public class TimeController : MonoBehaviour
         force /= timeScale;
        //force /= newTimeScale / lastTimeScale; //f = m * a
         myRigidbody2D.AddForce(force, ForceMode2D.Impulse);
-        Debug.Log("realease");
+       // Debug.Log("realease");
 
         // body.velocity += force;
 

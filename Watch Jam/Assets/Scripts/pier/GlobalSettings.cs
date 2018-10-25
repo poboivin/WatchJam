@@ -8,7 +8,9 @@ public class GlobalSettings : ScriptableObject
     public bool noLimits;
     public bool lifeDecay;
     public float gunKockBack = 20f;
-    public bool airControl = false;
+    [Range (0,1)]
+    public float airControl = 0;
     public bool timeStopStore = true;
     public bool timeStopKillVelocity = true;
+    public bool rewindKillVelocity = true;
 }

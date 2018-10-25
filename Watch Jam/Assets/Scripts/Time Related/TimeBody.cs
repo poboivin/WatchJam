@@ -83,9 +83,14 @@ public class TimeBody : MonoBehaviour, IRewindAble
     {
         isRewinding = false;
         if (rb != null)
-        { 
+        {
+            if (Settings.s.rewindKillVelocity == true)
+            {
+                rb.velocity = Vector2.zero;
+            }
             rb.isKinematic = false;
             rb.simulated = true;
+           
         }
     }
 }

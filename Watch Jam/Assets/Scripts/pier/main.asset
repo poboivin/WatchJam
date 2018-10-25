@@ -14,6 +14,7 @@ MonoBehaviour:
   noLimits: 1
   lifeDecay: 0
   gunKockBack: 22.825441
-  airControl: 1
+  airControl: 0.265
   timeStopStore: 1
-  timeStopKillVelocity: 1
+  timeStopKillVelocity: 0
+  rewindKillVelocity: 1

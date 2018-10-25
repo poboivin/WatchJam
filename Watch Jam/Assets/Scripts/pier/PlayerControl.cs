@@ -57,12 +57,12 @@ public class PlayerControl : MonoBehaviour
         // If the player is changing direction (h has a different sign to velocity.x) or hasn't reached maxSpeed yet...
         if (h * GetComponent<Rigidbody2D>().velocity.x < maxSpeed)
         {
-            if(Settings.s.airControl == false && grounded)
+            if(Settings.s.airControl != 1 && grounded == false)
             {
-                GetComponent<Rigidbody2D>().AddForce(Vector2.right * h * moveForce);
+                GetComponent<Rigidbody2D>().AddForce(Vector2.right * h * moveForce * Settings.s.airControl);
 
             }
-            else if (Settings.s.airControl == true)
+            else
             {
                 GetComponent<Rigidbody2D>().AddForce(Vector2.right * h * moveForce);
             }
