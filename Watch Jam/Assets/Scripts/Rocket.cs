@@ -4,12 +4,18 @@ using System.Collections;
 public class Rocket : MonoBehaviour 
 {
 	public GameObject explosion;		// Prefab of explosion effect.
+    public float rocketTime = 0f;
 
 
-	void Start () 
-	{
-		// Destroy the rocket after 2 seconds if it doesn't get destroyed before then.
-		Destroy(gameObject, 2);
+    void Update()
+    {
+        // Destroy the rocket after 2 seconds if it doesn't get destroyed before then.
+        rocketTime += Time.deltaTime ;
+        if (rocketTime >=2f)
+        {
+            Destroy(gameObject);
+            OnExplode();
+        }
 	}
 
 
@@ -36,28 +42,19 @@ public class Rocket : MonoBehaviour
             // Destroy the rocket.
             Destroy(gameObject);
         }
-        // Otherwise if it hits a bomb crate...
-        else if (col.tag == "BombPickup")
-        {
-            // ... find the Bomb script and call the Explode function.
-            col.gameObject.GetComponent<Bomb>().Explode();
 
-            // Destroy the bomb crate.
-            Destroy(col.transform.root.gameObject);
-
-            // Destroy the rocket.
-            Destroy(gameObject);
-        }
         else if (col.gameObject.tag == "destructable")
         {
             OnExplode();
             col.gameObject.GetComponent<destructable>().shatter();
             Destroy(gameObject);
         }
-        /*else if (col.tag == "pickup")
-        { }
-        else if (col.tag == "obstacle")
-        { }*/
+
+        else if (col.tag == "ground" || col.tag == "Obstacle")
+        {
+            OnExplode();
+            Destroy(gameObject);
+        }
 
 
         // Otherwise if the player manages to shoot himself...

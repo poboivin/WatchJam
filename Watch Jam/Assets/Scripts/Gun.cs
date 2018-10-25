@@ -9,7 +9,7 @@ public class Gun : MonoBehaviour
     public PierInputManager.ButtonName button;
     public Rigidbody2D rocket;				// Prefab of the rocket.
 	public float speed = 20f;				// The speed the rocket will fire at.
-    public float fireRate = 0.5f;
+    public float fireRate = 0.3f;
     private float nextFire = 0f;
     public Transform gunPivot;
 
