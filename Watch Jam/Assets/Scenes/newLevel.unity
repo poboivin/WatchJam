@@ -414,7 +414,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!199 &50595248
 ParticleSystemRenderer:
   serializedVersion: 6
@@ -5235,7 +5235,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd9469c20b68a6c4386d767f6ffc648c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerNumber: 1
+  playerNumber: 4
 --- !u!82 &120733987
 AudioSource:
   m_ObjectHideFlags: 0
@@ -8626,7 +8626,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9d1abc1a694053458f1efaca87dfc0d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainSettings: {fileID: 11400000, guid: b2889c19ba411d245a7b6af6d3205b5f, type: 2}
+  mainSettings: {fileID: 11400000, guid: fec515ada3e4cf5479261bf8aa5b8c5e, type: 2}
 --- !u!4 &1775305543
 Transform:
   m_ObjectHideFlags: 0
@@ -9068,6 +9068,7 @@ MonoBehaviour:
   button: 2
   rocket: {fileID: 50999528603641048, guid: 37327ebed1db7f042a406d88662deb0f, type: 2}
   speed: 25
+  fireRate: 0.5
   gunPivot: {fileID: 491461033}
   angle: 0
   x: 0

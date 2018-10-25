@@ -9,6 +9,8 @@ public class Gun : MonoBehaviour
     public PierInputManager.ButtonName button;
     public Rigidbody2D rocket;				// Prefab of the rocket.
 	public float speed = 20f;				// The speed the rocket will fire at.
+    public float fireRate = 0.5f;
+    private float nextFire = 0f;
     public Transform gunPivot;
 
 	private PlayerControl playerCtrl;       // Reference to the PlayerControl script.
@@ -41,8 +43,10 @@ public class Gun : MonoBehaviour
 
         
 		// If the fire button is pressed...
-		if(inputManager.GetButtonDown(button) && myAmmo.CurrentAmmo >0)
+		if(inputManager.GetButtonDown(button) && myAmmo.CurrentAmmo >0 && Time.time > nextFire)
 		{
+            nextFire = Time.time + fireRate;
+
             myAmmo.CurrentAmmo--;
             // ... set the animator Shoot trigger parameter and play the audioclip.
             //	anim.SetTrigger("Shoot");
