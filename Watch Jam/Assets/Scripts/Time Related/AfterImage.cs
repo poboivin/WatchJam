@@ -47,11 +47,11 @@ public class AfterImage : MonoBehaviour {
                 SpawnTrail();
             }
         }
-        if (PierInputManager.GetButtonDown(timeController.inputManager.playerNumber,timeController.Rewind))
+        if (timeController.isRewinding)
         {
                 spawn = true;
         }
-        if (PierInputManager.GetButtonUp(timeController.inputManager.playerNumber, timeController.Rewind))
+        else
         {
             spawn = false;
 

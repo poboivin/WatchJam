@@ -20,7 +20,7 @@ public class TimeController : MonoBehaviour
     public PierInputManager.ButtonName TimeStop;
     public PierInputManager.ButtonName Rewind;
     [SerializeField]
-    private bool isRewinding = false;
+    public bool isRewinding = false;
     [SerializeField]
     private bool isStopped = false;
     private float AmmoTimer = 0;
@@ -63,6 +63,22 @@ public class TimeController : MonoBehaviour
     }
     void Update()
     {
+        if (PierInputManager.GetAxis(inputManager.playerNumber, TimeStop.ToString()) > 0.5f && (myAmmo.CurrentAmmo < myAmmo.MaxAmmo || Settings.s.noLimits))
+        {
+            if(isStopped == false)
+            {
+                StartTimeStop();
+            }
+                
+        }
+        if (PierInputManager.GetAxis(inputManager.playerNumber, TimeStop.ToString()) < 0.1f && isStopped == true)
+        {
+           
+                StopTimeStop();
+
+            
+        }
+        /* button mode 
         if (PierInputManager.GetButtonDown(inputManager.playerNumber, TimeStop) && (myAmmo.CurrentAmmo < myAmmo.MaxAmmo || Settings.s.noLimits))
         {
             
@@ -73,12 +89,13 @@ public class TimeController : MonoBehaviour
         {
            
             StopTimeStop();
-        }
-        if (PierInputManager.GetButtonDown(inputManager.playerNumber, Rewind) && (myAmmo.CurrentAmmo < myAmmo.MaxAmmo || Settings.s.noLimits))
+        }*/
+        if (PierInputManager.GetAxis(inputManager.playerNumber, Rewind.ToString()) >0.5f && (myAmmo.CurrentAmmo < myAmmo.MaxAmmo || Settings.s.noLimits))
         {
-            StartRewind();
+            if(isRewinding == false)
+                StartRewind();
         }
-        if (PierInputManager.GetButtonUp(inputManager.playerNumber, Rewind)&& isRewinding == true)
+        if (PierInputManager.GetAxis(inputManager.playerNumber, Rewind.ToString()) <0.1f && isRewinding == true)
         {
             StopRewind();
         }
