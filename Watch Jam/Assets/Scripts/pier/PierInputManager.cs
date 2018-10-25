@@ -5,7 +5,7 @@ using UnityEngine;
 public class PierInputManager : MonoBehaviour
 {
     public enum PlayerNumber { P1, P2, P3, P4, PC }
-    public enum ButtonName { Fire1 , Fire2, Fire3 ,Jump }
+    public enum ButtonName { Fire1 , Fire2, Fire3 ,Jump,Rtrigger,Ltrigger }
     public PlayerNumber playerNumber;
     public float GetAxis( string axisName)
     {
