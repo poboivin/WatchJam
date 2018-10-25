@@ -6,14 +6,20 @@ public class GlobalSettings : ScriptableObject
 {
 
     public bool noLimits;
-    public bool lifeDecay;
     public float gunKockBack = 20f;
     [Range (0,1)]
     public float airControl = 0;
+    [Header("velocity")]
     public bool timeStopStore = true;
     public bool timeStopKillVelocity = true;
-    public bool timeStopAmmoRegen = false;
     public bool rewindKillVelocity = true;
+
+    [Header("life related")]
+    public bool lifeDecay;
     public bool lifeSteal = false;
     public bool rewindInvincibility = false;
+    [Header("ammo regen")]
+    public bool timeStopAmmoRegen = false;
+    public bool rewindAmmoRegen = false;
+    public bool passiveAmmoRegen = true;
 }

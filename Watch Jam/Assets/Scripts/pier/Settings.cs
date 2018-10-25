@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Settings : MonoBehaviour
 {
@@ -24,38 +25,81 @@ public class Settings : MonoBehaviour
         {
             Settings.s = mainSettings;
         }
+
+        noLimitsToggle.isOn = s.noLimits;
+        lifeDecayToggle.isOn = s.lifeDecay;
+        gunKockBackSlider.value = s.gunKockBack;
+        lifeStealToggle.isOn = s.lifeSteal;
+        timeStopStoreToggle.isOn = s.timeStopStore;
+        rewindKillVelocityToggle.isOn = s.rewindKillVelocity;
+        timeStopKillVelocityToggle.isOn = s.timeStopKillVelocity;
+        timeStopAmmoRegenToggle.isOn = s.timeStopAmmoRegen;
+        rewindAmmoRegenToggle.isOn = s.rewindAmmoRegen;
+        passiveAmmoRegenToggle.isOn = s.passiveAmmoRegen;
     }
-	public void  Nolimits(bool val)
+    public Toggle noLimitsToggle;
+	public void noLimits(bool val)
     {
         s.noLimits = val;
     }
-    public void LifeDecay(bool val)
+    public Toggle lifeDecayToggle;
+
+    public void lifeDecay(bool val)
     {
         s.lifeDecay = val;
     }
-    public void KnockBack(float val)
+    public Slider gunKockBackSlider;
+    public void gunKockBack(float val)
     {
         s.gunKockBack = val;
     }
-    public void LifeSteal(bool val)
+    public Toggle lifeStealToggle;
+
+    public void lifeSteal(bool val)
     {
         s.lifeSteal = val;
     }
-    public void TimeStopStore(bool val)
+    public Toggle timeStopStoreToggle;
+
+    public void timeStopStore(bool val)
     {
         s.timeStopStore = val;
     }
-    public void RewindKillVelocity(bool val)
+    public Toggle rewindKillVelocityToggle;
+
+    public void rewindKillVelocity(bool val)
     {
         s.rewindKillVelocity = val;
     }
-    public void StopTimeKillVelocity(bool val)
+    public Toggle timeStopKillVelocityToggle;
+
+    public void timeStopKillVelocity(bool val)
     {
         s.timeStopKillVelocity = val;
     }
-    // Update is called once per frame
-    void Update ()
+    public Toggle timeStopAmmoRegenToggle;
+
+    public void timeStopAmmoRegen(bool val)
     {
-		
-	}
+        s.timeStopAmmoRegen = val;
+    }
+    public Toggle rewindAmmoRegenToggle;
+
+    public void rewindAmmoRegen(bool val)
+    {
+        s.rewindAmmoRegen = val;
+    }
+    public Toggle passiveAmmoRegenToggle;
+
+    public void passiveAmmoRegen(bool val)
+    {
+        s.passiveAmmoRegen = val;
+    }
+    public Toggle rewindInvincibilityToggle;
+
+    public void rewindInvincibility(bool val)
+    {
+        s.rewindInvincibility = val;
+    }
+  
 }

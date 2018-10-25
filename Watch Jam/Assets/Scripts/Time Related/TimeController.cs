@@ -26,6 +26,8 @@ public class TimeController : MonoBehaviour
     private float AmmoTimer = 0;
     public float rewindAmmoFactor = 4f;
     public float stopTimeAmmoFactor = 2f;
+    public float passiveAmmoFactor = 2f;
+
     private Vector2 storedMomentum;
     private bool rt_pressed = false; //right trigger
     public float timeScale
@@ -116,7 +118,11 @@ public class TimeController : MonoBehaviour
             AmmoTimer += Time.deltaTime * rewindAmmoFactor;
             if (AmmoTimer >= 1)
             {
-                myAmmo.CurrentAmmo++;
+                if(Settings.s.rewindAmmoRegen == true)
+                {
+                    myAmmo.CurrentAmmo++;
+
+                }
                 AmmoTimer = 0;
             }
             if (myAmmo.CurrentAmmo >= myAmmo.MaxAmmo)
@@ -133,7 +139,11 @@ public class TimeController : MonoBehaviour
             AmmoTimer += Time.deltaTime * stopTimeAmmoFactor;
             if (AmmoTimer >= 1)
             {
-                myAmmo.CurrentAmmo++;
+                if (Settings.s.timeStopAmmoRegen == true)
+                {
+                    myAmmo.CurrentAmmo++;
+
+                }
                 AmmoTimer = 0;
             }
             if(myAmmo.CurrentAmmo >= myAmmo.MaxAmmo)
@@ -147,7 +157,19 @@ public class TimeController : MonoBehaviour
         }
         else
         {
-            AmmoTimer = 0;
+            if (Settings.s.passiveAmmoRegen == true)
+            {
+                AmmoTimer += Time.deltaTime * passiveAmmoFactor;
+                if (AmmoTimer >= 1)
+                {
+                    myAmmo.CurrentAmmo++;
+                    AmmoTimer = 0;
+                }
+            }
+            else
+            {
+                AmmoTimer = 0;
+            }
         }
        
     }
