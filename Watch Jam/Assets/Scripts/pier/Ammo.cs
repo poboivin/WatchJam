@@ -6,6 +6,8 @@ using UnityEngine.UI;
 public class Ammo : MonoBehaviour {
     public int MaxAmmo = 6;
     public int CurrentAmmo;
+    public bool HasGrenade = false;
+
     public Image Display;
 
     // Use this for initialization

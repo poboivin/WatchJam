@@ -5469,6 +5469,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MaxAmmo: 6
   CurrentAmmo: 0
+  HasGrenade: 1
   Display: {fileID: 1954132125}
 --- !u!114 &120733982
 MonoBehaviour:
@@ -5495,6 +5496,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94a705887e8486f4393b338b3aac7bb2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  myRigidbody2D: {fileID: 0}
   myTimeBody: {fileID: 120733984}
   oldVelocity: {x: 0, y: 0}
   myAmmo: {fileID: 120733981}
@@ -5509,6 +5511,7 @@ MonoBehaviour:
   rewindAmmoFactor: 2
   stopTimeAmmoFactor: 1
   passiveAmmoFactor: 1
+  timeScale: 0
 --- !u!114 &120733984
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5746,6 +5749,10 @@ MonoBehaviour:
   - {fileID: 8300000, guid: ddd0ca15e5d0a42b98f08337c1690bb1, type: 3}
   tauntProbability: 50
   tauntDelay: 1
+  normalJumpForce: 1500
+  MagicNum: 6
+  remaningForce: 0
+  JumpMultiplier: 6
 --- !u!4 &120733992
 Transform:
   m_ObjectHideFlags: 0
@@ -5762,7 +5769,7 @@ Transform:
   - {fileID: 1274268753}
   - {fileID: 1591495722}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 35.00935}
 --- !u!1 &171780785
 GameObject:
@@ -9155,7 +9162,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4627778153392020, guid: 38d9216f4676eb6488db37b2cb150b38, type: 2}
       propertyPath: m_RootOrder
-      value: 10
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 1610967002489648, guid: 38d9216f4676eb6488db37b2cb150b38, type: 2}
       propertyPath: m_Name
@@ -9235,6 +9242,17 @@ Prefab:
       propertyPath: stopTimeAmmoFactor
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114167021067090652, guid: 38d9216f4676eb6488db37b2cb150b38,
+        type: 2}
+      propertyPath: ShootButton
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114167021067090652, guid: 38d9216f4676eb6488db37b2cb150b38,
+        type: 2}
+      propertyPath: Grenade
+      value: 
+      objectReference: {fileID: 50568159247723382, guid: f006c51a132662c45a63f2fc9e9a3dd1,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 38d9216f4676eb6488db37b2cb150b38, type: 2}
   m_IsPrefabAsset: 0
@@ -9632,9 +9650,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 2000000, guid: 64b12b15baf9644af9f0651e6705f0ef, type: 2}
       propertyPath: orthographic size
-      value: 15.95
+      value: 16.9
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 11400000, guid: 64b12b15baf9644af9f0651e6705f0ef, type: 2}
+    - {fileID: 9200000, guid: 64b12b15baf9644af9f0651e6705f0ef, type: 2}
   m_SourcePrefab: {fileID: 100100000, guid: 64b12b15baf9644af9f0651e6705f0ef, type: 2}
   m_IsPrefabAsset: 0
 --- !u!1 &1274268751
@@ -10387,8 +10407,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inputManager: {fileID: 1638209006}
   myAmmo: {fileID: 1638209001}
-  button: 2
+  ShootButton: 2
+  GrenadeButton: 0
   rocket: {fileID: 50999528603641048, guid: 37327ebed1db7f042a406d88662deb0f, type: 2}
+  Grenade: {fileID: 50568159247723382, guid: f006c51a132662c45a63f2fc9e9a3dd1, type: 2}
   speed: 25
   fireRate: 0.1
   gunPivot: {fileID: 958956528}
@@ -11620,6 +11642,17 @@ Prefab:
       propertyPath: stopTimeAmmoFactor
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114167021067090652, guid: 38d9216f4676eb6488db37b2cb150b38,
+        type: 2}
+      propertyPath: ShootButton
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114167021067090652, guid: 38d9216f4676eb6488db37b2cb150b38,
+        type: 2}
+      propertyPath: Grenade
+      value: 
+      objectReference: {fileID: 50568159247723382, guid: f006c51a132662c45a63f2fc9e9a3dd1,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 38d9216f4676eb6488db37b2cb150b38, type: 2}
   m_IsPrefabAsset: 0
@@ -11794,7 +11827,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1638209001
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11809,6 +11842,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MaxAmmo: 6
   CurrentAmmo: 0
+  HasGrenade: 1
   Display: {fileID: 1107685387}
 --- !u!114 &1638209002
 MonoBehaviour:
@@ -11836,6 +11870,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94a705887e8486f4393b338b3aac7bb2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  myRigidbody2D: {fileID: 0}
   myTimeBody: {fileID: 1638209004}
   oldVelocity: {x: 0, y: 0}
   myAmmo: {fileID: 1638209001}
@@ -11850,6 +11885,7 @@ MonoBehaviour:
   rewindAmmoFactor: 2
   stopTimeAmmoFactor: 1
   passiveAmmoFactor: 1
+  timeScale: 0
 --- !u!114 &1638209004
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12013,7 +12049,7 @@ BoxCollider2D:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1638209000}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -12075,7 +12111,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 50a8d8a939a0f4e77a0dac6ecd2e582b, type: 3}
   - {fileID: 8300000, guid: fc55d077383484ac0ad66aa17fcd746f, type: 3}
   - {fileID: 8300000, guid: dafa1cc4eb8714341a7c595abfba35d8, type: 3}
-  jumpForce: 1500
+  jumpForce: 7.2
   taunts:
   - {fileID: 8300000, guid: 27cbebf9d650249e5b032494eae5322c, type: 3}
   - {fileID: 8300000, guid: 986fa1b8984964da79d1be0597332fb2, type: 3}
@@ -12087,6 +12123,10 @@ MonoBehaviour:
   - {fileID: 8300000, guid: ddd0ca15e5d0a42b98f08337c1690bb1, type: 3}
   tauntProbability: 50
   tauntDelay: 1
+  normalJumpForce: 1200
+  MagicNum: 6
+  remaningForce: 0
+  JumpMultiplier: 14
 --- !u!4 &1638209012
 Transform:
   m_ObjectHideFlags: 0
@@ -13294,8 +13334,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inputManager: {fileID: 120733986}
   myAmmo: {fileID: 120733981}
-  button: 2
+  ShootButton: 2
+  GrenadeButton: 0
   rocket: {fileID: 50999528603641048, guid: 37327ebed1db7f042a406d88662deb0f, type: 2}
+  Grenade: {fileID: 50568159247723382, guid: f006c51a132662c45a63f2fc9e9a3dd1, type: 2}
   speed: 25
   fireRate: 0.1
   gunPivot: {fileID: 491461033}

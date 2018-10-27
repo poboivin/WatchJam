@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class TimeController : MonoBehaviour
 {
-    private Rigidbody2D myRigidbody2D;
+    public Rigidbody2D myRigidbody2D;
     public TimeBody myTimeBody;
     public Vector2 oldVelocity;
     public Ammo myAmmo;
@@ -30,17 +30,8 @@ public class TimeController : MonoBehaviour
 
     private Vector2 storedMomentum;
     private bool rt_pressed = false; //right trigger
-    public float timeScale
-    {
-        get { return _timeScale; }
-        set
-        {
-            lastTimeScale = _timeScale;
-
-            _timeScale = Mathf.Abs(value);
-            newTimeScale = _timeScale;
-        }
-    }
+    public float timeScale;
+   
 
     void Awake()
     {
@@ -103,13 +94,13 @@ public class TimeController : MonoBehaviour
         }
         if (Input.GetButtonDown("Fire2"))
         {
-      //      timeScale = factor;
+            timeScale = factor;
             //body.massh /= factor;
            // body.gravityScale *= factor;
         }
         if (Input.GetButtonUp("Fire2"))
         {
-         //   timeScale = 1f;
+           timeScale = 1f;
 
 
         }
@@ -164,6 +155,11 @@ public class TimeController : MonoBehaviour
                 {
                     myAmmo.CurrentAmmo++;
                     AmmoTimer = 0;
+                }
+                if (myAmmo.CurrentAmmo >= myAmmo.MaxAmmo)
+                {
+                   
+                    myAmmo.CurrentAmmo = myAmmo.MaxAmmo;
                 }
             }
             else
@@ -236,6 +232,14 @@ public class TimeController : MonoBehaviour
 
         // body.velocity += force;
 
+    }
+    public void SetTimeScale(float scale)
+    {
+        lastTimeScale = _timeScale;
+        _timeScale = Mathf.Abs(scale);
+        newTimeScale = _timeScale;
+        timeScale = _timeScale;
+        Debug.Log(lastTimeScale + " " + newTimeScale);
     }
     void FixedUpdate()
     {

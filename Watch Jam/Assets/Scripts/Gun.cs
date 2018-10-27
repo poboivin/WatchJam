@@ -6,9 +6,13 @@ public class Gun : MonoBehaviour
     public PierInputManager inputManager;
     public Ammo myAmmo;
     private LifeSpan myLifeSpan;
-    public PierInputManager.ButtonName button;
-    public Rigidbody2D rocket;				// Prefab of the rocket.
-	public float speed = 20f;				// The speed the rocket will fire at.
+    public PierInputManager.ButtonName ShootButton;   //button to shoot
+    public PierInputManager.ButtonName GrenadeButton;  //button to grenade
+
+    public Rigidbody2D rocket;              // Prefab of the rocket.
+    public Rigidbody2D Grenade;              // Prefab of the rocket.
+
+    public float speed = 20f;				// The speed the rocket will fire at.
     public float fireRate = 0.3f;
     private float nextFire = 0f;
     public Transform gunPivot;
@@ -43,36 +47,52 @@ public class Gun : MonoBehaviour
 
         
 		// If the fire button is pressed...
-		if(inputManager.GetButtonDown(button) && myAmmo.CurrentAmmo >0 && Time.time > nextFire)
+		if(inputManager.GetButtonDown(ShootButton) && Time.time > nextFire)
 		{
             nextFire = Time.time + fireRate;
+            Rigidbody2D prefab = null ;
+            if (myAmmo.HasGrenade == true)
+            {
+                myAmmo.HasGrenade = false;
+                prefab = Grenade;
+            }
+            else if (myAmmo.CurrentAmmo > 0)
+            {
+                myAmmo.CurrentAmmo--;
+                prefab = rocket;
+            }
+               
 
-            myAmmo.CurrentAmmo--;
-            // ... set the animator Shoot trigger parameter and play the audioclip.
+        if(prefab != null)
+        {
+             // ... set the animator Shoot trigger parameter and play the audioclip.
             //	anim.SetTrigger("Shoot");
             GetComponent<AudioSource>().Play();
             Vector2 dir = Vector2.zero;
+
             // If the player is facing right...
             if (playerCtrl.facingRight)
-			{
-				// ... instantiate the rocket facing right and set it's velocity to the right. 
-				Rigidbody2D bulletInstance = Instantiate(rocket, transform.position, Quaternion.Euler(new Vector3(0,0,0))) as Rigidbody2D;
-                dir = new Vector2(transform.right.x, transform.right.y) * speed;
-                bulletInstance.velocity = dir;//new Vector2(speed, 0);
-                bulletInstance.GetComponent<BulletLeach>().Owner = myLifeSpan;
+            {
+                 // ... instantiate the rocket facing right and set it's velocity to the right. 
+                 Rigidbody2D bulletInstance = Instantiate(prefab, transform.position, Quaternion.Euler(new Vector3(0, 0, 0))) as Rigidbody2D;
+                  dir = new Vector2(transform.right.x, transform.right.y) * speed;
+                  bulletInstance.velocity = dir;//new Vector2(speed, 0);
+                  bulletInstance.GetComponent<BulletLeach>().Owner = myLifeSpan;
 
             }
-			else
-			{
-				// Otherwise instantiate the rocket facing left and set it's velocity to the left.
-				Rigidbody2D bulletInstance = Instantiate(rocket, transform.position, Quaternion.Euler(new Vector3(0,0,180f))) as Rigidbody2D;
+            else
+            {
+                // Otherwise instantiate the rocket facing left and set it's velocity to the left.
+                Rigidbody2D bulletInstance = Instantiate(rocket, transform.position, Quaternion.Euler(new Vector3(0, 0, 180f))) as Rigidbody2D;
                 dir = new Vector2(transform.right.x, transform.right.y) * -speed;
 
                 bulletInstance.velocity = dir;// new Vector2(-speed, 0);
                 bulletInstance.GetComponent<BulletLeach>().Owner = myLifeSpan;
 
             }
-            myTimeController.AddForce(-dir* Settings.s.gunKockBack);
+            myTimeController.AddForce(-dir * Settings.s.gunKockBack);
+        }
+          
         }
 	}
 }

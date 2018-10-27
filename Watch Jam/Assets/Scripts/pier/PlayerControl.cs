@@ -17,18 +17,21 @@ public class PlayerControl : MonoBehaviour
 	public AudioClip[] taunts;				// Array of clips for when the player taunts.
 	public float tauntProbability = 50f;	// Chance of a taunt happening.
 	public float tauntDelay = 1f;			// Delay for when the taunt should happen.
-
+    public float normalJumpForce = 1500f;
 
 	private int tauntIndex;					// The index of the taunts array indicating the most recent taunt.
 	private Transform groundCheck;			// A position marking where to check if the player is grounded.
-	private bool grounded = false;			// Whether or not the player is grounded.
-	//private Animator anim;					// Reference to the player's animator component.
+	private bool grounded = false;          // Whether or not the player is grounded.
+                                            //private Animator anim;					// Reference to the player's animator component.
 
+    public float MagicNum = 6;
+    private TimeController myTimeController;
 
-	void Awake()
+    void Awake()
 	{
-		// Setting up references.
-		groundCheck = transform.Find("groundCheck");
+        myTimeController = gameObject.GetComponent<TimeController>();
+           // Setting up references.
+           groundCheck = transform.Find("groundCheck");
 	//	anim = GetComponent<Animator>();
 	}
 
@@ -107,17 +110,55 @@ public class PlayerControl : MonoBehaviour
 		//	anim.SetTrigger("Jump");
 
 			// Play a random jump audio clip.
-			int i = Random.Range(0, jumpClips.Length);
-			AudioSource.PlayClipAtPoint(jumpClips[i], transform.position);
+		
 
+           
 			// Add a vertical force to the player.
-			GetComponent<Rigidbody2D>().AddForce(new Vector2(0f, jumpForce));
-
+		//	GetComponent<Rigidbody2D>().AddForce(new Vector2(0f, jumpForce));
+            doJump();
 			// Make sure the player can't jump again until the jump conditions from Update are satisfied.
-			jump = false;
+			
 		}
 	}
-	
+    public float remaningForce;
+    public float JumpMultiplier = 6;
+
+    public void doJump()
+    {
+        if(grounded == true)
+        {
+            remaningForce = jumpForce * (JumpMultiplier); ;
+            int i = Random.Range(0, jumpClips.Length);
+            AudioSource.PlayClipAtPoint(jumpClips[i], transform.position);
+        }
+        if(myTimeController.timeScale != 1)
+        {
+            GetComponent<Rigidbody2D>().AddForce(new Vector2(0, remaningForce));
+
+        }
+
+        if (myTimeController.timeScale < 1) // speed down
+        {
+            remaningForce -= jumpForce * myTimeController.timeScale;
+
+        }
+        else if (myTimeController.timeScale > 1) //speed up
+        {
+            remaningForce -= jumpForce;//* myGravity.timeScale ;
+
+        }
+        else  // normal speed
+        {
+            GetComponent<Rigidbody2D>().AddForce(new Vector2(0, normalJumpForce));
+            jump = false;
+            return;
+            //remaningForce -= jumpForce + MagicNum;
+        }
+        if (remaningForce <= 0)
+        {
+            jump = false;
+        }
+    }
 	
 	void Flip ()
 	{
