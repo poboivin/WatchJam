@@ -51,10 +51,13 @@ public class Gun : MonoBehaviour
 		{
             nextFire = Time.time + fireRate;
             Rigidbody2D prefab = null ;
-            if (myAmmo.HasGrenade == true)
+            if (myAmmo.Grenade != null)
             {
-                myAmmo.HasGrenade = false;
-                prefab = Grenade;
+               
+                prefab = myAmmo.Grenade;
+                myAmmo.Grenade = null;
+
+                // Debug.Log("GRENADE");
             }
             else if (myAmmo.CurrentAmmo > 0)
             {
@@ -74,22 +77,32 @@ public class Gun : MonoBehaviour
             if (playerCtrl.facingRight)
             {
                  // ... instantiate the rocket facing right and set it's velocity to the right. 
-                 Rigidbody2D bulletInstance = Instantiate(prefab, transform.position, Quaternion.Euler(new Vector3(0, 0, 0))) as Rigidbody2D;
-                  dir = new Vector2(transform.right.x, transform.right.y) * speed;
-                  bulletInstance.velocity = dir;//new Vector2(speed, 0);
-                  bulletInstance.GetComponent<BulletLeach>().Owner = myLifeSpan;
+                Rigidbody2D bulletInstance = Instantiate(prefab, transform.position, Quaternion.Euler(new Vector3(0, 0, 0))) as Rigidbody2D;
+                dir = new Vector2(transform.right.x, transform.right.y) * speed;
+                bulletInstance.velocity = dir;//new Vector2(speed, 0);
+                if(prefab == rocket)
+                {
+                    bulletInstance.GetComponent<BulletLeach>().Owner = myLifeSpan;
+
+                }
+                Physics2D.IgnoreCollision(bulletInstance.GetComponent<Collider2D>(), this.GetComponentInParent<Collider2D>());
 
             }
             else
             {
                 // Otherwise instantiate the rocket facing left and set it's velocity to the left.
-                Rigidbody2D bulletInstance = Instantiate(rocket, transform.position, Quaternion.Euler(new Vector3(0, 0, 180f))) as Rigidbody2D;
+                Rigidbody2D bulletInstance = Instantiate(prefab, transform.position, Quaternion.Euler(new Vector3(0, 0, 180f))) as Rigidbody2D;
                 dir = new Vector2(transform.right.x, transform.right.y) * -speed;
 
                 bulletInstance.velocity = dir;// new Vector2(-speed, 0);
-                bulletInstance.GetComponent<BulletLeach>().Owner = myLifeSpan;
+                if (prefab == rocket)
+                {
+                    bulletInstance.GetComponent<BulletLeach>().Owner = myLifeSpan;
 
+                }
+                Physics2D.IgnoreCollision(bulletInstance.GetComponent<Collider2D>(), this.GetComponentInParent<Collider2D>());
             }
+
             myTimeController.AddForce(-dir * Settings.s.gunKockBack);
         }
           

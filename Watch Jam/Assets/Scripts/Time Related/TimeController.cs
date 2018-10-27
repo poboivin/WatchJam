@@ -31,8 +31,8 @@ public class TimeController : MonoBehaviour
     private Vector2 storedMomentum;
     private bool rt_pressed = false; //right trigger
     public float timeScale;
-   
 
+    public Transform TimeAura; 
     void Awake()
     {
         timeScale = _timeScale;
@@ -182,6 +182,10 @@ public class TimeController : MonoBehaviour
     }
     public void StartTimeStop()
     {
+        if(TimeAura != null)
+        {
+            TimeAura.gameObject.SetActive(true);
+        }
         storedMomentum = Vector2.zero;
         isStopped = true;
         //timeFactor = 0;
@@ -193,6 +197,10 @@ public class TimeController : MonoBehaviour
     }
     public void StopTimeStop()
     {
+        if (TimeAura != null)
+        {
+            TimeAura.gameObject.SetActive(false);
+        }
         isStopped = false;
         //timeFactor = 1;
         myRigidbody2D.isKinematic = false;
@@ -239,7 +247,7 @@ public class TimeController : MonoBehaviour
         _timeScale = Mathf.Abs(scale);
         newTimeScale = _timeScale;
         timeScale = _timeScale;
-        Debug.Log(lastTimeScale + " " + newTimeScale);
+        //Debug.Log(lastTimeScale + " " + newTimeScale);
     }
     void FixedUpdate()
     {

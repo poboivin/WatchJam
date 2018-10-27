@@ -6,7 +6,8 @@ using UnityEngine.UI;
 public class Ammo : MonoBehaviour {
     public int MaxAmmo = 6;
     public int CurrentAmmo;
-    public bool HasGrenade = false;
+   // public bool HasGrenade = false;
+    public Rigidbody2D Grenade;              // Prefab of the rocket.
 
     public Image Display;
 

@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 58726065069016702}
   - component: {fileID: 114159686461161016}
   m_Layer: 0
-  m_Name: Grenade
+  m_Name: Grenade fast
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -67,7 +67,7 @@ Transform:
   m_GameObject: {fileID: 1998437071130994}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
+  m_LocalScale: {x: 1, y: 1, z: 0.3}
   m_Children: []
   m_Father: {fileID: 4638834465296326}
   m_RootOrder: 0
@@ -118,7 +118,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f99f01ee44046024f911ad53e748cda0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosion: {fileID: 1234089290262552, guid: b5726426d79d95a439da0237cba08336, type: 2}
+  explosion: {fileID: 1853268960880314, guid: 62354f960ccbd4a4aaa1222d0d0e7745, type: 2}
   boom: {fileID: 8300000, guid: 8b4e61c51941a46d1aac273472c814fd, type: 3}
 --- !u!212 &212963460828728960
 SpriteRenderer:
@@ -155,7 +155,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: c2fc7b356ebe242deaefac9ceb95a7e1, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b3fb2ff424fe7c943a4f6e32536ce64d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
