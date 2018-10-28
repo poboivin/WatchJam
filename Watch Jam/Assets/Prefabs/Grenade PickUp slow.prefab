@@ -79,7 +79,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 1
-  Grenade: {fileID: 0}
+  Grenade: {fileID: 50568159247723382, guid: f006c51a132662c45a63f2fc9e9a3dd1, type: 2}
 --- !u!212 &212830384401209230
 SpriteRenderer:
   m_ObjectHideFlags: 1
