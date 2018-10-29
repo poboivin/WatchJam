@@ -42,16 +42,26 @@ public class TimeBody : MonoBehaviour, IRewindAble
         }
         if (pointsInTime.Count > 0)
         {
-            PointInTime p = pointsInTime[0];
-            rb.MovePosition(new Vector2(p.Position.x,p.Position.y));
-            transform.rotation = p.Rotation;
-            transform.localScale = p.Scale;
-            pointsInTime.RemoveAt(0);
+            applyPoint();
         }
         else
         {
             stopRewind();
         }
+    }
+    private void applyPoint()
+    {
+        if (Settings.s.TwiceAsFastRewind && pointsInTime.Count > 1)
+        {
+            pointsInTime.RemoveAt(0);
+
+        }
+        PointInTime p = pointsInTime[0];
+        rb.MovePosition(new Vector2(p.Position.x, p.Position.y));
+        transform.rotation = p.Rotation;
+        transform.localScale = p.Scale;
+        pointsInTime.RemoveAt(0);
+     
     }
     private void Record()
     {

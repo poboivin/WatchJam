@@ -6,7 +6,9 @@ public class GlobalSettings : ScriptableObject
 {
 
     public bool noLimits;
-    public float gunKockBack = 20f;
+    public float gunKnockBack = 20f;
+    public float bulletKnockBack = 10f;
+    public float bulletDamage = 4f;
     [Range (0,1)]
     public float airControl = 0;
     [Header("velocity")]
@@ -22,4 +24,6 @@ public class GlobalSettings : ScriptableObject
     public bool timeStopAmmoRegen = false;
     public bool rewindAmmoRegen = false;
     public bool passiveAmmoRegen = true;
+
+    public bool TwiceAsFastRewind = false;
 }

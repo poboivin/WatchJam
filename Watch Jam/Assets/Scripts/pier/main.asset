@@ -12,7 +12,9 @@ MonoBehaviour:
   m_Name: main
   m_EditorClassIdentifier: 
   noLimits: 1
-  gunKockBack: 30
+  gunKnockBack: 20
+  bulletKnockBack: 1000
+  bulletDamage: 4
   airControl: 0.4
   timeStopStore: 1
   timeStopKillVelocity: 1
@@ -23,3 +25,4 @@ MonoBehaviour:
   timeStopAmmoRegen: 0
   rewindAmmoRegen: 1
   passiveAmmoRegen: 1
+  TwiceAsFastRewind: 0

@@ -4,39 +4,52 @@ using UnityEngine;
 
 public class TimeController : MonoBehaviour
 {
+    [HideInInspector]
     public Rigidbody2D myRigidbody2D;
+    [HideInInspector]
     public TimeBody myTimeBody;
-    public Vector2 oldVelocity;
+    [HideInInspector]
     public Ammo myAmmo;
-    bool first = true;
+    [HideInInspector]
+    public PierInputManager myInputManager;
 
-    [SerializeField]
+
     private float _timeScale = 1;
     private float newTimeScale = 1;
     private float lastTimeScale = 1;
-    public Vector2 vel;
-    public float factor = 0.25f;
-    public PierInputManager inputManager;
+    private float originalGravityScale;
+    private float originalMass;
+    private Vector2 oldVelocity;
+
     public PierInputManager.ButtonName TimeStop;
     public PierInputManager.ButtonName Rewind;
     [SerializeField]
     public bool isRewinding = false;
     [SerializeField]
     private bool isStopped = false;
+
+    
     private float AmmoTimer = 0;
+    [Header("ammo reload per second")]
     public float rewindAmmoFactor = 4f;
     public float stopTimeAmmoFactor = 2f;
     public float passiveAmmoFactor = 2f;
-
+ 
     private Vector2 storedMomentum;
-    private bool rt_pressed = false; //right trigger
+    //private bool rt_pressed = false; //right trigger
     public float timeScale;
 
-    public Transform TimeAura; 
+//   public Transform TimeAura; 
     void Awake()
     {
         timeScale = _timeScale;
         myRigidbody2D = GetComponent<Rigidbody2D>();
+        myTimeBody = GetComponent<TimeBody>();
+        myAmmo = GetComponent<Ammo>();
+        myInputManager = GetComponent<PierInputManager>();
+        originalGravityScale = myRigidbody2D.gravityScale;
+        originalMass = myRigidbody2D.mass;
+        MatchCounter.Register(this);
     }
     public void OnDrawGizmos()
     {
@@ -56,7 +69,7 @@ public class TimeController : MonoBehaviour
     }
     void Update()
     {
-        if (PierInputManager.GetAxis(inputManager.playerNumber, TimeStop.ToString()) > 0.5f && (myAmmo.CurrentAmmo < myAmmo.MaxAmmo || Settings.s.noLimits))
+        if (PierInputManager.GetAxis(myInputManager.playerNumber, TimeStop.ToString()) > 0.5f && (myAmmo.CurrentAmmo < myAmmo.MaxAmmo || Settings.s.noLimits))
         {
             if(isStopped == false)
             {
@@ -64,7 +77,7 @@ public class TimeController : MonoBehaviour
             }
                 
         }
-        if (PierInputManager.GetAxis(inputManager.playerNumber, TimeStop.ToString()) < 0.1f && isStopped == true)
+        if (PierInputManager.GetAxis(myInputManager.playerNumber, TimeStop.ToString()) < 0.1f && isStopped == true)
         {
            
                 StopTimeStop();
@@ -83,27 +96,16 @@ public class TimeController : MonoBehaviour
            
             StopTimeStop();
         }*/
-        if (PierInputManager.GetAxis(inputManager.playerNumber, Rewind.ToString()) >0.5f && (myAmmo.CurrentAmmo < myAmmo.MaxAmmo || Settings.s.noLimits))
+        if (PierInputManager.GetAxis(myInputManager.playerNumber, Rewind.ToString()) >0.5f && (myAmmo.CurrentAmmo < myAmmo.MaxAmmo || Settings.s.noLimits))
         {
             if(isRewinding == false)
                 StartRewind();
         }
-        if (PierInputManager.GetAxis(inputManager.playerNumber, Rewind.ToString()) <0.1f && isRewinding == true)
+        if (PierInputManager.GetAxis(myInputManager.playerNumber, Rewind.ToString()) <0.1f && isRewinding == true)
         {
             StopRewind();
         }
-        if (Input.GetButtonDown("Fire2"))
-        {
-            timeScale = factor;
-            //body.massh /= factor;
-           // body.gravityScale *= factor;
-        }
-        if (Input.GetButtonUp("Fire2"))
-        {
-           timeScale = 1f;
-
-
-        }
+   
         if (isRewinding)
         {
             AmmoTimer += Time.deltaTime * rewindAmmoFactor;
@@ -173,18 +175,40 @@ public class TimeController : MonoBehaviour
     {
         myTimeBody.rewind = true;
         isRewinding = true;
+        TimeAuraController[] timeAuras = gameObject.GetComponentsInChildren<TimeAuraController>();
+        if (timeAuras != null)
+        {
+            foreach (TimeAuraController aura in timeAuras)
+            {
+                aura.TurnOnAura(TimeAuraController.Aura.purple);
+            }
 
+        }
     }
     public void StopRewind()
     {
         myTimeBody.rewind = false;
         isRewinding = false;
+        TimeAuraController[] timeAuras = gameObject.GetComponentsInChildren<TimeAuraController>();
+        if (timeAuras != null)
+        {
+            foreach (TimeAuraController aura in timeAuras)
+            {
+                aura.TurnOffAura();
+            }
+
+        }
     }
     public void StartTimeStop()
     {
-        if(TimeAura != null)
+        TimeAuraController[] timeAuras = gameObject.GetComponentsInChildren<TimeAuraController>();
+        if(timeAuras != null)
         {
-            TimeAura.gameObject.SetActive(true);
+            foreach(TimeAuraController aura in timeAuras)
+            {
+                aura.TurnOnAura(TimeAuraController.Aura.red);
+            }
+          
         }
         storedMomentum = Vector2.zero;
         isStopped = true;
@@ -197,9 +221,14 @@ public class TimeController : MonoBehaviour
     }
     public void StopTimeStop()
     {
-        if (TimeAura != null)
+        TimeAuraController[] timeAuras = gameObject.GetComponentsInChildren<TimeAuraController>();
+        if (timeAuras != null)
         {
-            TimeAura.gameObject.SetActive(false);
+            foreach (TimeAuraController aura in timeAuras)
+            {
+                aura.TurnOffAura();
+            }
+
         }
         isStopped = false;
         //timeFactor = 1;
@@ -241,6 +270,15 @@ public class TimeController : MonoBehaviour
         // body.velocity += force;
 
     }
+    public void ResetTimeScale()
+    {
+        timeScale = 1;
+        lastTimeScale = 1;
+        _timeScale = 1;
+        newTimeScale = 1;
+        myRigidbody2D.mass = originalMass;
+        myRigidbody2D.gravityScale = originalGravityScale;
+    }
     public void SetTimeScale(float scale)
     {
         lastTimeScale = _timeScale;
@@ -249,6 +287,7 @@ public class TimeController : MonoBehaviour
         timeScale = _timeScale;
         //Debug.Log(lastTimeScale + " " + newTimeScale);
     }
+    
     void FixedUpdate()
     {
        myRigidbody2D.gravityScale *= newTimeScale / lastTimeScale;
@@ -258,10 +297,7 @@ public class TimeController : MonoBehaviour
      
         // body.angularVelocity *= newTimeScale / lastTimeScale;
         //vel = body.velocity;
-        if(vel.magnitude> 30)
-        {
-            Debug.Log(newTimeScale + " " +lastTimeScale);
-        }
+      
         lastTimeScale = newTimeScale;
     }
 }

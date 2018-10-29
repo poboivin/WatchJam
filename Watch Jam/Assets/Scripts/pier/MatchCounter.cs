@@ -5,30 +5,31 @@ using UnityEngine.SceneManagement;
 
 public class MatchCounter : MonoBehaviour
 {
-    public  List<TimeController> players;
+    public static List<TimeController> players;
     public static MatchCounter _Instance;
 	// Use this for initialization
     public static void Register(TimeController player)
     {
-        _Instance.players.Add(player);
+        if(players == null)
+        {
+            players = new List<TimeController>();
+        }
+        players.Add(player);
     }
     public static void Remove(TimeController player)
     {
-        _Instance.players.Remove(player);
-        if (_Instance.players.Count == 1)
+        players.Remove(player);
+        if (players.Count == 1)
         {
             _Instance.GameOver();
         }
-        Debug.Log(_Instance.players.Count);
+        Debug.Log(players.Count);
     }
     void Awake ()
     {
         _Instance = this;
-        players = new List<TimeController>();
-        foreach(TimeController t in FindObjectsOfType<TimeController>())
-        {
-            players.Add(t);
-        }
+      
+      
 	}
 	public void GameOver()
     {

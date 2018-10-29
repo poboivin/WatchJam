@@ -4,14 +4,15 @@ using System.Collections;
 public class Rocket : MonoBehaviour 
 {
 	public GameObject explosion;		// Prefab of explosion effect.
-    public float rocketTime = 0f;
+    private float rocketTime = 0f;
+    public float TimeAlive = 4f;
 
 
     void Update()
     {
         // Destroy the rocket after 2 seconds if it doesn't get destroyed before then.
         rocketTime += Time.deltaTime ;
-        if (rocketTime >=2f)
+        if (rocketTime >= TimeAlive)
         {
             Destroy(gameObject);
             OnExplode();

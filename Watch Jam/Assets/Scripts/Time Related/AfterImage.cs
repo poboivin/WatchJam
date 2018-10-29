@@ -2,39 +2,42 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AfterImage : MonoBehaviour {
-    public TimeController timeController;
+public class AfterImage : MonoBehaviour
+{
+    private TimeController myTimeController;
     float delay = 0.2f;
     float timer;
     bool spawn;
-    public SpriteRenderer sprite;
+    public SpriteRenderer[] sprites;
+
+
     void Start()
     {
+        myTimeController = GetComponent<TimeController>();
         timer = delay;
-       // InvokeRepeating("SpawnTrail", 0, 0.2f); // replace 0.2f with needed repeatRate
     }
 
     void SpawnTrail()
     {
-        GameObject trailPart = new GameObject();
-        SpriteRenderer trailPartRenderer = trailPart.AddComponent<SpriteRenderer>();
-        trailPartRenderer.sprite = sprite.sprite;
-        trailPartRenderer.sortingLayerID = sprite.sortingLayerID;
-        trailPart.transform.position = sprite.transform.position;
-        trailPart.transform.localScale = sprite.transform.lossyScale;
-        Destroy(trailPart, 0.5f); // replace 0.5f with needed lifeTime
+        foreach (SpriteRenderer sprite in sprites)
+        {
+            GameObject trailPart = new GameObject();
+            SpriteRenderer trailPartRenderer = trailPart.AddComponent<SpriteRenderer>();
+            trailPartRenderer.sprite = sprite.sprite;
+            trailPartRenderer.sortingLayerID = sprite.sortingLayerID;
+            trailPart.transform.position = sprite.transform.position;
+            trailPart.transform.localScale = sprite.transform.lossyScale;
 
-        StartCoroutine("FadeTrailPart", trailPartRenderer);
+            Color color = trailPartRenderer.color;
+            color.a -= 0.5f; // replace 0.5f with needed alpha decrement
+            trailPartRenderer.color = color;
+            Destroy(trailPart, 0.5f); // replace 0.5f with needed lifeTime
+
+        }
+
+
     }
 
-    IEnumerator FadeTrailPart(SpriteRenderer trailPartRenderer)
-    {
-        Color color = trailPartRenderer.color;
-        color.a -= 0.5f; // replace 0.5f with needed alpha decrement
-        trailPartRenderer.color = color;
-
-        yield return new WaitForEndOfFrame();
-    }
     // Use this for initialization
     public void Update()
     {
@@ -47,7 +50,7 @@ public class AfterImage : MonoBehaviour {
                 SpawnTrail();
             }
         }
-        if (timeController.isRewinding)
+        if (myTimeController.isRewinding)
         {
                 spawn = true;
         }

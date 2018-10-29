@@ -155,7 +155,7 @@ Rigidbody2D:
   m_Interpolate: 1
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 4
+  m_Constraints: 0
 --- !u!61 &61831608887724684
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -211,6 +211,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   explosion: {fileID: 100000, guid: 42404bf7d14c342f69690c9961a7530d, type: 2}
+  TimeAlive: 10
 --- !u!114 &114231316104817756
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -235,7 +236,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Owner: {fileID: 0}
-  amount: 4
 --- !u!198 &198361537170349388
 ParticleSystem:
   m_ObjectHideFlags: 1

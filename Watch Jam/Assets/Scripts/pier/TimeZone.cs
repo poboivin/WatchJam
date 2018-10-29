@@ -8,11 +8,12 @@ public class TimeZone : MonoBehaviour
     float currentLerpTime;
     public bool Lerp = true;
     public LerpUtility.lerpMode lerpMode;
-
+    public float TimeAlive = 10f;
     public float TimeFactor = 0.25f;
     // Use this for initialization
     public void Update()
     {
+
         if (Lerp)
         {
             currentLerpTime += Time.deltaTime;
@@ -27,6 +28,14 @@ public class TimeZone : MonoBehaviour
                 currentLerpTime = 0;
             }
         }
+        else
+        {
+            TimeAlive -= Time.deltaTime;
+            if(TimeAlive <= 0)
+            {
+                Destroy(this.gameObject);
+            }
+        }
     }
     void OnTriggerEnter2D(Collider2D col)
     {
@@ -37,6 +46,17 @@ public class TimeZone : MonoBehaviour
             timeController.SetTimeScale(  TimeFactor);
             timeController.myRigidbody2D.velocity *= TimeFactor;
         }
+
+        //delete if come in to contact with other zone
+        if (col.GetComponent<TimeZone>() != null)
+        {
+            Destroy(this.gameObject);
+        }
+        //delete if come into contact with teleporter 
+        if(col.GetComponent<teleporter>() != null)
+        {
+            Destroy(this.gameObject);
+        }
         //     Explode();
     }
     void OnTriggerExit2D(Collider2D col)
@@ -45,7 +65,7 @@ public class TimeZone : MonoBehaviour
         if (timeController != null)
         {
             timeController.myRigidbody2D.velocity /= TimeFactor;
-            timeController.SetTimeScale(1);
+            timeController.ResetTimeScale();
         }
         //     Explode();
     }

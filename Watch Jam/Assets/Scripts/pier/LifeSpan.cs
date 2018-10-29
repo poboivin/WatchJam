@@ -3,8 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class LifeSpan : MonoBehaviour {
+public class LifeSpan : MonoBehaviour
+{
     TimeController myTimeController;
+    PlayerControl myPlayerControl;
+    Rigidbody2D myRigidbody2D;
     public Image lifeDisplay;
     [SerializeField]
     private float totalLife = 24;
@@ -14,6 +17,8 @@ public class LifeSpan : MonoBehaviour {
 	void Start () {
         currentLife = totalLife;
         myTimeController = gameObject.GetComponent<TimeController>();
+        myRigidbody2D = GetComponent<Rigidbody2D>();
+        myPlayerControl = GetComponent<PlayerControl>();
     }
 	public void AddLife(float amount)
     {
@@ -56,6 +61,10 @@ public class LifeSpan : MonoBehaviour {
     void Death()
     {
         MatchCounter.Remove(myTimeController);
-        Destroy(this.gameObject);
+        myPlayerControl.enabled = false;
+        myRigidbody2D.freezeRotation = false;
+        myTimeController.enabled = false;
+        this.enabled = false;
+       // Destroy(this.gameObject);
     }
 }

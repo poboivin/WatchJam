@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class TimeAuraController : MonoBehaviour {
+    public enum Aura { green, orange, purple, red}
     //References to all colors of time aura's
     //the 0 index of the arrays are the front sprite
     //the 1 index of the arrays are the back sprite
@@ -27,12 +28,12 @@ public class TimeAuraController : MonoBehaviour {
 
 
     //turns on the aura of the color given
-    public void TurnOnAura (string color)
+    public void TurnOnAura (Aura color)
     {
         // a switch that controls what color is turned on
         switch(color)
         {
-            case "green":
+            case Aura.green:
                 FrontRing.GetComponent<SpriteRenderer>().sprite = Green[0];
                 BackRing.GetComponent<SpriteRenderer>().sprite = Green[1];
 
@@ -40,21 +41,21 @@ public class TimeAuraController : MonoBehaviour {
 
                 break;
 
-            case "orange":
+            case Aura.orange:
 
                 FrontRing.GetComponent<SpriteRenderer>().sprite = Orange[0];
                 BackRing.GetComponent<SpriteRenderer>().sprite = Orange[1];
 
                 break;
 
-            case "purple":
+            case Aura.purple:
 
                 FrontRing.GetComponent<SpriteRenderer>().sprite = Purple[0];
                 BackRing.GetComponent<SpriteRenderer>().sprite = Purple[1];
 
                 break;
 
-            case "red":
+            case Aura.red:
                 FrontRing.GetComponent<SpriteRenderer>().sprite = Red[0];
                 BackRing.GetComponent<SpriteRenderer>().sprite = Red[1];
                 break;
