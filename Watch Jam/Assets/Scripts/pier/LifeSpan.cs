@@ -8,17 +8,20 @@ public class LifeSpan : MonoBehaviour
     TimeController myTimeController;
     PlayerControl myPlayerControl;
     Rigidbody2D myRigidbody2D;
+    Gun myGun;
     public Image lifeDisplay;
     [SerializeField]
     private float totalLife = 24;
     private float currentLife = 0;
   
 	// Use this for initialization
-	void Start () {
+	void Start ()
+    {
         currentLife = totalLife;
         myTimeController = gameObject.GetComponent<TimeController>();
         myRigidbody2D = GetComponent<Rigidbody2D>();
         myPlayerControl = GetComponent<PlayerControl>();
+        myGun = GetComponentInChildren<Gun>();
     }
 	public void AddLife(float amount)
     {
@@ -64,6 +67,7 @@ public class LifeSpan : MonoBehaviour
         myPlayerControl.enabled = false;
         myRigidbody2D.freezeRotation = false;
         myTimeController.enabled = false;
+        myGun.enabled = false;
         this.enabled = false;
        // Destroy(this.gameObject);
     }

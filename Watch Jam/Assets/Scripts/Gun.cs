@@ -106,7 +106,7 @@ public class Gun : MonoBehaviour
                 }
 
                 myTimeController.AddForce(-dir * Settings.s.gunKnockBack);
-                Debug.Log(-dir * Settings.s.gunKnockBack);
+               // Debug.Log(-dir * Settings.s.gunKnockBack);
             }
           
         }

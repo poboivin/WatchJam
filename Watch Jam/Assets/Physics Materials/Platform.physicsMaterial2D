@@ -6,5 +6,5 @@ PhysicsMaterial2D:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: Platform
-  friction: 1
+  friction: 0.22
   bounciness: 0

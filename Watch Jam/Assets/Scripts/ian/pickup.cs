@@ -31,7 +31,7 @@ public class pickup : MonoBehaviour
             if (type == pickUpType.grenade)
             {
                 Ammo player = collision.GetComponent<Ammo>();
-                if(player != null)
+                if(player != null && player.enabled == true)
                 {
                     player.Grenade = Grenade;
                 }

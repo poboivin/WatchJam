@@ -253,6 +253,8 @@ public class TimeController : MonoBehaviour
         }
         else
         {
+            Debug.Log(force);
+
             myRigidbody2D.AddForce(force, ForceMode2D.Force);
         }
      
