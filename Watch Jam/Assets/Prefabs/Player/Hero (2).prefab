@@ -252,7 +252,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1574571753963544}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 23.67, y: -7.09, z: -1}
+  m_LocalPosition: {x: 12.75, y: -8.27, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4150524465443842}
@@ -686,7 +686,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 50a8d8a939a0f4e77a0dac6ecd2e582b, type: 3}
   - {fileID: 8300000, guid: fc55d077383484ac0ad66aa17fcd746f, type: 3}
   - {fileID: 8300000, guid: dafa1cc4eb8714341a7c595abfba35d8, type: 3}
-  jumpForce: 7.2
+  jumpForce: 7.3
   taunts:
   - {fileID: 8300000, guid: 27cbebf9d650249e5b032494eae5322c, type: 3}
   - {fileID: 8300000, guid: 986fa1b8984964da79d1be0597332fb2, type: 3}
@@ -698,10 +698,10 @@ MonoBehaviour:
   - {fileID: 8300000, guid: ddd0ca15e5d0a42b98f08337c1690bb1, type: 3}
   tauntProbability: 50
   tauntDelay: 1
-  normalJumpForce: 1200
+  normalJumpForce: 1400
   MagicNum: 6
   remaningForce: 0
-  JumpMultiplier: 14
+  JumpMultiplier: 15
 --- !u!114 &114060083412763252
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -754,7 +754,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MaxAmmo: 6
   CurrentAmmo: 0
-  HasGrenade: 0
+  Grenade: {fileID: 0}
   Display: {fileID: 114555570681381028}
 --- !u!114 &114410057264694430
 MonoBehaviour:

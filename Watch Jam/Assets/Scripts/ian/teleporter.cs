@@ -21,8 +21,12 @@ public class teleporter : MonoBehaviour {
         Rigidbody2D other = collision.GetComponent<Rigidbody2D>();
         if(other != null && other.bodyType != RigidbodyType2D.Static)
         {
-            other.position = Destination.position;
-            other.transform.rotation = Destination.rotation;
+           // other.isKinematic = true;
+
+            other.MovePosition(Destination.position);
+          //  other.isKinematic = false ;
+
+           // other.transform.rotation = Destination.rotation;
         }
         
     }
