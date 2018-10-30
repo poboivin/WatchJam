@@ -56,11 +56,14 @@ public class Grenade : MonoBehaviour
 
         if(explosion != null)
         {
-             // Instantiate the explosion prefab.
-        Instantiate(explosion, transform.position, Quaternion.identity);
+            // Instantiate the explosion prefab.
+            Debug.Log(explosion.transform.localScale);
+       Transform t=  Instantiate(explosion, transform.position, Quaternion.identity).transform ;
+            Debug.Log(t.transform.localScale);
+
         }
-       
-        if(boom != null)
+
+        if (boom != null)
         {
             // Play the explosion sound effect.
             AudioSource.PlayClipAtPoint(boom, transform.position);

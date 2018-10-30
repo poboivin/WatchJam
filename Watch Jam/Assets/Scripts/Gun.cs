@@ -49,7 +49,7 @@ public class Gun : MonoBehaviour
 
         
 		// If the fire button is pressed...
-		if(myInputManager.GetButtonDown(ShootButton) && Time.time > nextFire)
+		if(myTimeController.isRewinding == false && myInputManager.GetButtonDown(ShootButton) && Time.time > nextFire)
 		{
             nextFire = Time.time + fireRate;
             Rigidbody2D prefab = null ;

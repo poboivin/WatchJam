@@ -3,8 +3,9 @@ using System.Collections;
 
 public class PlayerControl : MonoBehaviour
 {
-    public PierInputManager inputManager;
-    public PierInputManager.ButtonName button;
+    [HideInInspector]
+    public PierInputManager myInputManager;
+    public PierInputManager.ButtonName jumpButton;
 
     [HideInInspector]
 	public bool facingRight = true;			// For determining which way the player is currently facing.
@@ -30,6 +31,7 @@ public class PlayerControl : MonoBehaviour
     void Awake()
 	{
         myTimeController = gameObject.GetComponent<TimeController>();
+        myInputManager = gameObject.GetComponent<PierInputManager>();
            // Setting up references.
            groundCheck = transform.Find("groundCheck");
 	//	anim = GetComponent<Animator>();
@@ -42,7 +44,7 @@ public class PlayerControl : MonoBehaviour
 		grounded = Physics2D.Linecast(transform.position, groundCheck.position, 1 << LayerMask.NameToLayer("Ground"));  
 
 		// If the jump button is pressed and the player is grounded then the player should jump.
-		if(PierInputManager.GetButtonDown(inputManager.playerNumber, button) && grounded)
+		if(myInputManager.GetButtonDown(jumpButton) && grounded)
 			jump = true;
 	}
 
@@ -51,7 +53,7 @@ public class PlayerControl : MonoBehaviour
 	{
 
 		// Cache the horizontal input.
-		float h = PierInputManager.GetAxis(inputManager.playerNumber, "Horizontal");
+		float h = myInputManager.GetAxis( "Horizontal");
 
         // The Speed animator parameter is set to the absolute value of the horizontal input.
         //anim.SetFloat("Speed", Mathf.Abs(h));

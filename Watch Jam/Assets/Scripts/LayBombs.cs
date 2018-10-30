@@ -26,7 +26,7 @@ public class LayBombs : MonoBehaviour
 	void Update ()
 	{
 		// If the bomb laying button is pressed, the bomb hasn't been laid and there's a bomb to lay...
-		if(PierInputManager.GetButtonDown(inputManager.playerNumber, button) && !bombLaid && bombCount > 0)
+		if(inputManager.GetButtonDown( button) && !bombLaid && bombCount > 0)
 		{
 			// Decrement the number of bombs.
 			bombCount--;

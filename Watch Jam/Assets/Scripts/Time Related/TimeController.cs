@@ -31,7 +31,6 @@ public class TimeController : MonoBehaviour
     
     private float AmmoTimer = 0;
     [Header("ammo reload per second")]
-    public float rewindAmmoFactor = 4f;
     public float stopTimeAmmoFactor = 2f;
     public float passiveAmmoFactor = 2f;
  
@@ -69,7 +68,7 @@ public class TimeController : MonoBehaviour
     }
     void Update()
     {
-        if (PierInputManager.GetAxis(myInputManager.playerNumber, TimeStop.ToString()) > 0.5f && (myAmmo.CurrentAmmo < myAmmo.MaxAmmo || Settings.s.noLimits))
+        if (myInputManager.GetAxis( TimeStop.ToString()) > 0.5f && (myAmmo.CurrentAmmo < myAmmo.MaxAmmo || Settings.s.noLimits))
         {
             if(isStopped == false)
             {
@@ -77,7 +76,7 @@ public class TimeController : MonoBehaviour
             }
                 
         }
-        if (PierInputManager.GetAxis(myInputManager.playerNumber, TimeStop.ToString()) < 0.1f && isStopped == true)
+        if (myInputManager.GetAxis( TimeStop.ToString()) < 0.1f && isStopped == true)
         {
            
                 StopTimeStop();
@@ -96,19 +95,19 @@ public class TimeController : MonoBehaviour
            
             StopTimeStop();
         }*/
-        if (PierInputManager.GetAxis(myInputManager.playerNumber, Rewind.ToString()) >0.5f && (myAmmo.CurrentAmmo < myAmmo.MaxAmmo || Settings.s.noLimits))
+        if (myInputManager.GetAxis( Rewind.ToString()) >0.5f && (myAmmo.CurrentAmmo < myAmmo.MaxAmmo || Settings.s.noLimits))
         {
             if(isRewinding == false)
                 StartRewind();
         }
-        if (PierInputManager.GetAxis(myInputManager.playerNumber, Rewind.ToString()) <0.1f && isRewinding == true)
+        if (myInputManager.GetAxis( Rewind.ToString()) <0.1f && isRewinding == true)
         {
             StopRewind();
         }
    
         if (isRewinding)
         {
-            AmmoTimer += Time.deltaTime * rewindAmmoFactor;
+            AmmoTimer += Time.deltaTime * Settings.s.rewindAmmoFactor;
             if (AmmoTimer >= 1)
             {
                 if(Settings.s.rewindAmmoRegen == true)
@@ -248,14 +247,14 @@ public class TimeController : MonoBehaviour
         // force /= newTimeScale / lastTimeScale; f = m * a
         if(isStopped == true && Settings.s.timeStopStore == true)
         {
-            storedMomentum += force;
+            storedMomentum += force *2;
             //Debug.Log("biding my time");
         }
         else
         {
-            Debug.Log(force);
+           // Debug.Log(force);
 
-            myRigidbody2D.AddForce(force, ForceMode2D.Force);
+            myRigidbody2D.AddForce(force , ForceMode2D.Force);
         }
      
        

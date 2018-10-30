@@ -11,13 +11,12 @@ public class LifeSpan : MonoBehaviour
     Gun myGun;
     public Image lifeDisplay;
     [SerializeField]
-    private float totalLife = 24;
     private float currentLife = 0;
   
 	// Use this for initialization
 	void Start ()
     {
-        currentLife = totalLife;
+        currentLife = Settings.s.totalLife;
         myTimeController = gameObject.GetComponent<TimeController>();
         myRigidbody2D = GetComponent<Rigidbody2D>();
         myPlayerControl = GetComponent<PlayerControl>();
@@ -26,9 +25,9 @@ public class LifeSpan : MonoBehaviour
 	public void AddLife(float amount)
     {
         currentLife += amount;
-        if(currentLife > totalLife)
+        if(currentLife > Settings.s.totalLife)
         {
-            currentLife = totalLife;
+            currentLife = Settings.s.totalLife;
 
 
         }
@@ -59,7 +58,7 @@ public class LifeSpan : MonoBehaviour
         {
                 Death();
         }
-        lifeDisplay.fillAmount = currentLife / totalLife;
+        lifeDisplay.fillAmount = currentLife / Settings.s.totalLife;
     }
     void Death()
     {
