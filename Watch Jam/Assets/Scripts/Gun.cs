@@ -18,6 +18,7 @@ public class Gun : MonoBehaviour
     public float fireRate = 0.3f;
     private float nextFire = 0f;
     public Transform gunPivot;
+    public Transform MuzzleFlashPrefab;
 
     public float angle;
     public float x;
@@ -88,6 +89,14 @@ public class Gun : MonoBehaviour
 
                     }
                     Physics2D.IgnoreCollision(bulletInstance.GetComponent<Collider2D>(), this.GetComponentInParent<Collider2D>());
+
+                    //instantiate muzzle flash
+                    Transform clone = Instantiate(MuzzleFlashPrefab, gunPivot.position, gunPivot.rotation) as Transform;
+                    clone.parent = gunPivot;
+                    float size = Random.Range(0.6f, 0.9f);
+                    clone.localScale = new Vector3(size, size, 0);
+                    //Destroy(clone, 0.02f);
+                    Destroy(clone);
 
                 }
                 else
