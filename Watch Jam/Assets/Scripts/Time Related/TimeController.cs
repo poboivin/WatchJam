@@ -12,7 +12,8 @@ public class TimeController : MonoBehaviour
     public Ammo myAmmo;
     [HideInInspector]
     public PierInputManager myInputManager;
-
+    [HideInInspector]
+    public AudioSource  myAudioSource;
 
     private float _timeScale = 1;
     private float newTimeScale = 1;
@@ -37,8 +38,10 @@ public class TimeController : MonoBehaviour
     private Vector2 storedMomentum;
     //private bool rt_pressed = false; //right trigger
     public float timeScale;
+    public AudioClip rewindEffect;
+    public AudioClip stopEffect;
 
-//   public Transform TimeAura; 
+    //   public Transform TimeAura; 
     void Awake()
     {
         timeScale = _timeScale;
@@ -46,6 +49,7 @@ public class TimeController : MonoBehaviour
         myTimeBody = GetComponent<TimeBody>();
         myAmmo = GetComponent<Ammo>();
         myInputManager = GetComponent<PierInputManager>();
+        myAudioSource = GetComponent<AudioSource>();
         originalGravityScale = myRigidbody2D.gravityScale;
         originalMass = myRigidbody2D.mass;
         MatchCounter.Register(this);
@@ -183,6 +187,11 @@ public class TimeController : MonoBehaviour
             }
 
         }
+        if(rewindEffect != null)
+        {
+            myAudioSource.clip = rewindEffect;
+            myAudioSource.Play();
+        }
     }
     public void StopRewind()
     {
@@ -197,6 +206,26 @@ public class TimeController : MonoBehaviour
             }
 
         }
+        if (rewindEffect != null && myAudioSource.clip == rewindEffect)
+        {
+            StartCoroutine(SoundOffRoutine(myAudioSource, 0.5f));
+        }
+    }
+    private IEnumerator SoundOffRoutine(AudioSource s,float time)
+    {
+        float timer = 0;
+        while(timer < time)
+        {
+            timer += Time.deltaTime;
+
+            float perc = timer / time;
+            Debug.Log(perc);
+            s.volume = Mathf.Lerp(1, 0, perc);
+            yield return new WaitForEndOfFrame();
+        }
+        s.Stop();
+        s.volume = 1;
+        yield return null;
     }
     public void StartTimeStop()
     {
@@ -208,6 +237,11 @@ public class TimeController : MonoBehaviour
                 aura.TurnOnAura(TimeAuraController.Aura.red);
             }
           
+        }
+        if (stopEffect != null)
+        {
+            myAudioSource.clip = stopEffect;
+            myAudioSource.Play();
         }
         storedMomentum = Vector2.zero;
         isStopped = true;
@@ -228,6 +262,10 @@ public class TimeController : MonoBehaviour
                 aura.TurnOffAura();
             }
 
+        }
+        if (stopEffect != null && myAudioSource.clip == stopEffect)
+        {
+            StartCoroutine(SoundOffRoutine(myAudioSource, 0.5f));
         }
         isStopped = false;
         //timeFactor = 1;
