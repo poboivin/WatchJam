@@ -37,13 +37,16 @@ public class Rocket : MonoBehaviour
         {
 
             OnExplode();
+            if (Camera.main.GetComponent<CamShake>() != null)
+                Camera.main.GetComponent<CamShake>().Shake(0.1f, 0.2f);
             Destroy(gameObject);
         }
 
         else if (col.gameObject.tag == "destructable")
         {
             OnExplode();
-            Camera.main.GetComponent<CamShake>().Shake(0.1f, 0.2f);
+            if (Camera.main.GetComponent<CamShake>() != null)
+                Camera.main.GetComponent<CamShake>().Shake(0.1f, 0.2f);
             col.gameObject.GetComponent<destructable>().shatter();
             Destroy(gameObject);
         }

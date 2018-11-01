@@ -34,7 +34,7 @@ public class MatchCounter : MonoBehaviour
 	public void GameOver()
     {
         Debug.Log("game over");
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(1);
     }
 	// Update is called once per frame
 	void Update ()

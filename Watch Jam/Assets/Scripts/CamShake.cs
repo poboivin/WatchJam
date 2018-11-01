@@ -5,11 +5,12 @@ using UnityEngine;
 public class CamShake : MonoBehaviour {
 
     public Camera mainCam;
-
+    public Vector3 startPos;
     float shakeAmount = 0f;
 
     private void Awake()
     {
+        startPos = transform.position;
         if (mainCam == null)
             mainCam = Camera.main;
     }
@@ -51,7 +52,7 @@ public class CamShake : MonoBehaviour {
     void StopShake()
     {
         CancelInvoke("DoShake");
-        mainCam.transform.localPosition = Vector3.zero;
+        mainCam.transform.localPosition = startPos;
 
     }
 }
