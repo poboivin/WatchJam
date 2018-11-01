@@ -38,7 +38,7 @@ GameObject:
   - component: {fileID: 4553561713049106}
   - component: {fileID: 114795529722848382}
   - component: {fileID: 114671119123409884}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: TimeAuraMaster
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -70,7 +70,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4486400836560094}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: FAT GUY
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -87,7 +87,7 @@ GameObject:
   - component: {fileID: 4458987311224900}
   - component: {fileID: 212319448500061660}
   - component: {fileID: 95683511093029820}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -118,7 +118,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4455196584301026}
   - component: {fileID: 212530260082482604}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Character_02_ARMS
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -134,7 +134,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4204741646935544}
   - component: {fileID: 212464885075682154}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: TimeAuraBack
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -150,7 +150,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4653433220350826}
   - component: {fileID: 212143058277944860}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: TimeAuraBack
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -181,7 +181,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1584415118174974
 GameObject:
   m_ObjectHideFlags: 1
@@ -239,7 +239,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4981877843412380}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: gun Pivot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -273,7 +273,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4043113485771256}
   - component: {fileID: 212112731000546452}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: TimeauraFront
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -290,7 +290,7 @@ GameObject:
   - component: {fileID: 4236502665042770}
   - component: {fileID: 114187418173307032}
   - component: {fileID: 114389697508132012}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: TimeAuraMaster (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -306,7 +306,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4487219855277032}
   - component: {fileID: 212777794483540640}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: TimeauraFront
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -525,7 +525,7 @@ Rigidbody2D:
   m_AngularDrag: 0.05
   m_GravityScale: 2
   m_Material: {fileID: 0}
-  m_Interpolate: 2
+  m_Interpolate: 1
   m_SleepingMode: 0
   m_CollisionDetection: 0
   m_Constraints: 4
@@ -555,7 +555,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 71c2c0e8ae6c44d459723bef91c9bbbf, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.273
   m_Pitch: 1.1
   Loop: 0
   Mute: 0
@@ -656,7 +656,7 @@ AudioSource:
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 128
+  Priority: 141
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500
@@ -767,14 +767,16 @@ MonoBehaviour:
   myTimeBody: {fileID: 114759131726773602}
   myAmmo: {fileID: 114363917422376330}
   myInputManager: {fileID: 0}
+  myAudioSource: {fileID: 0}
   TimeStop: 6
   Rewind: 7
   isRewinding: 0
   isStopped: 0
-  rewindAmmoFactor: 4
   stopTimeAmmoFactor: 1
   passiveAmmoFactor: 1
   timeScale: 0
+  rewindEffect: {fileID: 8300000, guid: 09e530d46a97f9144a45c7a0d8e738de, type: 3}
+  stopEffect: {fileID: 8300000, guid: 8eae6a08cfd81c549a0cb0aa1ce6787f, type: 3}
 --- !u!114 &114161576199704428
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -859,6 +861,7 @@ MonoBehaviour:
   speed: 25
   fireRate: 0.1
   gunPivot: {fileID: 4981877843412380}
+  MuzzleFlashPrefab: {fileID: 0}
   angle: 0
   x: 0
   y: 0
@@ -875,6 +878,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myInputManager: {fileID: 0}
   jumpButton: 2
+  myAnimator: {fileID: 0}
   facingRight: 1
   jump: 0
   moveForce: 150
@@ -1098,7 +1102,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lifeDisplay: {fileID: 114193340571280524}
-  totalLife: 60
+  currentLife: 0
 --- !u!212 &212112731000546452
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -1461,7 +1465,7 @@ RectTransform:
   m_GameObject: {fileID: 1741703048063546}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 3, y: 3, z: 43}
   m_Children:
   - {fileID: 224055844523380832}
   - {fileID: 224962430920670606}
@@ -1470,7 +1474,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 1.279}
+  m_AnchoredPosition: {x: 0, y: 0.02}
   m_SizeDelta: {x: 2, y: 2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224962430920670606

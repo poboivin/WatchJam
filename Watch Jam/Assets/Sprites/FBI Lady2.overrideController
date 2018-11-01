@@ -1,0 +1,16 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: FBI Lady2
+  m_Controller: {fileID: 9100000, guid: 72ac89934873567428e5e1440d3aecae, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: 1027e829f96b78c4bbb7785e5b2a6ec3, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: f2f903b9da499ce409a05d43161c06f9, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 06f454aa73842c841bca1caf8fe3a61a, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 40ab412b90531474396e687c228dd27a, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: b1aaa8b2a362b2a498e2fbdf36ce7a16, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: d02a7c5548d8aa24281a68cea007ba79, type: 2}

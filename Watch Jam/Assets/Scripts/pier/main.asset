@@ -13,7 +13,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   noLimits: 1
   gunKnockBack: 30
-  bulletKnockBack: 20
+  bulletKnockBack: 1
   bulletDamage: 4
   totalLife: 60
   airControl: 0.4

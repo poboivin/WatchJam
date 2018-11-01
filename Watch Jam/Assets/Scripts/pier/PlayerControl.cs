@@ -6,7 +6,9 @@ public class PlayerControl : MonoBehaviour
     [HideInInspector]
     public PierInputManager myInputManager;
     public PierInputManager.ButtonName jumpButton;
+    [HideInInspector]
 
+    public Animator myAnimator;
     [HideInInspector]
 	public bool facingRight = true;			// For determining which way the player is currently facing.
 	[HideInInspector]
@@ -27,13 +29,14 @@ public class PlayerControl : MonoBehaviour
 
     public float MagicNum = 6;
     private TimeController myTimeController;
-
+    
     void Awake()
 	{
+        myAnimator = gameObject.GetComponentInChildren<Animator>();
         myTimeController = gameObject.GetComponent<TimeController>();
         myInputManager = gameObject.GetComponent<PierInputManager>();
            // Setting up references.
-           groundCheck = transform.Find("groundCheck");
+        groundCheck = transform.Find("groundCheck");
 	//	anim = GetComponent<Animator>();
 	}
 
@@ -57,8 +60,16 @@ public class PlayerControl : MonoBehaviour
 
         // The Speed animator parameter is set to the absolute value of the horizontal input.
         //anim.SetFloat("Speed", Mathf.Abs(h));
-      
+        if (grounded && myTimeController.isStopped == false)
+        {
+            myAnimator.SetFloat("Velocity", Mathf.Abs(h));
 
+        }
+        else
+        {
+            myAnimator.SetFloat("Velocity", 0);
+
+        }
         // If the player is changing direction (h has a different sign to velocity.x) or hasn't reached maxSpeed yet...
         if (h * GetComponent<Rigidbody2D>().velocity.x < maxSpeed)
         {

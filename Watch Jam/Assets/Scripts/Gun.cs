@@ -89,7 +89,7 @@ public class Gun : MonoBehaviour
 
                     }
                     Physics2D.IgnoreCollision(bulletInstance.GetComponent<Collider2D>(), this.GetComponentInParent<Collider2D>());
-
+                    /*
                     //instantiate muzzle flash
                     Transform clone = Instantiate(MuzzleFlashPrefab, gunPivot.position, gunPivot.rotation) as Transform;
                     clone.parent = gunPivot;
@@ -97,7 +97,7 @@ public class Gun : MonoBehaviour
                     clone.localScale = new Vector3(size, size, 0);
                     //Destroy(clone, 0.02f);
                     Destroy(clone);
-
+                    */
                 }
                 else
                 {

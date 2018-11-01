@@ -27,7 +27,7 @@ public class TimeController : MonoBehaviour
     [SerializeField]
     public bool isRewinding = false;
     [SerializeField]
-    private bool isStopped = false;
+    public bool isStopped = false;
 
     
     private float AmmoTimer = 0;

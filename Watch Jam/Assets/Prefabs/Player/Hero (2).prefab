@@ -55,7 +55,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4253994495733682}
   - component: {fileID: 212422910817642882}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: TimeAuraBack
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -71,7 +71,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4471837079002228}
   - component: {fileID: 212529803613276048}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: TimeAuraBack
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -88,7 +88,7 @@ GameObject:
   - component: {fileID: 4543520038485698}
   - component: {fileID: 114341998046998664}
   - component: {fileID: 114781913926439806}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: TimeAuraMaster (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -138,7 +138,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4573629391362026}
   - component: {fileID: 212903301914193508}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Character_01_ARMS
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -153,7 +153,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4100941480479246}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Scientist
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -184,7 +184,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1594910746491600
 GameObject:
   m_ObjectHideFlags: 1
@@ -194,7 +194,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4609920866647760}
   - component: {fileID: 212810702703195146}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: TimeauraFront
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -210,7 +210,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4624209164363792}
   - component: {fileID: 212706849317455976}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: TimeauraFront
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -227,7 +227,7 @@ GameObject:
   - component: {fileID: 4098258711483454}
   - component: {fileID: 114626468338638696}
   - component: {fileID: 114298649181690540}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: TimeAuraMaster
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -244,7 +244,7 @@ GameObject:
   - component: {fileID: 4562988717423908}
   - component: {fileID: 212850918244107518}
   - component: {fileID: 95157309221332978}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: sprites
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -306,7 +306,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4305095522008846}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: gun Pivot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -525,7 +525,7 @@ Rigidbody2D:
   m_AngularDrag: 0.05
   m_GravityScale: 2
   m_Material: {fileID: 0}
-  m_Interpolate: 2
+  m_Interpolate: 1
   m_SleepingMode: 0
   m_CollisionDetection: 0
   m_Constraints: 4
@@ -555,7 +555,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 71c2c0e8ae6c44d459723bef91c9bbbf, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.273
   m_Pitch: 1.1
   Loop: 0
   Mute: 0
@@ -743,7 +743,7 @@ Animator:
   m_GameObject: {fileID: 1632057099871932}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: d215e9c0958530a46819406fa23bad28, type: 2}
+  m_Controller: {fileID: 22100000, guid: 19372d1440343d4478a0cdacfeeaa82a, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -764,7 +764,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lifeDisplay: {fileID: 114459478677991040}
-  totalLife: 60
+  currentLife: 0
 --- !u!114 &114052242378557286
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -778,6 +778,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myInputManager: {fileID: 0}
   jumpButton: 2
+  myAnimator: {fileID: 0}
   facingRight: 1
   jump: 0
   moveForce: 150
@@ -850,6 +851,7 @@ MonoBehaviour:
   speed: 25
   fireRate: 0.1
   gunPivot: {fileID: 4305095522008846}
+  MuzzleFlashPrefab: {fileID: 0}
   angle: 0
   x: 0
   y: 0
@@ -1028,14 +1030,16 @@ MonoBehaviour:
   myTimeBody: {fileID: 114060083412763252}
   myAmmo: {fileID: 114196214196158308}
   myInputManager: {fileID: 0}
+  myAudioSource: {fileID: 0}
   TimeStop: 6
   Rewind: 7
   isRewinding: 0
   isStopped: 0
-  rewindAmmoFactor: 4
   stopTimeAmmoFactor: 1
   passiveAmmoFactor: 1
   timeScale: 0
+  rewindEffect: {fileID: 8300000, guid: 09e530d46a97f9144a45c7a0d8e738de, type: 3}
+  stopEffect: {fileID: 8300000, guid: 8eae6a08cfd81c549a0cb0aa1ce6787f, type: 3}
 --- !u!114 &114781913926439806
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1424,7 +1428,7 @@ RectTransform:
   m_GameObject: {fileID: 1275109360872172}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 3, y: 3, z: 43}
   m_Children:
   - {fileID: 224863570617311994}
   - {fileID: 224538744178123400}
@@ -1433,7 +1437,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0.449, y: 1.193}
+  m_AnchoredPosition: {x: 0, y: 0.02}
   m_SizeDelta: {x: 2, y: 2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224507129069166532
