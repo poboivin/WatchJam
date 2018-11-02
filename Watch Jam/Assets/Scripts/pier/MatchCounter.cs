@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class MatchCounter : MonoBehaviour
 {
+    public AudioClip[] killshots;
+    public AudioSource source;
     public static List<TimeController> players;
     public static MatchCounter _Instance;
 	// Use this for initialization
@@ -23,7 +25,10 @@ public class MatchCounter : MonoBehaviour
         {
             _Instance.GameOver();
         }
-        Debug.Log(players.Count);
+        int random = Random.Range(0, _Instance.killshots.Length);
+        _Instance.source.clip = _Instance.killshots[random];
+        _Instance.source.Play();
+        Debug.Log(random);
     }
     void Awake ()
     {

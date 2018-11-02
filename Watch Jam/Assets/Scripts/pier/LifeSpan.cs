@@ -8,6 +8,8 @@ public class LifeSpan : MonoBehaviour
     TimeController myTimeController;
     PlayerControl myPlayerControl;
     Rigidbody2D myRigidbody2D;
+    Animator myAnimator;
+
     Gun myGun;
     public Image lifeDisplay;
     [SerializeField]
@@ -16,6 +18,7 @@ public class LifeSpan : MonoBehaviour
 	// Use this for initialization
 	void Start ()
     {
+        myAnimator = gameObject.GetComponentInChildren<Animator>();
         currentLife = Settings.s.totalLife;
         myTimeController = gameObject.GetComponent<TimeController>();
         myRigidbody2D = GetComponent<Rigidbody2D>();
@@ -63,6 +66,7 @@ public class LifeSpan : MonoBehaviour
     void Death()
     {
         MatchCounter.Remove(myTimeController);
+        myAnimator.enabled = false;
         myPlayerControl.enabled = false;
         myRigidbody2D.freezeRotation = false;
         myTimeController.enabled = false;
