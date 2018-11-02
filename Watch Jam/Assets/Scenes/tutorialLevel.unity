@@ -7016,7 +7016,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4373735662481910, guid: f5f273a3a05985b40abf401f2491877e, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -25.1
+      value: -27.91
       objectReference: {fileID: 0}
     - target: {fileID: 4373735662481910, guid: f5f273a3a05985b40abf401f2491877e, type: 2}
       propertyPath: m_LocalPosition.y
@@ -12653,7 +12653,7 @@ MonoBehaviour:
   OnPlayerSpawn:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 425707041}
+      - m_Target: {fileID: 1962224582}
         m_MethodName: SetActive
         m_Mode: 6
         m_Arguments:
@@ -14881,6 +14881,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac50b72bbe515b74a8839ceefe035463, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  killshots: []
+  source: {fileID: 0}
 --- !u!4 &1943003998
 Transform:
   m_ObjectHideFlags: 0

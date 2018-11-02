@@ -219,7 +219,7 @@ public class TimeController : MonoBehaviour
             timer += Time.deltaTime;
 
             float perc = timer / time;
-            Debug.Log(perc);
+        //    Debug.Log(perc);
             s.volume = Mathf.Lerp(1, 0, perc);
             yield return new WaitForEndOfFrame();
         }
