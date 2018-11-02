@@ -25,10 +25,14 @@ public class MatchCounter : MonoBehaviour
         {
             _Instance.GameOver();
         }
-        int random = Random.Range(0, _Instance.killshots.Length);
-        _Instance.source.clip = _Instance.killshots[random];
-        _Instance.source.Play();
-        Debug.Log(random);
+        if(_Instance!= null && _Instance.killshots != null  && _Instance.source != null)
+        {
+            int random = Random.Range(0, _Instance.killshots.Length);
+            _Instance.source.clip = _Instance.killshots[random];
+            _Instance.source.Play();
+            Debug.Log(random);
+        }
+      
     }
     void Awake ()
     {
