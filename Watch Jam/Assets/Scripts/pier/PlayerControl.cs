@@ -89,7 +89,7 @@ public class PlayerControl : MonoBehaviour
 
 
         // If the player's horizontal velocity is greater than the maxSpeed...
-        if (Mathf.Abs(GetComponent<Rigidbody2D>().velocity.x) > maxSpeed)
+        if (Mathf.Abs(GetComponent<Rigidbody2D>().velocity.x) > maxSpeed && grounded == true)
         {
             // ... set the player's velocity to the maxSpeed in the x axis.
             GetComponent<Rigidbody2D>().velocity  = (new Vector2(Mathf.Sign(GetComponent<Rigidbody2D>().velocity.x) * maxSpeed, GetComponent<Rigidbody2D>().velocity.y));

@@ -88,7 +88,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1098912565467384}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 33.87931, y: -6.221226, z: -9.499023}
+  m_LocalPosition: {x: -391.19913, y: -252.78381, z: -9.499023}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
   - {fileID: 4760884107586606}
@@ -168,7 +168,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.014289856, y: -0.010063171}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -179,7 +179,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.36, y: 0.3}
+  m_Size: {x: 0.5110016, y: 0.54441833}
   m_EdgeRadius: 0
 --- !u!95 &95721358960470116
 Animator:
@@ -212,6 +212,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   explosion: {fileID: 100000, guid: 42404bf7d14c342f69690c9961a7530d, type: 2}
   TimeAlive: 10
+  myOwner: {fileID: 0}
 --- !u!114 &114231316104817756
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -235,7 +236,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 629ab54824fbea3408c8fed5d98a8ad8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Owner: {fileID: 0}
+  myOwner: {fileID: 0}
 --- !u!198 &198361537170349388
 ParticleSystem:
   m_ObjectHideFlags: 1
