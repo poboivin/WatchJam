@@ -6,6 +6,9 @@ public class Rocket : MonoBehaviour
 	public GameObject explosion;		// Prefab of explosion effect.
     private float rocketTime = 0f;
     public float TimeAlive = 4f;
+   
+
+
 
 
     void Update()
@@ -33,7 +36,9 @@ public class Rocket : MonoBehaviour
 	
 	void OnTriggerEnter2D (Collider2D col) 
 	{
-        if (col.tag == "Player")
+        
+
+        if (col.tag == "Player" )
         {
 
             OnExplode();
