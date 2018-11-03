@@ -102,7 +102,6 @@ public class PlayerControl : MonoBehaviour
             Vector3 theScale = transform.localScale;
             theScale.x *= -1;
             transform.localScale = theScale;
-            facingRight = true;
 
         }
 
@@ -112,10 +111,17 @@ public class PlayerControl : MonoBehaviour
             Vector3 theScale = transform.localScale;
             theScale.x *= -1;
             transform.localScale = theScale;
-            facingRight = false;
         }
 			
+        if( transform.localScale.x > 0)
+        {
+            facingRight = true;
 
+        }
+        else
+        {
+            facingRight = false;
+        }
 		// If the player should jump...
 		if(jump)
 		{

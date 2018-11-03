@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class TimeController : MonoBehaviour
 {
@@ -35,11 +36,14 @@ public class TimeController : MonoBehaviour
     public float stopTimeAmmoFactor = 2f;
     public float passiveAmmoFactor = 2f;
  
-    private Vector2 storedMomentum;
+    public Vector2 storedMomentum;
     //private bool rt_pressed = false; //right trigger
     public float timeScale;
     public AudioClip rewindEffect;
     public AudioClip stopEffect;
+
+    public UnityEvent OnStartTimeStop;
+    public UnityEvent OnStopTimeStop;
 
     //   public Transform TimeAura; 
     void Awake()
@@ -251,6 +255,7 @@ public class TimeController : MonoBehaviour
         myRigidbody2D.velocity = Vector2.zero;
         myRigidbody2D.angularVelocity = 0;
         myTimeBody.isRecording = false;
+        OnStartTimeStop.Invoke();
     }
     public void StopTimeStop()
     {
@@ -278,6 +283,7 @@ public class TimeController : MonoBehaviour
 
         AddForce(storedMomentum);
         storedMomentum = Vector2.zero;
+        OnStopTimeStop.Invoke();
     }
     public void AddForce(Vector2 force)
     {
