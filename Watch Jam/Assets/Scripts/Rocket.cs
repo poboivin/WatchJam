@@ -67,8 +67,13 @@ public class Rocket : MonoBehaviour
         }
         else if (col.tag == "Bullet")
         {
-            OnExplode();
-            Destroy(gameObject);
+            Rocket otherRocket = col.GetComponent<Rocket>();
+            if(otherRocket.myOwner != myOwner)
+            {
+                OnExplode();
+                Destroy(gameObject);
+            }
+           
         }
 
         // Otherwise if the player manages to shoot himself...

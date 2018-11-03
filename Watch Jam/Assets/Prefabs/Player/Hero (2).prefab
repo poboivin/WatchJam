@@ -185,7 +185,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1594910746491600
 GameObject:
   m_ObjectHideFlags: 1
@@ -357,7 +357,7 @@ Transform:
   m_GameObject: {fileID: 1620686234998234}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0.5, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children:
   - {fileID: 4609920866647760}
   - {fileID: 4253994495733682}
@@ -427,7 +427,7 @@ Transform:
   m_GameObject: {fileID: 1408542945001446}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0.5, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children:
   - {fileID: 4624209164363792}
   - {fileID: 4471837079002228}
@@ -850,7 +850,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rewind: 0
   isRewinding: 0
-  RecordTime: 5
+  RecordTime: 3.5
   lifeStart: 0
   isRecording: 1
 --- !u!114 &114109116369338938
@@ -867,7 +867,7 @@ MonoBehaviour:
   ShootButton: 4
   rocket: {fileID: 50999528603641048, guid: 37327ebed1db7f042a406d88662deb0f, type: 2}
   speed: 25
-  fireRate: 0.1
+  fireRate: 0.25
   gunPivot: {fileID: 4305095522008846}
   MuzzleFlashPrefab: {fileID: 0}
   angle: 0
@@ -934,7 +934,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Dir: {x: 0, y: 1, z: 0}
   Amplitude: 0.5
-  Speed: 1
+  Speed: 0.2
   Local: 1
 --- !u!114 &114341998046998664
 MonoBehaviour:
@@ -1115,6 +1115,7 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
+  timestoptrigger: 0
 --- !u!114 &114781913926439806
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1128,7 +1129,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Dir: {x: 0, y: -1, z: 0}
   Amplitude: 0.5
-  Speed: 1
+  Speed: 0.2
   Local: 1
 --- !u!114 &114790841673511528
 MonoBehaviour:
