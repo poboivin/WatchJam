@@ -5,15 +5,16 @@ using UnityEngine;
 public class AfterImage : MonoBehaviour
 {
     private TimeController myTimeController;
-    float delay = 0.2f;
+    float delay = 0.1f;
     float timer;
     bool spawn;
     public SpriteRenderer[] sprites;
-
+    public LineRenderer myMineRenderer;
 
     void Start()
     {
         myTimeController = GetComponent<TimeController>();
+        myMineRenderer = GetComponent<LineRenderer>();
         timer = delay;
     }
 
@@ -29,7 +30,7 @@ public class AfterImage : MonoBehaviour
             trailPart.transform.localScale = sprite.transform.lossyScale;
 
             Color color = trailPartRenderer.color;
-            color.a -= 0.5f; // replace 0.5f with needed alpha decrement
+            color.a -= 0.2f; // replace 0.5f with needed alpha decrement
             trailPartRenderer.color = color;
             Destroy(trailPart, 0.5f); // replace 0.5f with needed lifeTime
 
@@ -37,7 +38,23 @@ public class AfterImage : MonoBehaviour
 
 
     }
+    public void DrawLine()
+    {
+        if(myMineRenderer.enabled == false)
+        {
+            myMineRenderer.enabled = true;
+        }
+        myMineRenderer.positionCount = myTimeController.myTimeBody.pointsInTime.Count + 1;
+        Vector3 start = transform.position;
+        myMineRenderer.SetPosition(0, transform.position);
+        for (int i = 0; i < myTimeController.myTimeBody.pointsInTime.Count; i++)
+        {
+            myMineRenderer.SetPosition(i+1, myTimeController.myTimeBody.pointsInTime[i].Position);
 
+        }
+
+           
+    }
     // Use this for initialization
     public void Update()
     {
@@ -52,10 +69,16 @@ public class AfterImage : MonoBehaviour
         }
         if (myTimeController.isRewinding)
         {
-                spawn = true;
+         
+            if (spawn == false)
+            {
+                timer = 0;
+            }
+            spawn = true;
         }
         else
         {
+            myMineRenderer.enabled = false; 
             spawn = false;
 
         }

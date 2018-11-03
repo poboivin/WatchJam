@@ -39,6 +39,8 @@ public class LifeSpan : MonoBehaviour
     {
         currentLife -= amount;
       //  Debug.Log(currentLife);
+
+        
         if(currentLife <= 0)
         {
           
