@@ -37,7 +37,7 @@ public class Rocket : MonoBehaviour
 	void OnTriggerEnter2D (Collider2D col) 
 	{
         
-
+        
         if (col.tag == "Player" )
         {
             if(col.gameObject != myOwner.gameObject)
@@ -65,7 +65,7 @@ public class Rocket : MonoBehaviour
             OnExplode();
             Destroy(gameObject);
         }
-        else if (col.tag == "bullet")
+        else if (col.tag == "Bullet")
         {
             OnExplode();
             Destroy(gameObject);

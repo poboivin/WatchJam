@@ -76,22 +76,27 @@ public class TimeController : MonoBehaviour
     {
         return false;
     }
+    public bool timestoptrigger = false;
     void Update()
     {
-        if (myInputManager.GetAxis( TimeStop.ToString()) > 0.5f && (myAmmo.CurrentAmmo < myAmmo.MaxAmmo || Settings.s.noLimits))
+        if (myInputManager.GetAxis( TimeStop.ToString()) > 0.5f && timestoptrigger == false && (myAmmo.CurrentAmmo < myAmmo.MaxAmmo || Settings.s.noLimits))
         {
             if(isStopped == false)
             {
                 StartTimeStop();
             }
-                
+            timestoptrigger = true;
         }
-        if (myInputManager.GetAxis( TimeStop.ToString()) < 0.1f && isStopped == true)
+        if (myInputManager.GetAxis( TimeStop.ToString()) < 0.1f)
         {
-           
+            if(isStopped == true)
+            {
                 StopTimeStop();
 
-            
+            }
+            timestoptrigger = false;
+
+
         }
         /* button mode 
         if (PierInputManager.GetButtonDown(inputManager.playerNumber, TimeStop) && (myAmmo.CurrentAmmo < myAmmo.MaxAmmo || Settings.s.noLimits))
@@ -166,6 +171,20 @@ public class TimeController : MonoBehaviour
                     StopTimeStop();
                 }
                 myAmmo.CurrentAmmo = myAmmo.MaxAmmo;
+            }
+            SineBob[] timeAuras = gameObject.GetComponentsInChildren<SineBob>();
+            if (timeAuras != null)
+            {
+                foreach (SineBob aura in timeAuras)
+                {
+                    aura.Speed = 1 /( 1+ storedMomentum.magnitude/200);
+                    if(aura.Speed <= 0.03f)
+                    {
+                        StopTimeStop();
+
+                    }
+                }
+
             }
         }
         else

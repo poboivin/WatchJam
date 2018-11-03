@@ -86,6 +86,14 @@ public class LifeSpan : MonoBehaviour
         myPlayerControl.enabled = false;
         myRigidbody2D.freezeRotation = false;
         myTimeController.enabled = false;
+        if (myTimeController.isStopped)
+        {
+            myTimeController.StopTimeStop();
+        }
+        if (myTimeController.isRewinding)
+        {
+            myTimeController.StopRewind();
+        }
         myGun.enabled = false;
         this.enabled = false;
        // Destroy(this.gameObject);

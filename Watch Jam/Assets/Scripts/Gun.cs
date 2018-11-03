@@ -6,8 +6,8 @@ public class Gun : MonoBehaviour
 {
     public class bulletInfo
     {
-       public Rigidbody2D body;
-       public Vector2 vel;
+        public Rigidbody2D body;
+        public Vector2 vel;
 
         public bulletInfo(Rigidbody2D body, Vector2 vel)
         {
@@ -20,7 +20,7 @@ public class Gun : MonoBehaviour
     private Ammo myAmmo;
     private LifeSpan myLifeSpan;
     private PlayerControl myPlayerControl;       // Reference to the PlayerControl script.
-    private TimeController myTimeController;                          
+    private TimeController myTimeController;
 
     public PierInputManager.ButtonName ShootButton;   //button to shoot
 
@@ -33,23 +33,23 @@ public class Gun : MonoBehaviour
     public Transform gunPivot;
     public Transform MuzzleFlashPrefab;
 
-    
+
     private GameObject[] RocketsFired;
 
     public float angle;
     public float x;
     public float y;
-	void Awake()
-	{
+    void Awake()
+    {
         bullets = new List<bulletInfo>();
         myInputManager = GetComponentInParent<PierInputManager>();
         myLifeSpan = GetComponentInParent<LifeSpan>();
         myTimeController = GetComponentInParent<TimeController>();
-        myAmmo  = GetComponentInParent<Ammo>();
+        myAmmo = GetComponentInParent<Ammo>();
         // Setting up the references.
         //anim = transform.root.gameObject.GetComponent<Animator>();
         myPlayerControl = transform.root.GetComponent<PlayerControl>();
-	}
+    }
     void Update()
     {
         x = Mathf.Abs(myInputManager.GetAxis("Horizontal"));
@@ -67,7 +67,7 @@ public class Gun : MonoBehaviour
 
 
         // If the fire button is pressed...
-        if (myTimeController.isRewinding == false && myInputManager.GetButtonDown(ShootButton) && Time.time > nextFire)
+        if (myTimeController.isRewinding == false && myInputManager.GetButtonDown(ShootButton) && (Time.time > nextFire || myTimeController.isStopped == true))
         {
             nextFire = Time.time + fireRate;
             Rigidbody2D prefab = null;
@@ -112,14 +112,20 @@ public class Gun : MonoBehaviour
                     }
                     if (myTimeController.isStopped == true)
                     {
-                        bulletInstance.GetComponent<Rocket>().enabled = false;
-                        bulletInstance.GetComponent<BoxCollider2D>().enabled = false;
-                        //bulletInstance.isKinematic = true;
-                        bullets.Add(new bulletInfo(bulletInstance, dir));
-                        print(bullets.Count);
+                        if (bulletInstance != null)
+                        {
+                            if (bulletInstance.GetComponent<Rocket>() && bulletInstance.GetComponent<BoxCollider2D>())
+                            {
+                                bulletInstance.GetComponent<Rocket>().enabled = false;
 
-                        
-                    
+                                bulletInstance.GetComponent<BoxCollider2D>().enabled = false;
+                                bullets.Add(new bulletInfo(bulletInstance, dir));
+                            }
+                                
+                        }
+
+
+
                     }
 
                     else
@@ -158,10 +164,17 @@ public class Gun : MonoBehaviour
                     }
                     if (myTimeController.isStopped == true)
                     {
+                        if (bulletInstance != null)
+                        {
+                            if (bulletInstance.GetComponent<Rocket>() && bulletInstance.GetComponent<BoxCollider2D>())
+                            {
+                                bulletInstance.GetComponent<Rocket>().enabled = false;
 
-                        bulletInstance.GetComponent<Rocket>().enabled = false;
-                        bulletInstance.GetComponent<BoxCollider2D>().enabled = false;
-                        bullets.Add(new bulletInfo(bulletInstance, dir));
+                                bulletInstance.GetComponent<BoxCollider2D>().enabled = false;
+                                bullets.Add(new bulletInfo(bulletInstance, dir));
+                            }
+                        }
+                       
                     }
 
                     else
