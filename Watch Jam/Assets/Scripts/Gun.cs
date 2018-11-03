@@ -1,8 +1,21 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class Gun : MonoBehaviour
 {
+    public class bulletInfo
+    {
+       public Rigidbody2D body;
+       public Vector2 vel;
+
+        public bulletInfo(Rigidbody2D body, Vector2 vel)
+        {
+            this.body = body;
+            this.vel = vel;
+        }
+    }
+    public List<bulletInfo> bullets;
     private PierInputManager myInputManager;
     private Ammo myAmmo;
     private LifeSpan myLifeSpan;
@@ -20,11 +33,15 @@ public class Gun : MonoBehaviour
     public Transform gunPivot;
     public Transform MuzzleFlashPrefab;
 
+    
+    private GameObject[] RocketsFired;
+
     public float angle;
     public float x;
     public float y;
 	void Awake()
 	{
+        bullets = new List<bulletInfo>();
         myInputManager = GetComponentInParent<PierInputManager>();
         myLifeSpan = GetComponentInParent<LifeSpan>();
         myTimeController = GetComponentInParent<TimeController>();
@@ -86,13 +103,36 @@ public class Gun : MonoBehaviour
                      // ... instantiate the rocket facing right and set it's velocity to the right. 
                     Rigidbody2D bulletInstance = Instantiate(prefab, transform.position, Quaternion.Euler(new Vector3(0, 0, 0))) as Rigidbody2D;
                     dir = new Vector2(transform.right.x, transform.right.y) * speed;
-                    bulletInstance.velocity = dir;//new Vector2(speed, 0);
-                    if(prefab == rocket)
+
+                    if (prefab == rocket)
                     {
-                        bulletInstance.GetComponent<BulletLeach>().Owner = myLifeSpan;
+                        bulletInstance.GetComponent<BulletLeach>().myOwner = myLifeSpan;
+                        bulletInstance.GetComponent<Rocket>().myOwner = myLifeSpan;
 
                     }
-                    Physics2D.IgnoreCollision(bulletInstance.GetComponent<Collider2D>(), this.GetComponentInParent<Collider2D>());
+                    if (myTimeController.isStopped == true)
+                    {
+                        bulletInstance.GetComponent<Rocket>().enabled = false;
+                        bulletInstance.GetComponent<BoxCollider2D>().enabled = false;
+                        //bulletInstance.isKinematic = true;
+                        bullets.Add(new bulletInfo(bulletInstance, dir));
+                        print(bullets.Count);
+
+                        
+                    
+                    }
+
+                    else
+                    {
+                        bulletInstance.velocity = dir;//new Vector2(speed, 0);
+                        
+                        Physics2D.IgnoreCollision(bulletInstance.GetComponent<Collider2D>(), this.GetComponentInParent<Collider2D>());
+                    }
+
+                
+
+               
+                    
                     /*
                     //instantiate muzzle flash
                     Transform clone = Instantiate(MuzzleFlashPrefab, gunPivot.position, gunPivot.rotation) as Transform;
@@ -106,16 +146,31 @@ public class Gun : MonoBehaviour
                 else
                 {
                     // Otherwise instantiate the rocket facing left and set it's velocity to the left.
+
                     Rigidbody2D bulletInstance = Instantiate(prefab, transform.position, Quaternion.Euler(new Vector3(0, 0, 180f))) as Rigidbody2D;
                     dir = new Vector2(transform.right.x, transform.right.y) * -speed;
-
-                    bulletInstance.velocity = dir;// new Vector2(-speed, 0);
                     if (prefab == rocket)
                     {
-                        bulletInstance.GetComponent<BulletLeach>().Owner = myLifeSpan;
+                            bulletInstance.GetComponent<BulletLeach>().myOwner = myLifeSpan;
+                            bulletInstance.GetComponent<Rocket>().myOwner = myLifeSpan;
+
 
                     }
-                    Physics2D.IgnoreCollision(bulletInstance.GetComponent<Collider2D>(), this.GetComponentInParent<Collider2D>());
+                    if (myTimeController.isStopped == true)
+                    {
+
+                        bulletInstance.GetComponent<Rocket>().enabled = false;
+                        bulletInstance.GetComponent<BoxCollider2D>().enabled = false;
+                        bullets.Add(new bulletInfo(bulletInstance, dir));
+                    }
+
+                    else
+                    {
+                        bulletInstance.velocity = dir;// new Vector2(-speed, 0);
+                    
+                        Physics2D.IgnoreCollision(bulletInstance.GetComponent<Collider2D>(), this.GetComponentInParent<Collider2D>());
+                    }
+                 
                 }
 
                 myTimeController.AddForce(-dir * Settings.s.gunKnockBack);
@@ -124,4 +179,30 @@ public class Gun : MonoBehaviour
           
         }
 	}
+
+
+
+    public void StopRocket()
+    {
+        
+        
+        
+    }
+
+    public void ReseumeRocket()
+    {
+        foreach (bulletInfo b in bullets)
+        {
+            Rigidbody2D RocketBullet = b.body;
+
+            RocketBullet.GetComponent<Rocket>().enabled = true;
+            RocketBullet.GetComponent<BoxCollider2D>().enabled = true;
+            RocketBullet.velocity = b.vel;
+
+
+        }
+
+        bullets.Clear();
+    }
+
 }

@@ -6,6 +6,9 @@ public class Rocket : MonoBehaviour
 	public GameObject explosion;		// Prefab of explosion effect.
     private float rocketTime = 0f;
     public float TimeAlive = 4f;
+    public LifeSpan myOwner;
+
+
 
 
     void Update()
@@ -33,13 +36,19 @@ public class Rocket : MonoBehaviour
 	
 	void OnTriggerEnter2D (Collider2D col) 
 	{
-        if (col.tag == "Player")
-        {
+        
 
-            OnExplode();
-            if (Camera.main.GetComponent<CamShake>() != null)
-                Camera.main.GetComponent<CamShake>().Shake(0.1f, 0.2f);
-            Destroy(gameObject);
+        if (col.tag == "Player" )
+        {
+            if(col.gameObject != myOwner.gameObject)
+            {
+                OnExplode();
+                if (Camera.main.GetComponent<CamShake>() != null)
+                    Camera.main.GetComponent<CamShake>().Shake(0.1f, 0.2f);
+                Destroy(gameObject);
+            }
+
+          
         }
 
         else if (col.gameObject.tag == "destructable")
