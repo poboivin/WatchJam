@@ -9,7 +9,7 @@ public class LifeSpan : MonoBehaviour
     PlayerControl myPlayerControl;
     Rigidbody2D myRigidbody2D;
     Animator myAnimator;
-
+    Text myText;
     Gun myGun;
     public Image lifeDisplay;
     [SerializeField]
@@ -24,6 +24,7 @@ public class LifeSpan : MonoBehaviour
         myRigidbody2D = GetComponent<Rigidbody2D>();
         myPlayerControl = GetComponent<PlayerControl>();
         myGun = GetComponentInChildren<Gun>();
+        myText = GetComponentInChildren<Text>();
     }
 	public void AddLife(float amount)
     {
@@ -39,6 +40,8 @@ public class LifeSpan : MonoBehaviour
     {
         currentLife -= amount;
       //  Debug.Log(currentLife);
+
+        
         if(currentLife <= 0)
         {
           
@@ -62,6 +65,19 @@ public class LifeSpan : MonoBehaviour
                 Death();
         }
         lifeDisplay.fillAmount = currentLife / Settings.s.totalLife;
+
+        if(myText != null)
+        {
+            myText.text = (currentLife + "/" + Settings.s.totalLife);
+            if(myTimeController.transform.localScale.x < 0  && myText.transform.localScale.x >0)
+            {
+                myText.transform.localScale = new Vector3(myText.transform.localScale.x *-1, myText.transform.localScale.y, myText.transform.localScale.z);
+            }
+            if (myTimeController.transform.localScale.x > 0 && myText.transform.localScale.x < 0)
+            {
+                myText.transform.localScale = new Vector3(myText.transform.localScale.x * -1, myText.transform.localScale.y, myText.transform.localScale.z);
+            }
+        }
     }
     void Death()
     {

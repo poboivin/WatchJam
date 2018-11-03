@@ -15,6 +15,7 @@ public class TimeController : MonoBehaviour
     public PierInputManager myInputManager;
     [HideInInspector]
     public AudioSource  myAudioSource;
+    public AfterImage myAfterImage;
 
     private float _timeScale = 1;
     private float newTimeScale = 1;
@@ -54,6 +55,7 @@ public class TimeController : MonoBehaviour
         myAmmo = GetComponent<Ammo>();
         myInputManager = GetComponent<PierInputManager>();
         myAudioSource = GetComponent<AudioSource>();
+        myAfterImage = GetComponent<AfterImage>();
         originalGravityScale = myRigidbody2D.gravityScale;
         originalMass = myRigidbody2D.mass;
         MatchCounter.Register(this);
@@ -103,7 +105,12 @@ public class TimeController : MonoBehaviour
            
             StopTimeStop();
         }*/
-        if (myInputManager.GetAxis( Rewind.ToString()) >0.5f && (myAmmo.CurrentAmmo < myAmmo.MaxAmmo || Settings.s.noLimits))
+
+        if (myInputManager.GetAxis(Rewind.ToString()) > 0.1f)
+        {
+            myAfterImage.DrawLine();
+        }
+        if (myInputManager.GetAxis( Rewind.ToString()) >0.6f && (myAmmo.CurrentAmmo < myAmmo.MaxAmmo || Settings.s.noLimits))
         {
             if(isRewinding == false)
                 StartRewind();
@@ -196,6 +203,11 @@ public class TimeController : MonoBehaviour
             myAudioSource.clip = rewindEffect;
             myAudioSource.Play();
         }
+        if(Settings.s.rewindInvincibility == true)
+        {
+            //rewind layer  
+            gameObject.layer = 13;
+        }
     }
     public void StopRewind()
     {
@@ -214,6 +226,9 @@ public class TimeController : MonoBehaviour
         {
             StartCoroutine(SoundOffRoutine(myAudioSource, 0.5f));
         }
+        //player layer
+        gameObject.layer = 9;
+
     }
     private IEnumerator SoundOffRoutine(AudioSource s,float time)
     {

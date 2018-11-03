@@ -86,8 +86,8 @@ public class TimeBody : MonoBehaviour, IRewindAble
         if (rb != null)
         {
             rb.isKinematic = true;
-            if(Settings.s.rewindInvincibility == true)
-                rb.simulated = false;
+           /* if(Settings.s.rewindInvincibility == true)
+                rb.simulated = false;*/
         }
     }
     public void stopRewind()

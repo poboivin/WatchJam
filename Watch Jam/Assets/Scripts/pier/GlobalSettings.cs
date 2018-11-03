@@ -6,6 +6,8 @@ public class GlobalSettings : ScriptableObject
 {
 
     public bool noLimits;
+    public bool unlimitedAmmo = true;
+
     public float gunKnockBack = 20f;
     public float bulletKnockBack = 10f;
     public float bulletDamage = 4f;

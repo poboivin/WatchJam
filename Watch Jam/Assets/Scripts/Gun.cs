@@ -50,11 +50,11 @@ public class Gun : MonoBehaviour
         //anim = transform.root.gameObject.GetComponent<Animator>();
         myPlayerControl = transform.root.GetComponent<PlayerControl>();
 	}
-	void Update ()
-	{
-        x = Mathf.Abs( myInputManager.GetAxis("Horizontal"));
+    void Update()
+    {
+        x = Mathf.Abs(myInputManager.GetAxis("Horizontal"));
         y = myInputManager.GetAxis("Vertical");
-        float theta_rad  = Mathf.Atan2(y, x);
+        float theta_rad = Mathf.Atan2(y, x);
         float theta_deg = (theta_rad / Mathf.PI * 180) + (theta_rad > 0 ? 0 : 360);
         angle = theta_deg;//(angle + 360) % 360;
 
@@ -62,31 +62,35 @@ public class Gun : MonoBehaviour
 
         //Debug.Log(angle + "");
 
-        
+
         gunPivot.localRotation = Quaternion.Euler(new Vector3(0, 0, angle)); //Rotating!
 
-        
-		// If the fire button is pressed...
-		if(myTimeController.isRewinding == false && myInputManager.GetButtonDown(ShootButton) && Time.time > nextFire)
-		{
+
+        // If the fire button is pressed...
+        if (myTimeController.isRewinding == false && myInputManager.GetButtonDown(ShootButton) && Time.time > nextFire)
+        {
             nextFire = Time.time + fireRate;
-            Rigidbody2D prefab = null ;
+            Rigidbody2D prefab = null;
             if (myAmmo.Grenade != null)
             {
-               
+
                 prefab = myAmmo.Grenade;
                 myAmmo.Grenade = null;
 
                 // Debug.Log("GRENADE");
             }
-            else if (myAmmo.CurrentAmmo > 0)
+            else if (Settings.s.unlimitedAmmo == true)
+            {
+                prefab = rocket;
+            }
+            else if (myAmmo.CurrentAmmo > 0 )
             {
                 myAmmo.CurrentAmmo--;
                 prefab = rocket;
             }
-               
+            
 
-            if(prefab != null)
+            if (prefab != null)
             {
                  // ... set the animator Shoot trigger parameter and play the audioclip.
                 //	anim.SetTrigger("Shoot");
