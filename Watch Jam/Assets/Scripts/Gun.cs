@@ -103,8 +103,13 @@ public class Gun : MonoBehaviour
                      // ... instantiate the rocket facing right and set it's velocity to the right. 
                     Rigidbody2D bulletInstance = Instantiate(prefab, transform.position, Quaternion.Euler(new Vector3(0, 0, 0))) as Rigidbody2D;
                     dir = new Vector2(transform.right.x, transform.right.y) * speed;
-                    
 
+                    if (prefab == rocket)
+                    {
+                        bulletInstance.GetComponent<BulletLeach>().myOwner = myLifeSpan;
+                        bulletInstance.GetComponent<Rocket>().myOwner = myLifeSpan;
+
+                    }
                     if (myTimeController.isStopped == true)
                     {
                         bulletInstance.GetComponent<Rocket>().enabled = false;
@@ -120,11 +125,7 @@ public class Gun : MonoBehaviour
                     else
                     {
                         bulletInstance.velocity = dir;//new Vector2(speed, 0);
-                        if (prefab == rocket)
-                        {
-                            bulletInstance.GetComponent<BulletLeach>().Owner = myLifeSpan;
-
-                        }
+                        
                         Physics2D.IgnoreCollision(bulletInstance.GetComponent<Collider2D>(), this.GetComponentInParent<Collider2D>());
                     }
 
@@ -148,6 +149,13 @@ public class Gun : MonoBehaviour
 
                     Rigidbody2D bulletInstance = Instantiate(prefab, transform.position, Quaternion.Euler(new Vector3(0, 0, 180f))) as Rigidbody2D;
                     dir = new Vector2(transform.right.x, transform.right.y) * -speed;
+                    if (prefab == rocket)
+                    {
+                            bulletInstance.GetComponent<BulletLeach>().myOwner = myLifeSpan;
+                            bulletInstance.GetComponent<Rocket>().myOwner = myLifeSpan;
+
+
+                    }
                     if (myTimeController.isStopped == true)
                     {
 
@@ -159,11 +167,7 @@ public class Gun : MonoBehaviour
                     else
                     {
                         bulletInstance.velocity = dir;// new Vector2(-speed, 0);
-                        if (prefab == rocket)
-                        {
-                            bulletInstance.GetComponent<BulletLeach>().Owner = myLifeSpan;
-
-                        }
+                    
                         Physics2D.IgnoreCollision(bulletInstance.GetComponent<Collider2D>(), this.GetComponentInParent<Collider2D>());
                     }
                  

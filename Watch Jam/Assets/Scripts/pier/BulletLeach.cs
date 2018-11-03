@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class BulletLeach : MonoBehaviour
 {
-    public LifeSpan Owner;
+    public LifeSpan myOwner;
     // Update is called once per frame
     private void OnTriggerEnter2D(Collider2D other)
     {
         LifeSpan otherLife = other.gameObject.GetComponent<LifeSpan>();
-        if(otherLife != null)
+        if(otherLife != null && otherLife != myOwner)
         {
             Vector3 dir = other.transform.position - this.transform.position;
 
@@ -18,7 +18,7 @@ public class BulletLeach : MonoBehaviour
             float stealAmount = otherLife.SubstactLife(Settings.s.bulletDamage);
             if(Settings.s.lifeSteal == true)
             {
-                Owner.AddLife(stealAmount);
+                myOwner.AddLife(stealAmount);
             }         
         }
     }
