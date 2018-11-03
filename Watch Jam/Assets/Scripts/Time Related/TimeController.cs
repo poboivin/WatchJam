@@ -106,13 +106,14 @@ public class TimeController : MonoBehaviour
             StopTimeStop();
         }*/
 
-        if (myInputManager.GetAxis(Rewind.ToString()) > 0.1f)
+        if (myInputManager.GetAxis(Rewind.ToString()) > 0.01f)
         {
             myAfterImage.DrawLine();
         }
         if (myInputManager.GetAxis( Rewind.ToString()) >0.6f && (myAmmo.CurrentAmmo < myAmmo.MaxAmmo || Settings.s.noLimits))
         {
-            if(isRewinding == false)
+         
+            if (isRewinding == false && myTimeBody.pointsInTime.Count >= 60)
                 StartRewind();
         }
         if (myInputManager.GetAxis( Rewind.ToString()) <0.1f && isRewinding == true)
@@ -139,6 +140,11 @@ public class TimeController : MonoBehaviour
                     StopRewind();
                 }
                 myAmmo.CurrentAmmo = myAmmo.MaxAmmo;
+            }
+
+            if( myTimeBody.pointsInTime.Count <= 1)
+            {
+                StopRewind();
             }
         }
         else if (isStopped)
