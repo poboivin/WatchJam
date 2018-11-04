@@ -641,8 +641,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ShootButton: 4
   rocket: {fileID: 50999528603641048, guid: 37327ebed1db7f042a406d88662deb0f, type: 2}
-  speed: 25
-  fireRate: 0.25
+  speed: 23
+  fireRate: 0.35
   gunPivot: {fileID: 430447069}
   MuzzleFlashPrefab: {fileID: 0}
   angle: 0
@@ -2402,8 +2402,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ShootButton: 4
   rocket: {fileID: 50999528603641048, guid: 37327ebed1db7f042a406d88662deb0f, type: 2}
-  speed: 25
-  fireRate: 0.25
+  speed: 22.99
+  fireRate: 0.35
   gunPivot: {fileID: 2097682810}
   MuzzleFlashPrefab: {fileID: 0}
   angle: 0
@@ -3567,7 +3567,6 @@ MonoBehaviour:
   MaxAmmo: 6
   CurrentAmmo: 0
   Grenade: {fileID: 0}
-  Display: {fileID: 0}
 --- !u!114 &425707047
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3583,8 +3582,8 @@ MonoBehaviour:
   lifeDisplay: {fileID: 989661136}
   currentLife: 0
   sp: {fileID: 979181063}
-  clip: {fileID: 0}
-  source: {fileID: 0}
+  clip: {fileID: 8300000, guid: 419dcae62bb64d94ab3615c4c2533530, type: 3}
+  source: {fileID: 425707044}
 --- !u!114 &425707048
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3913,8 +3912,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ShootButton: 4
   rocket: {fileID: 50999528603641048, guid: 37327ebed1db7f042a406d88662deb0f, type: 2}
-  speed: 25
-  fireRate: 0.25
+  speed: 23.01
+  fireRate: 0.35
   gunPivot: {fileID: 1252221144}
   MuzzleFlashPrefab: {fileID: 0}
   angle: 0
@@ -9989,8 +9988,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ShootButton: 4
   rocket: {fileID: 50999528603641048, guid: 37327ebed1db7f042a406d88662deb0f, type: 2}
-  speed: 25
-  fireRate: 0.25
+  speed: 23
+  fireRate: 0.35
   gunPivot: {fileID: 2106288807}
   MuzzleFlashPrefab: {fileID: 0}
   angle: 0
@@ -13748,7 +13747,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4074828788106070, guid: 6bc34fae8f3bca64c84d901ec4d96a37, type: 2}
       propertyPath: m_RootOrder
-      value: 15
+      value: 16
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6bc34fae8f3bca64c84d901ec4d96a37, type: 2}
@@ -15387,7 +15386,6 @@ MonoBehaviour:
   MaxAmmo: 6
   CurrentAmmo: 0
   Grenade: {fileID: 0}
-  Display: {fileID: 0}
 --- !u!114 &1638209006
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15923,7 +15921,6 @@ MonoBehaviour:
   MaxAmmo: 6
   CurrentAmmo: 0
   Grenade: {fileID: 0}
-  Display: {fileID: 0}
 --- !u!114 &1645379357
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15939,8 +15936,8 @@ MonoBehaviour:
   lifeDisplay: {fileID: 81295178}
   currentLife: 0
   sp: {fileID: 1356130212}
-  clip: {fileID: 0}
-  source: {fileID: 0}
+  clip: {fileID: 8300000, guid: 419dcae62bb64d94ab3615c4c2533530, type: 3}
+  source: {fileID: 1645379354}
 --- !u!114 &1645379358
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16093,7 +16090,7 @@ Transform:
   - {fileID: 501347380}
   - {fileID: 546992627}
   m_Father: {fileID: 0}
-  m_RootOrder: 16
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 35.00935}
 --- !u!1 &1652039063
 GameObject:
@@ -18472,7 +18469,6 @@ MonoBehaviour:
   MaxAmmo: 6
   CurrentAmmo: 0
   Grenade: {fileID: 0}
-  Display: {fileID: 0}
 --- !u!114 &1962224588
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18488,8 +18484,8 @@ MonoBehaviour:
   lifeDisplay: {fileID: 413688701}
   currentLife: 0
   sp: {fileID: 1018964285}
-  clip: {fileID: 0}
-  source: {fileID: 0}
+  clip: {fileID: 8300000, guid: 419dcae62bb64d94ab3615c4c2533530, type: 3}
+  source: {fileID: 1962224585}
 --- !u!114 &1962224589
 MonoBehaviour:
   m_ObjectHideFlags: 0
