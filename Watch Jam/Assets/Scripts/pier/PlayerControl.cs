@@ -37,7 +37,6 @@ public class PlayerControl : MonoBehaviour
         myInputManager = gameObject.GetComponent<PierInputManager>();
            // Setting up references.
         groundCheck = transform.Find("groundCheck");
-	//	anim = GetComponent<Animator>();
 	}
 
 
@@ -59,7 +58,6 @@ public class PlayerControl : MonoBehaviour
 		float h = myInputManager.GetAxis( "Horizontal");
 
         // The Speed animator parameter is set to the absolute value of the horizontal input.
-        //anim.SetFloat("Speed", Mathf.Abs(h));
         if (grounded && myTimeController.isStopped == false)
         {
             myAnimator.SetFloat("Velocity", Mathf.Abs(h));
@@ -82,9 +80,6 @@ public class PlayerControl : MonoBehaviour
             {
                 GetComponent<Rigidbody2D>().AddForce(Vector2.right * h * moveForce);
             }
-
-            // ... add a force to the player.
-
         }
 
 
@@ -125,18 +120,7 @@ public class PlayerControl : MonoBehaviour
 		// If the player should jump...
 		if(jump)
 		{
-			// Set the Jump animator trigger parameter.
-		//	anim.SetTrigger("Jump");
-
-			// Play a random jump audio clip.
-		
-
-           
-			// Add a vertical force to the player.
-		//	GetComponent<Rigidbody2D>().AddForce(new Vector2(0f, jumpForce));
-            doJump();
-			// Make sure the player can't jump again until the jump conditions from Update are satisfied.
-			
+            doJump();		
 		}
 	}
     public float remaningForce;

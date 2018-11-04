@@ -10,18 +10,4 @@ public class Ammo : MonoBehaviour
    // public bool HasGrenade = false;
     [HideInInspector]
     public Rigidbody2D Grenade;              // Prefab of the rocket.  changed by the pick up script 
-
-    public Image Display;
-
-    // Use this for initialization
-    void Start ()
-    {
-        CurrentAmmo = MaxAmmo;
-	}
-	
-	// Update is called once per frame
-	void Update () {
-        Display.fillAmount = (float)CurrentAmmo / (float)MaxAmmo;
-       
-    }
 }

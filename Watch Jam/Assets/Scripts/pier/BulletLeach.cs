@@ -14,7 +14,6 @@ public class BulletLeach : MonoBehaviour
             Vector3 dir = other.transform.position - this.transform.position;
 
             other.GetComponent<TimeController>().AddForce(new Vector2(dir.x,dir.y) * Settings.s.bulletKnockBack);
-          
             float stealAmount = otherLife.SubstactLife(Settings.s.bulletDamage);
             if(Settings.s.lifeSteal == true)
             {

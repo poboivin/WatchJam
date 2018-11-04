@@ -13,20 +13,11 @@ public class PlayerPlatformerController : PhysicsObject
 
     AudioSource audioData;
 
-    /*public GameObject shot;
-    public Transform shotSpawn;
-    public float fireRate;
-
-    private float nextFire;*/
-
     private SpriteRenderer spriteRenderer;
-    //private Animator animator;
 
-    // Use this for initialization
     void Awake()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
-        //animator = GetComponent<Animator>();
         audioData = GetComponent<AudioSource>();
     }
 
@@ -47,11 +38,6 @@ public class PlayerPlatformerController : PhysicsObject
                 velocity.y = velocity.y * 0.5f;
             }
         }
-        /*if (Input.GetButton("Fire1") && Time.time > nextFire)
-        {
-            nextFire = Time.time + fireRate;
-            Instantiate(shot, shotSpawn.position, shotSpawn.rotation);
-        }*/
 
         if (Input.GetButtonDown("Fire1"))
         {
@@ -64,9 +50,6 @@ public class PlayerPlatformerController : PhysicsObject
             spriteRenderer.flipX = !spriteRenderer.flipX;
         }
 
-        //animator.SetBool("grounded", grounded);
-        //animator.SetFloat("velocityX", Mathf.Abs(velocity.x) / maxSpeed);
-
         targetVelocity = move * maxSpeed;
     }
 
@@ -77,7 +60,6 @@ public class PlayerPlatformerController : PhysicsObject
             bulletSpawn.position,
             bulletSpawn.rotation);
 
-        //audioData = GetComponent<AudioSource>();
         audioData.Play(0);
 
         bullet.GetComponent<Rigidbody2D>().velocity = bullet.transform.forward * 6;

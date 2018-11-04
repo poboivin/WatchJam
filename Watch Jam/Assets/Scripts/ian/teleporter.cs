@@ -21,7 +21,6 @@ public class teleporter : MonoBehaviour {
                 source.clip = clip;
                 source.Play();
             }
-            else Debug.Log("FAIL");
 
             if (collision.GetComponent<TimeZone>())
             {

@@ -14,6 +14,9 @@ public class LifeSpan : MonoBehaviour
     public Image lifeDisplay;
     [SerializeField]
     private float currentLife = 0;
+    public SpriteRenderer sp;
+    public AudioClip clip;
+    public AudioSource source;
   
 	// Use this for initialization
 	void Start ()
@@ -39,10 +42,17 @@ public class LifeSpan : MonoBehaviour
     public float SubstactLife(float amount)
     {
         currentLife -= amount;
-      //  Debug.Log(currentLife);
+        if (clip != null && source != null)
+        {
+            source.clip = clip;
+            source.Play();
+        }
+        StartCoroutine(ianCoroutine());
+        StopCoroutine(ianCoroutine());
 
-        
-        if(currentLife <= 0)
+
+
+        if (currentLife <= 0)
         {
           
             return currentLife + amount;
@@ -96,6 +106,17 @@ public class LifeSpan : MonoBehaviour
         }
         myGun.enabled = false;
         this.enabled = false;
-       // Destroy(this.gameObject);
+    }
+
+    public IEnumerator ianCoroutine()
+    {
+        if (sp != null)
+        {
+            sp.material.SetFloat("_FlashAmount", 1);
+            yield return new WaitForSeconds(0.2f);
+
+            sp.material.SetFloat("_FlashAmount", 0);
+        }
+
     }
 }
