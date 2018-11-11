@@ -136,6 +136,7 @@ MonoBehaviour:
   lerpMode: 0
   TimeAlive: 10
   TimeFactor: 4
+  canDie: 0
 --- !u!212 &212920548873893386
 SpriteRenderer:
   m_ObjectHideFlags: 1
