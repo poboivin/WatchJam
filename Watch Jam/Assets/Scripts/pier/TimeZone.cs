@@ -10,7 +10,13 @@ public class TimeZone : MonoBehaviour
     public LerpUtility.lerpMode lerpMode;
     public float TimeAlive = 10f;
     public float TimeFactor = 0.25f;
+    private Vector3 endSize;
+    public bool canDie = true;
     // Use this for initialization
+    public void Start()
+    {
+        endSize = transform.localScale;
+    }
     public void Update()
     {
 
@@ -20,7 +26,7 @@ public class TimeZone : MonoBehaviour
 
             float perc = LerpUtility.Lerp(currentLerpTime, lerpTime, lerpMode);
 
-            transform.localScale = Vector3.Lerp(Vector3.zero, Vector3.one, perc);
+            transform.localScale = Vector3.Lerp(Vector3.zero, endSize, perc);
             if (currentLerpTime > lerpTime)
             {
 
@@ -33,7 +39,7 @@ public class TimeZone : MonoBehaviour
             TimeAlive -= Time.deltaTime;
             if(TimeAlive <= 0)
             {
-                Destroy(this.gameObject);
+                death();
             }
         }
     }
@@ -50,12 +56,12 @@ public class TimeZone : MonoBehaviour
         //delete if come in to contact with other zone
         if (col.GetComponent<TimeZone>() != null)
         {
-            Destroy(this.gameObject);
+            death();
         }
         //delete if come into contact with teleporter 
         if(col.GetComponent<teleporter>() != null)
         {
-            Destroy(this.gameObject);
+            death();
         }
         //     Explode();
     }
@@ -68,5 +74,13 @@ public class TimeZone : MonoBehaviour
             timeController.ResetTimeScale();
         }
         //     Explode();
+    }
+    private void death()
+    {
+        if (canDie)
+        {
+            Destroy(this.gameObject);
+
+        }
     }
 }
