@@ -29,6 +29,8 @@ public class PlayerControl : MonoBehaviour
 
     public float MagicNum = 6;
     private TimeController myTimeController;
+
+    public int PortalEntry = 0;
     
     void Awake()
 	{
