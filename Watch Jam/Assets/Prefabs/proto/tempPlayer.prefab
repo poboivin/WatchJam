@@ -535,7 +535,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lifeDisplay: {fileID: 114283122716673482}
-  totalLife: 60
+  currentLife: 0
+  sp: {fileID: 0}
+  clip: {fileID: 0}
+  source: {fileID: 0}
 --- !u!114 &114167021067090652
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -547,15 +550,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d9bf156813c141e98b61835f46356f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inputManager: {fileID: 114331167654554102}
-  myAmmo: {fileID: 114906075837189912}
   ShootButton: 2
-  GrenadeButton: 0
   rocket: {fileID: 50999528603641048, guid: 37327ebed1db7f042a406d88662deb0f, type: 2}
-  Grenade: {fileID: 50568159247723382, guid: f006c51a132662c45a63f2fc9e9a3dd1, type: 2}
   speed: 25
   fireRate: 0.1
   gunPivot: {fileID: 4647139332115078}
+  MuzzleFlashPrefab: {fileID: 0}
   angle: 0
   x: 0
   y: 0
@@ -570,8 +570,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6804babace5cc47dd8b61abb292c4be2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inputManager: {fileID: 114331167654554102}
-  button: 0
+  myInputManager: {fileID: 0}
+  jumpButton: 0
+  myAnimator: {fileID: 0}
   facingRight: 1
   jump: 0
   moveForce: 150
@@ -594,6 +595,7 @@ MonoBehaviour:
   tauntDelay: 1
   normalJumpForce: 1200
   MagicNum: 6
+  PortalEntry: 0
   remaningForce: 0
   JumpMultiplier: 14
 --- !u!114 &114283122716673482
@@ -675,20 +677,31 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myRigidbody2D: {fileID: 0}
   myTimeBody: {fileID: 114980501106005586}
-  oldVelocity: {x: 0, y: 0}
   myAmmo: {fileID: 114906075837189912}
-  _timeScale: 1
-  vel: {x: 0, y: 0}
-  factor: 0.25
-  inputManager: {fileID: 114331167654554102}
+  myInputManager: {fileID: 0}
+  myAudioSource: {fileID: 0}
+  myAfterImage: {fileID: 0}
   TimeStop: 4
   Rewind: 5
   isRewinding: 0
   isStopped: 0
-  rewindAmmoFactor: 2
   stopTimeAmmoFactor: 1
   passiveAmmoFactor: 1
+  storedMomentum: {x: 0, y: 0}
   timeScale: 0
+  rewindEffect: {fileID: 0}
+  stopEffect: {fileID: 0}
+  OnStartTimeStop:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  OnStopTimeStop:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  timestoptrigger: 0
 --- !u!114 &114906075837189912
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -702,8 +715,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MaxAmmo: 6
   CurrentAmmo: 0
-  HasGrenade: 0
-  Display: {fileID: 114311043033998808}
+  Grenade: {fileID: 0}
 --- !u!114 &114970132638194044
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -715,8 +727,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 197e2bca2096e9a46a743bd79452266e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeController: {fileID: 114461473489065094}
-  sprite: {fileID: 212951090099868022}
+  sprites: []
+  myMineRenderer: {fileID: 0}
 --- !u!114 &114980501106005586
 MonoBehaviour:
   m_ObjectHideFlags: 1

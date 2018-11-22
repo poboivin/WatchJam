@@ -78,6 +78,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f796085d8c9a7d44a93613e0035754b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  type: 0
+  Grenade: {fileID: 0}
 --- !u!212 &212119311568740598
 SpriteRenderer:
   m_ObjectHideFlags: 1
