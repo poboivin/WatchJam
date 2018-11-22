@@ -178,7 +178,7 @@ public class TimeController : MonoBehaviour
                 foreach (SineBob aura in timeAuras)
                 {
                     aura.Speed = 1 /( 1+ storedMomentum.magnitude/200);
-                    if(aura.Speed <= 0.03f)
+                    if(aura.Speed <= 0.03f && Settings.s.stopTimeStoreBullet == true)
                     {
                         StopTimeStop();
 
@@ -331,7 +331,7 @@ public class TimeController : MonoBehaviour
         // force /= newTimeScale / lastTimeScale; f = m * a
         if(isStopped == true && Settings.s.timeStopStore == true)
         {
-            storedMomentum += force *2;
+            storedMomentum += force ;
             //Debug.Log("biding my time");
         }
         else

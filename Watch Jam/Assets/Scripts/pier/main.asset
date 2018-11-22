@@ -17,15 +17,16 @@ MonoBehaviour:
   bulletKnockBack: 1
   bulletDamage: 4
   totalLife: 30
+  stopTimeStoreBullet: 0
   airControl: 0.4
   timeStopStore: 1
   timeStopKillVelocity: 1
   rewindKillVelocity: 1
   lifeDecay: 0
   lifeSteal: 0
-  rewindInvincibility: 1
+  rewindInvincibility: 0
   timeStopAmmoRegen: 0
-  rewindAmmoRegen: 1
-  passiveAmmoRegen: 0
+  rewindAmmoRegen: 0
+  passiveAmmoRegen: 1
   rewindAmmoFactor: 4
-  TwiceAsFastRewind: 1
+  TwiceAsFastRewind: 0

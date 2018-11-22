@@ -67,7 +67,7 @@ public class Gun : MonoBehaviour
 
 
         // If the fire button is pressed...
-        if (myTimeController.isRewinding == false && myInputManager.GetButtonDown(ShootButton) && (Time.time > nextFire || myTimeController.isStopped == true))
+        if (myTimeController.isRewinding == false && myInputManager.GetButtonDown(ShootButton) && (Time.time > nextFire ||( myTimeController.isStopped == true && Settings.s.stopTimeStoreBullet == true)))
         {
             nextFire = Time.time + fireRate;
             Rigidbody2D prefab = null;
@@ -110,7 +110,7 @@ public class Gun : MonoBehaviour
                         bulletInstance.GetComponent<Rocket>().myOwner = myLifeSpan;
 
                     }
-                    if (myTimeController.isStopped == true)
+                    if (myTimeController.isStopped == true  && Settings.s.stopTimeStoreBullet == true)
                     {
                         if (bulletInstance != null)
                         {
@@ -123,8 +123,6 @@ public class Gun : MonoBehaviour
                             }
                                 
                         }
-
-
 
                     }
 
@@ -162,7 +160,7 @@ public class Gun : MonoBehaviour
 
 
                     }
-                    if (myTimeController.isStopped == true)
+                    if (myTimeController.isStopped == true && Settings.s.stopTimeStoreBullet == true)
                     {
                         if (bulletInstance != null)
                         {
@@ -204,18 +202,19 @@ public class Gun : MonoBehaviour
 
     public void ReseumeRocket()
     {
-        foreach (bulletInfo b in bullets)
+        if ( Settings.s.stopTimeStoreBullet == true)
         {
-            Rigidbody2D RocketBullet = b.body;
+            foreach (bulletInfo b in bullets)
+            {
+                Rigidbody2D RocketBullet = b.body;
+                RocketBullet.GetComponent<Rocket>().enabled = true;
+                RocketBullet.GetComponent<BoxCollider2D>().enabled = true;
+                RocketBullet.velocity = b.vel;
+            }
 
-            RocketBullet.GetComponent<Rocket>().enabled = true;
-            RocketBullet.GetComponent<BoxCollider2D>().enabled = true;
-            RocketBullet.velocity = b.vel;
-
-
+            bullets.Clear();
         }
-
-        bullets.Clear();
+      
     }
 
 }

@@ -12,7 +12,7 @@ public class GlobalSettings : ScriptableObject
     public float bulletKnockBack = 10f;
     public float bulletDamage = 4f;
     public float totalLife = 60;
-
+    public bool stopTimeStoreBullet = false;
     [Range (0,1)]
     public float airControl = 0;
     [Header("velocity")]

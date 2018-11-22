@@ -15,32 +15,21 @@ public class PierInputManager : MonoBehaviour
     }
     public float GetAxis( string axisName)
     {
-
         return player.GetAxis(axisName);
-
-
     }
  
     public bool GetButton( ButtonName buttonName)
     {
-      
-            return player.GetButton(buttonName.ToString());
-
+        return player.GetButton(buttonName.ToString());
     }
 
     public bool GetButtonDown( ButtonName buttonName)
     {
-
-            return player.GetButtonDown(buttonName.ToString());
-
-  
+        return player.GetButtonDown(buttonName.ToString());
     }
    
     public  bool GetButtonUp(ButtonName buttonName)
     {
-    
-            return player.GetButtonUp(buttonName.ToString());
-
-        
+        return player.GetButtonUp(buttonName.ToString());
     }
 }
