@@ -109,7 +109,7 @@ public class KinematicPlayerControl : MonoBehaviour
 		Vector2 xMovement = Mathf.Sign (h) * new Vector2 (1, 0) * speed * myTimeController.timeScale * Time.deltaTime;
 		Vector2 yMovement = new Vector2 (0, 1) * aSpeed *  Time.deltaTime;
 
-		if (!myTimeController.isStopped && !myTimeController.isRewinding) //if time isn't stopped
+		if (!myTimeController.isStopped && !myTimeController.isRewinding) //if time isn't stopped or rewinding
 		{
 			if (grounded)  //if on the ground
 			{
