@@ -92,7 +92,7 @@ public class KinematicPlayerControl2 : MonoBehaviour
 			jumpTime += Time.deltaTime;  //Times the jump
 		}
 
-		if (myInputManager.GetButtonDown(ShootButton))
+		if (myInputManager.GetButtonDown(ShootButton) && movementTime >= 0.25f) // If Player shoots, disable shoot input until gun can actually shoot and set velovity to 0 first for same knockback
 		{
 			rb.velocity = Vector2.zero;
 			hasShot = true;
@@ -100,9 +100,9 @@ public class KinematicPlayerControl2 : MonoBehaviour
 		}
 		 
 		movementTime += Time.deltaTime;
-		Debug.Log (movementTime);
+		
 
-		if (grounded && movementTime >= movementWaitTime * 0.75f) {
+		if (grounded && movementTime >= movementWaitTime * 0.75f) {  // If player shoots, disable movement input so knockback can work
 			hasShot = false;
 		} else if (movementTime >= movementWaitTime) {
 			hasShot = false;
@@ -145,11 +145,11 @@ public class KinematicPlayerControl2 : MonoBehaviour
 
 
 		Vector2 xMovement = Mathf.Sign (h) * new Vector2 (1, 0) * speed * myTimeController.timeScale * Time.deltaTime * 50;
-		float xMoveFloat =  Mathf.Sign (h) * speed * myTimeController.timeScale * Time.deltaTime * 50;
+		float xMoveFloat =  Mathf.Sign (h) * speed * myTimeController.timeScale * Time.deltaTime * 50; //float version to add to velocity.x specifically
 		Vector2 yMovement = new Vector2 (0, 1) * aSpeed *  Time.deltaTime * 45;
 
 	
-		if (!myTimeController.isStopped && !myTimeController.isRewinding && !hasShot) //if time isn't stopped or rewinding
+		if (!myTimeController.isStopped && !myTimeController.isRewinding && !hasShot) //if time isn't stopped or rewinding and player hasnt shot
 		{
 			if (grounded)  //if on the ground
 			{
