@@ -6,6 +6,8 @@ using UnityEngine.UI;
 public class LifeSpan : MonoBehaviour
 {
     TimeController myTimeController;
+    TimeRewindController myTimeRewindController;
+    TimeStopController myTimeStopController;
     PlayerControl myPlayerControl;
     Rigidbody2D myRigidbody2D;
     Animator myAnimator;
@@ -21,6 +23,8 @@ public class LifeSpan : MonoBehaviour
         myAnimator = gameObject.GetComponentInChildren<Animator>();
         currentLife = Settings.s.totalLife;
         myTimeController = gameObject.GetComponent<TimeController>();
+        myTimeRewindController = gameObject.GetComponent<TimeRewindController>();
+        myTimeStopController = gameObject.GetComponent<TimeStopController>();
         myRigidbody2D = GetComponent<Rigidbody2D>();
         myPlayerControl = GetComponent<PlayerControl>();
         myGun = GetComponentInChildren<Gun>();
@@ -86,13 +90,13 @@ public class LifeSpan : MonoBehaviour
         myPlayerControl.enabled = false;
         myRigidbody2D.freezeRotation = false;
         myTimeController.enabled = false;
-        if (myTimeController.isStopped)
+        if ( myTimeStopController.isStopped)
         {
-            myTimeController.StopTimeStop();
+            myTimeStopController.StopTimeStop();
         }
-        if (myTimeController.isRewinding)
+        if (myTimeRewindController.isRewinding)
         {
-            myTimeController.StopRewind();
+            myTimeRewindController.StopRewind();
         }
         myGun.enabled = false;
         this.enabled = false;
