@@ -23,8 +23,6 @@ public class LifeSpan : MonoBehaviour
         myAnimator = gameObject.GetComponentInChildren<Animator>();
         currentLife = Settings.s.totalLife;
         myTimeController = gameObject.GetComponent<TimeController>();
-        myTimeRewindController = gameObject.GetComponent<TimeRewindController>();
-        myTimeStopController = gameObject.GetComponent<TimeStopController>();
         myRigidbody2D = GetComponent<Rigidbody2D>();
         myPlayerControl = GetComponent<PlayerControl>();
         myGun = GetComponentInChildren<Gun>();
@@ -90,13 +88,13 @@ public class LifeSpan : MonoBehaviour
         myPlayerControl.enabled = false;
         myRigidbody2D.freezeRotation = false;
         myTimeController.enabled = false;
-        if ( myTimeStopController.isStopped)
+        if ( myTimeController.isStopped)
         {
-            myTimeStopController.StopTimeStop();
+            myTimeController.StopTimeStop();
         }
-        if (myTimeRewindController.isRewinding)
+        if ( myTimeController.isRewinding)
         {
-            myTimeRewindController.StopRewind();
+            myTimeController.StopRewind();
         }
         myGun.enabled = false;
         this.enabled = false;
