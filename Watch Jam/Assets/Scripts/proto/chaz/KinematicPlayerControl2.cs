@@ -58,6 +58,7 @@ public class KinematicPlayerControl2 : MonoBehaviour
 
 	void Update()
 	{
+		Debug.Log (rb.velocity);
 
 		if (myTimeController.timeScale != 1) //if in a timezone, change air speed so height will remain the same
 			aSpeed = airSpeed * myTimeController.timeScale;
@@ -92,7 +93,7 @@ public class KinematicPlayerControl2 : MonoBehaviour
 			jumpTime += Time.deltaTime;  //Times the jump
 		}
 
-		if (myInputManager.GetButtonDown(ShootButton) && movementTime >= 0.25f) // If Player shoots, disable shoot input until gun can actually shoot and set velovity to 0 first for same knockback
+		if (myInputManager.GetButtonDown(ShootButton) && movementTime >= 0.25f || myInputManager.GetButtonUp(myTimeController.TimeStop)) // If Player shoots, disable shoot input until gun can actually shoot and set velovity to 0 first for same knockback
 		{
 			rb.velocity = Vector2.zero;
 			hasShot = true;
