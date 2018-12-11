@@ -25,19 +25,30 @@ public class TimeStopController : MonoBehaviour
 		
 	}
 
+    // this trigger variable checks if the time power activates here or somewhere else.
+    private bool controllerTriggered = false;
     // Update is called once per frame
     void Update()
     {
-        if( myTimeController.isStopped == false && 
+        if( myTimeController.isStopped == false &&
+            controllerTriggered == false &&
             myInputManager.GetAxis( TimeStop.ToString() ) > 0.5f && 
             ( myAmmo.CurrentAmmo < myAmmo.MaxAmmo || Settings.s.noLimits ) )
         {
             myTimeController.StartTimeStop();
+            controllerTriggered = true;
         }
-        if( myTimeController.isStopped == true && 
+        if( myTimeController.isStopped == true &&
+            controllerTriggered == true &&
             myInputManager.GetAxis( TimeStop.ToString() ) < 0.1f )
         {
             myTimeController.StopTimeStop();
+            controllerTriggered = false;
         }
+
+        // release trigger in case more than two stop events happen at the same time.
+        if( myTimeController.isStopped == false && controllerTriggered == true )
+            controllerTriggered = false;
+
     }
 }

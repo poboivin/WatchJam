@@ -26,26 +26,34 @@ public class TimeRewindController : MonoBehaviour
     void Start () {
 		
 	}
-	
+
+    // this trigger variable checks if the time power activates here or somewhere else.
+    private bool controllerTriggered = false;
 	// Update is called once per frame
 	void Update () {
-        if( myInputManager.GetAxis( Rewind.ToString() ) > 0.01f )
-        {
-            myTimeController.myAfterImage.DrawLine();
-        }
 
-        if( myTimeController.isRewinding == false && 
+        if( myTimeController.isRewinding == false &&
+            controllerTriggered == false &&
             myInputManager.GetAxis( Rewind.ToString() ) > 0.6f && 
             ( myAmmo.CurrentAmmo < myAmmo.MaxAmmo || Settings.s.noLimits ) )
         {
             if( myTimeBody.pointsInTime.Count >= 60 )
+            {
                 myTimeController.StartRewind();
+            }
+            controllerTriggered = true;
         }
 
-        if( myTimeController.isRewinding == true && 
+        if( myTimeController.isRewinding == true &&
+            controllerTriggered == true &&
             myInputManager.GetAxis( Rewind.ToString() ) < 0.1f )
         {
             myTimeController.StopRewind();
+            controllerTriggered = false;
         }
+
+        // release trigger in case more than two rewind events happen at the same time.
+        if( myTimeController.isRewinding == false && controllerTriggered == true )
+            controllerTriggered = false;
     }
 }

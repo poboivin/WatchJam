@@ -79,6 +79,8 @@ public class TimeController : MonoBehaviour
     {
         if (isRewinding)
         {
+            myAfterImage.DrawLine();
+
             AmmoTimer += Time.deltaTime * Settings.s.rewindAmmoFactor;
             if (AmmoTimer >= 1)
             {
