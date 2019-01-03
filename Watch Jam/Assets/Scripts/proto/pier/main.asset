@@ -13,8 +13,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   noLimits: 1
   unlimitedAmmo: 1
-  gunKnockBack: 30
-  bulletKnockBack: 1
+  gunKnockBack: 1500
+  bulletKnockBack: 1500
   bulletDamage: 4
   totalLife: 30
   stopTimeStoreBullet: 0

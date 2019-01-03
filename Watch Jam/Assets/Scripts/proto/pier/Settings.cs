@@ -28,7 +28,7 @@ public class Settings : MonoBehaviour
 
         noLimitsToggle.isOn = s.noLimits;
         lifeDecayToggle.isOn = s.lifeDecay;
-        gunKockBackSlider.value = s.gunKnockBack;
+        //gunKockBackSlider.value = s.gunKnockBack;
         lifeStealToggle.isOn = s.lifeSteal;
         timeStopStoreToggle.isOn = s.timeStopStore;
         rewindKillVelocityToggle.isOn = s.rewindKillVelocity;
@@ -51,6 +51,7 @@ public class Settings : MonoBehaviour
     public Slider gunKockBackSlider;
     public void gunKockBack(float val)
     {
+        Debug.Log("yoo");
         s.gunKnockBack = val;
     }
     public Toggle lifeStealToggle;

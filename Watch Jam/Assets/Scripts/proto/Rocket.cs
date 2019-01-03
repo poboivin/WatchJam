@@ -23,7 +23,7 @@ public class Rocket : MonoBehaviour
 	}
 
 
-	void OnExplode()
+	public void OnExplode()
 	{
         //gameObject.GetComponent<CameraShake>().Shake(0.1f, 0.2f);
 
