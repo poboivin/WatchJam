@@ -31,6 +31,8 @@ public class PlayerControl : MonoBehaviour
     private TimeController myTimeController;
 
     public int PortalEntry = 0;
+
+    public GameObject heroBody;
     
     void Awake()
 	{
@@ -57,7 +59,7 @@ public class PlayerControl : MonoBehaviour
 	{
 
 		// Cache the horizontal input.
-		float h = myInputManager.GetAxis( "Horizontal");
+		float h = myInputManager.GetAxis( "MoveHorizontal");
 
         // The Speed animator parameter is set to the absolute value of the horizontal input.
         if (grounded && myTimeController.isStopped == false)
@@ -94,26 +96,25 @@ public class PlayerControl : MonoBehaviour
             // GetComponent<Rigidbody2D>().AddForce(new Vector2(Mathf.Sign(GetComponent<Rigidbody2D>().velocity.x) * maxSpeed, GetComponent<Rigidbody2D>().velocity.y));
         }
         // If the input is moving the player right and the player is facing left...
-        if (h > 0 &&  transform.localScale.x < 0)
+        if (h > 0 && heroBody.transform.localScale.x < 0)
         {
-            Vector3 theScale = transform.localScale;
+            Vector3 theScale = heroBody.transform.localScale;
             theScale.x *= -1;
-            transform.localScale = theScale;
-
+            heroBody.transform.localScale = theScale;
         }
 
         // Otherwise if the input is moving the player left and the player is facing right...
-        else if(h < 0 && transform.localScale.x > 0)
+        else if(h < 0 && heroBody.transform.localScale.x > 0)
         {
-            Vector3 theScale = transform.localScale;
+            Vector3 theScale = heroBody.transform.localScale;
             theScale.x *= -1;
-            transform.localScale = theScale;
+            heroBody.transform.localScale = theScale;
+
         }
 			
-        if( transform.localScale.x > 0)
+        if(heroBody.transform.localScale.x > 0)
         {
             facingRight = true;
-
         }
         else
         {

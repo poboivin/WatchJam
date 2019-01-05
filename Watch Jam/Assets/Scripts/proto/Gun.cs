@@ -32,6 +32,7 @@ public class Gun : MonoBehaviour
     private float nextFire = 0f;
     public Transform gunPivot;
     public Transform MuzzleFlashPrefab;
+    public SpriteRenderer armSprite;
 
 
     private GameObject[] RocketsFired;
@@ -52,19 +53,32 @@ public class Gun : MonoBehaviour
     }
     void Update()
     {
-        x = Mathf.Abs(myInputManager.GetAxis("Horizontal"));
-        y = myInputManager.GetAxis("Vertical");
+        x = myInputManager.GetAxis("AimHorizontal");
+        y = myInputManager.GetAxis("AimVertical");
+
         float theta_rad = Mathf.Atan2(y, x);
         float theta_deg = (theta_rad / Mathf.PI * 180) + (theta_rad > 0 ? 0 : 360);
         angle = theta_deg;//(angle + 360) % 360;
 
 
+        //if (myPlayerControl.facingRight && gunPivot.transform.localScale.x < 0.0f)
+        //{
+        //    Debug.Log("facing Right");
+        //    Vector3 theScale = gunPivot.transform.localScale;
+        //    theScale.x *= -1;
+        //    gunPivot.transform.localScale = theScale;
+        //}
+        //else if(!myPlayerControl.facingRight && gunPivot.transform.localScale.x > 0.0f)
+        //{
+        //    Debug.Log("facing Left");
+        //    Vector3 theScale = gunPivot.transform.localScale;
+        //    theScale.x *= -1;
+        //    gunPivot.transform.localScale = theScale;
 
-        //Debug.Log(angle + "");
+        //}
 
 
         gunPivot.localRotation = Quaternion.Euler(new Vector3(0, 0, angle)); //Rotating!
-
 
         // If the fire button is pressed...
         if (myTimeController.isRewinding == false && myInputManager.GetButtonDown(ShootButton) && (Time.time > nextFire ||( myTimeController.isStopped == true && Settings.s.stopTimeStoreBullet == true)))
@@ -97,9 +111,9 @@ public class Gun : MonoBehaviour
                 GetComponent<AudioSource>().Play();
                 Vector2 dir = Vector2.zero;
 
-                // If the player is facing right...
-                if (myPlayerControl.facingRight)
-                {
+                //// If the player is facing right...
+                //if (myPlayerControl.facingRight)
+                //{
                      // ... instantiate the rocket facing right and set it's velocity to the right. 
                     Rigidbody2D bulletInstance = Instantiate(prefab, transform.position, Quaternion.Euler(new Vector3(0, 0, 0))) as Rigidbody2D;
                     dir = new Vector2(transform.right.x, transform.right.y) * speed;
@@ -146,13 +160,13 @@ public class Gun : MonoBehaviour
                     //Destroy(clone, 0.02f);
                     Destroy(clone);
                     */
-                }
-                else
-                {
+                //}
+                //else
+                //{
                     // Otherwise instantiate the rocket facing left and set it's velocity to the left.
 
-                    Rigidbody2D bulletInstance = Instantiate(prefab, transform.position, Quaternion.Euler(new Vector3(0, 0, 180f))) as Rigidbody2D;
-                    dir = new Vector2(transform.right.x, transform.right.y) * -speed;
+                    //Rigidbody2D bulletInstance = Instantiate(prefab, transform.position, Quaternion.Euler(new Vector3(0, 0, 180f))) as Rigidbody2D;
+                    dir = new Vector2(transform.right.x, transform.right.y) * speed;
                     if (prefab == rocket)
                     {
                             bulletInstance.GetComponent<BulletLeach>().myOwner = myLifeSpan;
@@ -182,7 +196,7 @@ public class Gun : MonoBehaviour
                         Physics2D.IgnoreCollision(bulletInstance.GetComponent<Collider2D>(), this.GetComponentInParent<Collider2D>());
                     }
                  
-                }
+                //}
 
                 myTimeController.AddForce(-dir.normalized * Settings.s.gunKnockBack);
                // Debug.Log(-dir * Settings.s.gunKnockBack);
