@@ -23,4 +23,4 @@ MonoBehaviour:
   AltjumpButton: 11
   TimeStop: 6
   Rewind: 7
-  MeleeButton: 0
+  MeleeButton: 3

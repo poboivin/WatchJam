@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class meleeController : MonoBehaviour
 {
-    public PierInputManager.ButtonName AttackButton;
     [HideInInspector]
     public PierInputManager myInputManager;
     [HideInInspector]
@@ -21,7 +20,7 @@ public class meleeController : MonoBehaviour
     // Update is called once per frame
     void Update () {
         // If the jump button is pressed and the player is grounded then the player should jump.
-        if (myInputManager.GetButtonDown(AttackButton))
+        if (myInputManager.GetButtonDown(Settings.c.MeleeButton))
         {
             myAnimator.SetTrigger("attack");
         }
