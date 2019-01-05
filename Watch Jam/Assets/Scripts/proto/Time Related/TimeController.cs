@@ -24,8 +24,8 @@ public class TimeController : MonoBehaviour
     private float originalMass;
     private Vector2 oldVelocity;
 
-    public PierInputManager.ButtonName TimeStop;
-    public PierInputManager.ButtonName Rewind;
+    //public PierInputManager.ButtonName TimeStop;
+    //public PierInputManager.ButtonName Rewind;
     [SerializeField]
     public bool isRewinding = false;
     [SerializeField]
@@ -79,7 +79,7 @@ public class TimeController : MonoBehaviour
     public bool timestoptrigger = false;
     void Update()
     {
-        if (myInputManager.GetAxis( TimeStop.ToString()) > 0.5f && timestoptrigger == false && (myAmmo.CurrentAmmo < myAmmo.MaxAmmo || Settings.s.noLimits))
+        if (myInputManager.GetAxis(Settings.c.TimeStop) > 0.5f && timestoptrigger == false && (myAmmo.CurrentAmmo < myAmmo.MaxAmmo || Settings.s.noLimits))
         {
             if(isStopped == false)
             {
@@ -87,7 +87,7 @@ public class TimeController : MonoBehaviour
             }
             timestoptrigger = true;
         }
-        if (myInputManager.GetAxis( TimeStop.ToString()) < 0.1f)
+        if (myInputManager.GetAxis(Settings.c.TimeStop) < 0.1f)
         {
             if(isStopped == true)
             {
@@ -111,17 +111,17 @@ public class TimeController : MonoBehaviour
             StopTimeStop();
         }*/
 
-        if (myInputManager.GetAxis(Rewind.ToString()) > 0.01f)
+        if (myInputManager.GetAxis(Settings.c.Rewind) > 0.01f)
         {
             myAfterImage.DrawLine();
         }
-        if (myInputManager.GetAxis( Rewind.ToString()) >0.6f && (myAmmo.CurrentAmmo < myAmmo.MaxAmmo || Settings.s.noLimits))
+        if (myInputManager.GetAxis(Settings.c.Rewind) >0.6f && (myAmmo.CurrentAmmo < myAmmo.MaxAmmo || Settings.s.noLimits))
         {
          
             if (isRewinding == false && myTimeBody.pointsInTime.Count >= 60)
                 StartRewind();
         }
-        if (myInputManager.GetAxis( Rewind.ToString()) <0.1f && isRewinding == true)
+        if (myInputManager.GetAxis(Settings.c.Rewind) <0.1f && isRewinding == true)
         {
             StopRewind();
         }

@@ -21,7 +21,7 @@ public class Gun : MonoBehaviour
     private LifeSpan myLifeSpan;
     private PlayerControl myPlayerControl;       // Reference to the PlayerControl script.
     private TimeController myTimeController;
-
+  
     public PierInputManager.ButtonName ShootButton;   //button to shoot
 
 
@@ -53,8 +53,20 @@ public class Gun : MonoBehaviour
     }
     void Update()
     {
-        x = myInputManager.GetAxis("AimHorizontal");
-        y = myInputManager.GetAxis("AimVertical");
+        bool rightStickUsed = false;
+        if (myInputManager.GetAxis(Settings.c.MainAimXAxis)!= 0 || myInputManager.GetAxis(Settings.c.MainAimYAxis) != 0)
+        {
+            x = myInputManager.GetAxis(Settings.c.MainAimXAxis);
+            y = myInputManager.GetAxis(Settings.c.MainAimYAxis);
+            rightStickUsed = true;
+          
+        }
+        else if (myInputManager.GetAxis(Settings.c.AltAimXAxis) != 0 || myInputManager.GetAxis(Settings.c.AltAimYAxis) != 0)
+        {
+            x = myInputManager.GetAxis(Settings.c.AltAimXAxis);
+            y = myInputManager.GetAxis(Settings.c.AltAimYAxis);
+        }
+      
 
         float theta_rad = Mathf.Atan2(y, x);
         float theta_deg = (theta_rad / Mathf.PI * 180) + (theta_rad > 0 ? 0 : 360);
@@ -80,8 +92,12 @@ public class Gun : MonoBehaviour
 
         gunPivot.localRotation = Quaternion.Euler(new Vector3(0, 0, angle)); //Rotating!
 
+        bool shoot = (myTimeController.isRewinding == false && 
+            ((myInputManager.GetButtonDown(Settings.c.ShootButton) || myInputManager.GetButtonDown(Settings.c.AltShootButton) )||( rightStickUsed && Settings.s.AutoRStickShoot)) && 
+            (Time.time > nextFire || (myTimeController.isStopped == true && Settings.s.stopTimeStoreBullet == true)));
+
         // If the fire button is pressed...
-        if (myTimeController.isRewinding == false && myInputManager.GetButtonDown(ShootButton) && (Time.time > nextFire ||( myTimeController.isStopped == true && Settings.s.stopTimeStoreBullet == true)))
+        if (shoot)
         {
             nextFire = Time.time + fireRate;
             Rigidbody2D prefab = null;
@@ -139,7 +155,6 @@ public class Gun : MonoBehaviour
                         }
 
                     }
-
                     else
                     {
                         bulletInstance.velocity = dir;//new Vector2(speed, 0);

@@ -5,7 +5,7 @@ public class PlayerControl : MonoBehaviour
 {
     [HideInInspector]
     public PierInputManager myInputManager;
-    public PierInputManager.ButtonName jumpButton;
+  //  public PierInputManager.ButtonName jumpButton;
     [HideInInspector]
 
     public Animator myAnimator;
@@ -44,13 +44,13 @@ public class PlayerControl : MonoBehaviour
 	}
 
 
-	void Update()
-	{
-		// The player is grounded if a linecast to the groundcheck position hits anything on the ground layer.
-		grounded = Physics2D.Linecast(transform.position, groundCheck.position, 1 << LayerMask.NameToLayer("Ground"));  
+    void Update()
+    {
+        // The player is grounded if a linecast to the groundcheck position hits anything on the ground layer.
+        grounded = Physics2D.Linecast(transform.position, groundCheck.position, 1 << LayerMask.NameToLayer("Ground"));
 
-		// If the jump button is pressed and the player is grounded then the player should jump.
-		if(myInputManager.GetButtonDown(jumpButton) && grounded)
+        // If the jump button is pressed and the player is grounded then the player should jump.
+        if ((myInputManager.GetButtonDown(Settings.c.jumpButton) || myInputManager.GetButtonDown(Settings.c.AltjumpButton)) && grounded)
 			jump = true;
 	}
 
@@ -59,7 +59,7 @@ public class PlayerControl : MonoBehaviour
 	{
 
 		// Cache the horizontal input.
-		float h = myInputManager.GetAxis( "MoveHorizontal");
+		float h = myInputManager.GetAxis( Settings.c.MoveXAxis);
 
         // The Speed animator parameter is set to the absolute value of the horizontal input.
         if (grounded && myTimeController.isStopped == false)

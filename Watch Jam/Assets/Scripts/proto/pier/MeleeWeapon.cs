@@ -20,7 +20,7 @@ public class MeleeWeapon : MonoBehaviour
                 Vector3 dir = col.transform.position - this.transform.position;
 
                 col.GetComponent<TimeController>().AddForce(new Vector2(dir.x, 0).normalized * Settings.s.bulletKnockBack * 10);
-                myOwner.GetComponent<TimeController>().AddForce(new Vector2(-dir.x, 0).normalized * Settings.s.bulletKnockBack * 10);
+                //myOwner.GetComponent<TimeController>().AddForce(new Vector2(-dir.x, 0).normalized * Settings.s.bulletKnockBack * 10);
                // Debug.Log(col.GetComponent<TimeController>().gameObject.name);
                 float stealAmount = otherLife.SubstactLife(Settings.s.bulletDamage);
                 if (Settings.s.lifeSteal == true)

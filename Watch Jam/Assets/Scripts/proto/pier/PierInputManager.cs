@@ -17,7 +17,10 @@ public class PierInputManager : MonoBehaviour
     {
         return player.GetAxis(axisName);
     }
- 
+    public float GetAxis(ButtonName axisName)
+    {
+        return player.GetAxis(axisName.ToString());
+    }
     public bool GetButton( ButtonName buttonName)
     {
         return player.GetButton(buttonName.ToString());
