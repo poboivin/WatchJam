@@ -7,6 +7,8 @@ public class Settings : MonoBehaviour
 {
     public GlobalSettings mainSettings;
     public static GlobalSettings s;
+    public GlobalControls mainControls;
+    public static GlobalControls c;
     public static Settings _Instance;
 	// Use this for initialization
 	void Awake ()
@@ -25,7 +27,10 @@ public class Settings : MonoBehaviour
         {
             Settings.s = mainSettings;
         }
-
+        if (Settings.c == null)
+        {
+            Settings.c = mainControls;
+        }
         noLimitsToggle.isOn = s.noLimits;
         lifeDecayToggle.isOn = s.lifeDecay;
         //gunKockBackSlider.value = s.gunKnockBack;

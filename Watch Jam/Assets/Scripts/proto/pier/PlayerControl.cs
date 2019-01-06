@@ -5,7 +5,7 @@ public class PlayerControl : MonoBehaviour
 {
     [HideInInspector]
     public PierInputManager myInputManager;
-    public PierInputManager.ButtonName jumpButton;
+  //  public PierInputManager.ButtonName jumpButton;
     [HideInInspector]
 
     public Animator myAnimator;
@@ -31,6 +31,8 @@ public class PlayerControl : MonoBehaviour
     private TimeController myTimeController;
 
     public int PortalEntry = 0;
+
+    public GameObject heroBody;
     
     void Awake()
 	{
@@ -42,13 +44,13 @@ public class PlayerControl : MonoBehaviour
 	}
 
 
-	void Update()
-	{
-		// The player is grounded if a linecast to the groundcheck position hits anything on the ground layer.
-		grounded = Physics2D.Linecast(transform.position, groundCheck.position, 1 << LayerMask.NameToLayer("Ground"));  
+    void Update()
+    {
+        // The player is grounded if a linecast to the groundcheck position hits anything on the ground layer.
+        grounded = Physics2D.Linecast(transform.position, groundCheck.position, 1 << LayerMask.NameToLayer("Ground"));
 
-		// If the jump button is pressed and the player is grounded then the player should jump.
-		if(myInputManager.GetButtonDown(jumpButton) && grounded)
+        // If the jump button is pressed and the player is grounded then the player should jump.
+        if ((myInputManager.GetButtonDown(Settings.c.jumpButton) || myInputManager.GetButtonDown(Settings.c.AltjumpButton)) && grounded)
 			jump = true;
 	}
 
@@ -57,7 +59,7 @@ public class PlayerControl : MonoBehaviour
 	{
 
 		// Cache the horizontal input.
-		float h = myInputManager.GetAxis( "Horizontal");
+		float h = myInputManager.GetAxis( Settings.c.MoveXAxis);
 
         // The Speed animator parameter is set to the absolute value of the horizontal input.
         if (grounded && myTimeController.isStopped == false)
@@ -94,26 +96,25 @@ public class PlayerControl : MonoBehaviour
             // GetComponent<Rigidbody2D>().AddForce(new Vector2(Mathf.Sign(GetComponent<Rigidbody2D>().velocity.x) * maxSpeed, GetComponent<Rigidbody2D>().velocity.y));
         }
         // If the input is moving the player right and the player is facing left...
-        if (h > 0 &&  transform.localScale.x < 0)
+        if (h > 0 && heroBody.transform.localScale.x < 0)
         {
-            Vector3 theScale = transform.localScale;
+            Vector3 theScale = heroBody.transform.localScale;
             theScale.x *= -1;
-            transform.localScale = theScale;
-
+            heroBody.transform.localScale = theScale;
         }
 
         // Otherwise if the input is moving the player left and the player is facing right...
-        else if(h < 0 && transform.localScale.x > 0)
+        else if(h < 0 && heroBody.transform.localScale.x > 0)
         {
-            Vector3 theScale = transform.localScale;
+            Vector3 theScale = heroBody.transform.localScale;
             theScale.x *= -1;
-            transform.localScale = theScale;
+            heroBody.transform.localScale = theScale;
+
         }
 			
-        if( transform.localScale.x > 0)
+        if(heroBody.transform.localScale.x > 0)
         {
             facingRight = true;
-
         }
         else
         {
