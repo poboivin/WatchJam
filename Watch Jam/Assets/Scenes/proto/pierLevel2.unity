@@ -9147,6 +9147,7 @@ MonoBehaviour:
   fireRate: 0.25
   gunPivot: {fileID: 1568668012}
   MuzzleFlashPrefab: {fileID: 0}
+  armSprite: {fileID: 0}
   angle: 0
   x: 0
   y: 0
@@ -12865,8 +12866,6 @@ MonoBehaviour:
   myInputManager: {fileID: 0}
   myAudioSource: {fileID: 0}
   myAfterImage: {fileID: 0}
-  TimeStop: 6
-  Rewind: 7
   isRewinding: 0
   isStopped: 0
   stopTimeAmmoFactor: 1
@@ -12923,7 +12922,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myInputManager: {fileID: 0}
-  jumpButton: 2
   myAnimator: {fileID: 0}
   facingRight: 1
   jump: 0
@@ -12948,6 +12946,7 @@ MonoBehaviour:
   normalJumpForce: 1500
   MagicNum: 6
   PortalEntry: 0
+  heroBody: {fileID: 0}
   remaningForce: 0
   JumpMultiplier: 15
 --- !u!4 &1638209012
@@ -12980,7 +12979,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa1db951a9b8581498662bb074543eea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AttackButton: 3
   myInputManager: {fileID: 0}
   myAnimator: {fileID: 0}
 --- !u!1 &1642965253
@@ -13762,6 +13760,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainSettings: {fileID: 11400000, guid: b2889c19ba411d245a7b6af6d3205b5f, type: 2}
+  mainControls: {fileID: 11400000, guid: ac49b985bdf767d428f63e3845e3b772, type: 2}
   noLimitsToggle: {fileID: 1303222291}
   lifeDecayToggle: {fileID: 1068064771}
   gunKockBackSlider: {fileID: 1148133361}
