@@ -64,8 +64,8 @@ GameObject:
   - component: {fileID: 82056161313649056}
   - component: {fileID: 70386126325610904}
   - component: {fileID: 120090207187776640}
-  - component: {fileID: 114628875322879418}
-  - component: {fileID: 114985211868201684}
+  - component: {fileID: 114013301518698206}
+  - component: {fileID: 114090993928187250}
   m_Layer: 9
   m_Name: Hero (4)
   m_TagString: Player
@@ -75,7 +75,7 @@ GameObject:
   m_IsActive: 0
 --- !u!1 &1205817218711164
 GameObject:
-  m_ObjectHideFlags: 1
+  m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 6
@@ -353,13 +353,13 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1205817218711164}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.085, y: 0.089, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -0.42500085, y: 1.2274, z: 0}
+  m_LocalScale: {x: 5, y: 5, z: 5}
   m_Children:
   - {fileID: 4214221566417214}
   - {fileID: 4408388844419370}
-  m_Father: {fileID: 4128936240090396}
-  m_RootOrder: 0
+  m_Father: {fileID: 4375483093686152}
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4128936240090396
 Transform:
@@ -370,8 +370,7 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 5, y: 5, z: 5}
-  m_Children:
-  - {fileID: 4100940361315246}
+  m_Children: []
   m_Father: {fileID: 4335865565490584}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -430,6 +429,7 @@ Transform:
   - {fileID: 4914439764407676}
   - {fileID: 4731280905961298}
   - {fileID: 224107236340266318}
+  - {fileID: 4100940361315246}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 35.00935}
@@ -581,7 +581,7 @@ AudioSource:
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 128
+  Priority: 206
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500
@@ -783,12 +783,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d9bf156813c141e98b61835f46356f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ShootButton: 4
+  ShootButton: 10
   rocket: {fileID: 50999528603641048, guid: 37327ebed1db7f042a406d88662deb0f, type: 2}
   speed: 25
   fireRate: 0.25
   gunPivot: {fileID: 4100940361315246}
   MuzzleFlashPrefab: {fileID: 0}
+  armSprite: {fileID: 212422866968451050}
   angle: 0
   x: 0
   y: 0
@@ -825,6 +826,35 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: 30/30
+--- !u!114 &114013301518698206
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1175352376392076}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2e133c1a31a8ee47b172c6cffb52252, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myTimeBody: {fileID: 0}
+  myAmmo: {fileID: 0}
+  myInputManager: {fileID: 0}
+  Rewind: 7
+--- !u!114 &114090993928187250
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1175352376392076}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ee879b07b5b3914496ce80afefe71db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myAmmo: {fileID: 0}
+  myInputManager: {fileID: 0}
+  TimeStop: 6
 --- !u!114 &114309629406892800
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -860,7 +890,6 @@ MonoBehaviour:
   MaxAmmo: 6
   CurrentAmmo: 0
   Grenade: {fileID: 0}
-  Display: {fileID: 114442228324042378}
 --- !u!114 &114442228324042378
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -934,21 +963,6 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &114628875322879418
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1175352376392076}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e2e133c1a31a8ee47b172c6cffb52252, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  myTimeBody: {fileID: 0}
-  myAmmo: {fileID: 0}
-  myInputManager: {fileID: 0}
-  Rewind: 7
 --- !u!114 &114643939571262972
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1040,7 +1054,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myInputManager: {fileID: 0}
-  jumpButton: 2
   myAnimator: {fileID: 0}
   facingRight: 1
   jump: 0
@@ -1064,6 +1077,8 @@ MonoBehaviour:
   tauntDelay: 1
   normalJumpForce: 1500
   MagicNum: 6
+  PortalEntry: 0
+  heroBody: {fileID: 1920813055422964}
   remaningForce: 0
   JumpMultiplier: 15
 --- !u!114 &114775547389152026
@@ -1178,6 +1193,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lifeDisplay: {fileID: 114875163990591600}
   currentLife: 0
+  sp: {fileID: 0}
+  clip: {fileID: 0}
+  source: {fileID: 0}
 --- !u!114 &114929909580718818
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1193,20 +1211,6 @@ MonoBehaviour:
   Amplitude: 0.5
   Speed: 0.2
   Local: 1
---- !u!114 &114985211868201684
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1175352376392076}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0ee879b07b5b3914496ce80afefe71db, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  myAmmo: {fileID: 0}
-  myInputManager: {fileID: 0}
-  TimeStop: 6
 --- !u!120 &120090207187776640
 LineRenderer:
   m_ObjectHideFlags: 1
