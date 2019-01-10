@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb27e142a701f924c96468f3e76ce925, type: 3}
+  m_Name: main
+  m_EditorClassIdentifier: 
+  noLimits: 1
+  unlimitedAmmo: 1
+  gunKnockBack: 1500
+  bulletKnockBack: 1500
+  bulletDamage: 4
+  totalLife: 30
+  stopTimeStoreBullet: 0
+  airControl: 0.4
+  timeStopStore: 1
+  timeStopKillVelocity: 1
+  rewindKillVelocity: 1
+  lifeDecay: 0
+  lifeSteal: 0
+  rewindInvincibility: 0
+  timeStopAmmoRegen: 0
+  rewindAmmoRegen: 0
+  passiveAmmoRegen: 1
+  rewindAmmoFactor: 4
+  TwiceAsFastRewind: 0
