@@ -93,7 +93,7 @@ public class KinematicPlayerControl2 : MonoBehaviour
 			jumpTime += Time.deltaTime;  //Times the jump
 		}
 
-		if (myInputManager.GetButtonDown(ShootButton) && movementTime >= 0.25f || myInputManager.GetButtonUp(myTimeController.TimeStop)) // If Player shoots, disable shoot input until gun can actually shoot and set velovity to 0 first for same knockback
+		if (myInputManager.GetButtonDown(ShootButton) && movementTime >= 0.25f || myInputManager.GetButtonUp(Settings.c.TimeStop)) // If Player shoots, disable shoot input until gun can actually shoot and set velovity to 0 first for same knockback
 		{
 			rb.velocity = Vector2.zero;
 			hasShot = true;

@@ -6,7 +6,7 @@ using Rewired;
 public class PierInputManager : MonoBehaviour
 {
     public enum PlayerNumber { P1, P2, P3, P4, PC }
-    public enum ButtonName {Horizontal,Vertical, Fire1 , Fire2, Fire3 , Fire4, Rtrigger,Ltrigger }
+    public enum ButtonName {MoveHorizontal, MoveVertical, Fire1 , Fire2, Fire3 , Fire4, Rtrigger,Ltrigger, AimHorizontal, AimVertical,RBumper,LBumper }
     public PlayerNumber playerNumber;
     public Player player;
     public void Awake()
@@ -17,7 +17,10 @@ public class PierInputManager : MonoBehaviour
     {
         return player.GetAxis(axisName);
     }
- 
+    public float GetAxis(ButtonName axisName)
+    {
+        return player.GetAxis(axisName.ToString());
+    }
     public bool GetButton( ButtonName buttonName)
     {
         return player.GetButton(buttonName.ToString());
