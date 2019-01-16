@@ -3210,6 +3210,7 @@ GameObject:
   - component: {fileID: 425707044}
   - component: {fileID: 425707043}
   - component: {fileID: 425707042}
+  - component: {fileID: 425707054}
   m_Layer: 9
   m_Name: Hero (2)
   m_TagString: Player
@@ -3629,6 +3630,23 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 35.00935}
+--- !u!114 &425707054
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 425707041}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d5538730d6d9d447a949e941a2de3c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myTimeController: {fileID: 0}
+  VelocityMagnitude: 50
+  Duration: 0.15
+  conter: 0
+  active: 0
+  leftOverFactor: 0.33
 --- !u!1 &451349364
 GameObject:
   m_ObjectHideFlags: 0
@@ -14326,6 +14344,7 @@ GameObject:
   - component: {fileID: 1638209003}
   - component: {fileID: 1638209002}
   - component: {fileID: 1638209001}
+  - component: {fileID: 1638209013}
   m_Layer: 9
   m_Name: Hero (1)
   m_TagString: Player
@@ -14745,6 +14764,23 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 35.00935}
+--- !u!114 &1638209013
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1638209000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d5538730d6d9d447a949e941a2de3c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myTimeController: {fileID: 0}
+  VelocityMagnitude: 50
+  Duration: 0.15
+  conter: 0
+  active: 0
+  leftOverFactor: 0.33
 --- !u!1 &1641904259
 GameObject:
   m_ObjectHideFlags: 0
@@ -14939,6 +14975,7 @@ GameObject:
   - component: {fileID: 1645379354}
   - component: {fileID: 1645379353}
   - component: {fileID: 1645379352}
+  - component: {fileID: 1645379364}
   m_Layer: 9
   m_Name: Hero (4)
   m_TagString: Player
@@ -15358,6 +15395,23 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 35.00935}
+--- !u!114 &1645379364
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1645379351}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d5538730d6d9d447a949e941a2de3c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myTimeController: {fileID: 0}
+  VelocityMagnitude: 50
+  Duration: 0.15
+  conter: 0
+  active: 0
+  leftOverFactor: 0.33
 --- !u!1 &1656035476
 GameObject:
   m_ObjectHideFlags: 0
@@ -17760,6 +17814,7 @@ GameObject:
   - component: {fileID: 1962224585}
   - component: {fileID: 1962224584}
   - component: {fileID: 1962224583}
+  - component: {fileID: 1962224595}
   m_Layer: 9
   m_Name: Hero (3)
   m_TagString: Player
@@ -18179,6 +18234,23 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 35.00935}
+--- !u!114 &1962224595
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1962224582}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d5538730d6d9d447a949e941a2de3c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myTimeController: {fileID: 0}
+  VelocityMagnitude: 50
+  Duration: 0.15
+  conter: 0
+  active: 0
+  leftOverFactor: 0.33
 --- !u!1 &1965571275
 GameObject:
   m_ObjectHideFlags: 0

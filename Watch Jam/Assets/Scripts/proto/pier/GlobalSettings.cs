@@ -31,4 +31,6 @@ public class GlobalSettings : ScriptableObject
     public float rewindAmmoFactor = 4f;
 
     public bool TwiceAsFastRewind = false;
+    public bool ImmobileRecord = true;
+
 }

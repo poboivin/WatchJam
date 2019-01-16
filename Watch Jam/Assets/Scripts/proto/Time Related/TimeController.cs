@@ -118,7 +118,7 @@ public class TimeController : MonoBehaviour
         if (myInputManager.GetAxis(Settings.c.Rewind) >0.6f && (myAmmo.CurrentAmmo < myAmmo.MaxAmmo || Settings.s.noLimits))
         {
          
-            if (isRewinding == false && myTimeBody.pointsInTime.Count >= 60)
+            if (isRewinding == false )///&& myTimeBody.pointsInTime.Count >= 60
                 StartRewind();
         }
         if (myInputManager.GetAxis(Settings.c.Rewind) <0.1f && isRewinding == true)
@@ -189,6 +189,20 @@ public class TimeController : MonoBehaviour
         }
         else
         {
+            if(Settings.s.ImmobileRecord == false)
+            {
+                if(myRigidbody2D.velocity.sqrMagnitude == 0)
+                {
+                    myTimeBody.isRecording = false;
+
+                }
+                else
+                {
+                    myTimeBody.isRecording = true;
+
+                }
+            }
+
             if (Settings.s.passiveAmmoRegen == true)
             {
                 AmmoTimer += Time.deltaTime * passiveAmmoFactor;

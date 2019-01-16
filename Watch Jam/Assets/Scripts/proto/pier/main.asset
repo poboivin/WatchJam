@@ -12,20 +12,20 @@ MonoBehaviour:
   m_Name: main
   m_EditorClassIdentifier: 
   noLimits: 1
-  unlimitedAmmo: 1
-  AutoRStickShoot: 0
-  gunKnockBack: 1500
-  bulletKnockBack: 500
+  unlimitedAmmo: 0
+  AutoRStickShoot: 1
+  gunKnockBack: 0
+  bulletKnockBack: 0
   bulletDamage: 4
-  totalLife: 30
+  totalLife: 16
   stopTimeStoreBullet: 0
   airControl: 1
-  timeStopStore: 1
+  timeStopStore: 0
   timeStopKillVelocity: 1
   rewindKillVelocity: 1
   lifeDecay: 0
   lifeSteal: 0
-  rewindInvincibility: 0
+  rewindInvincibility: 1
   timeStopAmmoRegen: 0
   rewindAmmoRegen: 0
   passiveAmmoRegen: 1
