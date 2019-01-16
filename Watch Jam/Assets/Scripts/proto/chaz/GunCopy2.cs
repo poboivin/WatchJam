@@ -25,7 +25,8 @@ public class GunCopy2 : MonoBehaviour //This was made because the previous gun s
 	public PierInputManager.ButtonName ShootButton;   //button to shoot
 
 
-	public Rigidbody2D rocket;              // Prefab of the rocket.
+	public Rigidbody2D rocket;     // Prefab of the rocket.        
+	public Rigidbody2D chain;        
 
 	public float speed = 20f;				// The speed the rocket will fire at.
 	public float fireRate = 0.3f;
