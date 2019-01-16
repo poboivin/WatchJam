@@ -186,7 +186,7 @@ public class GunCopy2 : MonoBehaviour //This was made because the previous gun s
 				Vector2 dir2;
 				dir2.x = dir.x;
 				dir2.y = dir.y * 2;
-				myTimeController.AddForce(-dir2*1.25f  * Settings.s.gunKnockBack);
+				myTimeController.AddForce(-dir2/50  * Settings.s.gunKnockBack);
 				// Debug.Log(-dir * Settings.s.gunKnockBack);
 			}
 

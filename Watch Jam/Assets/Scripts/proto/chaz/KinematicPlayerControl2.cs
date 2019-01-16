@@ -39,6 +39,12 @@ public class KinematicPlayerControl2 : MonoBehaviour
 	private float movementTime = 0.0f;
 	private float fallHeight;
 
+	public bool isChained = false;
+	public bool isChained2 = false;
+	bool isChainedOuter = false;
+	bool hasLoc = false;
+	public Vector3 chainedLocation;
+
 
 
 
@@ -58,7 +64,7 @@ public class KinematicPlayerControl2 : MonoBehaviour
 
 	void Update()
 	{
-		Debug.Log (rb.velocity);
+
 
 		if (myTimeController.timeScale != 1) //if in a timezone, change air speed so height will remain the same
 			aSpeed = airSpeed * myTimeController.timeScale;
@@ -109,13 +115,46 @@ public class KinematicPlayerControl2 : MonoBehaviour
 			hasShot = false;
 		}
 
-	
+		if (isChained && !hasLoc) {
+			//chainedLocation = this.gameObject.transform.position;
+			hasLoc = true;
+			Debug.Log ("chained");
+		}
+
+		if (isChained) {
+			float radius = 5.0f; //radius of *black circle*//center of *black circle*
+			float distance = Vector3.Distance(transform.position, chainedLocation); //distance from ~green object~ to *black circle*
+
+			if (distance > radius) //If the distance is less than the radius, it is already within the circle.
+			{
+				Vector3 fromOriginToObject = transform.position - chainedLocation; //~GreenPosition~ - *BlackCenter*
+				fromOriginToObject *= radius / distance; //Multiply by radius //Divide by Distance
+				transform.position = chainedLocation + fromOriginToObject; //*BlackCenter* + all that Math
+			}
+		}
 
 	}
 
 
 	void FixedUpdate ()
 	{
+		Debug.Log (chainedLocation);
+	
+
+//		if (isChained) {
+//			float angle = Vector2.Angle (this.transform.position - chainedLocation, Physics.gravity.normalized);
+//			float distance = Vector3.Distance(chainedLocation, transform.position);
+//			float tension = (rb.mass * rb.gravityScale * Mathf.Cos (Mathf.Deg2Rad * angle));
+//			float centripetal = ((rb.mass * Mathf.Pow(rb.velocity.magnitude, 2)/5.0f));
+//			Vector2 dir = chainedLocation - this.transform.position;
+//			tension += centripetal;
+//			if (distance >= 5.0f) {
+//				isChainedOuter = true;
+//				rb.velocity += dir * tension * Time.deltaTime;
+//			} else
+//				isChainedOuter = false;
+//		}
+
 
 		// Cache the horizontal input.
 		float h = myInputManager.GetAxis( "Horizontal");
@@ -150,7 +189,7 @@ public class KinematicPlayerControl2 : MonoBehaviour
 		Vector2 yMovement = new Vector2 (0, 1) * aSpeed *  Time.deltaTime * 45;
 
 	
-		if (!myTimeController.isStopped && !myTimeController.isRewinding && !hasShot) //if time isn't stopped or rewinding and player hasnt shot
+		if (!myTimeController.isStopped && !myTimeController.isRewinding && !hasShot && !isChained2) //if time isn't stopped or rewinding and player hasnt shot
 		{
 			if (grounded)  //if on the ground
 			{
