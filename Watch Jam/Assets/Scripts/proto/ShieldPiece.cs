@@ -27,7 +27,7 @@ public class ShieldPiece : MonoBehaviour {
 
     public void RefreshShield()
     {
-        isHit = true;
+        isHit = false;
         gameObject.SetActive( true );
     }
 }

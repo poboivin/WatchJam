@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class pickup : MonoBehaviour
 {
-    public enum pickUpType { health, grenade}
+    public enum pickUpType { health, grenade, shield }
     public pickUpType type;
     public Rigidbody2D Grenade;              // Prefab of the rocket.
 
@@ -34,6 +34,15 @@ public class pickup : MonoBehaviour
                 if(player != null && player.enabled == true)
                 {
                     player.Grenade = Grenade;
+                }
+            }
+            else if( type == pickUpType.shield )
+            {
+                Shield player = collision.GetComponentInChildren<Shield>();
+                if( player != null )
+                {
+                    Debug.Log( "Refresh shield" );
+                    player.RefreshShield();
                 }
             }
             Destroy(gameObject);
