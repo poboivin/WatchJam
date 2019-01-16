@@ -14,6 +14,10 @@ public class Shield : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         shieldPieces = GetComponentsInChildren<ShieldPiece>();
+        foreach( var piece in shieldPieces )
+        {
+            piece.gameObject.SetActive( false );
+        }
     }
 	
 	// Update is called once per frame
