@@ -158,7 +158,7 @@ public class Gun : MonoBehaviour
                     else
                     {
                         bulletInstance.velocity = dir;//new Vector2(speed, 0);
-                        
+                    bulletInstance.transform.right = bulletInstance.velocity;
                         Physics2D.IgnoreCollision(bulletInstance.GetComponent<Collider2D>(), this.GetComponentInParent<Collider2D>());
                     }
 
@@ -166,50 +166,50 @@ public class Gun : MonoBehaviour
 
                
                     
-                    /*
-                    //instantiate muzzle flash
-                    Transform clone = Instantiate(MuzzleFlashPrefab, gunPivot.position, gunPivot.rotation) as Transform;
-                    clone.parent = gunPivot;
-                    float size = Random.Range(0.6f, 0.9f);
-                    clone.localScale = new Vector3(size, size, 0);
-                    //Destroy(clone, 0.02f);
-                    Destroy(clone);
-                    */
-                //}
-                //else
-                //{
-                    // Otherwise instantiate the rocket facing left and set it's velocity to the left.
+                //    /*
+                //    //instantiate muzzle flash
+                //    Transform clone = Instantiate(MuzzleFlashPrefab, gunPivot.position, gunPivot.rotation) as Transform;
+                //    clone.parent = gunPivot;
+                //    float size = Random.Range(0.6f, 0.9f);
+                //    clone.localScale = new Vector3(size, size, 0);
+                //    //Destroy(clone, 0.02f);
+                //    Destroy(clone);
+                //    */
+                ////}
+                ////else
+                ////{
+                //    // Otherwise instantiate the rocket facing left and set it's velocity to the left.
 
-                    //Rigidbody2D bulletInstance = Instantiate(prefab, transform.position, Quaternion.Euler(new Vector3(0, 0, 180f))) as Rigidbody2D;
-                    dir = new Vector2(transform.right.x, transform.right.y) * speed;
-                    if (prefab == rocket)
-                    {
-                            bulletInstance.GetComponent<BulletLeach>().myOwner = myLifeSpan;
-                            bulletInstance.GetComponent<Rocket>().myOwner = myLifeSpan;
+                //    //Rigidbody2D bulletInstance = Instantiate(prefab, transform.position, Quaternion.Euler(new Vector3(0, 0, 180f))) as Rigidbody2D;
+                //    dir = new Vector2(transform.right.x, transform.right.y) * speed;
+                //    if (prefab == rocket)
+                //    {
+                //            bulletInstance.GetComponent<BulletLeach>().myOwner = myLifeSpan;
+                //            bulletInstance.GetComponent<Rocket>().myOwner = myLifeSpan;
 
 
-                    }
-                    if (myTimeController.isStopped == true && Settings.s.stopTimeStoreBullet == true)
-                    {
-                        if (bulletInstance != null)
-                        {
-                            if (bulletInstance.GetComponent<Rocket>() && bulletInstance.GetComponent<BoxCollider2D>())
-                            {
-                                bulletInstance.GetComponent<Rocket>().enabled = false;
+                //    }
+                //    if (myTimeController.isStopped == true && Settings.s.stopTimeStoreBullet == true)
+                //    {
+                //        if (bulletInstance != null)
+                //        {
+                //            if (bulletInstance.GetComponent<Rocket>() && bulletInstance.GetComponent<BoxCollider2D>())
+                //            {
+                //                bulletInstance.GetComponent<Rocket>().enabled = false;
 
-                                bulletInstance.GetComponent<BoxCollider2D>().enabled = false;
-                                bullets.Add(new bulletInfo(bulletInstance, dir));
-                            }
-                        }
+                //                bulletInstance.GetComponent<BoxCollider2D>().enabled = false;
+                //                bullets.Add(new bulletInfo(bulletInstance, dir));
+                //            }
+                //        }
                        
-                    }
+                //    }
 
-                    else
-                    {
-                        bulletInstance.velocity = dir;// new Vector2(-speed, 0);
+                //    else
+                //    {
+                //        bulletInstance.velocity = dir;// new Vector2(-speed, 0);
                     
-                        Physics2D.IgnoreCollision(bulletInstance.GetComponent<Collider2D>(), this.GetComponentInParent<Collider2D>());
-                    }
+                //        Physics2D.IgnoreCollision(bulletInstance.GetComponent<Collider2D>(), this.GetComponentInParent<Collider2D>());
+                //    }
                  
                 //}
 
