@@ -160,28 +160,32 @@ public class Gun : MonoBehaviour
                         bulletInstance.velocity = dir;//new Vector2(speed, 0);
                         
                         Physics2D.IgnoreCollision(bulletInstance.GetComponent<Collider2D>(), this.GetComponentInParent<Collider2D>());
-                    }
+                        foreach( Collider2D collider in transform.root.GetComponentsInChildren<Collider2D>() )
+                        {
+                            Physics2D.IgnoreCollision( bulletInstance.GetComponent<Collider2D>(), collider );
+                            Debug.Log( "ignore collision with " + collider.ToString() );
+                        }
 
-                
+                }
 
-               
-                    
-                    /*
-                    //instantiate muzzle flash
-                    Transform clone = Instantiate(MuzzleFlashPrefab, gunPivot.position, gunPivot.rotation) as Transform;
-                    clone.parent = gunPivot;
-                    float size = Random.Range(0.6f, 0.9f);
-                    clone.localScale = new Vector3(size, size, 0);
-                    //Destroy(clone, 0.02f);
-                    Destroy(clone);
-                    */
+                // FIX THIS: Codes below looks soooo redundant. is there any reason for that?
+
+                /*
+                //instantiate muzzle flash
+                Transform clone = Instantiate(MuzzleFlashPrefab, gunPivot.position, gunPivot.rotation) as Transform;
+                clone.parent = gunPivot;
+                float size = Random.Range(0.6f, 0.9f);
+                clone.localScale = new Vector3(size, size, 0);
+                //Destroy(clone, 0.02f);
+                Destroy(clone);
+                */
                 //}
                 //else
                 //{
-                    // Otherwise instantiate the rocket facing left and set it's velocity to the left.
+                // Otherwise instantiate the rocket facing left and set it's velocity to the left.
 
-                    //Rigidbody2D bulletInstance = Instantiate(prefab, transform.position, Quaternion.Euler(new Vector3(0, 0, 180f))) as Rigidbody2D;
-                    dir = new Vector2(transform.right.x, transform.right.y) * speed;
+                //Rigidbody2D bulletInstance = Instantiate(prefab, transform.position, Quaternion.Euler(new Vector3(0, 0, 180f))) as Rigidbody2D;
+                dir = new Vector2(transform.right.x, transform.right.y) * speed;
                     if (prefab == rocket)
                     {
                             bulletInstance.GetComponent<BulletLeach>().myOwner = myLifeSpan;
@@ -209,7 +213,12 @@ public class Gun : MonoBehaviour
                         bulletInstance.velocity = dir;// new Vector2(-speed, 0);
                     
                         Physics2D.IgnoreCollision(bulletInstance.GetComponent<Collider2D>(), this.GetComponentInParent<Collider2D>());
-                    }
+                        foreach( Collider2D collider in transform.root.GetComponentsInChildren<Collider2D>() )
+                        {
+                            Physics2D.IgnoreCollision( bulletInstance.GetComponent<Collider2D>(), collider );
+                            //Debug.Log( "ignore collision with " + collider.ToString() );
+                        }
+                }
                  
                 //}
 
