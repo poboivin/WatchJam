@@ -142,6 +142,20 @@ public class TimeController : MonoBehaviour
         }
         else
         {
+            if(Settings.s.ImmobileRecord == false)
+            {
+                if(myRigidbody2D.velocity.sqrMagnitude == 0)
+                {
+                    myTimeBody.isRecording = false;
+
+                }
+                else
+                {
+                    myTimeBody.isRecording = true;
+
+                }
+            }
+
             if (Settings.s.passiveAmmoRegen == true)
             {
                 AmmoTimer += Time.deltaTime * passiveAmmoFactor;

@@ -19,8 +19,8 @@ MonoBehaviour:
   AltAimYAxis: 1
   MoveXAxis: 0
   MoveYAxis: 1
-  jumpButton: 2
-  AltjumpButton: 11
+  jumpButton: 11
+  AltjumpButton: 2
   TimeStop: 6
   Rewind: 7
   MeleeButton: 3

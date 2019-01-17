@@ -13,7 +13,7 @@ public class BulletLeach : MonoBehaviour
         {
             Vector3 dir = other.transform.position - this.transform.position;
 
-            other.GetComponent<TimeController>().AddForce(new Vector2(dir.x, -dir.y).normalized * Settings.s.bulletKnockBack);
+            other.GetComponent<TimeController>().AddForce(this.GetComponent<Rigidbody2D>().velocity.normalized * Settings.s.bulletKnockBack);
             Debug.Log(new Vector2(dir.x, dir.y).normalized);
             Debug.Log(new Vector2(0, dir.y).normalized );
             Debug.Log(new Vector2(dir.x, 0).normalized );
