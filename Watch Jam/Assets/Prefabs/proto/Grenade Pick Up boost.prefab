@@ -22,8 +22,9 @@ GameObject:
   - component: {fileID: 212084846175382978}
   - component: {fileID: 61887802359309312}
   - component: {fileID: 114802390556677982}
+  - component: {fileID: 114808919050095204}
   m_Layer: 11
-  m_Name: Grenade Pick Up rewind
+  m_Name: Grenade Pick Up boost
   m_TagString: pickup
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -78,8 +79,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f796085d8c9a7d44a93613e0035754b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 1
+  type: 3
   Grenade: {fileID: 0}
+--- !u!114 &114808919050095204
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1860492645314482}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6809a4709fdc664469d2ba5961763968, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fireRate: 0.1
+  boostDuration: 4
 --- !u!212 &212084846175382978
 SpriteRenderer:
   m_ObjectHideFlags: 1

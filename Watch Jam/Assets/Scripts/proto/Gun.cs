@@ -163,7 +163,7 @@ public class Gun : MonoBehaviour
                         foreach( Collider2D collider in transform.root.GetComponentsInChildren<Collider2D>() )
                         {
                             Physics2D.IgnoreCollision( bulletInstance.GetComponent<Collider2D>(), collider );
-                            Debug.Log( "ignore collision with " + collider.ToString() );
+                            //Debug.Log( "ignore collision with " + collider.ToString() );
                         }
 
                 }
@@ -247,6 +247,31 @@ public class Gun : MonoBehaviour
             bullets.Clear();
         }
       
+    }
+
+    public void ChangeFireRate( float newFireRate, float duration )
+    {
+        StartCoroutine( "ChangeFireRateImpl", new object[] { newFireRate, duration } );
+    }
+
+    public IEnumerator ChangeFireRateImpl( object[] parameters )
+    {
+        float oldFireRate = fireRate;
+        fireRate = ( float )parameters[0];
+
+        // TO DO : change this effect with the proper one that showing the player is being boosted.
+        TimeAuraController aura = transform.root.gameObject.GetComponentInChildren<TimeAuraController>();
+        if( aura != null )
+        {
+            aura.TurnOnAura( TimeAuraController.Aura.orange );
+        }
+
+        yield return new WaitForSeconds( ( float )parameters[1] );
+
+        if( aura != null )
+            aura.TurnOffAura();
+
+        fireRate = oldFireRate;
     }
 
 }
