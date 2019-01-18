@@ -43,7 +43,7 @@ public class pickup : MonoBehaviour
             }
             else if( type == pickUpType.shield )
             {
-                Shield player = collision.GetComponentInChildren<Shield>();
+                PickupShield player = collision.GetComponentInChildren<PickupShield>();
                 if( player != null )
                 {
                     player.RefreshShield();

@@ -159,14 +159,11 @@ public class Gun : MonoBehaviour
                     {
                         bulletInstance.velocity = dir;//new Vector2(speed, 0);
                         bulletInstance.transform.right = bulletInstance.velocity;
-                        Physics2D.IgnoreCollision(bulletInstance.GetComponent<Collider2D>(), this.GetComponentInParent<Collider2D>());
                         foreach( Collider2D collider in transform.root.GetComponentsInChildren<Collider2D>() )
                         {
                             Physics2D.IgnoreCollision( bulletInstance.GetComponent<Collider2D>(), collider );
-                            //Debug.Log( "ignore collision with " + collider.ToString() );
                         }
-
-                }
+                    }
 
                 // FIX THIS: Codes below looks soooo redundant. is there any reason for that?
 
