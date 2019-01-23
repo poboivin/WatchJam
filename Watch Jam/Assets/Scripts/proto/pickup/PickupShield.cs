@@ -10,9 +10,11 @@ public class PickupShield : MonoBehaviour {
     private int shieldCount = 3;
 
     ShieldPiece[] shieldPieces;
+    List<int> hitIds;
 
 	// Use this for initialization
 	void Start () {
+        hitIds = new List<int>();
         shieldPieces = GetComponentsInChildren<ShieldPiece>();
         foreach( var piece in shieldPieces )
         {
@@ -26,9 +28,11 @@ public class PickupShield : MonoBehaviour {
         {
             foreach( var piece in shieldPieces )
             {
-                if( piece.isHit == true && piece.gameObject.activeSelf == true )
+                if( piece.isHit == true && piece.gameObject.activeSelf == true
+                    && hitIds.Contains( piece.hitId ) == false )
                 {
                     shieldCount -= 1;
+                    hitIds.Add( piece.hitId );
                     piece.gameObject.SetActive( false );
                 }
             }
@@ -37,11 +41,12 @@ public class PickupShield : MonoBehaviour {
 
     private void FixedUpdate()
     {
-        transform.Rotate( -Vector3.forward, Time.fixedDeltaTime * rotationSpeed );
+        transform.Rotate( Vector3.forward, Time.fixedDeltaTime * rotationSpeed );
     }
 
     public void RefreshShield()
     {
+        hitIds.Clear();
         shieldCount = maxShieldCount;
         foreach( var piece in shieldPieces )
         {
