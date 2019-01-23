@@ -19,7 +19,8 @@ public class KinematicPlayerControl2 : MonoBehaviour
 	public float airSpeed = 25f;			// The player air movespeed.
 	public float jumpHeight = 9.0f;
 	public float deadZone = 0.3f;
-	public float movementWaitTime = 0.5f;	
+	public float movementWaitTime = 0.5f;
+	public bool shootKnockback = false;
 	public AudioClip[] jumpClips;			// Array of clips for when the player jumps.
 
 
@@ -34,10 +35,10 @@ public class KinematicPlayerControl2 : MonoBehaviour
 	private float jumpTime = 0f;			//used to count up to max timelength
 	private float jumpTimeMax;				//Maximum timelength of a jump
 	private float aSpeed;  					//variable to change airspeed in time zones
-	private bool hCheck = false;
 	private bool hasShot = false;
 	private float movementTime = 0.0f;
 	private float fallHeight;
+	private int dirInt = 0;
 
 	public bool isChained = false;
 	public bool isChained2 = false;
@@ -98,21 +99,20 @@ public class KinematicPlayerControl2 : MonoBehaviour
 		{
 			jumpTime += Time.deltaTime;  //Times the jump
 		}
-
-		if (myInputManager.GetButtonDown(ShootButton) && movementTime >= 0.25f || myInputManager.GetButtonUp(Settings.c.TimeStop)) // If Player shoots, disable shoot input until gun can actually shoot and set velovity to 0 first for same knockback
-		{
-			rb.velocity = Vector2.zero;
-			hasShot = true;
-			movementTime = 0.0f;
-		}
-		 
+		if (shootKnockback) {
+			if (myInputManager.GetButtonDown (ShootButton) && movementTime >= 0.25f || myInputManager.GetButtonUp (Settings.c.TimeStop)) { // If Player shoots, disable shoot input until gun can actually shoot and set velovity to 0 first for same knockback
+				rb.velocity = Vector2.zero;
+				hasShot = true;
+				movementTime = 0.0f;
+			}
+		
 		movementTime += Time.deltaTime;
 		
-
-		if (grounded && movementTime >= movementWaitTime * 0.75f) {  // If player shoots, disable movement input so knockback can work
-			hasShot = false;
-		} else if (movementTime >= movementWaitTime) {
-			hasShot = false;
+			if (grounded && movementTime >= movementWaitTime * 0.75f) {  // If player shoots, disable movement input so knockback can work
+				hasShot = false;
+			} else if (movementTime >= movementWaitTime) {
+				hasShot = false;
+			}
 		}
 
 		if (isChained && !hasLoc) {
@@ -173,23 +173,32 @@ public class KinematicPlayerControl2 : MonoBehaviour
 
 			
 
-		if (h > deadZone || h < -deadZone)
+		if (h > deadZone)
 		{
 			speed = maxSpeed;
-			hCheck = true;
-		} else 
+			dirInt = 1;
+
+		} 
+		else if (h < -deadZone)
 		{
-			speed = 0f;
-			hCheck = false;
+			speed = maxSpeed;
+			dirInt = -1;
+		} 
+		//else if (isChained2) 
+		//{
+		//	
+		//} 
+		else {
+			dirInt = 0;
 		}
 
 
-		Vector2 xMovement = Mathf.Sign (h) * new Vector2 (1, 0) * speed * myTimeController.timeScale * Time.deltaTime * 50;
-		float xMoveFloat =  Mathf.Sign (h) * speed * myTimeController.timeScale * Time.deltaTime * 50; //float version to add to velocity.x specifically
+		Vector2 xMovement = dirInt * new Vector2 (1, 0) * speed * myTimeController.timeScale * Time.deltaTime * 50;
+		float xMoveFloat =  dirInt * speed * myTimeController.timeScale * Time.deltaTime * 50; //float version to add to velocity.x specifically
 		Vector2 yMovement = new Vector2 (0, 1) * aSpeed *  Time.deltaTime * 45;
 
 	
-		if (!myTimeController.isStopped && !myTimeController.isRewinding && !hasShot && !isChained2) //if time isn't stopped or rewinding and player hasnt shot
+		if (!myTimeController.isStopped && !myTimeController.isRewinding && !hasShot) //if time isn't stopped or rewinding and player hasnt shot
 		{
 			if (grounded)  //if on the ground
 			{
