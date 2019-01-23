@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4634408548736152}
   - component: {fileID: 61698912471458162}
   - component: {fileID: 50582178937875872}
-  - component: {fileID: 114093604473452074}
+  - component: {fileID: 114170502238434012}
   m_Layer: 0
   m_Name: MouseSpawn
   m_TagString: Bullet
@@ -198,20 +198,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &114093604473452074
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1480482949889994}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1769ae538d755b1489f6b88c12a2d12c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  explosion: {fileID: 100000, guid: 42404bf7d14c342f69690c9961a7530d, type: 2}
-  TimeAlive: 30
-  myOwner: {fileID: 0}
 --- !u!114 &114134368966163882
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -224,6 +210,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sortingLayerName: Foreground
+--- !u!114 &114170502238434012
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1480482949889994}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e874d2c2383aa74fa0768cd36e58eba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  explosion: {fileID: 100000, guid: 42404bf7d14c342f69690c9961a7530d, type: 2}
+  TimeAlive: 10
+  myOwner: {fileID: 0}
 --- !u!198 &198471372463793124
 ParticleSystem:
   m_ObjectHideFlags: 1

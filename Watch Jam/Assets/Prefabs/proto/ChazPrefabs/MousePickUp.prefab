@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4859490561599616}
   - component: {fileID: 212802962423904700}
   - component: {fileID: 61283078342731420}
-  - component: {fileID: 114877246036786078}
+  - component: {fileID: 114314680232793678}
   m_Layer: 11
   m_Name: MousePickUp
   m_TagString: pickup
@@ -67,7 +67,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &114877246036786078
+--- !u!114 &114314680232793678
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -75,13 +75,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1535997994949428}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc59258ec96be7d4ba7639b9d60b0d1b, type: 3}
+  m_Script: {fileID: 11500000, guid: b1ce652a46f748146b816373ca07acdb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   type: 3
   Grenade: {fileID: 0}
   Chain: {fileID: 0}
-  Freeze: {fileID: 50582178937875872, guid: ecd953f72bc33694ba04f9b695aaecd3, type: 2}
+  Freeze: {fileID: 50582178937875872, guid: e47ee03e15bbcd54dace09eb5b5a8340, type: 2}
 --- !u!212 &212802962423904700
 SpriteRenderer:
   m_ObjectHideFlags: 1

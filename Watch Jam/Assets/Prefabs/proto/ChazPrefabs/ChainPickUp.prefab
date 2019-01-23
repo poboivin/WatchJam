@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4190922043678154}
   - component: {fileID: 212827154878059840}
   - component: {fileID: 61933486297602422}
-  - component: {fileID: 114859686454824842}
+  - component: {fileID: 114098426470271130}
   m_Layer: 11
   m_Name: ChainPickUp
   m_TagString: pickup
@@ -67,7 +67,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &114859686454824842
+--- !u!114 &114098426470271130
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -75,7 +75,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1267698337926804}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc59258ec96be7d4ba7639b9d60b0d1b, type: 3}
+  m_Script: {fileID: 11500000, guid: b1ce652a46f748146b816373ca07acdb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   type: 2
