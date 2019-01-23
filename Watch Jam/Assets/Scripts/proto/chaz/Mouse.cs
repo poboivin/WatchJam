@@ -1,14 +1,15 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Chained : MonoBehaviour 
+public class Mouse: MonoBehaviour 
 {
-	public GameObject explosion;	
-	public GameObject square;// Prefab of explosion effect.
+	public GameObject explosion;  // Prefab of explosion effect.
 	private float rocketTime = 0f;
 	public float TimeAlive = 10f;
+
 	public LifeSpan myOwner;
 	private KinematicPlayerControl2 myPlayerControl;
+	private TimeController myTimeController;
 
 
 
@@ -41,18 +42,17 @@ public class Chained : MonoBehaviour
 
 		if (col.tag == "Player" )
 		{
-			Instantiate(square, transform.position, transform.rotation);
+
+			col.gameObject.AddComponent<Moused> ();
 			Destroy(gameObject);
-			myPlayerControl = col.GetComponent<KinematicPlayerControl2>();
-		//	myPlayerControl.isChained = true;
-			myPlayerControl.chainedLocation = transform.position;
+
 
 			if(col.gameObject != myOwner.gameObject)
 			{
-				
+
 				if (Camera.main.GetComponent<CamShake>() != null)
 					Camera.main.GetComponent<CamShake>().Shake(0.1f, 0.2f);
-				
+
 				Destroy(gameObject);
 			}
 

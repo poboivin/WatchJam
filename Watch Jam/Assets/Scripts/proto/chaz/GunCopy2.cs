@@ -23,16 +23,18 @@ public class GunCopy2 : MonoBehaviour //This was made because the previous gun s
 	private TimeController myTimeController;
 
 	public PierInputManager.ButtonName ShootButton;   //button to shoot
+	public PierInputManager.ButtonName ShootPickUpButton;
 
-
-	public Rigidbody2D rocket;     // Prefab of the rocket.        
-	public Rigidbody2D chain;        
+	public Rigidbody2D rocket;     // Prefab of the rocket.             
 
 	public float speed = 20f;				// The speed the rocket will fire at.
 	public float fireRate = 0.3f;
 	private float nextFire = 0f;
 	public Transform gunPivot;
 	public Transform MuzzleFlashPrefab;
+
+	public int hasChain = 0;
+	public int hasFreeze = 0;
 
 
 	private GameObject[] RocketsFired;
@@ -111,6 +113,7 @@ public class GunCopy2 : MonoBehaviour //This was made because the previous gun s
 						bulletInstance.GetComponent<Rocket>().myOwner = myLifeSpan;
 
 					}
+
 					if (myTimeController.isStopped == true  && Settings.s.stopTimeStoreBullet == true)
 					{
 						if (bulletInstance != null)
