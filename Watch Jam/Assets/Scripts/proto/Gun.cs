@@ -30,6 +30,7 @@ public class Gun : MonoBehaviour
     public float speed = 20f;				// The speed the rocket will fire at.
     public float fireRate = 0.3f;
     private float nextFire = 0f;
+    private int numBoostedBullet = 0;       // how many bullets are able to fire with boosted fire rate
     public Transform gunPivot;
     public Transform MuzzleFlashPrefab;
     public SpriteRenderer armSprite;
@@ -92,9 +93,9 @@ public class Gun : MonoBehaviour
 
         gunPivot.localRotation = Quaternion.Euler(new Vector3(0, 0, angle)); //Rotating!
 
-        bool shoot = (myTimeController.isRewinding == false && 
-            ((myInputManager.GetButtonDown(Settings.c.ShootButton) || myInputManager.GetButtonDown(Settings.c.AltShootButton) )||( rightStickUsed && Settings.s.AutoRStickShoot)) && 
-            (Time.time > nextFire || (myTimeController.isStopped == true && Settings.s.stopTimeStoreBullet == true)));
+        bool shoot = myTimeController.isRewinding == false && 
+            ( myInputManager.GetButtonDown(Settings.c.ShootButton) || myInputManager.GetButtonDown(Settings.c.AltShootButton) || ( rightStickUsed && Settings.s.AutoRStickShoot )) && 
+            ( Time.time > nextFire || (myTimeController.isStopped == true && Settings.s.stopTimeStoreBullet == true ) );
 
         // If the fire button is pressed...
         if (shoot)
@@ -216,7 +217,9 @@ public class Gun : MonoBehaviour
                 myTimeController.AddForce(-dir.normalized * Settings.s.gunKnockBack);
                // Debug.Log(-dir * Settings.s.gunKnockBack);
             }
-          
+
+            if( numBoostedBullet > 0 )
+                numBoostedBullet--;
         }
 	}
 
@@ -246,9 +249,9 @@ public class Gun : MonoBehaviour
       
     }
 
-    public void ChangeFireRate( float newFireRate, float duration )
+    public void ChangeFireRate( float newFireRate, int numBulletCount )
     {
-        StartCoroutine( "ChangeFireRateImpl", new object[] { newFireRate, duration } );
+        StartCoroutine( "ChangeFireRateImpl", new object[] { newFireRate, numBulletCount } );
     }
 
     public IEnumerator ChangeFireRateImpl( object[] parameters )
@@ -263,7 +266,8 @@ public class Gun : MonoBehaviour
             aura.TurnOnAura( TimeAuraController.Aura.orange );
         }
 
-        yield return new WaitForSeconds( ( float )parameters[1] );
+        numBoostedBullet = ( int )parameters[1];
+        yield return new WaitUntil( () => numBoostedBullet <= 0 );
 
         if( aura != null )
             aura.TurnOffAura();
