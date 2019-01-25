@@ -6,6 +6,8 @@ using UnityEngine.UI;
 public class LifeSpan : MonoBehaviour
 {
     TimeController myTimeController;
+    TimeRewindController myTimeRewindController;
+    TimeStopController myTimeStopController;
     PlayerControl myPlayerControl;
     Rigidbody2D myRigidbody2D;
     Animator myAnimator;
@@ -96,11 +98,11 @@ public class LifeSpan : MonoBehaviour
         myPlayerControl.enabled = false;
         myRigidbody2D.freezeRotation = false;
         myTimeController.enabled = false;
-        if (myTimeController.isStopped)
+        if ( myTimeController.isStopped)
         {
             myTimeController.StopTimeStop();
         }
-        if (myTimeController.isRewinding)
+        if ( myTimeController.isRewinding)
         {
             myTimeController.StopRewind();
         }

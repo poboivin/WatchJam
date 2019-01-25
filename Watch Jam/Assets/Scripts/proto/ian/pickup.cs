@@ -4,7 +4,12 @@ using UnityEngine;
 
 public class pickup : MonoBehaviour
 {
-    public enum pickUpType { health, grenade}
+    public enum pickUpType {
+        health,
+        grenade,
+        shield,     // Owl
+        boost       // Cat
+    }
     public pickUpType type;
     public Rigidbody2D Grenade;              // Prefab of the rocket.
 
@@ -36,6 +41,27 @@ public class pickup : MonoBehaviour
                     player.Grenade = Grenade;
                 }
             }
+            else if( type == pickUpType.shield )
+            {
+                PickupShield player = collision.GetComponentInChildren<PickupShield>();
+                if( player != null )
+                {
+                    player.RefreshShield();
+                }
+            }
+            else if( type == pickUpType.boost )
+            {
+                Gun player = collision.GetComponentInChildren<Gun>();
+                if( player != null )
+                {
+                    PickupFireBoost boost = gameObject.GetComponent<PickupFireBoost>();
+                    if( boost != null )
+                    {
+                        player.ChangeFireRate( boost.fireRate, boost.boostDuration );
+                    }
+                }
+            }
+
             Destroy(gameObject);
             //play pickup sound
         }

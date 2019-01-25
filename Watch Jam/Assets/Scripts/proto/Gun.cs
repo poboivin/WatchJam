@@ -158,14 +158,15 @@ public class Gun : MonoBehaviour
                     else
                     {
                         bulletInstance.velocity = dir;//new Vector2(speed, 0);
-                    bulletInstance.transform.right = bulletInstance.velocity;
-                        Physics2D.IgnoreCollision(bulletInstance.GetComponent<Collider2D>(), this.GetComponentInParent<Collider2D>());
+                        bulletInstance.transform.right = bulletInstance.velocity;
+                        foreach( Collider2D collider in transform.root.GetComponentsInChildren<Collider2D>() )
+                        {
+                            Physics2D.IgnoreCollision( bulletInstance.GetComponent<Collider2D>(), collider );
+                        }
                     }
 
-                
+                // FIX THIS: Codes below looks soooo redundant. is there any reason for that?
 
-               
-                    
                 //    /*
                 //    //instantiate muzzle flash
                 //    Transform clone = Instantiate(MuzzleFlashPrefab, gunPivot.position, gunPivot.rotation) as Transform;
@@ -210,7 +211,6 @@ public class Gun : MonoBehaviour
                     
                 //        Physics2D.IgnoreCollision(bulletInstance.GetComponent<Collider2D>(), this.GetComponentInParent<Collider2D>());
                 //    }
-                 
                 //}
 
                 myTimeController.AddForce(-dir.normalized * Settings.s.gunKnockBack);
@@ -244,6 +244,31 @@ public class Gun : MonoBehaviour
             bullets.Clear();
         }
       
+    }
+
+    public void ChangeFireRate( float newFireRate, float duration )
+    {
+        StartCoroutine( "ChangeFireRateImpl", new object[] { newFireRate, duration } );
+    }
+
+    public IEnumerator ChangeFireRateImpl( object[] parameters )
+    {
+        float oldFireRate = fireRate;
+        fireRate = ( float )parameters[0];
+
+        // TO DO : change this effect with the proper one that showing the player is being boosted.
+        TimeAuraController aura = transform.root.gameObject.GetComponentInChildren<TimeAuraController>();
+        if( aura != null )
+        {
+            aura.TurnOnAura( TimeAuraController.Aura.orange );
+        }
+
+        yield return new WaitForSeconds( ( float )parameters[1] );
+
+        if( aura != null )
+            aura.TurnOffAura();
+
+        fireRate = oldFireRate;
     }
 
 }
