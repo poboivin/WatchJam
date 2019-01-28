@@ -6,19 +6,27 @@ public class PickupShield : MonoBehaviour {
 
     [SerializeField]
     private float rotationSpeed = 100.0f;
+    [SerializeField]
+    private float radiusScale = 1.0f;
+
     private const int maxShieldCount = 3;
     private int shieldCount = 3;
 
-    ShieldPiece[] shieldPieces;
+    List<ShieldPiece> shieldPieces;
     List<int> hitIds;
 
 	// Use this for initialization
 	void Start () {
         hitIds = new List<int>();
-        shieldPieces = GetComponentsInChildren<ShieldPiece>();
-        foreach( var piece in shieldPieces )
-        {
-            piece.gameObject.SetActive( false );
+        shieldPieces = new List<ShieldPiece>();
+
+        for( int i = 0; i < gameObject.transform.childCount; i++ )
+        { 
+            var child = gameObject.transform.GetChild( i );
+            child.gameObject.transform.localScale = new Vector3( radiusScale, radiusScale, 1.0f );
+            var shieldPiece = child.GetComponentInChildren<ShieldPiece>();
+            shieldPiece.gameObject.SetActive( false );
+            shieldPieces.Add( shieldPiece );
         }
     }
 	
