@@ -110,7 +110,7 @@ public class KinematicPlayerControl2 : MonoBehaviour
 			}
 		}
 
-		if (rb.velocity.y < 0) 
+		if (rb.velocity.y < 2.0f) 
 		{
 			//Debug.Log ("fall");
 			falling = true;
@@ -180,7 +180,7 @@ public class KinematicPlayerControl2 : MonoBehaviour
 
 			if (jump)//if in the air, while jumping
 			{ 
-				rb.AddForce(yMovement * 35);
+				rb.AddForce(yMovement * 37.5f);
 				jump = false;
 			} 
 

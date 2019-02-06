@@ -206,6 +206,7 @@ GameObject:
   - component: {fileID: 82157753371613466}
   - component: {fileID: 70939147541639936}
   - component: {fileID: 120147419921981480}
+  - component: {fileID: 114249261710127718}
   m_Layer: 9
   m_Name: KinematicHero2
   m_TagString: Player
@@ -880,6 +881,23 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &114249261710127718
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1682693211849322}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 082b8a341d3d6b641a311b0d662ef780, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dPadHorizontal: 0
+  dPadVertical: 0
+  a1: {fileID: 22100000, guid: 208d748d572a75048ac1efc398fc594f, type: 2}
+  a2: {fileID: 9100000, guid: 72ac89934873567428e5e1440d3aecae, type: 2}
+  a3: {fileID: 22100000, guid: 19372d1440343d4478a0cdacfeeaa82a, type: 2}
+  a4: {fileID: 22100000, guid: faa266a91e2052a47ba5cb79c8d4862e, type: 2}
 --- !u!114 &114269500510452958
 MonoBehaviour:
   m_ObjectHideFlags: 1
