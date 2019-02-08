@@ -24,7 +24,6 @@ public class Gun : MonoBehaviour
   
     public PierInputManager.ButtonName ShootButton;   //button to shoot
 
-
     public Rigidbody2D rocket;              // Prefab of the rocket.
 
     public float speed = 20f;				// The speed the rocket will fire at.

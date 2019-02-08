@@ -45,6 +45,7 @@ public class Mouse: MonoBehaviour
 
 			col.gameObject.AddComponent<Moused> ();
 			Destroy(gameObject);
+			Destroy (this);
 
 
 			if(col.gameObject != myOwner.gameObject)

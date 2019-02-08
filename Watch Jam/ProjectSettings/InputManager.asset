@@ -163,7 +163,7 @@ InputManager:
     snap: 0
     invert: 0
     type: 2
-    axis: 0
+    axis: 5
     joyNum: 1
   - serializedVersion: 3
     m_Name: P1Vertical
@@ -179,7 +179,7 @@ InputManager:
     snap: 0
     invert: 1
     type: 2
-    axis: 1
+    axis: 6
     joyNum: 1
   - serializedVersion: 3
     m_Name: P1Fire1
@@ -339,7 +339,7 @@ InputManager:
     snap: 0
     invert: 0
     type: 2
-    axis: 0
+    axis: 5
     joyNum: 2
   - serializedVersion: 3
     m_Name: P2Vertical
@@ -355,7 +355,7 @@ InputManager:
     snap: 0
     invert: 1
     type: 2
-    axis: 1
+    axis: 6
     joyNum: 2
   - serializedVersion: 3
     m_Name: P2Fire1
@@ -467,7 +467,7 @@ InputManager:
     snap: 0
     invert: 0
     type: 2
-    axis: 0
+    axis: 5
     joyNum: 3
   - serializedVersion: 3
     m_Name: P3Vertical
@@ -483,7 +483,7 @@ InputManager:
     snap: 0
     invert: 1
     type: 2
-    axis: 1
+    axis: 6
     joyNum: 3
   - serializedVersion: 3
     m_Name: P3Fire1
@@ -595,7 +595,7 @@ InputManager:
     snap: 0
     invert: 0
     type: 2
-    axis: 0
+    axis: 5
     joyNum: 4
   - serializedVersion: 3
     m_Name: P4Vertical
@@ -611,7 +611,7 @@ InputManager:
     snap: 0
     invert: 1
     type: 2
-    axis: 1
+    axis: 6
     joyNum: 4
   - serializedVersion: 3
     m_Name: P4Fire1

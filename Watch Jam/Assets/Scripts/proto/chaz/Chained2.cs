@@ -52,6 +52,7 @@ public class Chained2: MonoBehaviour
 			joi.distance = distance;
 			joi.maxDistanceOnly = true;
 			Destroy(gameObject);
+			Destroy (this);
 
 
 			if(col.gameObject != myOwner.gameObject)
