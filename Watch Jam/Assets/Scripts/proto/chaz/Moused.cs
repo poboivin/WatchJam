@@ -2,24 +2,26 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Moused : MonoBehaviour {
+public class Moused : MonoBehaviour
+{
 	private TimeController myTimeController;
-	private KinematicPlayerControl2 myPlayerControl;
+	private ImouseAble myPlayerControl;
 	TimeRewindController myTimeRewindController;
 	TimeStopController myTimeStopController;
 	LifeSpan myLifeSpan;
-	GunCopy2 myGun;
+    IGun myGun;
 	Animator myAnimator;
 
 	private float freezeTime = 0f;
 	public float freezeDuration = 5.0f;
 
 	// Use this for initialization
-	void Awake() {
+	void Awake()
+    {
 		myAnimator = gameObject.GetComponentInChildren<Animator>();
 		myTimeController = gameObject.GetComponent<TimeController>();
-		myPlayerControl = GetComponent<KinematicPlayerControl2>();
-		myGun = GetComponentInChildren<GunCopy2>();
+        myPlayerControl = this.gameObject.GetComponent<ImouseAble>();
+		myGun = GetComponentInChildren<IGun>();
 		myLifeSpan = GetComponent<LifeSpan> ();
 
 	
@@ -28,29 +30,35 @@ public class Moused : MonoBehaviour {
 	}
 
 	// Update is called once per frame
-	void Update () {
+	void Update ()
+    {
 		myAnimator.enabled = false;
-		myPlayerControl.enabled = false;
-		myGun.enabled = false;
+		myPlayerControl.setEnable( false);
+		myGun.setEnable(false);
 		myTimeController.enabled = false;
 		myLifeSpan.enabled = false;
 		freezeTime += Time.deltaTime ;
-		if (freezeTime <= freezeDuration) {
+		if (freezeTime <= freezeDuration)
+        {
 			myTimeController.StartTimeStop ();
-		} else {
+		}
+        else
+        {
 			UnFreeze ();
 		}
 	}
 
-	void UnFreeze(){
+	void UnFreeze()
+    {
 		myTimeController.StopTimeStop ();
 		myLifeSpan.enabled = true;
 		myLifeSpan.AddLife (2);
 		myAnimator.enabled = true;
 		myAnimator.enabled = true;
-		myPlayerControl.enabled = true;
-		myGun.enabled = true;
-		myTimeController.enabled = true;
+        myPlayerControl.setEnable(true);
+
+        myGun.setEnable(true);
+        myTimeController.enabled = true;
 		Destroy (this);
 	}
 

@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class KinematicPlayerControl2 : MonoBehaviour
+public class KinematicPlayerControl2 : MonoBehaviour , ImouseAble
 {
 	[HideInInspector]
 	public PierInputManager myInputManager;
@@ -236,5 +236,8 @@ public class KinematicPlayerControl2 : MonoBehaviour
 		transform.localScale = theScale;
 	}
 
-
+    void ImouseAble.setEnable(bool val)
+    {
+        this.enabled = val;
+    }
 }

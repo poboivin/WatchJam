@@ -9,7 +9,7 @@ public class Chained2: MonoBehaviour
 	public float TimeAlive = 10f;
 	public float distance = 50.0f;
 	public LifeSpan myOwner;
-	private KinematicPlayerControl2 myPlayerControl;
+	//private Ichaneable myPlayerControl;
 
 
 
@@ -43,8 +43,8 @@ public class Chained2: MonoBehaviour
 		if (col.tag == "Player" )
 		{
 
-			myPlayerControl = col.GetComponent<KinematicPlayerControl2>();
-			myPlayerControl.isChained2 = true;
+			//myPlayerControl = col.GetComponent<Ichaneable>();
+            //myPlayerControl.setChained(true);
 			GameObject sq = Instantiate(square, transform.position, transform.rotation);
 			DistanceJoint2D joi = sq.AddComponent (typeof(DistanceJoint2D)) as DistanceJoint2D;
 			joi.autoConfigureDistance = false;
@@ -55,14 +55,14 @@ public class Chained2: MonoBehaviour
 			Destroy (this);
 
 
-			if(col.gameObject != myOwner.gameObject)
-			{
+			//if(col.gameObject != myOwner.gameObject)
+			//{
 
-				if (Camera.main.GetComponent<CamShake>() != null)
-					Camera.main.GetComponent<CamShake>().Shake(0.1f, 0.2f);
+			//	if (Camera.main.GetComponent<CamShake>() != null)
+			//		Camera.main.GetComponent<CamShake>().Shake(0.1f, 0.2f);
 
-				Destroy(gameObject);
-			}
+			//	Destroy(gameObject);
+			//}
 
 
 		}

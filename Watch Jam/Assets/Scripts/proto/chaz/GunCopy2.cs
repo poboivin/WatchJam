@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 
-public class GunCopy2 : MonoBehaviour
+public class GunCopy2 : MonoBehaviour, IGun
 {
 	public class bulletInfo
 	{
@@ -269,5 +269,8 @@ public class GunCopy2 : MonoBehaviour
 
 		fireRate = oldFireRate;
 	}
-
+    void IGun.setEnable(bool val)
+    {
+        this.enabled = val;
+    }
 }
