@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class PlayerControl : MonoBehaviour
+public class PlayerControl : MonoBehaviour,ImouseAble
 {
     [HideInInspector]
     public PierInputManager myInputManager;
@@ -214,4 +214,8 @@ public class PlayerControl : MonoBehaviour
 			// Otherwise return this index.
 			return i;
 	}
+    void ImouseAble.setEnable(bool val)
+    {
+        this.enabled = val;
+    }
 }

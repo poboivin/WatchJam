@@ -57,7 +57,7 @@ public class pickup : MonoBehaviour
                     PickupFireBoost boost = gameObject.GetComponent<PickupFireBoost>();
                     if( boost != null )
                     {
-                        player.ChangeFireRate( boost.fireRate, boost.boostDuration );
+                        player.ChangeFireRate( boost.fireRate, boost.boostedBulletCount );
                     }
                 }
             }

@@ -10,10 +10,10 @@ public class Mouse: MonoBehaviour
 	public LifeSpan myOwner;
 	private KinematicPlayerControl2 myPlayerControl;
 	private TimeController myTimeController;
+    private ImouseAble mPlayer;
 
 
-
-	void Update()
+    void Update()
 	{
 		// Destroy the rocket after 2 seconds if it doesn't get destroyed before then.
 		rocketTime += Time.deltaTime ;
@@ -45,6 +45,7 @@ public class Mouse: MonoBehaviour
 
 			col.gameObject.AddComponent<Moused> ();
 			Destroy(gameObject);
+			Destroy (this);
 
 
 			if(col.gameObject != myOwner.gameObject)

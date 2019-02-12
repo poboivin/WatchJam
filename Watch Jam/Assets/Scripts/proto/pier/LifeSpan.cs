@@ -9,10 +9,13 @@ public class LifeSpan : MonoBehaviour
     TimeRewindController myTimeRewindController;
     TimeStopController myTimeStopController;
     PlayerControl myPlayerControl;
+	KinematicPlayerControl2 myPlayerControl2;
+
     Rigidbody2D myRigidbody2D;
     Animator myAnimator;
     Text myText;
     Gun myGun;
+	GunCopy2 myGun2;
     public Image lifeDisplay;
     [SerializeField]
     private float currentLife = 0;
@@ -28,7 +31,10 @@ public class LifeSpan : MonoBehaviour
         myTimeController = gameObject.GetComponent<TimeController>();
         myRigidbody2D = GetComponent<Rigidbody2D>();
         myPlayerControl = GetComponent<PlayerControl>();
+		myPlayerControl2 = GetComponent<KinematicPlayerControl2>();
+
         myGun = GetComponentInChildren<Gun>();
+		myGun2 = GetComponentInChildren<GunCopy2>();
         myText = GetComponentInChildren<Text>();
     }
 	public void AddLife(float amount)
@@ -95,7 +101,14 @@ public class LifeSpan : MonoBehaviour
     {
         MatchCounter.Remove(myTimeController);
         myAnimator.enabled = false;
-        myPlayerControl.enabled = false;
+		try {
+			myPlayerControl2.enabled = false;
+			myGun2.enabled = false;
+		}
+		catch {
+			myPlayerControl.enabled = false;
+			myGun.enabled = false;
+		}
         myRigidbody2D.freezeRotation = false;
         myTimeController.enabled = false;
         if ( myTimeController.isStopped)
@@ -106,7 +119,7 @@ public class LifeSpan : MonoBehaviour
         {
             myTimeController.StopRewind();
         }
-        myGun.enabled = false;
+        
         this.enabled = false;
     }
 

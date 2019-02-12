@@ -36,7 +36,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1535997994949428}
   m_LocalRotation: {x: -0, y: -0, z: -0.92387867, w: 0.38268548}
-  m_LocalPosition: {x: -15.72461, y: -0.849031, z: 0}
+  m_LocalPosition: {x: -1.4508927, y: -8.972249, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -81,7 +81,7 @@ MonoBehaviour:
   type: 3
   Grenade: {fileID: 0}
   Chain: {fileID: 0}
-  Freeze: {fileID: 50582178937875872, guid: e47ee03e15bbcd54dace09eb5b5a8340, type: 2}
+  Freeze: {fileID: 50582178937875872, guid: 4324447e37dcc2040a69bd0e11047cb7, type: 2}
 --- !u!212 &212802962423904700
 SpriteRenderer:
   m_ObjectHideFlags: 1

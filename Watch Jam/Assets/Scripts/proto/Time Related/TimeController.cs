@@ -24,8 +24,6 @@ public class TimeController : MonoBehaviour
     private float originalMass;
     private Vector2 oldVelocity;
 
-    //public PierInputManager.ButtonName TimeStop;
-    //public PierInputManager.ButtonName Rewind;
     [SerializeField]
     public bool isRewinding = false;
     [SerializeField]
@@ -76,58 +74,13 @@ public class TimeController : MonoBehaviour
     {
         return false;
     }
-    public bool timestoptrigger = false;
+
     void Update()
     {
-        if (myInputManager.GetAxis(Settings.c.TimeStop) > 0.5f && timestoptrigger == false && (myAmmo.CurrentAmmo < myAmmo.MaxAmmo || Settings.s.noLimits))
-        {
-            if(isStopped == false)
-            {
-                StartTimeStop();
-            }
-            timestoptrigger = true;
-        }
-        if (myInputManager.GetAxis(Settings.c.TimeStop) < 0.1f)
-        {
-            if(isStopped == true)
-            {
-                StopTimeStop();
-
-            }
-            timestoptrigger = false;
-
-
-        }
-        /* button mode 
-        if (PierInputManager.GetButtonDown(inputManager.playerNumber, TimeStop) && (myAmmo.CurrentAmmo < myAmmo.MaxAmmo || Settings.s.noLimits))
-        {
-            
-            
-            StartTimeStop();
-        }
-        if (PierInputManager.GetButtonUp(inputManager.playerNumber, TimeStop) && isStopped == true)
-        {
-           
-            StopTimeStop();
-        }*/
-
-        if (myInputManager.GetAxis(Settings.c.Rewind) > 0.01f)
-        {
-            myAfterImage.DrawLine();
-        }
-        if (myInputManager.GetAxis(Settings.c.Rewind) >0.6f && (myAmmo.CurrentAmmo < myAmmo.MaxAmmo || Settings.s.noLimits))
-        {
-         
-            if (isRewinding == false )///&& myTimeBody.pointsInTime.Count >= 60
-                StartRewind();
-        }
-        if (myInputManager.GetAxis(Settings.c.Rewind) <0.1f && isRewinding == true)
-        {
-            StopRewind();
-        }
-   
         if (isRewinding)
         {
+            myAfterImage.DrawLine();
+
             AmmoTimer += Time.deltaTime * Settings.s.rewindAmmoFactor;
             if (AmmoTimer >= 1)
             {
