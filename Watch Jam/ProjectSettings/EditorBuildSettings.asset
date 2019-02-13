@@ -6,9 +6,12 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/tutorialLevel.unity
+    path: Assets/Scenes/proto/tutorialLevel.unity
     guid: 49336577ddf259342a51ca143db45557
   - enabled: 1
-    path: Assets/Scenes/pierLevel.unity
+    path: Assets/Scenes/proto/pierLevel.unity
     guid: cbb423f312782674f827c995c08b2962
+  - enabled: 1
+    path: Assets/Scenes/proto/ChazScene2.unity
+    guid: 4b9554fced58c844ca001b523fc33291
   m_configObjects: {}
