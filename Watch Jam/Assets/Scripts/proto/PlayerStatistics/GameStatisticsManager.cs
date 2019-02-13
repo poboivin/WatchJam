@@ -9,53 +9,67 @@ using UnityEngine;
 /// </summary>
 public class GameStatisticsManager : MonoBehaviour {
 
-    PlayerStatisticInfo[] playersInfo = new PlayerStatisticInfo[(int)PierInputManager.PlayerNumber.PC];
+    PlayerStatisticInfo[] playersInfo;
+
+    void Awake()
+    {
+        playersInfo = new PlayerStatisticInfo[( int )PierInputManager.PlayerNumber.PC];
+        for( var i = 0; i < ( int )PierInputManager.PlayerNumber.PC; i++ )
+        {
+            playersInfo[i].PlayerId = i;
+        }
+    }
 
     void Clear()
     {
-        playersInfo = new PlayerStatisticInfo[( int )PierInputManager.PlayerNumber.PC];
-    }
-
-    public void PlayerStarted( PierInputManager.PlayerNumber playerId )
-    {
-        playersInfo[( int )playerId].Started();
-    }
-
-    public void PlayerDied( PierInputManager.PlayerNumber playerId )
-    {
-        playersInfo[( int )playerId].Died();
-    }
-
-    public void PlayerWon( PierInputManager.PlayerNumber playerId )
-    {
-        playersInfo[( int )playerId].WonGame();
-    }
-
-    public void PlayerFire(PierInputManager.PlayerNumber playerId )
-    {
-        playersInfo[( int )playerId].Fire();
-    }
-
-    public void PlayerHit( PierInputManager.PlayerNumber playerId )
-    {
-        playersInfo[( int )playerId].HitTarget();
-    }
-
-    public void PlayerKill( PierInputManager.PlayerNumber playerId )
-    {
-        playersInfo[( int )playerId].KilledPlayer();
-    }
-
-    public PlayerStatisticInfo GetPlayerStatisticInfo( PierInputManager.PlayerNumber playerId )
-    {
-        return playersInfo[( int )playerId];
-    }
-
-    public void SetPlayerStatisticInfo( int index, PlayerStatisticInfo playerInfo )
-    {
-        if( index < (int)PierInputManager.PlayerNumber.PC )
+        for( var i = 0; i < ( int )PierInputManager.PlayerNumber.PC; i++ )
         {
-            playersInfo[index] = playerInfo;
+            // TODO : check only play this seesion? or whole session? 
+            // what if a player plays intermittently
+            //playersInfo[i].IsPlayed = false;
+
+            playersInfo[i].IsWonGame = false;
+            playersInfo[i].TotalShots = 0;
+            playersInfo[i].TotalHits = 0;
         }
+    }
+
+    public void PlayerStarted( int playerId )
+    {
+        playersInfo[playerId].Started();
+    }
+
+    public void PlayerDied( int playerId )
+    {
+        playersInfo[playerId].Died();
+
+        var hitter = playersInfo[playerId].PlayerIdLastHitter;
+        playersInfo[hitter].PlayerKills += 1;
+    }
+
+    public void PlayerWon( int playerId )
+    {
+        playersInfo[playerId].WonGame();
+    }
+
+    public void RecordFire( int playerId )
+    {
+        playersInfo[playerId].TotalShots += 1;
+    }
+
+    public void RecordHitTarget( int playerId )
+    {
+        playersInfo[playerId].TotalHits += 1;
+    }
+
+    public void RecordHitTarget( int shooter, int casualty )
+    {
+        playersInfo[shooter].TotalHits += 1;
+        playersInfo[casualty].PlayerIdLastHitter = shooter;
+    }
+
+    public PlayerStatisticInfo GetPlayerStatisticInfo( int playerId )
+    {
+        return playersInfo[playerId];
     }
 }

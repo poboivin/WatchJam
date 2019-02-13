@@ -26,13 +26,14 @@ public class MatchCounter : MonoBehaviour
         {
             var inputManager = ( player.GetComponent<PierInputManager>() as PierInputManager );
             if( inputManager )
-                statisticsManager.PlayerDied( inputManager.playerNumber );
+                statisticsManager.PlayerDied( ( int )inputManager.playerNumber );
         }
+
         if (players.Count == 1)
         {
             var inputManager = ( players[0].GetComponent<PierInputManager>() as PierInputManager );
             if( statisticsManager && inputManager )
-                statisticsManager.PlayerWon( inputManager.playerNumber );
+                statisticsManager.PlayerWon( ( int )inputManager.playerNumber );
             _Instance.GameOver();
         }
         if(_Instance!= null && _Instance.killshots != null  && _Instance.source != null)

@@ -35,11 +35,11 @@ public class PlayerRecordUIScript : MonoBehaviour
         if( statisticsManager == null )
             return;
 
-        PlayerStatisticInfo statisticInfo = statisticsManager.GetPlayerStatisticInfo( playerId );
+        PlayerStatisticInfo statisticInfo = statisticsManager.GetPlayerStatisticInfo( ( int )playerId );
         gameObject.SetActive( statisticInfo.IsPlayed );
         if( statisticInfo.IsPlayed )
         {
-            playerName.text = statisticInfo.PlayerId.ToString();
+            playerName.text = "P" + (statisticInfo.PlayerId+1).ToString();
             playerNumKills.text = "Kills : " + statisticInfo.PlayerKills;
             playerNumDeaths.text = "Deaths : " + statisticInfo.NumOfDeaths;
             playerNumShots.text = "Total Shots : " + statisticInfo.TotalShots;
@@ -47,7 +47,7 @@ public class PlayerRecordUIScript : MonoBehaviour
             int accuracy = 0;
             if( statisticInfo.TotalShots > 0 )
             {
-                accuracy = statisticInfo.TotalHits / statisticInfo.TotalShots;
+                accuracy = statisticInfo.TotalHits * 100 / statisticInfo.TotalShots;
             }
             playerShotAccuracy.text = "Shot Accuracy : " + accuracy + "%";
             playerIsWon.text = statisticInfo.IsWonGame ? "Win!!!" : string.Empty;

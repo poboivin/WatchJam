@@ -4,12 +4,14 @@ using UnityEngine;
 
 public struct PlayerStatisticInfo
 {
-    public PierInputManager.PlayerNumber PlayerId;
+    public int PlayerId;
     public bool IsPlayed;
     public int PlayerKills;
     public int NumOfDeaths;
     public int TotalShots;
     public int TotalHits;
+    // to track who kills me
+    public int PlayerIdLastHitter;
     public bool IsWonGame;
 
     public void Started()
@@ -27,21 +29,6 @@ public struct PlayerStatisticInfo
         NumOfDeaths += 1;
         IsWonGame = false;
     }
-
-    public void Fire()
-    {
-        TotalShots += 1;
-    }
-
-    public void HitTarget()
-    {
-        TotalHits += 1;
-    }
-
-    public void KilledPlayer()
-    {
-        PlayerKills += 1;
-    }
 }
 
 /// <summary>
@@ -50,16 +37,16 @@ public struct PlayerStatisticInfo
 /// </summary>
 public class PlayerStatistics : MonoBehaviour
 {
-    PierInputManager.PlayerNumber playerId;
+    int playerId;
     GameStatisticsManager statisticsManager;
 
     // Start is called before the first frame update
     void Start()
     {
-        playerId = PierInputManager.PlayerNumber.PC;
+        playerId = ( int )PierInputManager.PlayerNumber.PC;
         if( GetComponent<PierInputManager>() != null )
         {
-            playerId = ( GetComponent<PierInputManager>() as PierInputManager ).playerNumber;
+            playerId = ( int )( GetComponent<PierInputManager>() as PierInputManager ).playerNumber;
         }
 
         statisticsManager = FindObjectOfType<GameStatisticsManager>();
@@ -68,11 +55,33 @@ public class PlayerStatistics : MonoBehaviour
             statisticsManager.PlayerStarted( playerId );
         }
     }
-    public void AddFire()
+
+    public int GetPlayerId()
+    {
+        return playerId;
+    }
+
+    public void RecordFire()
     {
         if( statisticsManager )
         {
-            statisticsManager.PlayerFire( playerId );
+            statisticsManager.RecordFire( playerId );
+        }
+    }
+
+    public void RecordHitTarget()
+    {
+        if( statisticsManager )
+        {
+            statisticsManager.RecordHitTarget( playerId );
+        }
+    }
+
+    public void RecordHitTarget( int casualty )
+    {
+        if( statisticsManager )
+        {
+            statisticsManager.RecordHitTarget( playerId, casualty );
         }
     }
 }

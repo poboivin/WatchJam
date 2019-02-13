@@ -217,7 +217,9 @@ public class Gun : MonoBehaviour,IGun
                 // Debug.Log(-dir * Settings.s.gunKnockBack);
 
 
-                myInputManager.GetComponentInParent<PlayerStatistics>().AddFire();
+                var statistics = myInputManager.GetComponentInParent<PlayerStatistics>();
+                if( statistics != null)
+                    statistics.RecordFire();
             }
 
             if( numBoostedBullet > 0 )
