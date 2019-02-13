@@ -16,9 +16,34 @@ public class GameStatisticsManager : MonoBehaviour {
         playersInfo = new PlayerStatisticInfo[( int )PierInputManager.PlayerNumber.PC];
     }
 
+    public void PlayerStarted( PierInputManager.PlayerNumber playerId )
+    {
+        playersInfo[( int )playerId].Started();
+    }
+
     public void PlayerDied( PierInputManager.PlayerNumber playerId )
     {
         playersInfo[( int )playerId].Died();
+    }
+
+    public void PlayerWon( PierInputManager.PlayerNumber playerId )
+    {
+        playersInfo[( int )playerId].WonGame();
+    }
+
+    public void PlayerFire(PierInputManager.PlayerNumber playerId )
+    {
+        playersInfo[( int )playerId].Fire();
+    }
+
+    public void PlayerHit( PierInputManager.PlayerNumber playerId )
+    {
+        playersInfo[( int )playerId].HitTarget();
+    }
+
+    public void PlayerKill( PierInputManager.PlayerNumber playerId )
+    {
+        playersInfo[( int )playerId].KilledPlayer();
     }
 
     public PlayerStatisticInfo GetPlayerStatisticInfo( PierInputManager.PlayerNumber playerId )

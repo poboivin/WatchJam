@@ -10,15 +10,37 @@ public struct PlayerStatisticInfo
     public int NumOfDeaths;
     public int TotalShots;
     public int TotalHits;
-    public float ShotAccuracy;
     public bool IsWonGame;
+
+    public void Started()
+    {
+        IsPlayed = true;
+    }
+
+    public void WonGame()
+    {
+        IsWonGame = true;
+    }
 
     public void Died()
     {
         NumOfDeaths += 1;
         IsWonGame = false;
-        if( TotalHits > 0 )
-            ShotAccuracy = TotalShots / TotalHits;
+    }
+
+    public void Fire()
+    {
+        TotalShots += 1;
+    }
+
+    public void HitTarget()
+    {
+        TotalHits += 1;
+    }
+
+    public void KilledPlayer()
+    {
+        PlayerKills += 1;
     }
 }
 
@@ -28,32 +50,29 @@ public struct PlayerStatisticInfo
 /// </summary>
 public class PlayerStatistics : MonoBehaviour
 {
-
-    PlayerStatisticInfo playerInfo;
+    PierInputManager.PlayerNumber playerId;
+    GameStatisticsManager statisticsManager;
 
     // Start is called before the first frame update
     void Start()
     {
-        PierInputManager.PlayerNumber playerId = PierInputManager.PlayerNumber.PC;
+        playerId = PierInputManager.PlayerNumber.PC;
         if( GetComponent<PierInputManager>() != null )
         {
             playerId = ( GetComponent<PierInputManager>() as PierInputManager ).playerNumber;
         }
 
-        playerInfo = new PlayerStatisticInfo
+        statisticsManager = FindObjectOfType<GameStatisticsManager>();
+        if( statisticsManager )
         {
-            PlayerId = playerId,
-            IsPlayed = true,
-            PlayerKills = 0,
-            NumOfDeaths = 0,
-            TotalShots = 0,
-            TotalHits = 0,
-            ShotAccuracy = 0,
-            IsWonGame = true
-        };
-
-        var statisticsManager = FindObjectOfType<GameStatisticsManager>();
-        if( statisticsManager != null )
-            statisticsManager.SetPlayerStatisticInfo( (int)playerId, playerInfo );
+            statisticsManager.PlayerStarted( playerId );
+        }
+    }
+    public void AddFire()
+    {
+        if( statisticsManager )
+        {
+            statisticsManager.PlayerFire( playerId );
+        }
     }
 }

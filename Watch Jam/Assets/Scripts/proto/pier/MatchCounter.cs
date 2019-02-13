@@ -30,6 +30,9 @@ public class MatchCounter : MonoBehaviour
         }
         if (players.Count == 1)
         {
+            var inputManager = ( players[0].GetComponent<PierInputManager>() as PierInputManager );
+            if( statisticsManager && inputManager )
+                statisticsManager.PlayerWon( inputManager.playerNumber );
             _Instance.GameOver();
         }
         if(_Instance!= null && _Instance.killshots != null  && _Instance.source != null)

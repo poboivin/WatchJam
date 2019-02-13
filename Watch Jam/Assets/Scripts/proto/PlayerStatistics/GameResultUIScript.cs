@@ -26,9 +26,13 @@ public class GameResultUIScript : MonoBehaviour
     public void ShowGameResultUI()
     {
         mainPanel.SetActive( true );
-        foreach( var panel in playerPanel )
+        var statisticsManager = FindObjectOfType<GameStatisticsManager>();
+        if( statisticsManager )
         {
-            panel.UpdateStatisticInfo();
+            foreach( var panel in playerPanel )
+            {
+                panel.UpdateStatisticInfo();
+            }
         }
     }
 
