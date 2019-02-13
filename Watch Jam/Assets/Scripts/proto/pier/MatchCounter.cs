@@ -21,6 +21,13 @@ public class MatchCounter : MonoBehaviour
     public static void Remove(TimeController player)
     {
         players.Remove(player);
+        var statisticsManager = FindObjectOfType<GameStatisticsManager>();
+        if( statisticsManager )
+        {
+            var inputManager = ( player.GetComponent<PierInputManager>() as PierInputManager );
+            if( inputManager )
+                statisticsManager.PlayerDied( inputManager.playerNumber );
+        }
         if (players.Count == 1)
         {
             _Instance.GameOver();
@@ -37,13 +44,19 @@ public class MatchCounter : MonoBehaviour
     void Awake ()
     {
         _Instance = this;
-      
-      
-	}
-	public void GameOver()
+    }
+
+    public void GameOver()
     {
         Debug.Log("game over");
-        SceneManager.LoadScene(1);
+
+        var gameEndUI = FindObjectOfType<GameResultUIScript>();
+        if( gameEndUI )
+        {
+            gameEndUI.ShowGameResultUI();
+        }
+        players.Clear();
+        //SceneManager.LoadScene(1);
     }
 	// Update is called once per frame
 	void Update ()
