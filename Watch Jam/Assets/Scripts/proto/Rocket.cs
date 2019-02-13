@@ -45,6 +45,20 @@ public class Rocket : MonoBehaviour
                 OnExplode();
                 if (Camera.main.GetComponent<CamShake>() != null)
                     Camera.main.GetComponent<CamShake>().Shake(0.1f, 0.2f);
+                var shooter = myOwner.gameObject.GetComponentInParent<PlayerStatistics>();
+                if( shooter != null )
+                {
+                    var casualty = col.gameObject.GetComponentInParent<PlayerStatistics>();
+                    if( casualty != null )
+                    {
+                        shooter.RecordHitTarget( casualty.GetPlayerId() );
+                    }
+                    else
+                    {
+                        shooter.RecordHitTarget();
+                    }
+                }
+
                 Destroy(gameObject);
             }
 
