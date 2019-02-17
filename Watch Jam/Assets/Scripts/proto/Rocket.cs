@@ -9,7 +9,10 @@ public class Rocket : MonoBehaviour
     public LifeSpan myOwner;
 
 
-
+    private void Start()
+    {
+        GetComponentInChildren<Animator>().Play("KunaiLoop");
+    }
 
     void Update()
     {

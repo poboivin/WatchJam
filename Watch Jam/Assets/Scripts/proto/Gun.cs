@@ -2,6 +2,8 @@
 using System.Collections;
 using System.Collections.Generic;
 
+
+
 public class Gun : MonoBehaviour,IGun
 {
     public class bulletInfo
@@ -36,10 +38,14 @@ public class Gun : MonoBehaviour,IGun
 
 
     private GameObject[] RocketsFired;
+    public SpecialBarController SpecialBar;
+    
 
     public float angle;
     public float x;
     public float y;
+
+    
     void Awake()
     {
         bullets = new List<bulletInfo>();
@@ -88,7 +94,10 @@ public class Gun : MonoBehaviour,IGun
         //    gunPivot.transform.localScale = theScale;
 
         //}
-
+        if (SpecialBar.RapidFireFill.enabled == true)
+        {
+            SpecialBar.SetRapidBarFill(numBoostedBullet);
+        }
 
         gunPivot.localRotation = Quaternion.Euler(new Vector3(0, 0, angle)); //Rotating!
 
@@ -157,6 +166,7 @@ public class Gun : MonoBehaviour,IGun
                     }
                     else
                     {
+                    Debug.Log("Bullets Are Here");
                         bulletInstance.velocity = dir;//new Vector2(speed, 0);
                         bulletInstance.transform.right = bulletInstance.velocity;
                         foreach( Collider2D collider in transform.root.GetComponentsInChildren<Collider2D>() )
@@ -250,6 +260,7 @@ public class Gun : MonoBehaviour,IGun
 
     public void ChangeFireRate( float newFireRate, int numBulletCount )
     {
+        SpecialBar.ToggleRapidFireBar(true);
         StartCoroutine( "ChangeFireRateImpl", new object[] { newFireRate, numBulletCount } );
     }
 
@@ -257,20 +268,22 @@ public class Gun : MonoBehaviour,IGun
     {
         float oldFireRate = fireRate;
         fireRate = ( float )parameters[0];
-
+        
         // TO DO : change this effect with the proper one that showing the player is being boosted.
-        TimeAuraController aura = transform.root.gameObject.GetComponentInChildren<TimeAuraController>();
-        if( aura != null )
-        {
-            aura.TurnOnAura( TimeAuraController.Aura.orange );
-        }
+        //TimeAuraController aura = transform.root.gameObject.GetComponentInChildren<TimeAuraController>();
+        //if( aura != null )
+        //{
+        //    aura.TurnOnAura( TimeAuraController.Aura.orange );
+        //}
 
         numBoostedBullet = ( int )parameters[1];
+  
+
         yield return new WaitUntil( () => numBoostedBullet <= 0 );
 
-        if( aura != null )
-            aura.TurnOffAura();
-
+        //if( aura != null )
+        //    aura.TurnOffAura();
+        SpecialBar.ToggleRapidFireBar(false);
         fireRate = oldFireRate;
     }
     void IGun.setEnable(bool val)

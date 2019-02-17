@@ -1,9 +1,7 @@
 fileFormatVersion: 2
-guid: 8683b05087a10e14fb17b1be2a6cf610
+guid: 01a57155b622533409dbfe9675f982a4
 TextureImporter:
-  fileIDToRecycleName:
-    21300000: HealthBarFill
-    21300002: HealthSegmentShatter
+  fileIDToRecycleName: {}
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -42,7 +40,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -106,51 +104,11 @@ TextureImporter:
     androidETC2FallbackOverride: 0
   spriteSheet:
     serializedVersion: 2
-    sprites:
-    - serializedVersion: 2
-      name: HealthBarFill
-      rect:
-        serializedVersion: 2
-        x: 3678
-        y: 5663
-        width: 3239
-        height: 610
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 6a52f3dcfec082a4fb4c7ce99700332f
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: HealthSegmentShatter
-      rect:
-        serializedVersion: 2
-        x: 5569
-        y: 4724
-        width: 593
-        height: 790
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 041e937a066c70244bb8c4f5830a3ab2
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
+    sprites: []
     outline: []
     physicsShape: []
     bones: []
-    spriteID: b9893de5ef37b2243a55d66480ff2127
+    spriteID: e10461beb54b3e14d8eeb045eb422294
     vertices: []
     indices: 
     edges: []
