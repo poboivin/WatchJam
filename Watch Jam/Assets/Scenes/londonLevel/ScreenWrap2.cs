@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ScreenWrap : MonoBehaviour
+public class ScreenWrap2 : MonoBehaviour
 {
 
     public float positiveX;
