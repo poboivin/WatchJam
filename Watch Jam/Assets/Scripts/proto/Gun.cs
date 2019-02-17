@@ -224,7 +224,12 @@ public class Gun : MonoBehaviour,IGun
                 //}
 
                 myTimeController.AddForce(-dir.normalized * Settings.s.gunKnockBack);
-               // Debug.Log(-dir * Settings.s.gunKnockBack);
+                // Debug.Log(-dir * Settings.s.gunKnockBack);
+
+
+                var statistics = myInputManager.GetComponentInParent<PlayerStatistics>();
+                if( statistics != null)
+                    statistics.RecordFire();
             }
 
             if( numBoostedBullet > 0 )
