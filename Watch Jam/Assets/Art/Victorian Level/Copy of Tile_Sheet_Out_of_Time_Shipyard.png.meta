@@ -1,0 +1,1485 @@
+fileFormatVersion: 2
+guid: 0c9347fe2313873459fadf824bb25252
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: Copy of Tile_Sheet_Out_of_Time_Shipyard_0
+    21300002: Copy of Tile_Sheet_Out_of_Time_Shipyard_1
+    21300004: Copy of Tile_Sheet_Out_of_Time_Shipyard_2
+    21300006: Copy of Tile_Sheet_Out_of_Time_Shipyard_3
+    21300008: Copy of Tile_Sheet_Out_of_Time_Shipyard_4
+    21300010: Copy of Tile_Sheet_Out_of_Time_Shipyard_5
+    21300012: Copy of Tile_Sheet_Out_of_Time_Shipyard_6
+    21300014: Copy of Tile_Sheet_Out_of_Time_Shipyard_7
+    21300016: Copy of Tile_Sheet_Out_of_Time_Shipyard_8
+    21300018: Copy of Tile_Sheet_Out_of_Time_Shipyard_9
+    21300020: Copy of Tile_Sheet_Out_of_Time_Shipyard_10
+    21300022: Copy of Tile_Sheet_Out_of_Time_Shipyard_11
+    21300024: Copy of Tile_Sheet_Out_of_Time_Shipyard_12
+    21300026: Copy of Tile_Sheet_Out_of_Time_Shipyard_13
+    21300028: Copy of Tile_Sheet_Out_of_Time_Shipyard_14
+    21300030: Copy of Tile_Sheet_Out_of_Time_Shipyard_15
+    21300032: Copy of Tile_Sheet_Out_of_Time_Shipyard_16
+    21300034: Copy of Tile_Sheet_Out_of_Time_Shipyard_17
+    21300036: Copy of Tile_Sheet_Out_of_Time_Shipyard_18
+    21300038: Copy of Tile_Sheet_Out_of_Time_Shipyard_19
+    21300040: Copy of Tile_Sheet_Out_of_Time_Shipyard_20
+    21300042: Copy of Tile_Sheet_Out_of_Time_Shipyard_21
+    21300044: Copy of Tile_Sheet_Out_of_Time_Shipyard_22
+    21300046: Copy of Tile_Sheet_Out_of_Time_Shipyard_23
+    21300048: Copy of Tile_Sheet_Out_of_Time_Shipyard_24
+    21300050: Copy of Tile_Sheet_Out_of_Time_Shipyard_25
+    21300052: Copy of Tile_Sheet_Out_of_Time_Shipyard_26
+    21300054: Copy of Tile_Sheet_Out_of_Time_Shipyard_27
+    21300056: Copy of Tile_Sheet_Out_of_Time_Shipyard_28
+    21300058: Copy of Tile_Sheet_Out_of_Time_Shipyard_29
+    21300060: Copy of Tile_Sheet_Out_of_Time_Shipyard_30
+    21300062: Copy of Tile_Sheet_Out_of_Time_Shipyard_31
+    21300064: Copy of Tile_Sheet_Out_of_Time_Shipyard_32
+    21300066: Copy of Tile_Sheet_Out_of_Time_Shipyard_33
+    21300068: Copy of Tile_Sheet_Out_of_Time_Shipyard_34
+    21300070: Copy of Tile_Sheet_Out_of_Time_Shipyard_35
+    21300072: Copy of Tile_Sheet_Out_of_Time_Shipyard_36
+    21300074: Copy of Tile_Sheet_Out_of_Time_Shipyard_37
+    21300076: Copy of Tile_Sheet_Out_of_Time_Shipyard_38
+    21300078: Copy of Tile_Sheet_Out_of_Time_Shipyard_39
+    21300080: Copy of Tile_Sheet_Out_of_Time_Shipyard_40
+    21300082: Copy of Tile_Sheet_Out_of_Time_Shipyard_41
+    21300084: Copy of Tile_Sheet_Out_of_Time_Shipyard_42
+    21300086: Copy of Tile_Sheet_Out_of_Time_Shipyard_43
+    21300088: Copy of Tile_Sheet_Out_of_Time_Shipyard_44
+    21300090: Copy of Tile_Sheet_Out_of_Time_Shipyard_45
+    21300092: Copy of Tile_Sheet_Out_of_Time_Shipyard_46
+    21300094: Copy of Tile_Sheet_Out_of_Time_Shipyard_47
+    21300096: Copy of Tile_Sheet_Out_of_Time_Shipyard_48
+    21300098: Copy of Tile_Sheet_Out_of_Time_Shipyard_49
+    21300100: Copy of Tile_Sheet_Out_of_Time_Shipyard_50
+    21300102: Copy of Tile_Sheet_Out_of_Time_Shipyard_51
+    21300104: Copy of Tile_Sheet_Out_of_Time_Shipyard_52
+    21300106: Copy of Tile_Sheet_Out_of_Time_Shipyard_53
+    21300108: Copy of Tile_Sheet_Out_of_Time_Shipyard_54
+    21300110: Copy of Tile_Sheet_Out_of_Time_Shipyard_55
+    21300112: Copy of Tile_Sheet_Out_of_Time_Shipyard_56
+    21300114: Copy of Tile_Sheet_Out_of_Time_Shipyard_57
+    21300116: Copy of Tile_Sheet_Out_of_Time_Shipyard_58
+    21300118: Copy of Tile_Sheet_Out_of_Time_Shipyard_59
+    21300120: Copy of Tile_Sheet_Out_of_Time_Shipyard_60
+    21300122: Copy of Tile_Sheet_Out_of_Time_Shipyard_61
+    21300124: Copy of Tile_Sheet_Out_of_Time_Shipyard_62
+    21300126: Copy of Tile_Sheet_Out_of_Time_Shipyard_63
+    21300128: Copy of Tile_Sheet_Out_of_Time_Shipyard_64
+    21300130: Copy of Tile_Sheet_Out_of_Time_Shipyard_65
+  externalObjects: {}
+  serializedVersion: 7
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 2
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Copy of Tile_Sheet_Out_of_Time_Shipyard_0
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 1623
+        width: 661
+        height: 725
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2ebc437a61d51474ea7784d050e3fb0c
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Copy of Tile_Sheet_Out_of_Time_Shipyard_1
+      rect:
+        serializedVersion: 2
+        x: 770
+        y: 1641
+        width: 707
+        height: 707
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 70ed749c1eb48fb44b55c88e4166c014
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Copy of Tile_Sheet_Out_of_Time_Shipyard_2
+      rect:
+        serializedVersion: 2
+        x: 1454
+        y: 1608
+        width: 11
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e41c5bceadd41a241af892fe7ec5874f
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Copy of Tile_Sheet_Out_of_Time_Shipyard_3
+      rect:
+        serializedVersion: 2
+        x: 451
+        y: 1478
+        width: 67
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c52768b58bab98a4c9f4c51955087856
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Copy of Tile_Sheet_Out_of_Time_Shipyard_4
+      rect:
+        serializedVersion: 2
+        x: 650
+        y: 1480
+        width: 84
+        height: 89
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5324f7b81709fcf46a0d0bd7af49c3cf
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Copy of Tile_Sheet_Out_of_Time_Shipyard_5
+      rect:
+        serializedVersion: 2
+        x: 834
+        y: 1506
+        width: 260
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4618b876a5abe0e45992b5907b405908
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Copy of Tile_Sheet_Out_of_Time_Shipyard_6
+      rect:
+        serializedVersion: 2
+        x: 1388
+        y: 1173
+        width: 11
+        height: 401
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2c980d4a628196b43897c83d77d3270a
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Copy of Tile_Sheet_Out_of_Time_Shipyard_7
+      rect:
+        serializedVersion: 2
+        x: 1454
+        y: 1538
+        width: 11
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a416ab95f188a44439b618db7a943d28
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Copy of Tile_Sheet_Out_of_Time_Shipyard_8
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 1349
+        width: 72
+        height: 136
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8eef9c0b6d8645e44872363bb54a2010
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Copy of Tile_Sheet_Out_of_Time_Shipyard_9
+      rect:
+        serializedVersion: 2
+        x: 834
+        y: 1454
+        width: 48
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c362422750b9d6740af02dea5b596c5f
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Copy of Tile_Sheet_Out_of_Time_Shipyard_10
+      rect:
+        serializedVersion: 2
+        x: 931
+        y: 1454
+        width: 41
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1c7c5a83eb7a9c54d99db1cf76e4d4fb
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Copy of Tile_Sheet_Out_of_Time_Shipyard_11
+      rect:
+        serializedVersion: 2
+        x: 1017
+        y: 1439
+        width: 77
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 69c830b9a66efa148874513ae0bcca4d
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Copy of Tile_Sheet_Out_of_Time_Shipyard_12
+      rect:
+        serializedVersion: 2
+        x: 1454
+        y: 1173
+        width: 11
+        height: 362
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a849858c67489f7499a8071b061a87a8
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Copy of Tile_Sheet_Out_of_Time_Shipyard_13
+      rect:
+        serializedVersion: 2
+        x: 153
+        y: 1349
+        width: 225
+        height: 87
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c7415d79af13db245a16b7da020ff57d
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Copy of Tile_Sheet_Out_of_Time_Shipyard_14
+      rect:
+        serializedVersion: 2
+        x: 414
+        y: 1349
+        width: 104
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 19d670e406c36e4418d8cb1dd8d73201
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Copy of Tile_Sheet_Out_of_Time_Shipyard_15
+      rect:
+        serializedVersion: 2
+        x: 650
+        y: 1357
+        width: 84
+        height: 88
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 68a08b03002e21b45978d6d2deb26f97
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Copy of Tile_Sheet_Out_of_Time_Shipyard_16
+      rect:
+        serializedVersion: 2
+        x: 834
+        y: 1358
+        width: 76
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: da9a3a7df952a6844add78c030fe304d
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Copy of Tile_Sheet_Out_of_Time_Shipyard_17
+      rect:
+        serializedVersion: 2
+        x: 959
+        y: 1374
+        width: 43
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 71a892cde46ec6c43a144414e1d0cc2e
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Copy of Tile_Sheet_Out_of_Time_Shipyard_18
+      rect:
+        serializedVersion: 2
+        x: 1046
+        y: 1375
+        width: 48
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 065ad393425a0b048aa8e053698172b3
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Copy of Tile_Sheet_Out_of_Time_Shipyard_19
+      rect:
+        serializedVersion: 2
+        x: 1209
+        y: 638
+        width: 57
+        height: 765
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d02af73a5fee7794d9e7e2a687ce8436
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Copy of Tile_Sheet_Out_of_Time_Shipyard_20
+      rect:
+        serializedVersion: 2
+        x: 451
+        y: 1242
+        width: 67
+        height: 68
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9940aba6ccc478641b9f2319c648984f
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Copy of Tile_Sheet_Out_of_Time_Shipyard_21
+      rect:
+        serializedVersion: 2
+        x: 650
+        y: 1231
+        width: 84
+        height: 88
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1ee148b9386ef5a44aedf1d0bfb26ce3
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Copy of Tile_Sheet_Out_of_Time_Shipyard_22
+      rect:
+        serializedVersion: 2
+        x: 834
+        y: 1287
+        width: 31
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 17e8b2cc6bd276641a33054eb2e6aa61
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Copy of Tile_Sheet_Out_of_Time_Shipyard_23
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 1113
+        width: 72
+        height: 135
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d16c2d9b0ffdb36419f41aeea5ba2330
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Copy of Tile_Sheet_Out_of_Time_Shipyard_24
+      rect:
+        serializedVersion: 2
+        x: 414
+        y: 1113
+        width: 104
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c78d23c8e9ce8a44ea0cc3b040d75cdd
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Copy of Tile_Sheet_Out_of_Time_Shipyard_25
+      rect:
+        serializedVersion: 2
+        x: 835
+        y: 1204
+        width: 62
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7ea105b3618e6c44bb68f4f07a46e593
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Copy of Tile_Sheet_Out_of_Time_Shipyard_26
+      rect:
+        serializedVersion: 2
+        x: 940
+        y: 1207
+        width: 46
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1957862574ae5494da42d74c23336d18
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Copy of Tile_Sheet_Out_of_Time_Shipyard_27
+      rect:
+        serializedVersion: 2
+        x: 1025
+        y: 1203
+        width: 63
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 22a7e65d3bcfe3848841c25ba1f2dfb3
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Copy of Tile_Sheet_Out_of_Time_Shipyard_28
+      rect:
+        serializedVersion: 2
+        x: 1301
+        y: 1172
+        width: 34
+        height: 106
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3822aea29c3f2634aa25c5a03b547733
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Copy of Tile_Sheet_Out_of_Time_Shipyard_29
+      rect:
+        serializedVersion: 2
+        x: 151
+        y: 1116
+        width: 225
+        height: 88
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d9852220956455e4a88b90432fc9fbb3
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Copy of Tile_Sheet_Out_of_Time_Shipyard_30
+      rect:
+        serializedVersion: 2
+        x: 650
+        y: 1112
+        width: 84
+        height: 87
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4733538c717465c4abceaa0de29cf45d
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Copy of Tile_Sheet_Out_of_Time_Shipyard_31
+      rect:
+        serializedVersion: 2
+        x: 882
+        y: 1113
+        width: 206
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: df4a979f2d9477541a5536d23c8b093c
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Copy of Tile_Sheet_Out_of_Time_Shipyard_32
+      rect:
+        serializedVersion: 2
+        x: 1360
+        y: 382
+        width: 57
+        height: 765
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ad810ab87c58f8248b60ccd2bc186ffb
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Copy of Tile_Sheet_Out_of_Time_Shipyard_33
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 888
+        width: 72
+        height: 135
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a9068385439f9a3459ee345312d652cd
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Copy of Tile_Sheet_Out_of_Time_Shipyard_34
+      rect:
+        serializedVersion: 2
+        x: 451
+        y: 1013
+        width: 67
+        height: 68
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 19b005f5624dbb44abb416f2ac3c893e
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Copy of Tile_Sheet_Out_of_Time_Shipyard_35
+      rect:
+        serializedVersion: 2
+        x: 586
+        y: 998
+        width: 37
+        height: 69
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 337cf54ab7bd4d74f92c6d2b650ad426
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Copy of Tile_Sheet_Out_of_Time_Shipyard_36
+      rect:
+        serializedVersion: 2
+        x: 645
+        y: 998
+        width: 27
+        height: 69
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 27e2ee18e951be64e84319df37952d1c
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Copy of Tile_Sheet_Out_of_Time_Shipyard_37
+      rect:
+        serializedVersion: 2
+        x: 697
+        y: 998
+        width: 37
+        height: 69
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a52eb4566b110df4b9ff22a8b3ea9c08
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Copy of Tile_Sheet_Out_of_Time_Shipyard_38
+      rect:
+        serializedVersion: 2
+        x: 791
+        y: 1013
+        width: 245
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6ff2bcdb521edbf4caafa2177d19f236
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Copy of Tile_Sheet_Out_of_Time_Shipyard_39
+      rect:
+        serializedVersion: 2
+        x: 151
+        y: 888
+        width: 225
+        height: 87
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a4e17cea523a0cc4a81cc3e773e91e28
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Copy of Tile_Sheet_Out_of_Time_Shipyard_40
+      rect:
+        serializedVersion: 2
+        x: 414
+        y: 888
+        width: 104
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8c010cfbf2949b7459cb9dc9c5119a0f
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Copy of Tile_Sheet_Out_of_Time_Shipyard_41
+      rect:
+        serializedVersion: 2
+        x: 586
+        y: 888
+        width: 37
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a7501a23c1ae40a418063e568ae98d6e
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Copy of Tile_Sheet_Out_of_Time_Shipyard_42
+      rect:
+        serializedVersion: 2
+        x: 645
+        y: 888
+        width: 27
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 247faa405062f6f4f88398c28a5adc4d
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Copy of Tile_Sheet_Out_of_Time_Shipyard_43
+      rect:
+        serializedVersion: 2
+        x: 697
+        y: 888
+        width: 37
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 13e3a774b2896e7439037f2748a1d615
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Copy of Tile_Sheet_Out_of_Time_Shipyard_44
+      rect:
+        serializedVersion: 2
+        x: 791
+        y: 941
+        width: 76
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2777daf2a2f282547bda39a800624abe
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Copy of Tile_Sheet_Out_of_Time_Shipyard_45
+      rect:
+        serializedVersion: 2
+        x: 903
+        y: 941
+        width: 76
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c1e28856b468e4c45be9202ff33a01eb
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Copy of Tile_Sheet_Out_of_Time_Shipyard_46
+      rect:
+        serializedVersion: 2
+        x: 1018
+        y: 941
+        width: 76
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c4e13c74de3c0164e83449e0732a884d
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Copy of Tile_Sheet_Out_of_Time_Shipyard_47
+      rect:
+        serializedVersion: 2
+        x: 791
+        y: 864
+        width: 303
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5b29e84b99032a1449f7e73a10c06d6b
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Copy of Tile_Sheet_Out_of_Time_Shipyard_48
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 654
+        width: 72
+        height: 137
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6191f2734a7c86c459f580a44d509b32
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Copy of Tile_Sheet_Out_of_Time_Shipyard_49
+      rect:
+        serializedVersion: 2
+        x: 451
+        y: 787
+        width: 67
+        height: 69
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3712a9e0fa93f154b9c108bebddebdf8
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Copy of Tile_Sheet_Out_of_Time_Shipyard_50
+      rect:
+        serializedVersion: 2
+        x: 586
+        y: 774
+        width: 37
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 89cecc7566a4f514f834b1c9102e2f80
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Copy of Tile_Sheet_Out_of_Time_Shipyard_51
+      rect:
+        serializedVersion: 2
+        x: 645
+        y: 772
+        width: 27
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 74218e277f1dec0428c3f85f9808c69e
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Copy of Tile_Sheet_Out_of_Time_Shipyard_52
+      rect:
+        serializedVersion: 2
+        x: 697
+        y: 774
+        width: 37
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2b0a8182f97480c4c9c51f36d001a7b1
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Copy of Tile_Sheet_Out_of_Time_Shipyard_53
+      rect:
+        serializedVersion: 2
+        x: 792
+        y: 790
+        width: 104
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3d6e5a77a465b7e4d8ae6cbb104d4038
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Copy of Tile_Sheet_Out_of_Time_Shipyard_54
+      rect:
+        serializedVersion: 2
+        x: 151
+        y: 654
+        width: 225
+        height: 88
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2ab4be58b3d8cca419fb31f82f535268
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Copy of Tile_Sheet_Out_of_Time_Shipyard_55
+      rect:
+        serializedVersion: 2
+        x: 414
+        y: 654
+        width: 104
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6dacb178c9025274faeced40a9de24e6
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Copy of Tile_Sheet_Out_of_Time_Shipyard_56
+      rect:
+        serializedVersion: 2
+        x: 584
+        y: 654
+        width: 36
+        height: 68
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 18f8dfa1039bd6a42a27c9db3f18e98e
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Copy of Tile_Sheet_Out_of_Time_Shipyard_57
+      rect:
+        serializedVersion: 2
+        x: 643
+        y: 654
+        width: 27
+        height: 68
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 52ce33f01b760e145b7034e907958388
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Copy of Tile_Sheet_Out_of_Time_Shipyard_58
+      rect:
+        serializedVersion: 2
+        x: 696
+        y: 654
+        width: 38
+        height: 68
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e3651bf9114614d428abbb8a72812817
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Copy of Tile_Sheet_Out_of_Time_Shipyard_59
+      rect:
+        serializedVersion: 2
+        x: 793
+        y: 718
+        width: 296
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0448b05af90e4a8499b5ed597f758f27
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Copy of Tile_Sheet_Out_of_Time_Shipyard_60
+      rect:
+        serializedVersion: 2
+        x: 793
+        y: 654
+        width: 296
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a4214d9af558f9a4882ec7920034e80f
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Copy of Tile_Sheet_Out_of_Time_Shipyard_61
+      rect:
+        serializedVersion: 2
+        x: 41
+        y: 382
+        width: 155
+        height: 208
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2a01eab0be7174d4596f2ff90d780d76
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Copy of Tile_Sheet_Out_of_Time_Shipyard_62
+      rect:
+        serializedVersion: 2
+        x: 253
+        y: 382
+        width: 307
+        height: 208
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f416c712977958847b40fb9d4f9c849b
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Copy of Tile_Sheet_Out_of_Time_Shipyard_63
+      rect:
+        serializedVersion: 2
+        x: 637
+        y: 382
+        width: 457
+        height: 208
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 283d08f5cf0ad28499e5939e7e7aa140
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Copy of Tile_Sheet_Out_of_Time_Shipyard_64
+      rect:
+        serializedVersion: 2
+        x: 1211
+        y: 382
+        width: 55
+        height: 207
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 904eb853fb1b5ee4897cfcfdd67345cf
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Copy of Tile_Sheet_Out_of_Time_Shipyard_65
+      rect:
+        serializedVersion: 2
+        x: 41
+        y: 39
+        width: 1436
+        height: 208
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 95f2718c50f08684e9a02fe996013926
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: ca6c8e760c6f88543bd9c2fa36fa4f9c
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
