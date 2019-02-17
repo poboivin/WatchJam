@@ -166,7 +166,7 @@ public class Gun : MonoBehaviour,IGun
                     }
                     else
                     {
-                    Debug.Log("Bullets Are Here");
+                   // Debug.Log("Bullets Are Here");
                         bulletInstance.velocity = dir;//new Vector2(speed, 0);
                         bulletInstance.transform.right = bulletInstance.velocity;
                         foreach( Collider2D collider in transform.root.GetComponentsInChildren<Collider2D>() )

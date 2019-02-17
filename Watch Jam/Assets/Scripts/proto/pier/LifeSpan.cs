@@ -56,13 +56,18 @@ public class LifeSpan : MonoBehaviour
 
         currentLife -= amount;
 
-        if (ShatterActive)
-        {
-            StopCoroutine(ShowHealthShatter());
-            
-        }
+        //LEAVING THIS OUT TILL I FIX IT
+        //if (HealthShatter != null)
+        //{
+        //    if (ShatterActive)
+        //    {
+        //        StopCoroutine(ShowHealthShatter());
 
-        StartCoroutine(ShowHealthShatter());
+        //    }
+
+        //    StartCoroutine(ShowHealthShatter());
+
+        //}
 
 
         //if (clip != null && source != null)
@@ -98,8 +103,11 @@ public class LifeSpan : MonoBehaviour
                 Death();
         }
         //lifeDisplay.fillAmount = currentLife / Settings.s.totalLife;
-
-        HealthBar.fillAmount = currentLife / Settings.s.totalLife;
+        if (HealthBar != null)
+        {
+            HealthBar.fillAmount = currentLife / Settings.s.totalLife;
+        }
+       
 
         if(myText != null)
         {
@@ -158,7 +166,8 @@ public class LifeSpan : MonoBehaviour
         ShatterActive = true;
             
         HealthShatter.enabled= true;
-        HealthShatter.transform.position = new Vector3(HealthShatter.transform.position.x - .199f, HealthShatter.transform.position.y, HealthShatter.transform.position.z);
+        HealthShatter.transform.position = new Vector3(HealthShatter.transform.position.x -.203f, HealthShatter.transform.position.y, HealthShatter.transform.position.z);
+        
         yield return new WaitForSeconds(.8f);
         HealthShatter.enabled = false;
         ShatterActive = false;
