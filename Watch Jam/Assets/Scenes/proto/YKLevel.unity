@@ -3017,7 +3017,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Color: {r: 0.7830189, g: 0.15881987, b: 0.15881987, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -8469,6 +8469,8 @@ Transform:
   - {fileID: 2146615307}
   - {fileID: 755331559}
   - {fileID: 1943003998}
+  - {fileID: 1870589558}
+  - {fileID: 1154538104}
   m_Father: {fileID: 0}
   m_RootOrder: 22
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -9526,12 +9528,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1154538102}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 96.73533, y: 25.22609, z: 16.255276}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -922.26465, y: -12.483902, z: 16.255276}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 42
+  m_Father: {fileID: 972812391}
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1191010963
 GameObject:
@@ -10140,7 +10142,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1591816554510202, guid: b8dded14133be43488c21ed775fccac2, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4190034980900240, guid: b8dded14133be43488c21ed775fccac2, type: 3}
       propertyPath: m_LocalPosition.x
@@ -12522,7 +12524,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1182606819714146, guid: 70b05e8a84d42d54f93ed47bad434476, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1182606819714146, guid: 70b05e8a84d42d54f93ed47bad434476, type: 3}
       propertyPath: m_Name
@@ -14301,7 +14303,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 972812391}
     m_Modifications:
     - target: {fileID: 5150104807705934405, guid: 9f729042844e45c4aa1ad3cb1f7fc619,
         type: 3}
@@ -14351,7 +14353,7 @@ PrefabInstance:
     - target: {fileID: 5150104807705934401, guid: 9f729042844e45c4aa1ad3cb1f7fc619,
         type: 3}
       propertyPath: m_RootOrder
-      value: 41
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 5150104807705934401, guid: 9f729042844e45c4aa1ad3cb1f7fc619,
         type: 3}
@@ -14418,8 +14420,19 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5150104807705934402, guid: 9f729042844e45c4aa1ad3cb1f7fc619,
+        type: 3}
+      propertyPath: m_AdditionalShaderChannelsFlag
+      value: 25
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9f729042844e45c4aa1ad3cb1f7fc619, type: 3}
+--- !u!224 &1870589558 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 5150104807705934401, guid: 9f729042844e45c4aa1ad3cb1f7fc619,
+    type: 3}
+  m_PrefabInstance: {fileID: 1870589557}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1880227604
 GameObject:
   m_ObjectHideFlags: 0
@@ -14614,6 +14627,8 @@ MonoBehaviour:
   - {fileID: 8300000, guid: e78f0f6e5db7a3745bee62652e23aa64, type: 3}
   - {fileID: 8300000, guid: 4cb413f66866dcb4dbdb5c43edd5618f, type: 3}
   source: {fileID: 1943003999}
+  killEffect: {fileID: 5131123969236219464, guid: 4c1769777289bf4429ef89ba0c5cb430,
+    type: 3}
   playerSpawners:
   - {fileID: 1241173665}
   - {fileID: 608063791}

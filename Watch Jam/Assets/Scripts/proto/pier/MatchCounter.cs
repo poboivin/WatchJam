@@ -8,6 +8,7 @@ public class MatchCounter : MonoBehaviour
 {
     public AudioClip[] killshots;
     public AudioSource source;
+    public GameObject killEffect;
     public static List<TimeController> players;
     public static MatchCounter _Instance;
 
@@ -23,26 +24,34 @@ public class MatchCounter : MonoBehaviour
         }
         players.Add(player);
     }
+
     public static void Remove(TimeController player)
     {
         players.Remove(player);
 
-        var targetPlayerNumber = PierInputManager.PlayerNumber.PC;
-        var inputManager = player.GetComponent<PierInputManager>() as PierInputManager;
-        if( inputManager )
-            targetPlayerNumber = inputManager.playerNumber;
-
         var statisticsManager = FindObjectOfType<GameStatisticsManager>();
-        if( statisticsManager && targetPlayerNumber != PierInputManager.PlayerNumber.PC )
+        if( statisticsManager && player.PlayerId != PierInputManager.PlayerNumber.PC )
         {
-            statisticsManager.PlayerDied( ( int )targetPlayerNumber );
+            var killer = statisticsManager.PlayerDied( ( int )player.PlayerId );
+            if( _Instance.killEffect )
+            {
+                foreach( var hitter in players )
+                {
+                    if( hitter.PlayerId == (PierInputManager.PlayerNumber)killer )
+                    {
+                        var playerPos = hitter.gameObject.transform.position;
+                        playerPos.y += 2;
+                        Instantiate( _Instance.killEffect, playerPos, Quaternion.identity );
+                        break;
+                    }
+                }
+            }
         }
 
         if (players.Count == 1)
         {
-            var wonPlayerInputManager = ( players[0].GetComponent<PierInputManager>() as PierInputManager );
-            if( statisticsManager && wonPlayerInputManager )
-                statisticsManager.PlayerWon( ( int )wonPlayerInputManager.playerNumber );
+            if( statisticsManager && players[0].PlayerId != PierInputManager.PlayerNumber.PC )
+                statisticsManager.PlayerWon( ( int )players[0].PlayerId );
 
             if( Settings.s.gameMode == GameMode.Normal )
                 _Instance.GameOver();
@@ -64,12 +73,10 @@ public class MatchCounter : MonoBehaviour
     IEnumerator RespawnCoroutine( TimeController player )
     {
         yield return new WaitForSeconds( Settings.s.playerRespawnTime );
-        
-        var inputManager = player.GetComponent<PierInputManager>() as PierInputManager;
-        if( inputManager )
+
+        if( player.PlayerId != PierInputManager.PlayerNumber.PC )
         {
-            var playerNumber = inputManager.playerNumber;
-            var spawner = playerSpawners[( int )playerNumber].GetComponent<PlayerSpawn>();
+            var spawner = playerSpawners[( int )player.PlayerId].GetComponent<PlayerSpawn>();
             var newHero = Instantiate( spawner.HeroPrefab, spawner.transform.position, Quaternion.identity );
             Destroy( player.gameObject );
             newHero.gameObject.SetActive( true );

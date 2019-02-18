@@ -44,6 +44,16 @@ public class TimeController : MonoBehaviour
     public UnityEvent OnStartTimeStop;
     public UnityEvent OnStopTimeStop;
 
+    public PierInputManager.PlayerNumber PlayerId
+    {
+        get {
+            if( myInputManager != null )
+                return myInputManager.playerNumber;
+            else
+                return PierInputManager.PlayerNumber.PC;
+        }
+    }
+
     //   public Transform TimeAura; 
     void Awake()
     {

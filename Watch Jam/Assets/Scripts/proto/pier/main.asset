@@ -35,4 +35,4 @@ MonoBehaviour:
   ImmobileRecord: 0
   gameMode: 1
   playerRespawnTime: 3
-  timeLimitInSceonds: 30
+  timeLimitInSceonds: 120
