@@ -17,8 +17,8 @@ MonoBehaviour:
   AutoRStickShoot: 1
   gunKnockBack: 0
   bulletKnockBack: 200
-  bulletDamage: 2
-  totalLife: 16
+  bulletDamage: 1
+  totalLife: 10
   stopTimeStoreBullet: 0
   airControl: 1
   timeStopStore: 0

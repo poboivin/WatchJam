@@ -22,6 +22,10 @@ public class LifeSpan : MonoBehaviour
     public SpriteRenderer sp;
     public AudioClip clip;
     public AudioSource source;
+    //NEW UI Items
+    public Image HealthBar;
+    public Image HealthShatter;
+    bool ShatterActive;
   
 	// Use this for initialization
 	void Start ()
@@ -49,14 +53,30 @@ public class LifeSpan : MonoBehaviour
     }
     public float SubstactLife(float amount)
     {
+
         currentLife -= amount;
-        if (clip != null && source != null)
-        {
-            source.clip = clip;
-            source.Play();
-        }
-        StartCoroutine(ianCoroutine());
-        StopCoroutine(ianCoroutine());
+
+        //LEAVING THIS OUT TILL I FIX IT
+        //if (HealthShatter != null)
+        //{
+        //    if (ShatterActive)
+        //    {
+        //        StopCoroutine(ShowHealthShatter());
+
+        //    }
+
+        //    StartCoroutine(ShowHealthShatter());
+
+        //}
+
+
+        //if (clip != null && source != null)
+        //{
+        //    source.clip = clip;
+        //    source.Play();
+        //}
+        //StartCoroutine(ianCoroutine());
+        //StopCoroutine(ianCoroutine());
 
 
 
@@ -82,7 +102,12 @@ public class LifeSpan : MonoBehaviour
         {
                 Death();
         }
-        lifeDisplay.fillAmount = currentLife / Settings.s.totalLife;
+        //lifeDisplay.fillAmount = currentLife / Settings.s.totalLife;
+        if (HealthBar != null)
+        {
+            HealthBar.fillAmount = currentLife / Settings.s.totalLife;
+        }
+       
 
         if(myText != null)
         {
@@ -134,4 +159,21 @@ public class LifeSpan : MonoBehaviour
         }
 
     }
+
+    public IEnumerator ShowHealthShatter()
+    {
+
+        ShatterActive = true;
+            
+        HealthShatter.enabled= true;
+        HealthShatter.transform.position = new Vector3(HealthShatter.transform.position.x -.203f, HealthShatter.transform.position.y, HealthShatter.transform.position.z);
+        
+        yield return new WaitForSeconds(.8f);
+        HealthShatter.enabled = false;
+        ShatterActive = false;
+       
+
+    }
+
+
 }
