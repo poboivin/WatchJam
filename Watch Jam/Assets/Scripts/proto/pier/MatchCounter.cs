@@ -11,7 +11,7 @@ public class MatchCounter : MonoBehaviour
     public static List<TimeController> players;
     public static MatchCounter _Instance;
 
-    public GameTimer timer;
+    private GameTimer timer;
 
     public GameObject[] playerSpawners;
 	// Use this for initialization
@@ -80,6 +80,7 @@ public class MatchCounter : MonoBehaviour
     void Awake ()
     {
         _Instance = this;
+        timer = GetComponent<GameTimer>();
     }
 
     public void GameOver()

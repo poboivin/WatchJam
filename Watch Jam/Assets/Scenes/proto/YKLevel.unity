@@ -1799,7 +1799,7 @@ MonoBehaviour:
       Culture=neutral, PublicKeyToken=null
   inputManager: {fileID: 269480616}
   SpawnButton: 2
-  HeroPrefab: {fileID: 1175352376392076, guid: d88c92672f8837e469d71546a56744dc, type: 3}
+  HeroPrefab: {fileID: 1582257606427680, guid: 2ec228df326412f41a437983c4e3b407, type: 3}
 --- !u!4 &269480618
 Transform:
   m_ObjectHideFlags: 0
@@ -3003,7 +3003,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   remainingTimeText: {fileID: 500091203}
-  timer: {fileID: 1775305544}
+  timer: {fileID: 1943004000}
 --- !u!114 &500091203
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10320,7 +10320,7 @@ MonoBehaviour:
       Culture=neutral, PublicKeyToken=null
   inputManager: {fileID: 1241173668}
   SpawnButton: 2
-  HeroPrefab: {fileID: 1492723104372086, guid: da2dd8943dd517340af771b43f17b3ee, type: 3}
+  HeroPrefab: {fileID: 1471837378760992, guid: da8b1dc51172f2b49ba4ce19dbfef718, type: 3}
 --- !u!4 &1241173667
 Transform:
   m_ObjectHideFlags: 0
@@ -13185,7 +13185,7 @@ MonoBehaviour:
       Culture=neutral, PublicKeyToken=null
   inputManager: {fileID: 1732338595}
   SpawnButton: 2
-  HeroPrefab: {fileID: 1424355929082396, guid: f5f273a3a05985b40abf401f2491877e, type: 3}
+  HeroPrefab: {fileID: 1591816554510202, guid: b8dded14133be43488c21ed775fccac2, type: 3}
 --- !u!4 &1732338597
 Transform:
   m_ObjectHideFlags: 0
@@ -13395,7 +13395,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1775305543}
   - component: {fileID: 1775305542}
-  - component: {fileID: 1775305544}
   m_Layer: 0
   m_Name: GameSettings
   m_TagString: Untagged
@@ -13444,20 +13443,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 21
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1775305544
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1775305541}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6e48575b817040045ae29e9ef26b493a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  remainingTime: 0
-  hitTimer: 0
 --- !u!1 &1797720969
 GameObject:
   m_ObjectHideFlags: 0
@@ -14604,6 +14589,7 @@ GameObject:
   - component: {fileID: 1943003998}
   - component: {fileID: 1943003997}
   - component: {fileID: 1943003999}
+  - component: {fileID: 1943004000}
   m_Layer: 0
   m_Name: MatchCounter
   m_TagString: Untagged
@@ -14628,7 +14614,6 @@ MonoBehaviour:
   - {fileID: 8300000, guid: e78f0f6e5db7a3745bee62652e23aa64, type: 3}
   - {fileID: 8300000, guid: 4cb413f66866dcb4dbdb5c43edd5618f, type: 3}
   source: {fileID: 1943003999}
-  timer: {fileID: 1775305544}
   playerSpawners:
   - {fileID: 1241173665}
   - {fileID: 608063791}
@@ -14744,6 +14729,20 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1943004000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1943003996}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e48575b817040045ae29e9ef26b493a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  remainingTime: 0
+  hitTimer: 0
 --- !u!1 &1958236138
 GameObject:
   m_ObjectHideFlags: 0
