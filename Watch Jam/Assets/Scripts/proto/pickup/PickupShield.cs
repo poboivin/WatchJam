@@ -26,18 +26,21 @@ public class PickupShield : MonoBehaviour {
             var curScale = child.gameObject.transform.localScale;
             child.gameObject.transform.localScale = new Vector3( curScale.x * radiusScale, curScale.y * radiusScale, 1.0f );
             var shieldPiece = child.GetComponentInChildren<ShieldPiece>();
-            if( radiusScale != 0.0f )
+            if( shieldPiece )
             {
-                // not to scale an owl sprite no matter what radius scale is.
-                for( int j = 0; j < shieldPiece.gameObject.transform.childCount; j++ )
+                if( radiusScale != 0.0f )
                 {
-                    var owl = shieldPiece.gameObject.transform.GetChild( j );
-                    var owlScale = owl.gameObject.transform.localScale;
-                    owl.gameObject.transform.localScale = new Vector3( owlScale.x / radiusScale, owlScale.y / radiusScale, 1.0f );
+                    // not to scale an owl sprite no matter what radius scale is.
+                    for( int j = 0; j < shieldPiece.gameObject.transform.childCount; j++ )
+                    {
+                        var owl = shieldPiece.gameObject.transform.GetChild( j );
+                        var owlScale = owl.gameObject.transform.localScale;
+                        owl.gameObject.transform.localScale = new Vector3( owlScale.x / radiusScale, owlScale.y / radiusScale, 1.0f );
+                    }
                 }
+                shieldPiece.gameObject.SetActive( false );
+                shieldPieces.Add( shieldPiece );
             }
-            shieldPiece.gameObject.SetActive( false );
-            shieldPieces.Add( shieldPiece );
         }
     }
 	
