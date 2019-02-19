@@ -32,7 +32,7 @@ public class TimeStopController : MonoBehaviour
     {
         if( myTimeController.isStopped == false &&
             controllerTriggered == false &&
-            myInputManager.GetAxis( TimeStop.ToString() ) > 0.5f && 
+            myInputManager.GetAxis( TimeStop ) > 0.5f && 
             ( myAmmo.CurrentAmmo < myAmmo.MaxAmmo || Settings.s.noLimits ) )
         {
             myTimeController.StartTimeStop();
@@ -40,7 +40,7 @@ public class TimeStopController : MonoBehaviour
         }
         if( myTimeController.isStopped == true &&
             controllerTriggered == true &&
-            myInputManager.GetAxis( TimeStop.ToString() ) < 0.1f )
+            myInputManager.GetAxis( TimeStop ) < 0.1f )
         {
             myTimeController.StopTimeStop();
             controllerTriggered = false;
