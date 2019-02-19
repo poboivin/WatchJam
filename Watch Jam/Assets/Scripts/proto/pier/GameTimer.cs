@@ -12,8 +12,8 @@ public class GameTimer : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if( Settings.s.gameMode == GameMode.TimeLimit )
-            StartTimer();
+        //if( Settings.s.gameMode == GameMode.TimeLimit )
+        //    StartTimer();
     }
 
     // Update is called once per frame

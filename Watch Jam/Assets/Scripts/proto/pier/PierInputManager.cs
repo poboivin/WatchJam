@@ -13,7 +13,7 @@ public class PierInputManager : MonoBehaviour
     public Player player;
 
     List<bool> enableButtonList;
-    static ButtonName[] disabledButtonsOnPopup = { ButtonName.MoveHorizontal, ButtonName.MoveVertical, ButtonName.Fire1, ButtonName.Fire2, ButtonName.Fire3, ButtonName.Rtrigger, ButtonName.Ltrigger };
+    static ButtonName[] disabledButtonsOnPopup = { ButtonName.MoveHorizontal, ButtonName.MoveVertical, ButtonName.Fire2, ButtonName.Fire3, ButtonName.Rtrigger, ButtonName.Ltrigger };
 
     public void Awake()
     {

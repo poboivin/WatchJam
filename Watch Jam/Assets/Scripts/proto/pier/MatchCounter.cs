@@ -23,6 +23,10 @@ public class MatchCounter : MonoBehaviour
             players = new List<TimeController>();
         }
         players.Add(player);
+        if( Settings.s.gameMode == GameMode.TimeLimit && players.Count == 1 )
+        {
+            _Instance.timer.StartTimer();
+        }
     }
 
     public static void Remove(TimeController player)
@@ -99,7 +103,8 @@ public class MatchCounter : MonoBehaviour
         {
             gameEndUI.ShowGameResultUI();
         }
-        players.Clear();
+        if( players != null )
+            players.Clear();
         //SceneManager.LoadScene(1);
     }
 	// Update is called once per frame
