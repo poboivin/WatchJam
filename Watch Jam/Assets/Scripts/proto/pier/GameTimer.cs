@@ -50,6 +50,7 @@ public class GameTimer : MonoBehaviour
     public void StopTimer()
     {
         onTimer = false;
+        hitTimer = false;
         remainingTime = 0.0f;
     }
 }

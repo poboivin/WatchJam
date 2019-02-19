@@ -128,6 +128,7 @@ public class MatchCounter : MonoBehaviour
                 }
             }
             GameOver();
+            timer.StopTimer();
         }
 		
 	}
