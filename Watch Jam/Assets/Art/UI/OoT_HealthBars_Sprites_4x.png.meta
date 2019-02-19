@@ -2,31 +2,8 @@ fileFormatVersion: 2
 guid: 8683b05087a10e14fb17b1be2a6cf610
 TextureImporter:
   fileIDToRecycleName:
-    21300000: HealthbarSLots
-    21300002: OoT_HealthBars_Sprites_4x_1
-    21300004: OoT_HealthBars_Sprites_4x_2
-    21300006: OoT_HealthBars_Sprites_4x_3
-    21300008: OoT_HealthBars_Sprites_4x_4
-    21300010: OoT_HealthBars_Sprites_4x_5
-    21300012: OoT_HealthBars_Sprites_4x_6
-    21300014: OoT_HealthBars_Sprites_4x_7
-    21300016: OoT_HealthBars_Sprites_4x_8
-    21300018: OoT_HealthBars_Sprites_4x_9
-    21300020: OoT_HealthBars_Sprites_4x_10
-    21300022: OoT_HealthBars_Sprites_4x_12
-    21300024: OoT_HealthBars_Sprites_4x_14
-    21300026: OoT_HealthBars_Sprites_4x_15
-    21300028: OoT_HealthBars_Sprites_4x_16
-    21300030: OoT_HealthBars_Sprites_4x_17
-    21300032: HP
-    21300034: healthbarbackground
-    21300036: VienosSymbol
-    21300038: ArataAccent
-    21300040: SkuldSymbol
-    21300042: Phoneix symbol
-    21300044: ArataSymbol
-    21300046: OoT_HealthBars_Sprites_4x_28
-    21300048: Phoneixaccent
+    21300000: HealthBarFill
+    21300002: HealthSegmentShatter
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -56,7 +33,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: -1
+    filterMode: 0
     aniso: -1
     mipBias: -100
     wrapU: 1
@@ -106,6 +83,17 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
   - serializedVersion: 2
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
     buildTarget: Android
     maxTextureSize: 2048
     resizeAlgorithm: 0
@@ -120,13 +108,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: HealthbarSLots
+      name: HealthBarFill
       rect:
         serializedVersion: 2
-        x: 20
-        y: 6671
-        width: 3325
-        height: 680
+        x: 3678
+        y: 5663
+        width: 3239
+        height: 610
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -134,199 +122,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0877391c1d135514a988388442e555c8
+      spriteID: 6a52f3dcfec082a4fb4c7ce99700332f
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: OoT_HealthBars_Sprites_4x_1
+      name: HealthSegmentShatter
       rect:
         serializedVersion: 2
-        x: 3616
-        y: 6671
-        width: 3323
-        height: 680
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 60394255b1d4e2e469adb69be669c40c
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: OoT_HealthBars_Sprites_4x_2
-      rect:
-        serializedVersion: 2
-        x: 38
-        y: 5656
-        width: 3251
-        height: 624
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 5b124094e8c1eaa489dee9ad4327f76c
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: OoT_HealthBars_Sprites_4x_3
-      rect:
-        serializedVersion: 2
-        x: 3670
-        y: 5656
-        width: 3251
-        height: 624
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b050d7e83ba81cd42ab2a6b9cb309a1c
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: OoT_HealthBars_Sprites_4x_4
-      rect:
-        serializedVersion: 2
-        x: 38
-        y: 4808
-        width: 333
-        height: 621
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4881f66cd6e19324c8f6ed39de05f2dd
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: OoT_HealthBars_Sprites_4x_5
-      rect:
-        serializedVersion: 2
-        x: 773
-        y: 4808
-        width: 334
-        height: 621
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 24558e665efc07e48b8def03718f454f
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: OoT_HealthBars_Sprites_4x_6
-      rect:
-        serializedVersion: 2
-        x: 1559
-        y: 4808
-        width: 334
-        height: 621
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 41c427d2b7306da4fa9eb7986122a802
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: OoT_HealthBars_Sprites_4x_7
-      rect:
-        serializedVersion: 2
-        x: 2256
-        y: 4808
-        width: 333
-        height: 621
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 9d67028bad4ac82489f1afbddc3b48c8
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: OoT_HealthBars_Sprites_4x_8
-      rect:
-        serializedVersion: 2
-        x: 2955
-        y: 4808
-        width: 334
-        height: 621
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a046a4144a97caf4db0202b2eda8b1eb
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: OoT_HealthBars_Sprites_4x_9
-      rect:
-        serializedVersion: 2
-        x: 4875
-        y: 4794
-        width: 334
-        height: 617
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3a523baded356c841bebad3f9fa1a6cc
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: OoT_HealthBars_Sprites_4x_10
-      rect:
-        serializedVersion: 2
-        x: 5572
+        x: 5569
         y: 4724
-        width: 597
-        height: 789
+        width: 593
+        height: 790
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -334,287 +142,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 77adf4add31ac1145a8123b5c5ca5a4f
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: OoT_HealthBars_Sprites_4x_12
-      rect:
-        serializedVersion: 2
-        x: 6539
-        y: 4784
-        width: 334
-        height: 621
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 8fbb73cbf1407f44b8cc81e4f33e7dbc
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: OoT_HealthBars_Sprites_4x_14
-      rect:
-        serializedVersion: 2
-        x: 38
-        y: 3871
-        width: 336
-        height: 624
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ef98b08e46cdf59459ac8cf851633971
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: OoT_HealthBars_Sprites_4x_15
-      rect:
-        serializedVersion: 2
-        x: 773
-        y: 3871
-        width: 334
-        height: 624
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 11a4035aac869424c8920211b5fa1648
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: OoT_HealthBars_Sprites_4x_16
-      rect:
-        serializedVersion: 2
-        x: 1559
-        y: 3871
-        width: 337
-        height: 624
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 415001d645820f44d9664bedf305e494
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: OoT_HealthBars_Sprites_4x_17
-      rect:
-        serializedVersion: 2
-        x: 2256
-        y: 3871
-        width: 333
-        height: 621
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ab79da6db7953c647921ac42425a7579
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: HP
-      rect:
-        serializedVersion: 2
-        x: 2955
-        y: 3871
-        width: 334
-        height: 621
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f2bac6e690a445741bfb617fdec89c4a
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: healthbarbackground
-      rect:
-        serializedVersion: 2
-        x: 3746
-        y: 3761
-        width: 3329
-        height: 688
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b730dbe3baf9a5449ba3295457061069
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: VienosSymbol
-      rect:
-        serializedVersion: 2
-        x: 163
-        y: 2033
-        width: 3394
-        height: 1026
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a5ca8169b65973944bebd39099e80420
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ArataAccent
-      rect:
-        serializedVersion: 2
-        x: 4464
-        y: 2397
-        width: 2629
-        height: 447
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 05ff267459c81d64ba2096421fd006df
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: SkuldSymbol
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 34
-        width: 2266
-        height: 1202
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 1113d6f475af70446aeba72ae08494a2
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Phoneix symbol
-      rect:
-        serializedVersion: 2
-        x: 4845
-        y: 0
-        width: 1092
-        height: 1091
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 377a4a3d67a120840ac64aaf80735c8d
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ArataSymbol
-      rect:
-        serializedVersion: 2
-        x: 6055
-        y: 885
-        width: 1121
-        height: 1010
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 687ffced90b8cdc4cae1a25fd8a0cafe
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: OoT_HealthBars_Sprites_4x_28
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 0
-        width: 2300
-        height: 1281
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 01b35255cba9ea74eb0e054e8185ce1b
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Phoneixaccent
-      rect:
-        serializedVersion: 2
-        x: 6103
-        y: 417
-        width: 1055
-        height: 172
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 86f0f116c902eba4f8ff975193d01853
+      spriteID: 041e937a066c70244bb8c4f5830a3ab2
       vertices: []
       indices: 
       edges: []
@@ -622,7 +150,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: c39fffec42fadb24fb44e6ced6a277b9
+    spriteID: b9893de5ef37b2243a55d66480ff2127
     vertices: []
     indices: 
     edges: []

@@ -41,6 +41,7 @@ public class Settings : MonoBehaviour
         timeStopAmmoRegenToggle.isOn = s.timeStopAmmoRegen;
         rewindAmmoRegenToggle.isOn = s.rewindAmmoRegen;
         passiveAmmoRegenToggle.isOn = s.passiveAmmoRegen;
+        s.gameMode = currentGameMode;
     }
     public Toggle noLimitsToggle;
 	public void noLimits(bool val)
@@ -107,5 +108,8 @@ public class Settings : MonoBehaviour
     {
         s.rewindInvincibility = val;
     }
+
+    public GameMode currentGameMode;
+
   
 }

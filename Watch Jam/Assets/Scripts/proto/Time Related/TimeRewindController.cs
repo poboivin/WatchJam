@@ -34,7 +34,7 @@ public class TimeRewindController : MonoBehaviour
 
         if( myTimeController.isRewinding == false &&
             controllerTriggered == false &&
-            myInputManager.GetAxis( Rewind.ToString() ) > 0.6f && 
+            myInputManager.GetAxis( Rewind ) > 0.6f && 
             ( myAmmo.CurrentAmmo < myAmmo.MaxAmmo || Settings.s.noLimits ) )
         {
             if( myTimeBody.pointsInTime.Count >= 60 )
@@ -46,7 +46,7 @@ public class TimeRewindController : MonoBehaviour
 
         if( myTimeController.isRewinding == true &&
             controllerTriggered == true &&
-            myInputManager.GetAxis( Rewind.ToString() ) < 0.1f )
+            myInputManager.GetAxis( Rewind ) < 0.1f )
         {
             myTimeController.StopRewind();
             controllerTriggered = false;

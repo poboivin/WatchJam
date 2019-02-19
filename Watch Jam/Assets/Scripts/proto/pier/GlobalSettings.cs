@@ -1,6 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+
+public enum GameMode
+{
+    Normal,
+    TimeLimit,
+};
+
 [CreateAssetMenu]
 public class GlobalSettings : ScriptableObject
 {
@@ -33,4 +40,8 @@ public class GlobalSettings : ScriptableObject
     public bool TwiceAsFastRewind = false;
     public bool ImmobileRecord = true;
 
+    [Header( "Game Mode" )]
+    public GameMode gameMode = GameMode.Normal;
+    public float playerRespawnTime = 3.0f;
+    public float timeLimitInSceonds = 120.0f;
 }

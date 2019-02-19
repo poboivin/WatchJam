@@ -1,0 +1,730 @@
+fileFormatVersion: 2
+guid: b25cdf5b3236bb2448b06a4e8783383b
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: OoT_Thicker Healthbars stasis bars V2_0
+    21300002: OoT_Thicker Healthbars stasis bars V2_1
+    21300004: OoT_Thicker Healthbars stasis bars V2_2
+    21300006: OoT_Thicker Healthbars stasis bars V2_3
+    21300008: OoT_Thicker Healthbars stasis bars V2_4
+    21300010: OoT_Thicker Healthbars stasis bars V2_5
+    21300012: OoT_Thicker Healthbars stasis bars V2_6
+    21300014: OoT_Thicker Healthbars stasis bars V2_7
+    21300016: OoT_Thicker Healthbars stasis bars V2_8
+    21300018: OoT_Thicker Healthbars stasis bars V2_9
+    21300020: OoT_Thicker Healthbars stasis bars V2_10
+    21300022: OoT_Thicker Healthbars stasis bars V2_11
+    21300024: OoT_Thicker Healthbars stasis bars V2_12
+    21300026: HealthBarFrame
+    21300028: OoT_Thicker Healthbars stasis bars V2_14
+    21300030: HealthbarFramev2
+    21300032: StatusFrame03
+    21300034: Healthbarbackground
+    21300036: StasisBaroutlined
+    21300038: StatusFrame02
+    21300040: StatusBarSegmented
+    21300042: Status Segment
+    21300044: StatusFrame01
+    21300046: stasisbarNoOutline
+    21300048: OoT_Thicker Healthbars stasis bars V2_33
+    21300050: OoT_Thicker Healthbars stasis bars V2_34
+    21300052: OoT_Thicker Healthbars stasis bars V2_39
+    21300054: OoT_Thicker Healthbars stasis bars V2_75
+    21300056: OoT_Thicker Healthbars stasis bars V2_79
+  externalObjects: {}
+  serializedVersion: 7
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 2
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: OoT_Thicker Healthbars stasis bars V2_0
+      rect:
+        serializedVersion: 2
+        x: 182
+        y: 5956
+        width: 3465
+        height: 721
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4bfff95daeb07924c8ac0a5e326fd6f6
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OoT_Thicker Healthbars stasis bars V2_1
+      rect:
+        serializedVersion: 2
+        x: 3956
+        y: 6219
+        width: 343
+        height: 520
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a601d8aad44bf05488822ebb3665e2c7
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OoT_Thicker Healthbars stasis bars V2_2
+      rect:
+        serializedVersion: 2
+        x: 4350
+        y: 6219
+        width: 340
+        height: 520
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f33e0ca735d02634eb0ee6ca127cba97
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OoT_Thicker Healthbars stasis bars V2_3
+      rect:
+        serializedVersion: 2
+        x: 4764
+        y: 6219
+        width: 336
+        height: 520
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 328858bb1b7983341b647346816bc575
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OoT_Thicker Healthbars stasis bars V2_4
+      rect:
+        serializedVersion: 2
+        x: 5163
+        y: 6219
+        width: 336
+        height: 520
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 44541df2414fac84885386be0999d67d
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OoT_Thicker Healthbars stasis bars V2_5
+      rect:
+        serializedVersion: 2
+        x: 5569
+        y: 6219
+        width: 344
+        height: 520
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9508c06a204e57543bad20920f947e31
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OoT_Thicker Healthbars stasis bars V2_6
+      rect:
+        serializedVersion: 2
+        x: 5979
+        y: 6219
+        width: 340
+        height: 520
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a981cba2638ef354a8ed185a906646dc
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OoT_Thicker Healthbars stasis bars V2_7
+      rect:
+        serializedVersion: 2
+        x: 6386
+        y: 6219
+        width: 339
+        height: 520
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bf1df79bb5c6562489ad56d75ed875a8
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OoT_Thicker Healthbars stasis bars V2_8
+      rect:
+        serializedVersion: 2
+        x: 6784
+        y: 6219
+        width: 348
+        height: 520
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a80cdfb4366823b46b90467f72744d9a
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OoT_Thicker Healthbars stasis bars V2_9
+      rect:
+        serializedVersion: 2
+        x: 7173
+        y: 6219
+        width: 338
+        height: 520
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a4dbcb2bd9d8e3244ae416f9c48b5214
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OoT_Thicker Healthbars stasis bars V2_10
+      rect:
+        serializedVersion: 2
+        x: 7569
+        y: 6219
+        width: 338
+        height: 520
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c4877286d96f1bb418f52c9c24343aa1
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OoT_Thicker Healthbars stasis bars V2_11
+      rect:
+        serializedVersion: 2
+        x: 244
+        y: 5264
+        width: 3004
+        height: 521
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d476c0544895e264da67c392b9372271
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OoT_Thicker Healthbars stasis bars V2_12
+      rect:
+        serializedVersion: 2
+        x: 3252
+        y: 5264
+        width: 332
+        height: 521
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d4d4f5bec785ea049af596b8f05d839f
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HealthBarFrame
+      rect:
+        serializedVersion: 2
+        x: 4073
+        y: 5328
+        width: 3465
+        height: 722
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 086404b252bcac8419f5214596659063
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OoT_Thicker Healthbars stasis bars V2_14
+      rect:
+        serializedVersion: 2
+        x: 174
+        y: 3924
+        width: 3467
+        height: 720
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: afabcd0c20be4a248bd3fbea5fae818e
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HealthbarFramev2
+      rect:
+        serializedVersion: 2
+        x: 4032
+        y: 4437
+        width: 3469
+        height: 721
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6951b4f3dc1df82409eff18fb0ae539e
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: StatusFrame03
+      rect:
+        serializedVersion: 2
+        x: 171
+        y: 2913
+        width: 3468
+        height: 715
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6b60cdae333ae554cb5b9b238b11425b
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Healthbarbackground
+      rect:
+        serializedVersion: 2
+        x: 4065
+        y: 3386
+        width: 3465
+        height: 715
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ea99cd8774f88b6479531bef2d33ebf6
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: StasisBaroutlined
+      rect:
+        serializedVersion: 2
+        x: 4015
+        y: 2636
+        width: 3250
+        height: 492
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c1a7f574c43e38e428a409bd9b8135e3
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: StatusFrame02
+      rect:
+        serializedVersion: 2
+        x: 174
+        y: 1932
+        width: 3465
+        height: 716
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7ef7178502670cf4ab13454a8ffb153d
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: StatusBarSegmented
+      rect:
+        serializedVersion: 2
+        x: 4011
+        y: 1792
+        width: 3250
+        height: 491
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4d7412a6f23fe5640af2817a1d0d28ef
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Status Segment
+      rect:
+        serializedVersion: 2
+        x: 7362
+        y: 1792
+        width: 344
+        height: 488
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8f85fba00bd3715469ce9256a07e6e72
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: StatusFrame01
+      rect:
+        serializedVersion: 2
+        x: 174
+        y: 1002
+        width: 3468
+        height: 715
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 05b3cab5b4992f643b5446534253d03a
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stasisbarNoOutline
+      rect:
+        serializedVersion: 2
+        x: 4030
+        y: 1026
+        width: 3252
+        height: 490
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f3c8bad82f5350d449f4df34f2861857
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OoT_Thicker Healthbars stasis bars V2_33
+      rect:
+        serializedVersion: 2
+        x: 2170
+        y: 620
+        width: 39
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0fcb2581d76bc5446b7b9161790acbf4
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OoT_Thicker Healthbars stasis bars V2_34
+      rect:
+        serializedVersion: 2
+        x: 2823
+        y: 620
+        width: 38
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 68924a3da1028624cb63484710280501
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OoT_Thicker Healthbars stasis bars V2_39
+      rect:
+        serializedVersion: 2
+        x: 5985
+        y: 620
+        width: 45
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 65922344580ffd84b85e7db4dc3b8be7
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OoT_Thicker Healthbars stasis bars V2_75
+      rect:
+        serializedVersion: 2
+        x: 3984
+        y: 307
+        width: 41
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cb5310ee401fd274ba4a7fd35f9bc2d7
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OoT_Thicker Healthbars stasis bars V2_79
+      rect:
+        serializedVersion: 2
+        x: 5007
+        y: 307
+        width: 39
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7e337146603fe654f95b5b3c312a0162
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: a4fda37f15ec76d4b8afde61ae106199
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

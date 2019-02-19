@@ -1,0 +1,583 @@
+fileFormatVersion: 2
+guid: 380e70c820b8ce340a7512822e0d5c5b
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: DoorLEft
+    21300002: DoorRight
+    21300004: OoT_futuristicLevelRevision_tileSet_2
+    21300006: Future_Strut
+    21300008: OoT_futuristicLevelRevision_tileSet_4
+    21300010: OoT_futuristicLevelRevision_tileSet_5
+    21300012: OoT_futuristicLevelRevision_tileSet_6
+    21300014: OoT_futuristicLevelRevision_tileSet_7
+    21300016: OoT_futuristicLevelRevision_tileSet_8
+    21300018: OoT_futuristicLevelRevision_tileSet_9
+    21300020: OoT_futuristicLevelRevision_tileSet_10
+    21300022: OoT_futuristicLevelRevision_tileSet_11
+    21300024: futureBrokenRight
+    21300026: OoT_futuristicLevelRevision_tileSet_13
+    21300028: Futre_BrokenLeft
+    21300030: OoT_futuristicLevelRevision_tileSet_15
+    21300032: OoT_futuristicLevelRevision_tileSet_16
+    21300034: OoT_futuristicLevelRevision_tileSet_17
+    21300036: OoT_futuristicLevelRevision_tileSet_18
+    21300038: OoT_futuristicLevelRevision_tileSet_19
+    21300040: Future_BrokenBothSides
+    21300042: StandardPlatform
+  externalObjects: {}
+  serializedVersion: 7
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 200
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 2
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: DoorLEft
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 1898
+        width: 137
+        height: 447
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d14d6ccdf9d7f6746ad050de9a30fbdb
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoorRight
+      rect:
+        serializedVersion: 2
+        x: 228
+        y: 1898
+        width: 137
+        height: 447
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c39afe9ab4841cb408918c1cae80b6b4
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OoT_futuristicLevelRevision_tileSet_2
+      rect:
+        serializedVersion: 2
+        x: 565
+        y: 1838
+        width: 435
+        height: 649
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2e7666c09a7e9674db2c9218a9c100ed
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Future_Strut
+      rect:
+        serializedVersion: 2
+        x: 1160
+        y: 1813
+        width: 359
+        height: 699
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 748a016ad141fd34eb586bfa5cd9c417
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OoT_futuristicLevelRevision_tileSet_4
+      rect:
+        serializedVersion: 2
+        x: 1720
+        y: 1901
+        width: 63
+        height: 612
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3a9149cad87d9594e93aae632187519f
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OoT_futuristicLevelRevision_tileSet_5
+      rect:
+        serializedVersion: 2
+        x: 1898
+        y: 1901
+        width: 63
+        height: 612
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b10c4d5076c53d04693b0befc7ec538e
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OoT_futuristicLevelRevision_tileSet_6
+      rect:
+        serializedVersion: 2
+        x: 1736
+        y: 1792
+        width: 30
+        height: 92
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2acbeb523ff3d764780302a7c71b281c
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OoT_futuristicLevelRevision_tileSet_7
+      rect:
+        serializedVersion: 2
+        x: 1914
+        y: 1792
+        width: 31
+        height: 92
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2740c724d5006ec48a5eb583a53a58e1
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OoT_futuristicLevelRevision_tileSet_8
+      rect:
+        serializedVersion: 2
+        x: 565
+        y: 1360
+        width: 644
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ad85743b8cdd8bb428371f5ce49a3a50
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OoT_futuristicLevelRevision_tileSet_9
+      rect:
+        serializedVersion: 2
+        x: 1326
+        y: 1360
+        width: 625
+        height: 146
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 21717338e51b71d48804d1feb7aaa3ea
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OoT_futuristicLevelRevision_tileSet_10
+      rect:
+        serializedVersion: 2
+        x: 565
+        y: 1186
+        width: 644
+        height: 126
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2089c95275cc5154788dae391f30f031
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OoT_futuristicLevelRevision_tileSet_11
+      rect:
+        serializedVersion: 2
+        x: 1326
+        y: 1186
+        width: 625
+        height: 147
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b5fc0c3046250ef49aae269504064c9f
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: futureBrokenRight
+      rect:
+        serializedVersion: 2
+        x: 554
+        y: 857
+        width: 614
+        height: 197
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c7da6347bbce2f445884adf286162c99
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OoT_futuristicLevelRevision_tileSet_13
+      rect:
+        serializedVersion: 2
+        x: 1166
+        y: 980
+        width: 44
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a66f592d886127e4aa42b1f187d57ff4
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Futre_BrokenLeft
+      rect:
+        serializedVersion: 2
+        x: 1347
+        y: 863
+        width: 613
+        height: 191
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eb759e0a4b6208441a0eda613deb6d5a
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OoT_futuristicLevelRevision_tileSet_15
+      rect:
+        serializedVersion: 2
+        x: 559
+        y: 591
+        width: 616
+        height: 145
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 972004fb1a1b4f840b05a376cc9d961f
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OoT_futuristicLevelRevision_tileSet_16
+      rect:
+        serializedVersion: 2
+        x: 1297
+        y: 601
+        width: 664
+        height: 126
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a5f5c103db066ee478246e2fced45d9f
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OoT_futuristicLevelRevision_tileSet_17
+      rect:
+        serializedVersion: 2
+        x: 559
+        y: 418
+        width: 616
+        height: 144
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c8e314dfa9a2d0843839b835e3d00544
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OoT_futuristicLevelRevision_tileSet_18
+      rect:
+        serializedVersion: 2
+        x: 1297
+        y: 428
+        width: 664
+        height: 125
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 28540da7fa7918d4b8ec5fc0879b5719
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OoT_futuristicLevelRevision_tileSet_19
+      rect:
+        serializedVersion: 2
+        x: 535
+        y: 228
+        width: 12
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0766c2d91be689240bb971e68e0603ee
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Future_BrokenBothSides
+      rect:
+        serializedVersion: 2
+        x: 625
+        y: 86
+        width: 519
+        height: 203
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 48c65bd2ab9eb6a40ab830e112c825f5
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: StandardPlatform
+      rect:
+        serializedVersion: 2
+        x: 1285
+        y: 103
+        width: 686
+        height: 196
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 578610f95d19de740af78e15c2dd199b
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 014bf7a6ce5368744b62217a08a08988
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

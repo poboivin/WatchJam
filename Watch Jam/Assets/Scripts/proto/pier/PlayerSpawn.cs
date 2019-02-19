@@ -8,6 +8,7 @@ public class PlayerSpawn : MonoBehaviour
     public UnityEvent OnPlayerSpawn;
     public PierInputManager inputManager;
     public PierInputManager.ButtonName SpawnButton;
+    public GameObject HeroPrefab;
 
     // Use this for initialization
     void Start () {
