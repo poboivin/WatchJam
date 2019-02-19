@@ -26,6 +26,9 @@ public class LifeSpan : MonoBehaviour
     public Image HealthBar;
     public Image HealthShatter;
     bool ShatterActive;
+
+    bool invincible;
+    public float invincibleDuration = 1.5f;
   
 	// Use this for initialization
 	void Start ()
@@ -40,56 +43,59 @@ public class LifeSpan : MonoBehaviour
         myGun = GetComponentInChildren<Gun>();
 		myGun2 = GetComponentInChildren<GunCopy2>();
         myText = GetComponentInChildren<Text>();
+
+        StartCoroutine( ChangeInvincibleCoroutine() );
     }
+
+    IEnumerator ChangeInvincibleCoroutine()
+    {
+        invincible = true;
+        yield return new WaitForSeconds( invincibleDuration );
+        invincible = false;
+    }
+
 	public void AddLife(float amount)
     {
         currentLife += amount;
         if(currentLife > Settings.s.totalLife)
         {
             currentLife = Settings.s.totalLife;
-
-
         }
     }
+
     public float SubstactLife(float amount)
     {
-
-        currentLife -= amount;
-
-        //LEAVING THIS OUT TILL I FIX IT
-        //if (HealthShatter != null)
-        //{
-        //    if (ShatterActive)
-        //    {
-        //        StopCoroutine(ShowHealthShatter());
-
-        //    }
-
-        //    StartCoroutine(ShowHealthShatter());
-
-        //}
-
-
-        //if (clip != null && source != null)
-        //{
-        //    source.clip = clip;
-        //    source.Play();
-        //}
-        //StartCoroutine(ianCoroutine());
-        //StopCoroutine(ianCoroutine());
-
-
-
-        if (currentLife <= 0)
-        {
-          
-            return currentLife + amount;
-        
-
-        }
+        if( invincible )
+            return 0.0f;
         else
         {
-            return amount;
+            var decreasedLife = Mathf.Min( currentLife, amount );
+            currentLife -= decreasedLife;
+
+            //LEAVING THIS OUT TILL I FIX IT
+            //if (HealthShatter != null)
+            //{
+            //    if (ShatterActive)
+            //    {
+            //        StopCoroutine(ShowHealthShatter());
+
+            //    }
+
+            //    StartCoroutine(ShowHealthShatter());
+
+            //}
+
+
+            //if (clip != null && source != null)
+            //{
+            //    source.clip = clip;
+            //    source.Play();
+            //}
+            //StartCoroutine(ianCoroutine());
+            //StopCoroutine(ianCoroutine());
+
+
+            return decreasedLife;
         }
     }
 	// Update is called once per frame
