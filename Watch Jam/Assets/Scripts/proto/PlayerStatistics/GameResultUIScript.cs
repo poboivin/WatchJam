@@ -34,6 +34,11 @@ public class GameResultUIScript : MonoBehaviour
                 panel.UpdateStatisticInfo();
             }
         }
+        var inputManagers = FindObjectsOfType<PierInputManager>();
+        foreach( var input in inputManagers )
+        {
+            input.DisableButtonsOnPopup();
+        }
     }
 
     public void ButtonClicked( int buttonId )
@@ -41,6 +46,12 @@ public class GameResultUIScript : MonoBehaviour
         //Debug.Log( "Button clicked : " + buttonId );
         if( buttonId == 0 )
         {
+            var inputManagers = FindObjectsOfType<PierInputManager>();
+            foreach( var input in inputManagers )
+            {
+                input.EnableButtonsOnPopup();
+            }
+
             // close game result UI, and restart the game
             mainPanel.SetActive( false );
             Scene scene = SceneManager.GetActiveScene();
