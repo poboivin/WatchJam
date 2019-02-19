@@ -34,7 +34,11 @@ public class PetalPlayer : MonoBehaviour
 
     private void OnTriggeEnter2D(Collider other)
     {
-   
+        Debug.Log("overlap");
+        if (!stillPlaying)
+        {
+            StartCoroutine(WaitForEndOfAnimation());
+        }
     }
 
 
@@ -52,10 +56,11 @@ public class PetalPlayer : MonoBehaviour
     {
         GetComponent<SpriteRenderer>().enabled = true;
         stillPlaying = true;
-        PetalAnimator.Play("PetalAnim");
-
+        PetalAnimator.Play("PetalAnim",0,0f);
+        Debug.Log("play");
         yield return new WaitForSeconds(PetalAnimClip.length);
         GetComponent<SpriteRenderer>().enabled = false;
+        
         stillPlaying = false;
     }
 
