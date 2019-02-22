@@ -17,6 +17,8 @@ public class Dash : MonoBehaviour
 
     [HideInInspector]
     public TimeController myTimeController;
+    public TimeStopController myTimeStopController;
+    public TimeRewindController myTimeRewindController;
     public float VelocityMagnitude = 1;
     public float Duration = 1;
     public float conter;
@@ -31,6 +33,8 @@ public class Dash : MonoBehaviour
     void Start ()
     {
         myTimeController = GetComponent<TimeController>();
+        myTimeStopController = GetComponent<TimeStopController>();
+        myTimeRewindController = GetComponent<TimeRewindController>();
         groundCheck = transform.Find("groundCheck");
 
     }
@@ -57,8 +61,9 @@ public class Dash : MonoBehaviour
                 //
             }
         }
-        else if ( active == true)
+        else if ( active == true && myTimeController.isStopped == false)
         {
+           
             myTimeController.myRigidbody2D.velocity = dir.normalized * VelocityMagnitude;
             conter += Time.deltaTime;
 
@@ -67,6 +72,10 @@ public class Dash : MonoBehaviour
                 active = false;
                 myTimeController.myRigidbody2D.velocity *= leftOverFactor;
             }
+        }
+        else
+        {
+            active = false;
         }
 	}
    
