@@ -23,8 +23,9 @@ public class Dash : MonoBehaviour
     public float Duration = 1;
     public float conter;
     public bool active = false;
-    Vector2 dir;
     public float leftOverFactor = .33f;
+
+    Vector2 dir;
     private Transform groundCheck;          // A position marking where to check if the player is grounded.
     private bool grounded = false;          // Whether or not the player is grounded.
    

@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 
 
-public class Gun : MonoBehaviour,IGun
+public partial class Gun : MonoBehaviour,IGun
 {
     public class bulletInfo
     {
@@ -27,6 +27,7 @@ public class Gun : MonoBehaviour,IGun
     public PierInputManager.ButtonName ShootButton;   //button to shoot
 
     public Rigidbody2D rocket;              // Prefab of the rocket.
+    private Rigidbody2D OriginalRocket;              // Prefab of the rocket.
 
     public float speed = 20f;				// The speed the rocket will fire at.
     public float fireRate = 0.3f;
@@ -56,6 +57,7 @@ public class Gun : MonoBehaviour,IGun
         // Setting up the references.
         //anim = transform.root.gameObject.GetComponent<Animator>();
         myPlayerControl = transform.root.GetComponent<PlayerControl>();
+        OriginalRocket = rocket;
     }
     void Update()
     {
@@ -290,6 +292,8 @@ public class Gun : MonoBehaviour,IGun
         //    aura.TurnOffAura();
         SpecialBar.ToggleRapidFireBar(false);
         fireRate = oldFireRate;
+
+        rocket = OriginalRocket; 
     }
     void IGun.setEnable(bool val)
     {
