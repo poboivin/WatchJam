@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using UnityEngine;
 
 class GunPowerFiringBoost : ISpecialGunPower
 {
@@ -21,10 +22,6 @@ class GunPowerFiringBoost : ISpecialGunPower
         enableAbility = false;
     }
 
-    ~GunPowerFiringBoost()
-    {
-    }
-
     public void Activate()
     {
         gun.fireRate = newFireRate;
@@ -39,7 +36,7 @@ class GunPowerFiringBoost : ISpecialGunPower
         gun.RestoreRocket();
     }
 
-    public void FireBullet( Rocket bullet )
+    public void FireBullet( GameObject bullet )
     {
         if( enableAbility )
         {

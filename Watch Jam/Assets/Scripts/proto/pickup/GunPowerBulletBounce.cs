@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using UnityEngine;
 
 class GunPowerBulletBounce : ISpecialGunPower
 {
@@ -19,25 +20,28 @@ class GunPowerBulletBounce : ISpecialGunPower
 
     public void Activate()
     {
+        // TODO : needs to change this bar to the other effect
         gun.SpecialBar.ToggleRapidFireBar( true );
+        // TODO : may need to change the rocket prefab for this ability
         enableAbility = true;
     }
 
     public void Deactivate()
     {
+        // TODO : needs to change this bar to the other effect
         gun.SpecialBar.ToggleRapidFireBar( false );
         gun.RestoreRocket();
     }
 
-    public void FireBullet( Rocket bullet )
+    public void FireBullet( GameObject bullet )
     {
-        if( bullet != null )
-        {
-            bullet.enableBounce = true;
-        }
-
         if( enableAbility )
         {
+            if( bullet != null )
+            {
+                bullet.GetComponent<Rocket>().enableBounce = true;
+            }
+
             numSpecialBullets--;
             if( numSpecialBullets == 0 )
             {
@@ -51,6 +55,7 @@ class GunPowerBulletBounce : ISpecialGunPower
     {
         if( enableAbility )
         {
+            // TODO : needs to change this bar to the other effect
             gun.SpecialBar.SetRapidBarFill( numSpecialBullets );
         }
     }

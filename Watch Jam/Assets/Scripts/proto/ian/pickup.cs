@@ -75,8 +75,21 @@ public class pickup : MonoBehaviour
                     }
                 }
             }
+            else if( type == pickUpType.shotgun )
+            {
+                Gun playerGun = collision.GetComponentInChildren<Gun>();
+                if( playerGun != null )
+                {
+                    PickupShotgun shotgunInfo = gameObject.GetComponent<PickupShotgun>();
+                    if( shotgunInfo != null )
+                    {
+                        playerGun.SetGunPower( new GunPowerShotgun( playerGun, shotgunInfo.numShots, shotgunInfo.numOfBulletsInShot, shotgunInfo.angle ) );
 
-            Destroy(gameObject);
+                    }
+                }
+            }
+
+            Destroy( gameObject);
             //play pickup sound
         }
 

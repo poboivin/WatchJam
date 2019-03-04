@@ -16,7 +16,7 @@ public partial class Gun : MonoBehaviour, IGun
         specialGunPower.Activate();
     }
 
-    public void FireBullet( Rocket bullet )
+    public void FireBullet( GameObject bullet )
     {
         if( specialGunPower != null )
         {

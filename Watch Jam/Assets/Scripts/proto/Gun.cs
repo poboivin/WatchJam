@@ -232,7 +232,7 @@ public partial class Gun : MonoBehaviour,IGun
                 if( statistics != null)
                     statistics.RecordFire();
 
-                FireBullet( bulletInstance.GetComponent<Rocket>() );
+                FireBullet( bulletInstance.gameObject );
             }
 
         }
