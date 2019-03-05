@@ -134,6 +134,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e536c04eb68b6a44b8c1747a5f6f22aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  numShots: 8
-  numOfBulletsInShot: 4
+  numTotalShots: 8
+  numOfBulletsInOneShot: 4
   angle: 30

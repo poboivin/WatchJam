@@ -83,7 +83,7 @@ public class pickup : MonoBehaviour
                     PickupShotgun shotgunInfo = gameObject.GetComponent<PickupShotgun>();
                     if( shotgunInfo != null )
                     {
-                        playerGun.SetGunPower( new GunPowerShotgun( playerGun, shotgunInfo.numShots, shotgunInfo.numOfBulletsInShot, shotgunInfo.angle ) );
+                        playerGun.SetGunPower( new GunPowerShotgun( playerGun, shotgunInfo.numTotalShots, shotgunInfo.numOfBulletsInOneShot, shotgunInfo.angle ) );
 
                     }
                 }

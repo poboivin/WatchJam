@@ -42,38 +42,54 @@ class GunPowerShotgun : ISpecialGunPower
             if( bullet != null )
             {
                 Vector2 velocity = bullet.GetComponent<Rigidbody2D>().velocity;
+                
+                Vector3 rotationAxis = Vector3.forward;
+                Vector2 velDirection = velocity.normalized;
+                if( velDirection == Vector2.left )
+                    rotationAxis = Vector3.back;
+
+                //Debug.LogFormat( "Bullet vel = {0}, unit vel = {1}, rotation axis = {2}", velocity, velDirection, rotationAxis );
 
                 if( numBulletsInShot % 2 == 0 )
                 {
-                    int numNewBulletsInHalf = ( numBulletsInShot ) / 2;
-                    
-                    for( int i = 1; i <= numNewBulletsInHalf; i++ )
+                    float angleInArc = ( 2 * rangeOfAngle ) / ( numBulletsInShot - 1 );
+
+                    int numNewBulletsInOneSide = numBulletsInShot / 2 - 1;
+                    for( int i = 1; i <= numNewBulletsInOneSide; i++ )
                     {
-                        float angle = i * rangeOfAngle / numNewBulletsInHalf;
+                        float angle = angleInArc / 2 + i * angleInArc;
 
                         GameObject newBullet1 = UnityEngine.Object.Instantiate( bullet );
-                        newBullet1.transform.Rotate( Vector3.forward, -angle );
+                        newBullet1.transform.Rotate( rotationAxis, -angle );
                         newBullet1.GetComponent<Rigidbody2D>().velocity = velocity.Rotate( -angle );
 
                         GameObject newBullet2 = UnityEngine.Object.Instantiate( bullet );
-                        newBullet2.transform.Rotate( Vector3.forward, angle );
+                        newBullet2.transform.Rotate( rotationAxis, angle );
                         newBullet2.GetComponent<Rigidbody2D>().velocity = velocity.Rotate( angle );
                     }
-                    UnityEngine.Object.Destroy( bullet );
+
+                    // rotate original bullet in half angle upward, and create new one in the opposite half angle
+                    GameObject newBullet = UnityEngine.Object.Instantiate( bullet );
+                    newBullet.transform.Rotate( rotationAxis, -angleInArc / 2 );
+
+                    newBullet.GetComponent<Rigidbody2D>().velocity = velocity.Rotate( -angleInArc / 2 );
+                    bullet.transform.Rotate( rotationAxis, angleInArc / 2 );
+                    bullet.GetComponent<Rigidbody2D>().velocity = velocity.Rotate( angleInArc / 2 );
                 }
                 else
                 {
-                    int numNewBulletsInHalf = ( numBulletsInShot - 1 ) / 2;
-                    for( int i = 1; i <= numNewBulletsInHalf; i++ )
+                    int numNewBulletsInOneSide = ( numBulletsInShot - 1 ) / 2;
+                    for( int i = 1; i <= numNewBulletsInOneSide; i++ )
                     {
-                        float angle = i * rangeOfAngle / numNewBulletsInHalf;
+                        float angle = i * rangeOfAngle / numNewBulletsInOneSide;
 
                         GameObject newBullet1 = UnityEngine.Object.Instantiate( bullet );
-                        newBullet1.transform.Rotate( Vector3.forward, -angle );
+                        newBullet1.transform.Rotate( rotationAxis, -angle );
                         newBullet1.GetComponent<Rigidbody2D>().velocity = velocity.Rotate( -angle );
 
+
                         GameObject newBullet2 = UnityEngine.Object.Instantiate( bullet );
-                        newBullet2.transform.Rotate( Vector3.forward, angle );
+                        newBullet2.transform.Rotate( rotationAxis, angle );
                         newBullet2.GetComponent<Rigidbody2D>().velocity = velocity.Rotate( angle );
                     }
                 }
