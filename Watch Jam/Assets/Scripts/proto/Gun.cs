@@ -24,7 +24,7 @@ public partial class Gun : MonoBehaviour,IGun
     private PlayerControl myPlayerControl;       // Reference to the PlayerControl script.
     private TimeController myTimeController;
   
-    public PierInputManager.ButtonName ShootButton;   //button to shoot
+   // public PierInputManager.ButtonName ShootButton;   //button to shoot
 
     public Rigidbody2D rocket;              // Prefab of the rocket.
     private Rigidbody2D OriginalRocket;              // Prefab of the rocket.
@@ -104,7 +104,7 @@ public partial class Gun : MonoBehaviour,IGun
         gunPivot.localRotation = Quaternion.Euler(new Vector3(0, 0, angle)); //Rotating!
 
         bool shoot = myTimeController.isRewinding == false && 
-            ( myInputManager.GetButtonDown(Settings.c.ShootButton) || myInputManager.GetButtonDown(Settings.c.AltShootButton) || ( rightStickUsed && Settings.s.AutoRStickShoot )) && 
+            ( myInputManager.GetButtonDown(Settings.c.ShootButton) || myInputManager.GetButtonDown(Settings.c.AltShootButton) || ( rightStickUsed && Settings.c.AutoRStickShoot )) && 
             ( Time.time > nextFire || (myTimeController.isStopped == true && Settings.s.stopTimeStoreBullet == true ) );
 
         // If the fire button is pressed...

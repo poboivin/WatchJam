@@ -11,7 +11,7 @@ public class TimeStopController : MonoBehaviour
     public Ammo myAmmo;
     [HideInInspector]
     public PierInputManager myInputManager;
-    public PierInputManager.ButtonName TimeStop;
+   // public PierInputManager.ButtonName TimeStop;
 
     void Awake()
     {
@@ -30,13 +30,13 @@ public class TimeStopController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if( myTimeController.isStopped == false && controllerTriggered == false &&  myInputManager.GetAxis( TimeStop ) > 0.5f && 
+        if( myTimeController.isStopped == false && controllerTriggered == false &&  myInputManager.GetAxis(Settings.c.TimeStop) > 0.5f && 
             ( myAmmo.CurrentAmmo < myAmmo.MaxAmmo || Settings.s.noLimits ) )
         {
             myTimeController.StartTimeStop();
             controllerTriggered = true;
         }
-        if( myTimeController.isStopped == true && controllerTriggered == true &&  myInputManager.GetAxis( TimeStop ) < 0.1f )
+        if( myTimeController.isStopped == true && controllerTriggered == true &&  myInputManager.GetAxis(Settings.c.TimeStop) < 0.1f )
         {
             myTimeController.StopTimeStop();
             controllerTriggered = false;

@@ -28,7 +28,7 @@ public class SpecialBarController : MonoBehaviour
 
     public void SetRapidBarFill(float AmountLeft)
     {
-        Debug.Log(AmountLeft);
+      //  Debug.Log(AmountLeft);
         RapidFireFill.fillAmount = AmountLeft / 10;
     }
 

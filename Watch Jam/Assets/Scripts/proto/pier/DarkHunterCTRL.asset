@@ -10,19 +10,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ad70261686616824787a53bcb9dca284, type: 3}
-  m_Name: mainControls
+  m_Name: DarkHunterCTRL
   m_EditorClassIdentifier: 
-  ShootButton: 11
-  AltShootButton: 5
-  AutoRStickShoot: 1
+  ShootButton: 5
+  AltShootButton: 11
+  AutoRStickShoot: 0
   MainAimXAxis: 9
   MainAimYAxis: 10
   AltAimXAxis: 1
   AltAimYAxis: 2
   MoveXAxis: 1
   MoveYAxis: 2
-  jumpButton: 12
-  AltjumpButton: 3
-  TimeStop: 7
-  Rewind: 8
-  MeleeButton: 3
+  jumpButton: 3
+  AltjumpButton: 12
+  TimeStop: 8
+  Rewind: 7
+  MeleeButton: 4

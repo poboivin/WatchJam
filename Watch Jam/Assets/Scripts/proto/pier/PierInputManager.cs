@@ -8,7 +8,7 @@ using Rewired;
 public class PierInputManager : MonoBehaviour
 {
     public enum PlayerNumber { P1, P2, P3, P4, PC }
-    public enum ButtonName {MoveHorizontal, MoveVertical, Fire1 , Fire2, Fire3 , Fire4, Rtrigger,Ltrigger, AimHorizontal, AimVertical,RBumper,LBumper }
+    public enum ButtonName {None, MoveHorizontal, MoveVertical, Fire1 , Fire2, Fire3 , Fire4, Rtrigger,Ltrigger, AimHorizontal, AimVertical,RBumper,LBumper }
     public PlayerNumber playerNumber;
     public Player player;
 
@@ -29,28 +29,38 @@ public class PierInputManager : MonoBehaviour
     }
     public float GetAxis(ButtonName axisName)
     {
-        if( enableButtonList[( int )axisName] )
+        if (axisName == ButtonName.None)
+            return 0.0f;
+
+        if ( enableButtonList[( int )axisName] )
             return player.GetAxis( axisName.ToString() );
         
         return 0.0f;
     }
     public bool GetButton( ButtonName buttonName)
     {
-        if( enableButtonList[( int )buttonName] )
+        if (buttonName == ButtonName.None)
+            return false;
+
+        if ( enableButtonList[( int )buttonName] )
             return player.GetButton(buttonName.ToString());
         return false;
     }
 
     public bool GetButtonDown( ButtonName buttonName)
     {
-        if( enableButtonList[( int )buttonName] )
+        if (buttonName == ButtonName.None)
+            return false;
+        if ( enableButtonList[( int )buttonName] )
             return player.GetButtonDown(buttonName.ToString());
         return false;
     }
    
     public  bool GetButtonUp(ButtonName buttonName)
     {
-        if( enableButtonList[( int )buttonName] )
+        if (buttonName == ButtonName.None)
+            return false;
+        if ( enableButtonList[( int )buttonName] )
             return player.GetButtonUp(buttonName.ToString());
         return false;
     }
