@@ -50,6 +50,7 @@ public class pickupCopy : MonoBehaviour
 			{
 				if (player != null && player.enabled == true) {
 					player.Grenade = Freeze;
+					Debug.Log ("BIG");
 				}
 			}
 			Destroy(gameObject);
