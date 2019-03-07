@@ -7,8 +7,10 @@ public class pickup : MonoBehaviour
     public enum pickUpType {
         health,
         grenade,
-        shield,     // Owl
-        boost       // Cat
+        shield,         // Owl
+        fireBoost,      // Cat
+        shotgun,        // Multiple bullets spread out 
+        bounce,         // Bullet can bounce the wall
     }
     public pickUpType type;
     public Rigidbody2D Grenade;              // Prefab of the rocket.
@@ -49,20 +51,45 @@ public class pickup : MonoBehaviour
                     player.RefreshShield();
                 }
             }
-            else if( type == pickUpType.boost )
+            else if( type == pickUpType.fireBoost )
             {
-                Gun player = collision.GetComponentInChildren<Gun>();
-                if( player != null )
+                Gun playerGun = collision.GetComponentInChildren<Gun>();
+                if( playerGun != null )
                 {
                     PickupFireBoost boost = gameObject.GetComponent<PickupFireBoost>();
                     if( boost != null )
                     {
-                        player.ChangeFireRate( boost.fireRate, boost.boostedBulletCount );
+                        playerGun.SetGunPower( new GunPowerFiringBoost( playerGun, boost.fireRate, boost.boostedBulletCount ) );
+                    }
+                }
+            }
+            else if( type == pickUpType.bounce )
+            {
+                Gun playerGun = collision.GetComponentInChildren<Gun>();
+                if( playerGun != null )
+                {
+                    PickupBounce bounceInfo = gameObject.GetComponent<PickupBounce>();
+                    if( bounceInfo != null )
+                    {
+                        playerGun.SetGunPower( new GunPowerBulletBounce( playerGun, bounceInfo.bouncedBulletCount ) );
+                    }
+                }
+            }
+            else if( type == pickUpType.shotgun )
+            {
+                Gun playerGun = collision.GetComponentInChildren<Gun>();
+                if( playerGun != null )
+                {
+                    PickupShotgun shotgunInfo = gameObject.GetComponent<PickupShotgun>();
+                    if( shotgunInfo != null )
+                    {
+                        playerGun.SetGunPower( new GunPowerShotgun( playerGun, shotgunInfo.numTotalShots, shotgunInfo.numOfBulletsInOneShot, shotgunInfo.angle ) );
+
                     }
                 }
             }
 
-            Destroy(gameObject);
+            Destroy( gameObject);
             //play pickup sound
         }
 
