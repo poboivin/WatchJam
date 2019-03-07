@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 
 
-public class Gun : MonoBehaviour,IGun
+public partial class Gun : MonoBehaviour,IGun
 {
     public class bulletInfo
     {
@@ -24,22 +24,20 @@ public class Gun : MonoBehaviour,IGun
     private PlayerControl myPlayerControl;       // Reference to the PlayerControl script.
     private TimeController myTimeController;
   
-    public PierInputManager.ButtonName ShootButton;   //button to shoot
+   // public PierInputManager.ButtonName ShootButton;   //button to shoot
 
     public Rigidbody2D rocket;              // Prefab of the rocket.
+    private Rigidbody2D OriginalRocket;              // Prefab of the rocket.
 
     public float speed = 20f;				// The speed the rocket will fire at.
     public float fireRate = 0.3f;
     private float nextFire = 0f;
-    private int numBoostedBullet = 0;       // how many bullets are able to fire with boosted fire rate
     public Transform gunPivot;
     public Transform MuzzleFlashPrefab;
     public SpriteRenderer armSprite;
 
-
     private GameObject[] RocketsFired;
     public SpecialBarController SpecialBar;
-    
 
     public float angle;
     public float x;
@@ -56,7 +54,9 @@ public class Gun : MonoBehaviour,IGun
         // Setting up the references.
         //anim = transform.root.gameObject.GetComponent<Animator>();
         myPlayerControl = transform.root.GetComponent<PlayerControl>();
+        OriginalRocket = rocket;
     }
+
     void Update()
     {
         bool rightStickUsed = false;
@@ -94,15 +94,16 @@ public class Gun : MonoBehaviour,IGun
         //    gunPivot.transform.localScale = theScale;
 
         //}
-        if (SpecialBar.RapidFireFill.enabled == true)
+
+        if( specialGunPower != null )
         {
-            SpecialBar.SetRapidBarFill(numBoostedBullet);
+            specialGunPower.Update();
         }
 
         gunPivot.localRotation = Quaternion.Euler(new Vector3(0, 0, angle)); //Rotating!
 
         bool shoot = myTimeController.isRewinding == false && 
-            ( myInputManager.GetButtonDown(Settings.c.ShootButton) || myInputManager.GetButtonDown(Settings.c.AltShootButton) || ( rightStickUsed && Settings.s.AutoRStickShoot )) && 
+            ( myInputManager.GetButtonDown(Settings.c.ShootButton) || myInputManager.GetButtonDown(Settings.c.AltShootButton) || ( rightStickUsed && Settings.c.AutoRStickShoot )) && 
             ( Time.time > nextFire || (myTimeController.isStopped == true && Settings.s.stopTimeStoreBullet == true ) );
 
         // If the fire button is pressed...
@@ -230,10 +231,10 @@ public class Gun : MonoBehaviour,IGun
                 var statistics = myInputManager.GetComponentInParent<PlayerStatistics>();
                 if( statistics != null)
                     statistics.RecordFire();
+
+                FireBullet( bulletInstance.gameObject );
             }
 
-            if( numBoostedBullet > 0 )
-                numBoostedBullet--;
         }
 	}
 
@@ -263,34 +264,6 @@ public class Gun : MonoBehaviour,IGun
       
     }
 
-    public void ChangeFireRate( float newFireRate, int numBulletCount )
-    {
-        SpecialBar.ToggleRapidFireBar(true);
-        StartCoroutine( "ChangeFireRateImpl", new object[] { newFireRate, numBulletCount } );
-    }
-
-    public IEnumerator ChangeFireRateImpl( object[] parameters )
-    {
-        float oldFireRate = fireRate;
-        fireRate = ( float )parameters[0];
-        
-        // TO DO : change this effect with the proper one that showing the player is being boosted.
-        //TimeAuraController aura = transform.root.gameObject.GetComponentInChildren<TimeAuraController>();
-        //if( aura != null )
-        //{
-        //    aura.TurnOnAura( TimeAuraController.Aura.orange );
-        //}
-
-        numBoostedBullet = ( int )parameters[1];
-  
-
-        yield return new WaitUntil( () => numBoostedBullet <= 0 );
-
-        //if( aura != null )
-        //    aura.TurnOffAura();
-        SpecialBar.ToggleRapidFireBar(false);
-        fireRate = oldFireRate;
-    }
     void IGun.setEnable(bool val)
     {
         this.enabled = val;

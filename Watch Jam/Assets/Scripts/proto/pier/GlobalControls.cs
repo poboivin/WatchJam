@@ -10,7 +10,7 @@ public class GlobalControls : ScriptableObject
     public PierInputManager.ButtonName ShootButton;   //button to shoot
     [Tooltip("alternate shooting btn")]
     public PierInputManager.ButtonName AltShootButton;   //button to shoot
-
+    public bool AutoRStickShoot = false;
     [Header("Aim")]
     public PierInputManager.ButtonName MainAimXAxis;
     public PierInputManager.ButtonName MainAimYAxis;

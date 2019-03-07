@@ -17,12 +17,15 @@ public class Dash : MonoBehaviour
 
     [HideInInspector]
     public TimeController myTimeController;
+    public TimeStopController myTimeStopController;
+    public TimeRewindController myTimeRewindController;
     public float VelocityMagnitude = 1;
     public float Duration = 1;
     public float conter;
     public bool active = false;
-    Vector2 dir;
     public float leftOverFactor = .33f;
+
+    Vector2 dir;
     private Transform groundCheck;          // A position marking where to check if the player is grounded.
     private bool grounded = false;          // Whether or not the player is grounded.
    
@@ -31,6 +34,8 @@ public class Dash : MonoBehaviour
     void Start ()
     {
         myTimeController = GetComponent<TimeController>();
+        myTimeStopController = GetComponent<TimeStopController>();
+        myTimeRewindController = GetComponent<TimeRewindController>();
         groundCheck = transform.Find("groundCheck");
 
     }
@@ -57,8 +62,9 @@ public class Dash : MonoBehaviour
                 //
             }
         }
-        else if ( active == true)
+        else if ( active == true && myTimeController.isStopped == false)
         {
+           
             myTimeController.myRigidbody2D.velocity = dir.normalized * VelocityMagnitude;
             conter += Time.deltaTime;
 
@@ -67,6 +73,10 @@ public class Dash : MonoBehaviour
                 active = false;
                 myTimeController.myRigidbody2D.velocity *= leftOverFactor;
             }
+        }
+        else
+        {
+            active = false;
         }
 	}
    

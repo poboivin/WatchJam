@@ -29,7 +29,10 @@ public class LifeSpan : MonoBehaviour
 
     bool invincible;
     public float invincibleDuration = 1.5f;
-  
+    public void SetInvincibility(bool var)
+    { 
+        invincible = var;
+    }
 	// Use this for initialization
 	void Start ()
     {

@@ -4,23 +4,25 @@
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ad70261686616824787a53bcb9dca284, type: 3}
   m_Name: mainControls
   m_EditorClassIdentifier: 
-  ShootButton: 10
-  AltShootButton: 4
-  MainAimXAxis: 8
-  MainAimYAxis: 9
-  AltAimXAxis: 0
-  AltAimYAxis: 1
-  MoveXAxis: 0
-  MoveYAxis: 1
-  jumpButton: 11
-  AltjumpButton: 2
-  TimeStop: 6
-  Rewind: 7
+  ShootButton: 11
+  AltShootButton: 5
+  AutoRStickShoot: 1
+  MainAimXAxis: 9
+  MainAimYAxis: 10
+  AltAimXAxis: 1
+  AltAimYAxis: 2
+  MoveXAxis: 1
+  MoveYAxis: 2
+  jumpButton: 12
+  AltjumpButton: 3
+  TimeStop: 7
+  Rewind: 8
   MeleeButton: 3
