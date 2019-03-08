@@ -44,6 +44,16 @@ public class TimeController : MonoBehaviour
     public UnityEvent OnStartTimeStop;
     public UnityEvent OnStopTimeStop;
 
+    public PierInputManager.PlayerNumber PlayerId
+    {
+        get {
+            if( myInputManager != null )
+                return myInputManager.playerNumber;
+            else
+                return PierInputManager.PlayerNumber.PC;
+        }
+    }
+
     //   public Transform TimeAura; 
     void Awake()
     {
@@ -181,15 +191,24 @@ public class TimeController : MonoBehaviour
     {
         myTimeBody.rewind = true;
         isRewinding = true;
-        TimeAuraController[] timeAuras = gameObject.GetComponentsInChildren<TimeAuraController>();
-        if (timeAuras != null)
-        {
-            foreach (TimeAuraController aura in timeAuras)
-            {
-                aura.TurnOnAura(TimeAuraController.Aura.purple);
-            }
+       // TimeAuraController[] timeAuras = gameObject.GetComponentsInChildren<TimeAuraController>();
+        TimeEffectUIController EffectController = gameObject.GetComponentInChildren<TimeEffectUIController>();
+        //if (timeAuras != null)
+        //{
+        //    foreach (TimeAuraController aura in timeAuras)
+        //    {
+        //        aura.TurnOnAura(TimeAuraController.Aura.purple);
+        //    }
 
+        //}
+
+        if (EffectController != null)
+        {
+            EffectController.ToggleRewindTime(true);
+            
         }
+
+
         if(rewindEffect != null)
         {
             myAudioSource.clip = rewindEffect;
@@ -205,15 +224,22 @@ public class TimeController : MonoBehaviour
     {
         myTimeBody.rewind = false;
         isRewinding = false;
-        TimeAuraController[] timeAuras = gameObject.GetComponentsInChildren<TimeAuraController>();
-        if (timeAuras != null)
-        {
-            foreach (TimeAuraController aura in timeAuras)
-            {
-                aura.TurnOffAura();
-            }
+        //TimeAuraController[] timeAuras = gameObject.GetComponentsInChildren<TimeAuraController>();
+        TimeEffectUIController EffectController = gameObject.GetComponentInChildren<TimeEffectUIController>();
+        //if (timeAuras != null)
+        //{
+        //    foreach (TimeAuraController aura in timeAuras)
+        //    {
+        //        aura.TurnOffAura();
+        //    }
 
+        //}
+
+        if (EffectController != null)
+        {
+            EffectController.ToggleRewindTime(false);
         }
+
         if (rewindEffect != null && myAudioSource.clip == rewindEffect)
         {
             StartCoroutine(SoundOffRoutine(myAudioSource, 0.5f));
@@ -240,13 +266,16 @@ public class TimeController : MonoBehaviour
     }
     public void StartTimeStop()
     {
-        TimeAuraController[] timeAuras = gameObject.GetComponentsInChildren<TimeAuraController>();
-        if(timeAuras != null)
+        //TimeAuraController[] timeAuras = gameObject.GetComponentsInChildren<TimeAuraController>();
+        TimeEffectUIController EffectController = gameObject.GetComponentInChildren<TimeEffectUIController>();
+        if (EffectController != null)
         {
-            foreach(TimeAuraController aura in timeAuras)
-            {
-                aura.TurnOnAura(TimeAuraController.Aura.red);
-            }
+            //foreach(TimeAuraController aura in timeAuras)
+            //{
+            //    aura.TurnOnAura(TimeAuraController.Aura.red);
+            //}
+
+            EffectController.ToggleStoppedTime(true);
           
         }
         if (stopEffect != null)
@@ -266,13 +295,15 @@ public class TimeController : MonoBehaviour
     }
     public void StopTimeStop()
     {
-        TimeAuraController[] timeAuras = gameObject.GetComponentsInChildren<TimeAuraController>();
-        if (timeAuras != null)
+        //TimeAuraController[] timeAuras = gameObject.GetComponentsInChildren<TimeAuraController>();
+        TimeEffectUIController EffectController = gameObject.GetComponentInChildren<TimeEffectUIController>();
+        if (EffectController != null)
         {
-            foreach (TimeAuraController aura in timeAuras)
-            {
-                aura.TurnOffAura();
-            }
+            EffectController.ToggleStoppedTime(false);
+            //foreach (TimeAuraController aura in timeAuras)
+            //{
+            //    aura.TurnOffAura();
+            //}
 
         }
         if (stopEffect != null && myAudioSource.clip == stopEffect)
@@ -352,4 +383,6 @@ public class TimeController : MonoBehaviour
       
         lastTimeScale = newTimeScale;
     }
+
+   
 }

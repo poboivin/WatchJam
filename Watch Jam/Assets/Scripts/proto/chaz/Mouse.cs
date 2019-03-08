@@ -48,7 +48,7 @@ public class Mouse: MonoBehaviour
 			Destroy (this);
 
 
-			if(col.gameObject != myOwner.gameObject)
+			if( myOwner != null && col.gameObject != myOwner.gameObject)
 			{
 
 				if (Camera.main.GetComponent<CamShake>() != null)

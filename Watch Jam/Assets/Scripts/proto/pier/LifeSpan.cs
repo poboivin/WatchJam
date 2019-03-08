@@ -22,7 +22,17 @@ public class LifeSpan : MonoBehaviour
     public SpriteRenderer sp;
     public AudioClip clip;
     public AudioSource source;
-  
+    //NEW UI Items
+    public Image HealthBar;
+    public Image HealthShatter;
+    bool ShatterActive;
+
+    bool invincible;
+    public float invincibleDuration = 1.5f;
+    public void SetInvincibility(bool var)
+    { 
+        invincible = var;
+    }
 	// Use this for initialization
 	void Start ()
     {
@@ -36,40 +46,59 @@ public class LifeSpan : MonoBehaviour
         myGun = GetComponentInChildren<Gun>();
 		myGun2 = GetComponentInChildren<GunCopy2>();
         myText = GetComponentInChildren<Text>();
+
+        StartCoroutine( ChangeInvincibleCoroutine() );
     }
+
+    IEnumerator ChangeInvincibleCoroutine()
+    {
+        invincible = true;
+        yield return new WaitForSeconds( invincibleDuration );
+        invincible = false;
+    }
+
 	public void AddLife(float amount)
     {
         currentLife += amount;
         if(currentLife > Settings.s.totalLife)
         {
             currentLife = Settings.s.totalLife;
-
-
         }
     }
+
     public float SubstactLife(float amount)
     {
-        currentLife -= amount;
-        if (clip != null && source != null)
-        {
-            source.clip = clip;
-            source.Play();
-        }
-        StartCoroutine(ianCoroutine());
-        StopCoroutine(ianCoroutine());
-
-
-
-        if (currentLife <= 0)
-        {
-          
-            return currentLife + amount;
-        
-
-        }
+        if( invincible )
+            return 0.0f;
         else
         {
-            return amount;
+            var decreasedLife = Mathf.Min( currentLife, amount );
+            currentLife -= decreasedLife;
+
+            //LEAVING THIS OUT TILL I FIX IT
+            //if (HealthShatter != null)
+            //{
+            //    if (ShatterActive)
+            //    {
+            //        StopCoroutine(ShowHealthShatter());
+
+            //    }
+
+            //    StartCoroutine(ShowHealthShatter());
+
+            //}
+
+
+            //if (clip != null && source != null)
+            //{
+            //    source.clip = clip;
+            //    source.Play();
+            //}
+            //StartCoroutine(ianCoroutine());
+            //StopCoroutine(ianCoroutine());
+
+
+            return decreasedLife;
         }
     }
 	// Update is called once per frame
@@ -82,7 +111,12 @@ public class LifeSpan : MonoBehaviour
         {
                 Death();
         }
-        lifeDisplay.fillAmount = currentLife / Settings.s.totalLife;
+        //lifeDisplay.fillAmount = currentLife / Settings.s.totalLife;
+        if (HealthBar != null)
+        {
+            HealthBar.fillAmount = currentLife / Settings.s.totalLife;
+        }
+       
 
         if(myText != null)
         {
@@ -134,4 +168,21 @@ public class LifeSpan : MonoBehaviour
         }
 
     }
+
+    public IEnumerator ShowHealthShatter()
+    {
+
+        ShatterActive = true;
+            
+        HealthShatter.enabled= true;
+        HealthShatter.transform.position = new Vector3(HealthShatter.transform.position.x -.203f, HealthShatter.transform.position.y, HealthShatter.transform.position.z);
+        
+        yield return new WaitForSeconds(.8f);
+        HealthShatter.enabled = false;
+        ShatterActive = false;
+       
+
+    }
+
+
 }

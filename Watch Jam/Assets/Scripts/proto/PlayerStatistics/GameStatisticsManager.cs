@@ -39,12 +39,13 @@ public class GameStatisticsManager : MonoBehaviour {
         playersInfo[playerId].Started();
     }
 
-    public void PlayerDied( int playerId )
+    public int PlayerDied( int playerId )
     {
         playersInfo[playerId].Died();
 
         var hitter = playersInfo[playerId].PlayerIdLastHitter;
         playersInfo[hitter].PlayerKills += 1;
+        return hitter;
     }
 
     public void PlayerWon( int playerId )
