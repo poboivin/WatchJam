@@ -61,7 +61,7 @@ public class pickup : MonoBehaviour
                     PickupFireBoost boost = gameObject.GetComponent<PickupFireBoost>();
                     if( boost != null )
                     {
-                        playerGun.SetGunPower( new GunPowerFiringBoost( playerGun, boost.fireRate, boost.boostedBulletCount ) );
+                        playerGun.SetGunPower( new GunPowerFiringBoost( playerGun, boost ) );
                         if( Grenade != null )
                             playerGun.rocket = Grenade;
                     }
@@ -75,7 +75,7 @@ public class pickup : MonoBehaviour
                     PickupBounce bounceInfo = gameObject.GetComponent<PickupBounce>();
                     if( bounceInfo != null )
                     {
-                        playerGun.SetGunPower( new GunPowerBulletBounce( playerGun, bounceInfo.bouncedBulletCount ) );
+                        playerGun.SetGunPower( new GunPowerBulletBounce( playerGun, bounceInfo ) );
                         if( Grenade != null )
                             playerGun.rocket = Grenade;
                     }
@@ -89,7 +89,7 @@ public class pickup : MonoBehaviour
                     PickupShotgun shotgunInfo = gameObject.GetComponent<PickupShotgun>();
                     if( shotgunInfo != null )
                     {
-                        playerGun.SetGunPower( new GunPowerShotgun( playerGun, shotgunInfo.numTotalShots, shotgunInfo.numOfBulletsInOneShot, shotgunInfo.angle ) );
+                        playerGun.SetGunPower( new GunPowerShotgun( playerGun, shotgunInfo ) );
                         if( Grenade != null )
                             playerGun.rocket = Grenade;
                     }

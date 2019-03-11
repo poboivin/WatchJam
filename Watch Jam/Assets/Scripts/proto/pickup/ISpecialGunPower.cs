@@ -12,6 +12,9 @@ public interface ISpecialGunPower
     // to check if the special power is fully consumed or not.
     bool enableAbility { get; set; }
 
+    // increase/decrease the damage of the bullet( default : 1.0 )
+    float damageMultiplier { get; set; }
+
     // set all the changes/variables for the speical power.
     void Activate();
 

@@ -4,49 +4,29 @@ using System.Linq;
 using System.Text;
 using UnityEngine;
 
-class GunPowerBulletBounce : ISpecialGunPower
+class GunPowerBulletBounce : GunPowerGeneric
 {
-    public int numSpecialBullets { get; set; }
-    public bool enableAbility { get; set; }
-
-    private Gun gun;
-
-    public GunPowerBulletBounce( Gun playerGun, int numBoostedBulletCount )
+    public GunPowerBulletBounce( Gun playerGun, PickupBounce shotInfo )
+        : base( playerGun, shotInfo.bouncedBulletCount )
     {
-        gun = playerGun;
-        numSpecialBullets = numBoostedBulletCount;
-        enableAbility = false;
     }
 
-    public void Activate()
+    public override void Activate()
     {
+        base.Activate();
         // TODO : needs to change this bar to the other effect
         gun.SpecialBar.ToggleRapidFireBar( true );
-        // TODO : may need to change the rocket prefab for this ability
-        enableAbility = true;
     }
 
-    public void Deactivate()
+    public override void Deactivate()
     {
+        base.Deactivate();
+
         // TODO : needs to change this bar to the other effect
         gun.SpecialBar.ToggleRapidFireBar( false );
-        gun.RestoreRocket();
     }
 
-    public void FireBullet( GameObject bullet )
-    {
-        if( enableAbility )
-        {
-            numSpecialBullets--;
-            if( numSpecialBullets == 0 )
-            {
-                enableAbility = false;
-            }
-        }
-
-    }
-
-    public void Update()
+    public override void Update()
     {
         if( enableAbility )
         {
