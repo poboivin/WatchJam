@@ -154,13 +154,15 @@ public class TimeController : MonoBehaviour
         {
             if(Settings.s.ImmobileRecord == false)
             {
-                if(myRigidbody2D.velocity.sqrMagnitude == 0)
+                if(myRigidbody2D.velocity.sqrMagnitude <= 1)
                 {
                     myTimeBody.isRecording = false;
-
+                   // Debug.Log("im an not recording");
                 }
                 else
                 {
+                  //  Debug.Log("im am recording" + myRigidbody2D.velocity.sqrMagnitude );
+
                     myTimeBody.isRecording = true;
 
                 }

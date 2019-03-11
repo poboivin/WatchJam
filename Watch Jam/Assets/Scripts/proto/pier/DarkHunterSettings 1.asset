@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fb27e142a701f924c96468f3e76ce925, type: 3}
-  m_Name: main
+  m_Name: DarkHunterSettings 1
   m_EditorClassIdentifier: 
   noLimits: 1
   unlimitedAmmo: 1
   gunKnockBack: 0
   bulletKnockBack: 200
-  bulletDamage: 1
+  bulletDamage: 10
   totalLife: 10
   stopTimeStoreBullet: 0
   airControl: 1
@@ -32,6 +32,6 @@ MonoBehaviour:
   rewindAmmoFactor: 4
   TwiceAsFastRewind: 0
   ImmobileRecord: 0
-  gameMode: 0
+  gameMode: 1
   playerRespawnTime: 3
   timeLimitInSceonds: 120
