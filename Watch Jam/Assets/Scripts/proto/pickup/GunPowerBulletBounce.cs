@@ -37,11 +37,6 @@ class GunPowerBulletBounce : ISpecialGunPower
     {
         if( enableAbility )
         {
-            if( bullet != null )
-            {
-                bullet.GetComponent<Rocket>().enableBounce = true;
-            }
-
             numSpecialBullets--;
             if( numSpecialBullets == 0 )
             {
