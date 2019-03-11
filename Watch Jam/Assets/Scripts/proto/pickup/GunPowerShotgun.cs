@@ -13,6 +13,7 @@ class GunPowerShotgun : ISpecialGunPower
 
     private int numBulletsInShot;   // number of bullets in a single shot
     private float rangeOfAngle;     // shots in range from -angle to +angle
+    private GameStatisticsManager statisticsManager;
 
     public GunPowerShotgun( Gun playerGun, int numBoostedBulletCount, int numBulletsInSingleShot, float angle )
     {
@@ -21,6 +22,7 @@ class GunPowerShotgun : ISpecialGunPower
         numBulletsInShot = numBulletsInSingleShot;
         rangeOfAngle = angle;
         enableAbility = false;
+        statisticsManager = UnityEngine.Object.FindObjectOfType<GameStatisticsManager>();
     }
 
     public void Activate()
@@ -94,6 +96,12 @@ class GunPowerShotgun : ISpecialGunPower
                     }
                 }
                 //Debug.LogFormat( "Bullet rotation = {0}, velocity = {1}", bullet.transform.rotation, bullet.GetComponent<Rigidbody2D>().velocity.normalized );
+
+                if( statisticsManager != null )
+                {
+                    // The reason why numBulletsInShot - 1 is Gun script also records a shot in Update function.
+                    statisticsManager.RecordFire( (int)gun.GetPlayerId(), numBulletsInShot - 1 );
+                }
             }
 
             numSpecialBullets--;
@@ -101,6 +109,8 @@ class GunPowerShotgun : ISpecialGunPower
             {
                 enableAbility = false;
             }
+
+
         }
 
     }
