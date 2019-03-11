@@ -11,7 +11,8 @@ GameObject:
   - component: {fileID: 7805508124875479050}
   - component: {fileID: 882006235155595708}
   - component: {fileID: 677865464043190947}
-  - component: {fileID: 3282819144165761650}
+  - component: {fileID: 6464363232596913813}
+  - component: {fileID: 5398620369651494363}
   m_Layer: 11
   m_Name: PiercePickup
   m_TagString: pickup
@@ -107,7 +108,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &3282819144165761650
+--- !u!114 &6464363232596913813
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -116,10 +117,21 @@ MonoBehaviour:
   m_GameObject: {fileID: 6778506988192910263}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b1ce652a46f748146b816373ca07acdb, type: 3}
+  m_Script: {fileID: 11500000, guid: f796085d8c9a7d44a93613e0035754b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 3
-  Grenade: {fileID: 0}
-  Chain: {fileID: 0}
-  Freeze: {fileID: 2080044700173002939, guid: 2b15e566965c4424b8eb1463d3d8fa9e, type: 3}
+  type: 6
+  Grenade: {fileID: 2080044700173002939, guid: 2b15e566965c4424b8eb1463d3d8fa9e, type: 3}
+--- !u!114 &5398620369651494363
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6778506988192910263}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6914d75df42b08e45a4ca723cdb040c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  piercingBulletCount: 5

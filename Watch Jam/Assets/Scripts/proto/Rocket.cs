@@ -5,7 +5,7 @@ using System.Collections.Generic;
 public class Rocket : MonoBehaviour 
 {
 	public GameObject explosion;		// Prefab of explosion effect.
-    private float rocketTime = 0f;
+    protected float rocketTime = 0f;
     public float TimeAlive = 4f;
     public LifeSpan myOwner;
 

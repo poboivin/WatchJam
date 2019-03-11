@@ -11,6 +11,8 @@ public class pickup : MonoBehaviour
         fireBoost,      // Cat
         shotgun,        // Multiple bullets spread out 
         bounce,         // Bullet can bounce the wall
+        pierce,
+        thicc,
     }
     public pickUpType type;
     public Rigidbody2D Grenade;              // Prefab of the rocket.
@@ -60,6 +62,8 @@ public class pickup : MonoBehaviour
                     if( boost != null )
                     {
                         playerGun.SetGunPower( new GunPowerFiringBoost( playerGun, boost.fireRate, boost.boostedBulletCount ) );
+                        if( Grenade != null )
+                            playerGun.rocket = Grenade;
                     }
                 }
             }
@@ -72,6 +76,8 @@ public class pickup : MonoBehaviour
                     if( bounceInfo != null )
                     {
                         playerGun.SetGunPower( new GunPowerBulletBounce( playerGun, bounceInfo.bouncedBulletCount ) );
+                        if( Grenade != null )
+                            playerGun.rocket = Grenade;
                     }
                 }
             }
@@ -84,7 +90,36 @@ public class pickup : MonoBehaviour
                     if( shotgunInfo != null )
                     {
                         playerGun.SetGunPower( new GunPowerShotgun( playerGun, shotgunInfo.numTotalShots, shotgunInfo.numOfBulletsInOneShot, shotgunInfo.angle ) );
-
+                        if( Grenade != null )
+                            playerGun.rocket = Grenade;
+                    }
+                }
+            }
+            else if( type == pickUpType.pierce )
+            {
+                Gun playerGun = collision.GetComponentInChildren<Gun>();
+                if( playerGun != null )
+                {
+                    PickupPierce pierceShotInfo = gameObject.GetComponent<PickupPierce>();
+                    if( pierceShotInfo != null )
+                    {
+                        playerGun.SetGunPower( new GunPowerPierce( playerGun, pierceShotInfo ) );
+                        if( Grenade != null )
+                            playerGun.rocket = Grenade;
+                    }
+                }
+            }
+            else if( type == pickUpType.thicc )
+            {
+                Gun playerGun = collision.GetComponentInChildren<Gun>();
+                if( playerGun != null )
+                {
+                    PickupThicc thiccInfo = gameObject.GetComponent<PickupThicc>();
+                    if( thiccInfo != null )
+                    {
+                        playerGun.SetGunPower( new GunPowerThicc( playerGun, thiccInfo ) );
+                        if( Grenade != null )
+                            playerGun.rocket = Grenade;
                     }
                 }
             }
