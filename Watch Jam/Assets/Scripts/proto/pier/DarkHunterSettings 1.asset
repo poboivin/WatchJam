@@ -17,6 +17,8 @@ MonoBehaviour:
   gunKnockBack: 0
   bulletKnockBack: 200
   bulletDamage: 10
+  meleeDamage: 5
+  meleeKnockBack: 10
   totalLife: 10
   stopTimeStoreBullet: 0
   airControl: 1
@@ -25,7 +27,7 @@ MonoBehaviour:
   rewindKillVelocity: 1
   lifeDecay: 0
   lifeSteal: 0
-  rewindInvincibility: 1
+  rewindInvincibility: 0
   timeStopAmmoRegen: 0
   rewindAmmoRegen: 0
   passiveAmmoRegen: 1

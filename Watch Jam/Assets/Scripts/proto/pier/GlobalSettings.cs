@@ -17,6 +17,9 @@ public class GlobalSettings : ScriptableObject
     public float gunKnockBack = 20f;
     public float bulletKnockBack = 10f;
     public float bulletDamage = 4f;
+    public float meleeDamage = 4f;
+    public float meleeKnockBack = 10f;
+
     public float totalLife = 60;
     public bool stopTimeStoreBullet = false;
     [Range (0,1)]

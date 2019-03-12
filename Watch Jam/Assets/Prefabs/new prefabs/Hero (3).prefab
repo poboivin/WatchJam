@@ -1114,7 +1114,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d9bf156813c141e98b61835f46356f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ShootButton: 10
   rocket: {fileID: 5000000, guid: 6933093319485554d9fee8365ba45f58, type: 3}
   speed: 25
   fireRate: 0.25
@@ -1379,6 +1378,7 @@ GameObject:
   - component: {fileID: 114986736641411634}
   - component: {fileID: 114312681238237796}
   - component: {fileID: 6461109425533228051}
+  - component: {fileID: 7795668069866887328}
   m_Layer: 9
   m_Name: Hero (3)
   m_TagString: Player
@@ -1406,7 +1406,7 @@ Transform:
   - {fileID: 7163872953387987690}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 35.00935}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &114592709892940316
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1559,6 +1559,7 @@ MonoBehaviour:
   source: {fileID: 0}
   HealthBar: {fileID: 6951083550959238877}
   HealthShatter: {fileID: 6951083551828602748}
+  invincibleDuration: 1.5
 --- !u!114 &114080671915173322
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1817,7 +1818,6 @@ MonoBehaviour:
   myTimeBody: {fileID: 0}
   myAmmo: {fileID: 0}
   myInputManager: {fileID: 0}
-  Rewind: 7
 --- !u!114 &114986736641411634
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1832,7 +1832,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myAmmo: {fileID: 0}
   myInputManager: {fileID: 0}
-  TimeStop: 6
 --- !u!114 &114312681238237796
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1840,12 +1839,14 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1591816554510202}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3d5538730d6d9d447a949e941a2de3c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   myTimeController: {fileID: 0}
+  myTimeStopController: {fileID: 0}
+  myTimeRewindController: {fileID: 0}
   VelocityMagnitude: 50
   Duration: 0.15
   conter: 0
@@ -1863,6 +1864,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7469e9435df6d234fa701c489a48c3f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &7795668069866887328
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1591816554510202}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6915440f3bec8c4a961fa135b825161, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentState: 0
+  myInputManager: {fileID: 0}
+  myLifeSpan: {fileID: 0}
+  myTimeController: {fileID: 0}
+  myTimeStopController: {fileID: 0}
+  myTimeRewindController: {fileID: 0}
+  VelocityMagnitude: 50
+  Duration: 0.15
+  Timer: 0
+  active: 0
+  leftOverFactor: 0.33
+  chargeTimer: 0.5
+  chargeTimeStamp: 0
+  temp: 0
+  dashCount: 0
+  offgroundDashLimit: 1
+  meleeCount: 0
 --- !u!1 &1726279770698780
 GameObject:
   m_ObjectHideFlags: 0
