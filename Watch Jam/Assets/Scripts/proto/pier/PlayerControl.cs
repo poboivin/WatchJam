@@ -52,12 +52,14 @@ public class PlayerControl : MonoBehaviour,ImouseAble
         // If the jump button is pressed and the player is grounded then the player should jump.
         if ((myInputManager.GetButtonDown(Settings.c.jumpButton) || myInputManager.GetButtonDown(Settings.c.AltjumpButton)) && grounded)
 			jump = true;
+        myAnimator.SetBool("Jumping", grounded);
+        
 	}
 
 
 	void FixedUpdate ()
 	{
-
+        myAnimator.SetFloat("Y Velocity", GetComponent<Rigidbody2D>().velocity.y);
 		// Cache the horizontal input.
 		float h = myInputManager.GetAxis( Settings.c.MoveXAxis);
 
