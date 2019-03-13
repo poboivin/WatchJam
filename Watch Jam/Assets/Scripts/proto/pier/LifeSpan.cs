@@ -26,6 +26,8 @@ public class LifeSpan : MonoBehaviour
     public Image HealthBar;
     public Image HealthShatter;
     bool ShatterActive;
+    [HideInInspector]
+    public float HurtStartTime;
 
     bool invincible;
     public float invincibleDuration = 1.5f;
@@ -156,6 +158,16 @@ public class LifeSpan : MonoBehaviour
         }
         
         this.enabled = false;
+    }
+
+
+    public void Hurtzone(float HurtRate)
+    {
+        if (Time.time - HurtStartTime > HurtRate)
+        {
+            SubstactLife(1);
+            HurtStartTime = Time.time;
+        }
     }
 
     public IEnumerator ianCoroutine()

@@ -934,6 +934,7 @@ MonoBehaviour:
   source: {fileID: 0}
   HealthBar: {fileID: 7219801761257423643}
   HealthShatter: {fileID: 7219801761052922554}
+  HurtStartTime: 0
   invincibleDuration: 1.5
 --- !u!114 &114438419210549924
 MonoBehaviour:

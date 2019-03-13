@@ -962,8 +962,8 @@ MonoBehaviour:
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   inputManager: {fileID: 269480616}
-  SpawnButton: 2
-  HeroPrefab: {fileID: 0}
+  SpawnButton: 3
+  HeroPrefab: {fileID: 1582257606427680, guid: 2ec228df326412f41a437983c4e3b407, type: 3}
 --- !u!4 &269480618
 Transform:
   m_ObjectHideFlags: 0
@@ -1204,6 +1204,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4070515438467350121, guid: 78d9cdf3d5b1fe7409b0fc03fa8ca6c8,
+        type: 3}
+      propertyPath: HurtRate
+      value: 1.5
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 9148761570692934705, guid: 78d9cdf3d5b1fe7409b0fc03fa8ca6c8, type: 3}
@@ -2313,8 +2318,8 @@ MonoBehaviour:
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   inputManager: {fileID: 608063792}
-  SpawnButton: 2
-  HeroPrefab: {fileID: 0}
+  SpawnButton: 3
+  HeroPrefab: {fileID: 1182606819714146, guid: 70b05e8a84d42d54f93ed47bad434476, type: 3}
 --- !u!4 &608063794
 Transform:
   m_ObjectHideFlags: 0
@@ -3388,6 +3393,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Color.a
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4070515438467350121, guid: 78d9cdf3d5b1fe7409b0fc03fa8ca6c8,
+        type: 3}
+      propertyPath: HurtRate
+      value: 1.5
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 9148761570692934705, guid: 78d9cdf3d5b1fe7409b0fc03fa8ca6c8, type: 3}
@@ -5445,8 +5455,8 @@ MonoBehaviour:
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   inputManager: {fileID: 1241173668}
-  SpawnButton: 2
-  HeroPrefab: {fileID: 0}
+  SpawnButton: 3
+  HeroPrefab: {fileID: 1471837378760992, guid: da8b1dc51172f2b49ba4ce19dbfef718, type: 3}
 --- !u!4 &1241173667
 Transform:
   m_ObjectHideFlags: 0
@@ -8143,8 +8153,8 @@ MonoBehaviour:
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   inputManager: {fileID: 1732338595}
-  SpawnButton: 2
-  HeroPrefab: {fileID: 0}
+  SpawnButton: 3
+  HeroPrefab: {fileID: 1591816554510202, guid: b8dded14133be43488c21ed775fccac2, type: 3}
 --- !u!4 &1732338597
 Transform:
   m_ObjectHideFlags: 0
@@ -8174,7 +8184,7 @@ PrefabInstance:
     - target: {fileID: 2795718114265934132, guid: 3a6371d8891d9144384a4842d92c1bef,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -7.8360577
+      value: -7.113
       objectReference: {fileID: 0}
     - target: {fileID: 2795718114265934132, guid: 3a6371d8891d9144384a4842d92c1bef,
         type: 3}
@@ -8229,7 +8239,7 @@ PrefabInstance:
     - target: {fileID: 2795718114265934132, guid: 3a6371d8891d9144384a4842d92c1bef,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.88293
+      value: 1.3046112
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3a6371d8891d9144384a4842d92c1bef, type: 3}
@@ -8927,7 +8937,7 @@ PrefabInstance:
     - target: {fileID: 2795718114265934132, guid: 3a6371d8891d9144384a4842d92c1bef,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 28.386
+      value: 28.077
       objectReference: {fileID: 0}
     - target: {fileID: 2795718114265934132, guid: 3a6371d8891d9144384a4842d92c1bef,
         type: 3}
@@ -8982,7 +8992,7 @@ PrefabInstance:
     - target: {fileID: 2795718114265934132, guid: 3a6371d8891d9144384a4842d92c1bef,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.84437996
+      value: 1.0244988
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3a6371d8891d9144384a4842d92c1bef, type: 3}
@@ -10043,7 +10053,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &2088293641
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10093,6 +10103,7 @@ MonoBehaviour:
   DelayBeforeDoorOpens: 1
   LerpTime: 5
   LerpTimeChargeup: 1.5
+  PressureDoorStart: 80
 --- !u!4 &2088293642
 Transform:
   m_ObjectHideFlags: 0
@@ -10398,6 +10409,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Color.a
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4070515438467350121, guid: 78d9cdf3d5b1fe7409b0fc03fa8ca6c8,
+        type: 3}
+      propertyPath: HurtRate
+      value: 1.5
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 9148761570692934705, guid: 78d9cdf3d5b1fe7409b0fc03fa8ca6c8, type: 3}
