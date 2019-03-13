@@ -1,13 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class RocketPierce : Rocket 
+public class RocketWarp : Rocket 
 {
-	private void Start()
-	{
-		GetComponentInChildren<Animator>().Play("KunaiLoop");
-	}
-
 	void OnTriggerEnter2D (Collider2D col) 
 	{
 		if (col.tag == "Player" )
@@ -30,6 +25,7 @@ public class RocketPierce : Rocket
 						shooter.RecordHitTarget();
 					}
 				}
+				Destroy(gameObject);
 			}
 
 
@@ -46,8 +42,6 @@ public class RocketPierce : Rocket
 
 		else if (col.tag == "ground" || col.tag == "Obstacle")
 		{
-			OnExplode();
-			Destroy(gameObject);
 		}
 		else if (col.tag == "Bullet")
 		{

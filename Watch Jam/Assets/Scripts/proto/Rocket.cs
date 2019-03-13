@@ -5,11 +5,10 @@ using System.Collections.Generic;
 public class Rocket : MonoBehaviour 
 {
 	public GameObject explosion;		// Prefab of explosion effect.
-    private float rocketTime = 0f;
+    protected float rocketTime = 0f;
     public float TimeAlive = 4f;
+	public float destroyWaitTime = 3.0f;
     public LifeSpan myOwner;
-
-    public bool enableBounce = false;
 
     private void Start()
     {
@@ -81,40 +80,12 @@ public class Rocket : MonoBehaviour
 
         else if (col.tag == "ground" || col.tag == "Obstacle")
         {
-            bool bounced = false;
-            if( enableBounce )
-            {
-                Rigidbody2D rigidBody = GetComponent<Rigidbody2D>();
-                Vector2 inDirection = rigidBody.velocity;
-                float maxDistance = Mathf.Abs( col.transform.position.x - transform.position.x ) + Mathf.Abs( col.transform.position.y - transform.position.y );
-                RaycastHit2D[] hits = Physics2D.RaycastAll( transform.position, inDirection, maxDistance );
-                
-                foreach( var hit in hits )
-                {
-                    if( hit.collider != null && ( hit.collider.tag == "ground" || hit.collider.tag == "Obstacle" ) )
-                    {
-                        Vector2 outDirection = Vector2.Reflect( inDirection, hit.normal );
-                        float angle = Vector2.SignedAngle( inDirection, outDirection );
-                        rigidBody.velocity = outDirection;
-
-                        Vector3 velocity = outDirection;
-                        velocity.Normalize();
-                        transform.Rotate( Vector3.forward, angle );
-
-                        // TODO : fix a bug that collides multiple times in the the collision box
-                        // the bullets may need to reposition not to collide with the other before bouncing.
-                        //Debug.LogFormat( "Contact = {0}, Pos = {6}, Normal = {1}, Input = {2}, Output = {3}, Angle = {4}, Rotation = {5}", hit.collider.name, hit.normal, inDirection, outDirection, angle, transform.rotation, transform.position );
-
-                        bounced = true;
-                        break;
-                    }
-                }
-            }
-            if( bounced == false )
-            {
-                OnExplode();
-                Destroy( gameObject );
-            }
+			Debug.Log ("hi");
+			GetComponentInChildren<Animator> ().enabled = false;
+			Rigidbody2D rb = GetComponent<Rigidbody2D> ();
+			rb.velocity = Vector2.zero;
+			rb.isKinematic = true;
+			rocketTime = TimeAlive - destroyWaitTime;
         }
         else if (col.tag == "Bullet")
         {

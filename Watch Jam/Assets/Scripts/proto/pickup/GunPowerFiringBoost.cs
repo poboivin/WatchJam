@@ -4,51 +4,33 @@ using System.Linq;
 using System.Text;
 using UnityEngine;
 
-class GunPowerFiringBoost : ISpecialGunPower
+class GunPowerFiringBoost : GunPowerGeneric
 {
-    public int numSpecialBullets { get; set; }
-    public bool enableAbility { get; set; }
-
-    private Gun gun;
     private float oldFireRate;
     private float newFireRate;
 
-    public GunPowerFiringBoost( Gun playerGun, float fireRate, int numBoostedBulletCount )
+    public GunPowerFiringBoost( Gun playerGun, PickupFireBoost shotInfo )
+        : base( playerGun, shotInfo.boostedBulletCount )
     {
-        gun = playerGun;
         oldFireRate = playerGun.fireRate;
-        newFireRate = fireRate;
-        numSpecialBullets = numBoostedBulletCount;
-        enableAbility = false;
+        newFireRate = shotInfo.fireRate;
     }
 
-    public void Activate()
+    public override void Activate()
     {
+        base.Activate();
         gun.fireRate = newFireRate;
         gun.SpecialBar.ToggleRapidFireBar( true );
-        enableAbility = true;
     }
 
-    public void Deactivate()
+    public override void Deactivate()
     {
+        base.Deactivate();
         gun.fireRate = oldFireRate;
         gun.SpecialBar.ToggleRapidFireBar( false );
-        gun.RestoreRocket();
     }
 
-    public void FireBullet( GameObject bullet )
-    {
-        if( enableAbility )
-        {
-            numSpecialBullets--;
-            if( numSpecialBullets == 0 )
-            {
-                enableAbility = false;
-            }
-        }
-    }
-
-    public void Update()
+    public override void Update()
     {
         if( enableAbility )
         {

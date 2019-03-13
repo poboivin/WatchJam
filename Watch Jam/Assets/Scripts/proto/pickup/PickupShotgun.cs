@@ -19,4 +19,7 @@ public class PickupShotgun : MonoBehaviour
     [SerializeField]
     public float angle = 30.0f;
 
+    [SerializeField]
+    public float damageMultiplier = 0.5f;
+
 }

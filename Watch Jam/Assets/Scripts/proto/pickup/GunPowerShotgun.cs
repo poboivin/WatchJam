@@ -4,39 +4,37 @@ using System.Linq;
 using System.Text;
 using UnityEngine;
 
-class GunPowerShotgun : ISpecialGunPower
+class GunPowerShotgun : GunPowerGeneric
 {
-    public int numSpecialBullets { get; set; }
-    public bool enableAbility { get; set; }
-
-    private Gun gun;
-
     private int numBulletsInShot;   // number of bullets in a single shot
     private float rangeOfAngle;     // shots in range from -angle to +angle
+    private GameStatisticsManager statisticsManager;
 
-    public GunPowerShotgun( Gun playerGun, int numBoostedBulletCount, int numBulletsInSingleShot, float angle )
+    public GunPowerShotgun( Gun playerGun, PickupShotgun pickupInfo )
+        : base( playerGun, pickupInfo.numTotalShots )
     {
-        gun = playerGun;
-        numSpecialBullets = numBoostedBulletCount;
-        numBulletsInShot = numBulletsInSingleShot;
-        rangeOfAngle = angle;
-        enableAbility = false;
+        numBulletsInShot = pickupInfo.numOfBulletsInOneShot;
+        rangeOfAngle = pickupInfo.angle;
+
+        damageMultiplier = pickupInfo.damageMultiplier;
+        statisticsManager = UnityEngine.Object.FindObjectOfType<GameStatisticsManager>();
     }
 
-    public void Activate()
+    public override void Activate()
     {
+        base.Activate();
         gun.SpecialBar.ToggleRapidFireBar( true );
-        enableAbility = true;
     }
 
-    public void Deactivate()
+    public override void Deactivate()
     {
+        base.Deactivate();
         gun.SpecialBar.ToggleRapidFireBar( false );
-        gun.RestoreRocket();
     }
 
-    public void FireBullet( GameObject bullet )
+    public override void FireBullet( GameObject bullet )
     {
+        base.FireBullet( bullet );
         if( enableAbility )
         {
             if( bullet != null )
@@ -62,19 +60,23 @@ class GunPowerShotgun : ISpecialGunPower
                         GameObject newBullet1 = UnityEngine.Object.Instantiate( bullet );
                         newBullet1.transform.Rotate( rotationAxis, -angle );
                         newBullet1.GetComponent<Rigidbody2D>().velocity = velocity.Rotate( -angle );
+                        newBullet1.GetComponent<BulletLeach>().damageMultiplier = damageMultiplier;
 
                         GameObject newBullet2 = UnityEngine.Object.Instantiate( bullet );
                         newBullet2.transform.Rotate( rotationAxis, angle );
                         newBullet2.GetComponent<Rigidbody2D>().velocity = velocity.Rotate( angle );
+                        newBullet2.GetComponent<BulletLeach>().damageMultiplier = damageMultiplier;
                     }
 
                     // rotate original bullet in half angle upward, and create new one in the opposite half angle
                     GameObject newBullet = UnityEngine.Object.Instantiate( bullet );
                     newBullet.transform.Rotate( rotationAxis, -angleInArc / 2 );
-
                     newBullet.GetComponent<Rigidbody2D>().velocity = velocity.Rotate( -angleInArc / 2 );
+                    newBullet.GetComponent<BulletLeach>().damageMultiplier = damageMultiplier;
+
                     bullet.transform.Rotate( rotationAxis, angleInArc / 2 );
                     bullet.GetComponent<Rigidbody2D>().velocity = velocity.Rotate( angleInArc / 2 );
+                    bullet.GetComponent<BulletLeach>().damageMultiplier = damageMultiplier;
                 }
                 else
                 {
@@ -86,26 +88,28 @@ class GunPowerShotgun : ISpecialGunPower
                         GameObject newBullet1 = UnityEngine.Object.Instantiate( bullet );
                         newBullet1.transform.Rotate( rotationAxis, -angle );
                         newBullet1.GetComponent<Rigidbody2D>().velocity = velocity.Rotate( -angle );
+                        newBullet1.GetComponent<BulletLeach>().damageMultiplier = damageMultiplier;
 
 
                         GameObject newBullet2 = UnityEngine.Object.Instantiate( bullet );
                         newBullet2.transform.Rotate( rotationAxis, angle );
                         newBullet2.GetComponent<Rigidbody2D>().velocity = velocity.Rotate( angle );
+                        newBullet2.GetComponent<BulletLeach>().damageMultiplier = damageMultiplier;
                     }
+                    bullet.GetComponent<BulletLeach>().damageMultiplier = damageMultiplier;
                 }
                 //Debug.LogFormat( "Bullet rotation = {0}, velocity = {1}", bullet.transform.rotation, bullet.GetComponent<Rigidbody2D>().velocity.normalized );
-            }
 
-            numSpecialBullets--;
-            if( numSpecialBullets == 0 )
-            {
-                enableAbility = false;
+                if( statisticsManager != null )
+                {
+                    // The reason why numBulletsInShot - 1 is Gun script also records a shot in Update function.
+                    statisticsManager.RecordFire( (int)gun.GetPlayerId(), numBulletsInShot - 1 );
+                }
             }
         }
-
     }
 
-    public void Update()
+    public override void Update()
     {
         if( enableAbility )
         {

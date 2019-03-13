@@ -2,15 +2,17 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+
 using UnityEngine;
 
-class GunPowerBulletBounce : GunPowerGeneric
+class GunPowerPierce : GunPowerGeneric
 {
-    public GunPowerBulletBounce( Gun playerGun, PickupBounce shotInfo )
-        : base( playerGun, shotInfo.bouncedBulletCount )
+    public GunPowerPierce( Gun playerGun, PickupPierce pickupInfo )
+        : base( playerGun, pickupInfo.piercingBulletCount )
     {
     }
 
+    // set all the changes/variables for the speical power.
     public override void Activate()
     {
         base.Activate();
@@ -18,14 +20,16 @@ class GunPowerBulletBounce : GunPowerGeneric
         gun.SpecialBar.ToggleRapidFireBar( true );
     }
 
+    // restore everthing back to original abilities of the normal gun.
     public override void Deactivate()
     {
         base.Deactivate();
-
+        
         // TODO : needs to change this bar to the other effect
         gun.SpecialBar.ToggleRapidFireBar( false );
     }
 
+    // calls Update every frame while the special power is equipped.
     public override void Update()
     {
         if( enableAbility )
@@ -34,6 +38,5 @@ class GunPowerBulletBounce : GunPowerGeneric
             gun.SpecialBar.SetRapidBarFill( numSpecialBullets );
         }
     }
-
 }
 
