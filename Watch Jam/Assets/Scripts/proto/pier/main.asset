@@ -14,7 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   noLimits: 1
   unlimitedAmmo: 1
-  AutoRStickShoot: 1
   gunKnockBack: 0
   bulletKnockBack: 200
   bulletDamage: 1
@@ -33,6 +32,6 @@ MonoBehaviour:
   rewindAmmoFactor: 4
   TwiceAsFastRewind: 0
   ImmobileRecord: 0
-  gameMode: 1
+  gameMode: 0
   playerRespawnTime: 3
   timeLimitInSceonds: 120

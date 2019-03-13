@@ -1,13 +1,14 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class Rocket : MonoBehaviour 
 {
 	public GameObject explosion;		// Prefab of explosion effect.
-    private float rocketTime = 0f;
+    protected float rocketTime = 0f;
     public float TimeAlive = 4f;
+	public float destroyWaitTime = 3.0f;
     public LifeSpan myOwner;
-
 
     private void Start()
     {
@@ -79,13 +80,17 @@ public class Rocket : MonoBehaviour
 
         else if (col.tag == "ground" || col.tag == "Obstacle")
         {
-            OnExplode();
-            Destroy(gameObject);
+			Debug.Log ("hi");
+			GetComponentInChildren<Animator> ().enabled = false;
+			Rigidbody2D rb = GetComponent<Rigidbody2D> ();
+			rb.velocity = Vector2.zero;
+			rb.isKinematic = true;
+			rocketTime = TimeAlive - destroyWaitTime;
         }
         else if (col.tag == "Bullet")
         {
             Rocket otherRocket = col.GetComponent<Rocket>();
-            if(otherRocket.myOwner != myOwner)
+            if( otherRocket != null && otherRocket.myOwner != myOwner)
             {
                 OnExplode();
                 Destroy(gameObject);

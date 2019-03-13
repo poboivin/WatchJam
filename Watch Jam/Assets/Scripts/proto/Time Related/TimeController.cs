@@ -66,8 +66,14 @@ public class TimeController : MonoBehaviour
         myAfterImage = GetComponent<AfterImage>();
         originalGravityScale = myRigidbody2D.gravityScale;
         originalMass = myRigidbody2D.mass;
-        MatchCounter.Register(this);
+        
     }
+
+    private void Start()
+    {
+        MatchCounter.Register( this );
+    }
+
     public void OnDrawGizmos()
     {
 
@@ -154,13 +160,15 @@ public class TimeController : MonoBehaviour
         {
             if(Settings.s.ImmobileRecord == false)
             {
-                if(myRigidbody2D.velocity.sqrMagnitude == 0)
+                if(myRigidbody2D.velocity.sqrMagnitude <= 1)
                 {
                     myTimeBody.isRecording = false;
-
+                   // Debug.Log("im an not recording");
                 }
                 else
                 {
+                  //  Debug.Log("im am recording" + myRigidbody2D.velocity.sqrMagnitude );
+
                     myTimeBody.isRecording = true;
 
                 }

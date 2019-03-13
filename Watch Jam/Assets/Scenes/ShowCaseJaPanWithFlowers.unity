@@ -523,7 +523,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4341528592502370, guid: da8b1dc51172f2b49ba4ce19dbfef718, type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 14
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: da8b1dc51172f2b49ba4ce19dbfef718, type: 3}
@@ -933,7 +933,7 @@ Transform:
   - {fileID: 372429752}
   - {fileID: 1733102623}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &111913883
 GameObject:
@@ -1794,7 +1794,8 @@ MonoBehaviour:
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   inputManager: {fileID: 269480616}
-  SpawnButton: 2
+  SpawnButton: 3
+  HeroPrefab: {fileID: 1582257606427680, guid: 2ec228df326412f41a437983c4e3b407, type: 3}
 --- !u!4 &269480618
 Transform:
   m_ObjectHideFlags: 0
@@ -1807,7 +1808,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 17
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &269629243
 GameObject:
@@ -1851,7 +1852,7 @@ Transform:
   m_Children:
   - {fileID: 602841839}
   m_Father: {fileID: 0}
-  m_RootOrder: 19
+  m_RootOrder: 20
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &290991972
 GameObject:
@@ -2004,7 +2005,7 @@ Transform:
   - {fileID: 1070443710}
   - {fileID: 921292309}
   m_Father: {fileID: 0}
-  m_RootOrder: 21
+  m_RootOrder: 23
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!82 &310977912
 AudioSource:
@@ -2347,7 +2348,7 @@ PrefabInstance:
     - target: {fileID: 2383098568111557413, guid: b07a65073a3d47042b1d924be31cecab,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 2383098568111557413, guid: b07a65073a3d47042b1d924be31cecab,
         type: 3}
@@ -2769,7 +2770,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4074828788106070, guid: 6bc34fae8f3bca64c84d901ec4d96a37, type: 3}
       propertyPath: m_RootOrder
-      value: 18
+      value: 19
       objectReference: {fileID: 0}
     - target: {fileID: 114504451274281756, guid: 6bc34fae8f3bca64c84d901ec4d96a37,
         type: 3}
@@ -3139,7 +3140,7 @@ Transform:
   - {fileID: 1385504209}
   - {fileID: 1801479852}
   m_Father: {fileID: 0}
-  m_RootOrder: 20
+  m_RootOrder: 22
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -180}
 --- !u!82 &522388124
 AudioSource:
@@ -5975,7 +5976,8 @@ MonoBehaviour:
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   inputManager: {fileID: 608063792}
-  SpawnButton: 2
+  SpawnButton: 3
+  HeroPrefab: {fileID: 1182606819714146, guid: 70b05e8a84d42d54f93ed47bad434476, type: 3}
 --- !u!4 &608063794
 Transform:
   m_ObjectHideFlags: 0
@@ -5988,7 +5990,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &611159491
 GameObject:
@@ -6318,7 +6320,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &647154273
 GameObject:
@@ -7790,7 +7792,7 @@ Transform:
   m_LocalScale: {x: 1, y: 5.0266953, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &861144759
 GameObject:
@@ -8383,7 +8385,7 @@ Transform:
   - {fileID: 755331559}
   - {fileID: 1943003998}
   m_Father: {fileID: 0}
-  m_RootOrder: 23
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &996510893
 GameObject:
@@ -9273,7 +9275,7 @@ Transform:
   m_LocalScale: {x: 8, y: 8, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1148133359
 GameObject:
@@ -10117,7 +10119,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4190034980900240, guid: b8dded14133be43488c21ed775fccac2, type: 3}
       propertyPath: m_RootOrder
-      value: 12
+      value: 16
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b8dded14133be43488c21ed775fccac2, type: 3}
@@ -10264,7 +10266,8 @@ MonoBehaviour:
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   inputManager: {fileID: 1241173668}
-  SpawnButton: 2
+  SpawnButton: 3
+  HeroPrefab: {fileID: 1471837378760992, guid: da8b1dc51172f2b49ba4ce19dbfef718, type: 3}
 --- !u!4 &1241173667
 Transform:
   m_ObjectHideFlags: 0
@@ -10277,7 +10280,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1241173668
 MonoBehaviour:
@@ -10353,7 +10356,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 64b12b15baf9644af9f0651e6705f0ef, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: 64b12b15baf9644af9f0651e6705f0ef, type: 3}
       propertyPath: m_Enabled
@@ -11095,7 +11098,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4074828788106070, guid: 6bc34fae8f3bca64c84d901ec4d96a37, type: 3}
       propertyPath: m_RootOrder
-      value: 16
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 114504451274281756, guid: 6bc34fae8f3bca64c84d901ec4d96a37,
         type: 3}
@@ -11873,7 +11876,7 @@ Transform:
   m_LocalScale: {x: 1, y: 5.5370965, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 21
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1566765306
 GameObject:
@@ -12455,7 +12458,7 @@ Transform:
   m_LocalScale: {x: 8, y: 8, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1611326793
 PrefabInstance:
@@ -12494,7 +12497,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4449791751353212, guid: 70b05e8a84d42d54f93ed47bad434476, type: 3}
       propertyPath: m_RootOrder
-      value: 10
+      value: 15
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 70b05e8a84d42d54f93ed47bad434476, type: 3}
@@ -13199,7 +13202,8 @@ MonoBehaviour:
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   inputManager: {fileID: 1732338595}
-  SpawnButton: 2
+  SpawnButton: 3
+  HeroPrefab: {fileID: 1591816554510202, guid: b8dded14133be43488c21ed775fccac2, type: 3}
 --- !u!4 &1732338597
 Transform:
   m_ObjectHideFlags: 0
@@ -13212,7 +13216,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1733102622
 GameObject:
@@ -13395,7 +13399,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4720452428157692, guid: 2ec228df326412f41a437983c4e3b407, type: 3}
       propertyPath: m_RootOrder
-      value: 14
+      value: 17
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2ec228df326412f41a437983c4e3b407, type: 3}
@@ -13428,8 +13432,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9d1abc1a694053458f1efaca87dfc0d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainSettings: {fileID: 11400000, guid: b2889c19ba411d245a7b6af6d3205b5f, type: 2}
-  mainControls: {fileID: 11400000, guid: ac49b985bdf767d428f63e3845e3b772, type: 2}
+  mainSettings: {fileID: 11400000, guid: 9dfb4a69b26eb6a419dcd845d61f851c, type: 2}
+  mainControls: {fileID: 11400000, guid: e4c3a41ecbb2b1a44a71525906aaf8c9, type: 2}
   noLimitsToggle: {fileID: 1303222291}
   lifeDecayToggle: {fileID: 1068064771}
   gunKockBackSlider: {fileID: 1148133361}
@@ -13441,6 +13445,7 @@ MonoBehaviour:
   rewindAmmoRegenToggle: {fileID: 613092262}
   passiveAmmoRegenToggle: {fileID: 781304757}
   rewindInvincibilityToggle: {fileID: 0}
+  currentGameMode: 1
 --- !u!4 &1775305543
 Transform:
   m_ObjectHideFlags: 0
@@ -13454,7 +13459,7 @@ Transform:
   m_Children:
   - {fileID: 1642965257}
   m_Father: {fileID: 0}
-  m_RootOrder: 22
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1797720969
 GameObject:
@@ -13794,7 +13799,7 @@ Transform:
   m_LocalScale: {x: 8, y: 8, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1821356934
 GameObject:
@@ -14478,6 +14483,7 @@ GameObject:
   - component: {fileID: 1943003998}
   - component: {fileID: 1943003997}
   - component: {fileID: 1943003999}
+  - component: {fileID: 1943004000}
   m_Layer: 0
   m_Name: MatchCounter
   m_TagString: Untagged
@@ -14502,6 +14508,12 @@ MonoBehaviour:
   - {fileID: 8300000, guid: e78f0f6e5db7a3745bee62652e23aa64, type: 3}
   - {fileID: 8300000, guid: 4cb413f66866dcb4dbdb5c43edd5618f, type: 3}
   source: {fileID: 1943003999}
+  killEffect: {fileID: 0}
+  playerSpawners:
+  - {fileID: 1241173665}
+  - {fileID: 608063791}
+  - {fileID: 1732338594}
+  - {fileID: 269480615}
 --- !u!4 &1943003998
 Transform:
   m_ObjectHideFlags: 0
@@ -14612,6 +14624,20 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1943004000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1943003996}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e48575b817040045ae29e9ef26b493a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  remainingTime: 0
+  hitTimer: 0
 --- !u!1 &1958236138
 GameObject:
   m_ObjectHideFlags: 0

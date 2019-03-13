@@ -58,6 +58,11 @@ public class GameStatisticsManager : MonoBehaviour {
         playersInfo[playerId].TotalShots += 1;
     }
 
+    public void RecordFire( int playerId, int numShots )
+    {
+        playersInfo[playerId].TotalShots += numShots;
+    }
+
     public void RecordHitTarget( int playerId )
     {
         playersInfo[playerId].TotalHits += 1;

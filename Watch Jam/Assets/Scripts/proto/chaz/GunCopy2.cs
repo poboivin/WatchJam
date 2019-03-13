@@ -92,7 +92,7 @@ public class GunCopy2 : MonoBehaviour, IGun
 		gunPivot.localRotation = Quaternion.Euler(new Vector3(0, 0, angle)); //Rotating!
 
 		bool shoot = (myTimeController.isRewinding == false && 
-			((myInputManager.GetButtonDown(Settings.c.ShootButton) || myInputManager.GetButtonDown(Settings.c.AltShootButton) )||( rightStickUsed && Settings.s.AutoRStickShoot)) && 
+			((myInputManager.GetButtonDown(Settings.c.ShootButton) || myInputManager.GetButtonDown(Settings.c.AltShootButton) )||( rightStickUsed && Settings.c.AutoRStickShoot)) && 
 			(Time.time > nextFire || (myTimeController.isStopped == true && Settings.s.stopTimeStoreBullet == true)));
 
 		// If the fire button is pressed...

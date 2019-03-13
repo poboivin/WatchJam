@@ -11,7 +11,8 @@ GameObject:
   - component: {fileID: 3677648540436673732}
   - component: {fileID: 5017041090829111675}
   - component: {fileID: 1445966278861643001}
-  - component: {fileID: 3295192264991682733}
+  - component: {fileID: 8489232230969401608}
+  - component: {fileID: 2709597913518841362}
   m_Layer: 11
   m_Name: BigBPickUp
   m_TagString: pickup
@@ -107,7 +108,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &3295192264991682733
+--- !u!114 &8489232230969401608
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -116,10 +117,21 @@ MonoBehaviour:
   m_GameObject: {fileID: 2946505686881049127}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b1ce652a46f748146b816373ca07acdb, type: 3}
+  m_Script: {fileID: 11500000, guid: f796085d8c9a7d44a93613e0035754b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 3
-  Grenade: {fileID: 0}
-  Chain: {fileID: 0}
-  Freeze: {fileID: 1521849967320722643, guid: 613fcfd918046cd409f5eda3e15621d3, type: 3}
+  type: 7
+  Grenade: {fileID: 1521849967320722643, guid: 613fcfd918046cd409f5eda3e15621d3, type: 3}
+--- !u!114 &2709597913518841362
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2946505686881049127}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0811b405ce61d4c40a05fa5caede425c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  thiccBulletCount: 5

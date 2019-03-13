@@ -7,8 +7,13 @@ public class pickup : MonoBehaviour
     public enum pickUpType {
         health,
         grenade,
-        shield,     // Owl
-        boost       // Cat
+        shield,         // Owl
+        fireBoost,      // Cat
+        shotgun,        // Multiple bullets spread out 
+        bounce,         // Bullet can bounce the wall
+        pierce,
+        thicc,
+		warp
     }
     public pickUpType type;
     public Rigidbody2D Grenade;              // Prefab of the rocket.
@@ -49,20 +54,98 @@ public class pickup : MonoBehaviour
                     player.RefreshShield();
                 }
             }
-            else if( type == pickUpType.boost )
+            else if( type == pickUpType.fireBoost )
             {
-                Gun player = collision.GetComponentInChildren<Gun>();
-                if( player != null )
+                Gun playerGun = collision.GetComponentInChildren<Gun>();
+                if( playerGun != null )
                 {
                     PickupFireBoost boost = gameObject.GetComponent<PickupFireBoost>();
                     if( boost != null )
                     {
-                        player.ChangeFireRate( boost.fireRate, boost.boostedBulletCount );
+                        playerGun.SetGunPower( new GunPowerFiringBoost( playerGun, boost ) );
+                        if( Grenade != null )
+                            playerGun.rocket = Grenade;
                     }
                 }
             }
+            else if( type == pickUpType.bounce )
+            {
+                Gun playerGun = collision.GetComponentInChildren<Gun>();
+                if( playerGun != null )
+                {
+                    PickupBounce bounceInfo = gameObject.GetComponent<PickupBounce>();
+                    if( bounceInfo != null )
+                    {
+                        playerGun.SetGunPower( new GunPowerBulletBounce( playerGun, bounceInfo ) );
+                        if( Grenade != null )
+                            playerGun.rocket = Grenade;
+                    }
+                }
+            }
+            else if( type == pickUpType.shotgun )
+            {
+                Gun playerGun = collision.GetComponentInChildren<Gun>();
+                if( playerGun != null )
+                {
+                    PickupShotgun shotgunInfo = gameObject.GetComponent<PickupShotgun>();
+                    if( shotgunInfo != null )
+                    {
+                        playerGun.SetGunPower( new GunPowerShotgun( playerGun, shotgunInfo ) );
+                        if( Grenade != null )
+                            playerGun.rocket = Grenade;
+                    }
+                }
+            }
+            else if( type == pickUpType.pierce )
+            {
+                Gun playerGun = collision.GetComponentInChildren<Gun>();
+                if( playerGun != null )
+                {
+                    PickupPierce pierceShotInfo = gameObject.GetComponent<PickupPierce>();
+                    if( pierceShotInfo != null )
+                    {
+                        playerGun.SetGunPower( new GunPowerPierce( playerGun, pierceShotInfo ) );
+                        if( Grenade != null )
+                            playerGun.rocket = Grenade;
+                    }
+                }
+            }
+            else if( type == pickUpType.thicc )
+            {
+                Gun playerGun = collision.GetComponentInChildren<Gun>();
+                if( playerGun != null )
+                {
+                    PickupThicc thiccInfo = gameObject.GetComponent<PickupThicc>();
+                    if( thiccInfo != null )
+                    {
+                        playerGun.SetGunPower( new GunPowerThicc( playerGun, thiccInfo ) );
+                        if( Grenade != null )
+                            playerGun.rocket = Grenade;
+                    }
+                }
+            }
+			else if( type == pickUpType.warp )
+			{
+				Debug.Log ("hi.");
+				Gun playerGun = collision.GetComponentInChildren<Gun>();
+				if( playerGun != null )
+				{
+					Debug.Log ("hi..");
+					PickupWarp warpInfo = gameObject.GetComponent<PickupWarp>();
+					if( warpInfo != null )
+					{
+						Debug.Log ("hi...");
+						playerGun.SetGunPower( new GunPowerWarp( playerGun, warpInfo ) );
+						if (Grenade != null) 
+						{
+							Debug.Log ("hi....");
+							playerGun.rocket = Grenade;
+						}
+					}
+				}
+			}
 
-            Destroy(gameObject);
+            Destroy( gameObject);
             //play pickup sound
         }
 

@@ -12,7 +12,7 @@ public class TimeRewindController : MonoBehaviour
     [HideInInspector]
     public PierInputManager myInputManager;
 
-    public PierInputManager.ButtonName Rewind;
+   // public PierInputManager.ButtonName Rewind;
 
     private void Awake()
     {
@@ -34,7 +34,7 @@ public class TimeRewindController : MonoBehaviour
 
         if( myTimeController.isRewinding == false &&
             controllerTriggered == false &&
-            myInputManager.GetAxis( Rewind ) > 0.6f && 
+            myInputManager.GetAxis(Settings.c.Rewind) > 0.6f && 
             ( myAmmo.CurrentAmmo < myAmmo.MaxAmmo || Settings.s.noLimits ) )
         {
             if( myTimeBody.pointsInTime.Count >= 60 )
@@ -46,7 +46,7 @@ public class TimeRewindController : MonoBehaviour
 
         if( myTimeController.isRewinding == true &&
             controllerTriggered == true &&
-            myInputManager.GetAxis( Rewind ) < 0.1f )
+            myInputManager.GetAxis(Settings.c.Rewind) < 0.1f )
         {
             myTimeController.StopRewind();
             controllerTriggered = false;
