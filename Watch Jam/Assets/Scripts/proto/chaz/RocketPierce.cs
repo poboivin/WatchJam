@@ -3,6 +3,11 @@ using System.Collections;
 
 public class RocketPierce : Rocket 
 {
+	private void Start()
+	{
+		GetComponentInChildren<Animator>().Play("KunaiLoop");
+	}
+
 	void OnTriggerEnter2D (Collider2D col) 
 	{
 		if (col.tag == "Player" )

@@ -169,9 +169,9 @@ public class FutureDoorManager : MonoBehaviour
        {
         //Wait a random amount of time to trigger next doors
         yield return new WaitForSeconds(Random.Range(NextDoorOpenRange[0], NextDoorOpenRange[1]));
-        int
+       // int
 
-        StartCoroutine(OpenCloseRandomDoor());
+      //  StartCoroutine(OpenCloseRandomDoor());
 
         //int DoorToOpen = Random.Range(1, 3);
         //Debug.Log(DoorToOpen);

@@ -121,11 +121,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 5
-<<<<<<< HEAD
   Grenade: {fileID: 3175518087136755078, guid: bc84defbe102ee54481b7da3dd8704cc, type: 3}
-=======
-  Grenade: {fileID: 0}
->>>>>>> f28833f774611e90eb7fcbcf92d7362d01821f6a
 --- !u!114 &7027461959516120052
 MonoBehaviour:
   m_ObjectHideFlags: 0
