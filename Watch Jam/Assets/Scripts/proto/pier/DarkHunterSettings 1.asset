@@ -16,10 +16,10 @@ MonoBehaviour:
   unlimitedAmmo: 1
   gunKnockBack: 0
   bulletKnockBack: 200
-  bulletDamage: 10
-  meleeDamage: 5
+  bulletDamage: 3
+  meleeDamage: 9
   meleeKnockBack: 10
-  totalLife: 10
+  totalLife: 9
   stopTimeStoreBullet: 0
   airControl: 1
   timeStopStore: 0
@@ -27,7 +27,7 @@ MonoBehaviour:
   rewindKillVelocity: 1
   lifeDecay: 0
   lifeSteal: 0
-  rewindInvincibility: 0
+  rewindInvincibility: 1
   timeStopAmmoRegen: 0
   rewindAmmoRegen: 0
   passiveAmmoRegen: 1

@@ -145,6 +145,7 @@ public class LifeSpan : MonoBehaviour
 		}
         myRigidbody2D.freezeRotation = false;
         myTimeController.enabled = false;
+        myTimeController.myInputManager.enabled = false;
         if ( myTimeController.isStopped)
         {
             myTimeController.StopTimeStop();

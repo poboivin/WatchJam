@@ -97,6 +97,7 @@ MonoBehaviour:
   explosion: {fileID: 100000, guid: 42404bf7d14c342f69690c9961a7530d, type: 3}
   TimeAlive: 4
   myOwner: {fileID: 0}
+  enableBounce: 0
 --- !u!114 &7716898454130212711
 MonoBehaviour:
   m_ObjectHideFlags: 0
