@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class RocketPierce : Rocket 
+public class RocketWarp : Rocket 
 {
 	void OnTriggerEnter2D (Collider2D col) 
 	{
@@ -25,6 +25,7 @@ public class RocketPierce : Rocket
 						shooter.RecordHitTarget();
 					}
 				}
+				Destroy(gameObject);
 			}
 
 
@@ -41,8 +42,6 @@ public class RocketPierce : Rocket
 
 		else if (col.tag == "ground" || col.tag == "Obstacle")
 		{
-			OnExplode();
-			Destroy(gameObject);
 		}
 		else if (col.tag == "Bullet")
 		{

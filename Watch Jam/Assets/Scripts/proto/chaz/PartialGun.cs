@@ -21,6 +21,7 @@ public partial class Gun : MonoBehaviour, IGun
         if( specialGunPower != null )
         {
             specialGunPower.FireBullet( bullet );
+
             if( specialGunPower.enableAbility == false )
             {
                 specialGunPower.Deactivate();
@@ -32,6 +33,11 @@ public partial class Gun : MonoBehaviour, IGun
     public void RestoreRocket()
     {
         rocket = OriginalRocket;
+    }
+
+    public PierInputManager.PlayerNumber GetPlayerId()
+    {
+        return myInputManager.playerNumber;
     }
 
 }

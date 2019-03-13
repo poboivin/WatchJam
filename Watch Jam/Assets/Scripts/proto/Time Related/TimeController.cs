@@ -66,8 +66,14 @@ public class TimeController : MonoBehaviour
         myAfterImage = GetComponent<AfterImage>();
         originalGravityScale = myRigidbody2D.gravityScale;
         originalMass = myRigidbody2D.mass;
-        MatchCounter.Register(this);
+        
     }
+
+    private void Start()
+    {
+        MatchCounter.Register( this );
+    }
+
     public void OnDrawGizmos()
     {
 
