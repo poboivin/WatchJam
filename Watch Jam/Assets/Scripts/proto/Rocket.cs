@@ -13,7 +13,7 @@ public class Rocket : MonoBehaviour
 
     private void Start()
     {
-        GetComponentInChildren<Animator>().Play("KunaiLoop");
+        //GetComponentInChildren<Animator>().Play("KunaiLoop");
     }
 
     void Update()

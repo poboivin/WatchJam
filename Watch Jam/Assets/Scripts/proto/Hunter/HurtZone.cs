@@ -7,6 +7,10 @@ public class HurtZone : MonoBehaviour
 
     [SerializeField]
     float damage;
+    public SpriteRenderer CompanionVisual;
+
+        Vector2 RightForce = new Vector2(3000,1000);
+        Vector2 LeftForce = new Vector2(-3000, -1000);
 
 
     // Start is called before the first frame update
@@ -29,6 +33,15 @@ public class HurtZone : MonoBehaviour
         if (collision.gameObject.GetComponent<LifeSpan>())
         {
             collision.gameObject.GetComponent<LifeSpan>().SubstactLife(damage);
+            if (collision.gameObject.GetComponent<Rigidbody2D>().velocity.x > 0)
+            {
+                collision.gameObject.GetComponent<Rigidbody2D>().AddForce(LeftForce);
+            }
+
+            else
+            {
+                collision.gameObject.GetComponent<Rigidbody2D>().AddForce(RightForce);
+            }
         }
     }
 
