@@ -96,8 +96,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   explosion: {fileID: 100000, guid: 42404bf7d14c342f69690c9961a7530d, type: 3}
   TimeAlive: 4
+  destroyWaitTime: 3
   myOwner: {fileID: 0}
-  enableBounce: 0
 --- !u!114 &7716898454130212711
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -111,6 +111,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myOwner: {fileID: 0}
+  damageMultiplier: 1
+  knockbackMultiplier: 1
 --- !u!1 &100002
 GameObject:
   m_ObjectHideFlags: 0
@@ -137,8 +139,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 100002}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.181, y: 0, z: 0}
-  m_LocalScale: {x: 0.0074553015, y: 0.0074553015, z: 0.0074553015}
+  m_LocalPosition: {x: -0.0262, y: 0, z: 0}
+  m_LocalScale: {x: 0.06015484, y: 0.07193121, z: 0.058126237}
   m_Children: []
   m_Father: {fileID: 400000}
   m_RootOrder: 0
@@ -180,7 +182,7 @@ SpriteRenderer:
   m_SortingLayerID: -1783731295
   m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 5d2f88424f09e164a96f3476f619d707, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c400acf279276fc49be4a01f56c9886c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -199,7 +201,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 100002}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 05e5b29b94defb8498dad37604ead095, type: 2}
   m_CullingMode: 0
