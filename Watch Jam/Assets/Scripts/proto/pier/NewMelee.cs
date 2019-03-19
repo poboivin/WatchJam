@@ -34,6 +34,8 @@ public class NewMelee : MonoBehaviour
     public int offgroundDashLimit = 1;
     public int meleeCount = 0;
 
+    public GameObject dashUI;
+
     private List<Collider2D> ignored;
     private bool grounded = false;
     // Start is called before the first frame update
@@ -217,9 +219,8 @@ public class NewMelee : MonoBehaviour
 
         }
 
-       
-
-
+        GameObject dashMelee = Instantiate( dashUI, gameObject.transform );
+        Object.Destroy( dashMelee, 3.0f );
 
         oldScale = transform.localScale;
         myTimeController.myRigidbody2D.velocity = dir.normalized * VelocityMagnitude;
