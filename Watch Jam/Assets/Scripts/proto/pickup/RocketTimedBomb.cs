@@ -4,14 +4,30 @@ using UnityEngine;
 
 public class RocketTimedBomb : Rocket
 {
-    public float explosionRangeScale = 10.0f;
+    float explosionRange = 1.0f;
+    float unitSizeOfCircle;
 
-    GameObject explosionRangeObject;
+    [SerializeField]
+    GameObject explosionRangeObjet;
+    
 
     bool isTriggered = false;
 
     private void Awake()
     {
+        var sprite = explosionRangeObjet.GetComponent<SpriteRenderer>();
+        unitSizeOfCircle = sprite.bounds.size.x / 2.0f;
+        explosionRange = unitSizeOfCircle;
+    }
+
+    public void SetExplosionRangeScale( float scale )
+    {
+        explosionRange = unitSizeOfCircle * scale;
+
+        Vector3 localScale = explosionRangeObjet.transform.localScale;
+        localScale.x = scale;
+        localScale.y = scale;
+        explosionRangeObjet.transform.localScale = localScale;
     }
 
     void OnTriggerEnter2D(Collider2D col)
@@ -70,13 +86,15 @@ public class RocketTimedBomb : Rocket
         Instantiate(explosion, transform.position, randomRotation);
 
         // Find all the colliders on the Enemies layer within the bombRadius.
-        Collider2D[] enemies = Physics2D.OverlapCircleAll(transform.position, explosionRangeScale, 1 << LayerMask.NameToLayer("Player"));
+        Collider2D[] enemies = Physics2D.OverlapCircleAll(transform.position, explosionRange, 1 << LayerMask.NameToLayer("Player"));
 
         // For each collider...
         foreach (Collider2D en in enemies)
         {
             if( en.tag == "Player" && en.gameObject != myOwner.gameObject )
             {
+                Instantiate( explosion, en.transform.position, randomRotation );
+
                 LifeSpan otherLife = en.gameObject.GetComponent<LifeSpan>();
                 if( otherLife )
                 {

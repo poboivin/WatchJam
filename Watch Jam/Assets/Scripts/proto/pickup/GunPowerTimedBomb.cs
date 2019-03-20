@@ -35,7 +35,7 @@ class GunPowerTimedBomb : GunPowerGeneric
 
         RocketTimedBomb bomb = bullet.GetComponent<RocketTimedBomb>();
         bomb.TimeAlive = timeOut;
-        bomb.explosionRangeScale = rangeScale;
+        bomb.SetExplosionRangeScale( rangeScale );
     }
 
     public override void Update()
