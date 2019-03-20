@@ -525,6 +525,12 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 1502538421927400455, guid: da8b1dc51172f2b49ba4ce19dbfef718,
+        type: 3}
+      propertyPath: dashUI
+      value: 
+      objectReference: {fileID: 1352123968283001797, guid: d3d2f2923ea042f4dbffc96e2b1b2e91,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: da8b1dc51172f2b49ba4ce19dbfef718, type: 3}
 --- !u!1 &50698217

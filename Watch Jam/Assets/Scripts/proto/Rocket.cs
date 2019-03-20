@@ -27,7 +27,7 @@ public class Rocket : MonoBehaviour
 	}
 
 
-	public void OnExplode()
+	public virtual void OnExplode()
 	{
         //gameObject.GetComponent<CameraShake>().Shake(0.1f, 0.2f);
 
@@ -40,22 +40,20 @@ public class Rocket : MonoBehaviour
 	
 	void OnTriggerEnter2D (Collider2D col) 
 	{
-        
-        
-        if (col.tag == "Player" )
+        if (col.tag == "Player")
         {
-            if(col.gameObject != myOwner.gameObject)
+            if (col.gameObject != myOwner.gameObject)
             {
                 OnExplode();
                 if (Camera.main.GetComponent<CamShake>() != null)
                     Camera.main.GetComponent<CamShake>().Shake(0.1f, 0.2f);
                 var shooter = myOwner.gameObject.GetComponentInParent<PlayerStatistics>();
-                if( shooter != null )
+                if (shooter != null)
                 {
                     var casualty = col.gameObject.GetComponentInParent<PlayerStatistics>();
-                    if( casualty != null )
+                    if (casualty != null)
                     {
-                        shooter.RecordHitTarget( casualty.GetPlayerId() );
+                        shooter.RecordHitTarget(casualty.GetPlayerId());
                     }
                     else
                     {
@@ -66,7 +64,7 @@ public class Rocket : MonoBehaviour
                 Destroy(gameObject);
             }
 
-          
+
         }
 
         else if (col.gameObject.tag == "destructable")
@@ -80,22 +78,18 @@ public class Rocket : MonoBehaviour
 
         else if (col.tag == "ground" || col.tag == "Obstacle")
         {
-			Debug.Log ("hi");
-			GetComponentInChildren<Animator> ().enabled = false;
-			Rigidbody2D rb = GetComponent<Rigidbody2D> ();
-			rb.velocity = Vector2.zero;
-			rb.isKinematic = true;
-			rocketTime = TimeAlive - destroyWaitTime;
+            OnExplode();
+            Destroy( gameObject );
         }
         else if (col.tag == "Bullet")
         {
             Rocket otherRocket = col.GetComponent<Rocket>();
-            if( otherRocket != null && otherRocket.myOwner != myOwner)
+            if (otherRocket != null && otherRocket.myOwner != myOwner)
             {
                 OnExplode();
                 Destroy(gameObject);
             }
-           
+
         }
 
         // Otherwise if the player manages to shoot himself...
@@ -104,5 +98,7 @@ public class Rocket : MonoBehaviour
             OnExplode();
             Destroy(gameObject);
         }
-	}
+
+
+    }
 }
