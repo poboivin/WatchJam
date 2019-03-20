@@ -35,6 +35,9 @@ public class NewMelee : MonoBehaviour
     public int meleeCount = 0;
 
     public GameObject dashUI;
+    public GameObject dashDirIndicator;
+    public float cooldown = 1.5f;
+    Vector3 dashDir = Vector3.right;
 
     private List<Collider2D> ignored;
     private bool grounded = false;
@@ -102,6 +105,14 @@ public class NewMelee : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if( dashDirIndicator )
+        {
+            dashDir = new Vector2( myTimeController.myInputManager.GetAxis( Settings.c.MoveXAxis ), myTimeController.myInputManager.GetAxis( Settings.c.MoveYAxis ) );
+            //Debug.LogFormat( "Dash Dir = {0}", dashDir.ToString() );
+            //float angle = Vector2.SignedAngle( Vector2.right, dashDir );
+            //dashDirIndicator.transform.LookAt( dashDir, Vector3.forward );
+        }
+
         grounded = Physics2D.Linecast(transform.position, groundCheck.position, 1 << LayerMask.NameToLayer("Ground"));
         if (grounded && active == false)
         {
@@ -124,26 +135,17 @@ public class NewMelee : MonoBehaviour
             }
             else
             {
-                
-                
                 currentState = state.dash;
                 if(dashCount < offgroundDashLimit)
                 {
                     dashCount++;
                     activate();
-
                 }
-                
-
-
-
             }
-            
         }
        
         if (active == true && myTimeController.isStopped == false)
         {
-
             myTimeController.myRigidbody2D.velocity = dir.normalized * VelocityMagnitude;
             Timer += Time.deltaTime;
             if (currentState == state.melee)
@@ -156,8 +158,6 @@ public class NewMelee : MonoBehaviour
 
                 deactivate();
                 myTimeController.myRigidbody2D.velocity *= leftOverFactor;
-
-
             }
         }
         else
@@ -186,6 +186,7 @@ public class NewMelee : MonoBehaviour
             }
             ignored.Clear();
         }
+
     }
     public void activate()
     {
@@ -220,7 +221,8 @@ public class NewMelee : MonoBehaviour
         }
 
         GameObject dashMelee = Instantiate( dashUI, gameObject.transform );
-        Object.Destroy( dashMelee, 3.0f );
+        if( dashMelee)
+            Object.Destroy( dashMelee, cooldown );
 
         oldScale = transform.localScale;
         myTimeController.myRigidbody2D.velocity = dir.normalized * VelocityMagnitude;

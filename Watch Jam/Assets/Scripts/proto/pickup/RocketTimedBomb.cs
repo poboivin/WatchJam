@@ -28,6 +28,8 @@ public class RocketTimedBomb : Rocket
         localScale.x = scale;
         localScale.y = scale;
         explosionRangeObjet.transform.localScale = localScale;
+
+        explosionRangeObjet.SetActive( false );
     }
 
     void OnTriggerEnter2D(Collider2D col)
@@ -69,7 +71,7 @@ public class RocketTimedBomb : Rocket
             rocketTime = 0.0f;
             isTriggered = true;
             // may need to show some effect like blinking the area.
-
+            explosionRangeObjet.SetActive( true );
         }
     }
 
