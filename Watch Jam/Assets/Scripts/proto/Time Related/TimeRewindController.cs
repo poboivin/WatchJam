@@ -11,10 +11,6 @@ public class TimeRewindController : MonoBehaviour
     public Ammo myAmmo;
     [HideInInspector]
     public PierInputManager myInputManager;
-	public AfterImage myAfterImage;
-
-	private bool canShowTrail = true;
-
 
    // public PierInputManager.ButtonName Rewind;
 
@@ -24,7 +20,6 @@ public class TimeRewindController : MonoBehaviour
         myTimeBody = GetComponent<TimeBody>();
         myAmmo = GetComponent<Ammo>();
         myInputManager = GetComponent<PierInputManager>();
-		myAfterImage  = GetComponent<AfterImage>();
     }
 
     // Use this for initialization
@@ -37,45 +32,28 @@ public class TimeRewindController : MonoBehaviour
 	// Update is called once per frame
 	void Update () {
 
-		if (myTimeController.isRewinding == false &&
-		         myInputManager.GetAxis (Settings.c.Rewind) > 0.6f &&
-				 canShowTrail &&
-		         (myAmmo.CurrentAmmo < myAmmo.MaxAmmo || Settings.s.noLimits)) {
-			if (myTimeBody.pointsInTime.Count >= myTimeBody.RecordTime * 25) {
-				myAfterImage.DrawLine ();
+        if( myTimeController.isRewinding == false &&
+            controllerTriggered == false &&
+            myInputManager.GetAxis(Settings.c.Rewind) > 0.6f && 
+            ( myAmmo.CurrentAmmo < myAmmo.MaxAmmo || Settings.s.noLimits ) )
+        {
+            if( myTimeBody.pointsInTime.Count >= 60 )
+            {
+                myTimeController.StartRewind();
+            }
+            controllerTriggered = true;
+        }
 
-			}
-			controllerTriggered = true;
-		}
-
-		if(controllerTriggered == true &&
-			myInputManager.GetAxis(Settings.c.Rewind) < 0.1f )
-		{
-			
-			myAfterImage.DisableGhost ();
-			//myTimeController.StartRewind();
-			myTimeBody.doInstantRewind();
-			controllerTriggered = false;
-		}
-
-
-
-
-		if (myInputManager.GetAxis (Settings.c.Rewind) < 0.1f && myInputManager.GetAxis (Settings.c.TimeStop) < 0.1f) 
-		{
-			canShowTrail = true;
-		}
-
-		if (myInputManager.GetAxis (Settings.c.TimeStop) > 0.5f) 
-		{
-			canShowTrail = false;
-		}
-
-       
+        if( myTimeController.isRewinding == true &&
+            controllerTriggered == true &&
+            myInputManager.GetAxis(Settings.c.Rewind) < 0.1f )
+        {
+            myTimeController.StopRewind();
+            controllerTriggered = false;
+        }
 
         // release trigger in case more than two rewind events happen at the same time.
-		if (myTimeController.isRewinding == false && controllerTriggered == true) {
-
-		}
+        if( myTimeController.isRewinding == false && controllerTriggered == true )
+            controllerTriggered = false;
     }
 }

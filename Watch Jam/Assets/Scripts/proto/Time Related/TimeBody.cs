@@ -7,7 +7,6 @@ public class TimeBody : MonoBehaviour, IRewindAble
     public bool rewind = false;
     Rigidbody2D rb;
     public bool isRewinding = false;
-	public bool isInstant = false;
     public List<PointInTime> pointsInTime;
     public float RecordTime = 5f;
     public float lifeStart = 0;
@@ -91,12 +90,6 @@ public class TimeBody : MonoBehaviour, IRewindAble
                 rb.simulated = false;*/
         }
     }
-
-	public void doInstantRewind(){
-		rb.position = pointsInTime [pointsInTime.Count - 1].Position;
-		pointsInTime.Clear ();
-	}
-
     public void stopRewind()
     {
         isRewinding = false;

@@ -493,10 +493,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1471837378760992, guid: da8b1dc51172f2b49ba4ce19dbfef718, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 4341528592502370, guid: da8b1dc51172f2b49ba4ce19dbfef718, type: 3}
       propertyPath: m_LocalPosition.x
       value: -18.86
@@ -528,20 +524,6 @@ PrefabInstance:
     - target: {fileID: 4341528592502370, guid: da8b1dc51172f2b49ba4ce19dbfef718, type: 3}
       propertyPath: m_RootOrder
       value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 1872719758022782, guid: da8b1dc51172f2b49ba4ce19dbfef718, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114762429445593054, guid: da8b1dc51172f2b49ba4ce19dbfef718,
-        type: 3}
-      propertyPath: RecordTime
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114762429445593054, guid: da8b1dc51172f2b49ba4ce19dbfef718,
-        type: 3}
-      propertyPath: isRewinding
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: da8b1dc51172f2b49ba4ce19dbfef718, type: 3}
@@ -12517,11 +12499,6 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 10
       objectReference: {fileID: 0}
-    - target: {fileID: 120665467524016988, guid: 70b05e8a84d42d54f93ed47bad434476,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 70b05e8a84d42d54f93ed47bad434476, type: 3}
 --- !u!1 &1642965253
@@ -13456,7 +13433,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainSettings: {fileID: 11400000, guid: b2889c19ba411d245a7b6af6d3205b5f, type: 2}
-  mainControls: {fileID: 11400000, guid: fd9c3cfafe371824a8dde07a84cccbf8, type: 2}
+  mainControls: {fileID: 11400000, guid: ac49b985bdf767d428f63e3845e3b772, type: 2}
   noLimitsToggle: {fileID: 1303222291}
   lifeDecayToggle: {fileID: 1068064771}
   gunKockBackSlider: {fileID: 1148133361}

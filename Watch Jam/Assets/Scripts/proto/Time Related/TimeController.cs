@@ -94,10 +94,8 @@ public class TimeController : MonoBehaviour
     void Update()
     {
         if (isRewinding)
-			
         {
-			//myAfterImage.DrawLine();
-
+            myAfterImage.DrawLine();
 
             AmmoTimer += Time.deltaTime * Settings.s.rewindAmmoFactor;
             if (AmmoTimer >= 1)
