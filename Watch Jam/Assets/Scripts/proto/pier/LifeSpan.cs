@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Events;
 
 public class LifeSpan : MonoBehaviour
 {
@@ -28,7 +29,8 @@ public class LifeSpan : MonoBehaviour
     bool ShatterActive;
     [HideInInspector]
     public float HurtStartTime;
-
+    [HideInInspector]
+    public UnityEvent OnLifeUpdate;
     bool invincible;
     public float invincibleDuration = 1.5f;
     public void SetInvincibility(bool var)
@@ -39,7 +41,8 @@ public class LifeSpan : MonoBehaviour
 	void Start ()
     {
         myAnimator = gameObject.GetComponentInChildren<Animator>();
-        currentLife = Settings.s.totalLife;
+        SetLife(Settings.s.totalLife);
+       
         myTimeController = gameObject.GetComponent<TimeController>();
         myRigidbody2D = GetComponent<Rigidbody2D>();
         myPlayerControl = GetComponent<PlayerControl>();
@@ -59,23 +62,41 @@ public class LifeSpan : MonoBehaviour
         invincible = false;
     }
 
+    private void SetLife(float amount)
+    {
+        currentLife = amount;
+        OnLifeUpdate.Invoke();
+    }
+
+    public float GetLife()
+    {
+        return currentLife;
+    }
+
 	public void AddLife(float amount)
     {
-        currentLife += amount;
-        if(currentLife > Settings.s.totalLife)
+        
+        SetLife(currentLife + amount);
+
+        if (currentLife > Settings.s.totalLife)
         {
-            currentLife = Settings.s.totalLife;
+           // currentLife = Settings.s.totalLife;
+            SetLife(Settings.s.totalLife);
         }
     }
 
     public float SubstactLife(float amount)
     {
-        if( invincible )
+        if( invincible)
+        {
             return 0.0f;
+        }
+           
         else
         {
             var decreasedLife = Mathf.Min( currentLife, amount );
-            currentLife -= decreasedLife;
+            SetLife(currentLife - decreasedLife);
+            
 
             //LEAVING THIS OUT TILL I FIX IT
             //if (HealthShatter != null)
@@ -114,10 +135,10 @@ public class LifeSpan : MonoBehaviour
                 Death();
         }
         //lifeDisplay.fillAmount = currentLife / Settings.s.totalLife;
-        if (HealthBar != null)
-        {
-            HealthBar.fillAmount = currentLife / Settings.s.totalLife;
-        }
+        //if (HealthBar != null)
+        //{
+        //    HealthBar.fillAmount = currentLife / Settings.s.totalLife;
+        //}
        
 
         if(myText != null)
@@ -170,7 +191,7 @@ public class LifeSpan : MonoBehaviour
         }
     }
 
-    public IEnumerator ianCoroutine()
+    public IEnumerator Flasher()
     {
         if (sp != null)
         {

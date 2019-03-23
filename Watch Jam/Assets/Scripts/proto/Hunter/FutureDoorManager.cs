@@ -149,7 +149,7 @@ public class FutureDoorManager : MonoBehaviour
 
     public void ChargeHurtZone(int Zone)
     {
-        Debug.Log("Hurt Zone ACtive");
+       // Debug.Log("Hurt Zone ACtive");
         CurrentLerpTime += Time.deltaTime;
 
         if (CurrentLerpTime > LerpTimeChargeup)

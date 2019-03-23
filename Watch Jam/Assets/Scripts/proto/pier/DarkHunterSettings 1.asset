@@ -31,7 +31,7 @@ MonoBehaviour:
   timeStopAmmoRegen: 0
   rewindAmmoRegen: 0
   passiveAmmoRegen: 1
-  rewindAmmoFactor: 3
+  rewindAmmoFactor: 0
   TwiceAsFastRewind: 0
   ImmobileRecord: 0
   gameMode: 1

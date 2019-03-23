@@ -86,6 +86,34 @@ public class MatchCounter : MonoBehaviour
             Destroy( player.gameObject );
             newHero.gameObject.SetActive( true );
             Register( newHero.GetComponent<TimeController>() );
+
+            var healthHuds = FindObjectsOfType<PlayerUI>();
+            foreach (PlayerUI p in healthHuds)
+            {
+                if (p.PlayerId == player.PlayerId)
+                {
+                    var  Health = newHero.GetComponent<LifeSpan>();
+                    if (Health != null)
+                    {
+                       // Debug.Break();
+                        p.linkHealth(Health);
+                    }
+
+                    var Ammo = newHero.GetComponentInChildren<Gun>();
+
+                    if(Ammo != null)
+                    {
+                        p.LinkAmmo(Ammo);
+                    }
+
+                    var TC = newHero.GetComponent<TimeController>();
+                    if (TC != null)
+                    {
+                        p.LinkTimeController(TC);
+                    }
+                }
+            }
+
         }
     }
 
