@@ -158,10 +158,10 @@ public class FutureDoorManager : MonoBehaviour
         }
         float ChargePerc = CurrentLerpTime / LerpTimeChargeup;
 
-        SpriteRenderer ZoneSprite = DoorSets[Zone].Hurtzone.GetComponent<SpriteRenderer>();
-        SpriteRenderer ZoneSprite02 = DoorSets[Zone].Hurtzone.GetComponent<HurtZone>().CompanionVisual;
+        SpriteRenderer ZoneSprite = DoorSets[Zone].Hurtzone.GetComponentInChildren<SpriteRenderer>();
+        //SpriteRenderer ZoneSprite02 = DoorSets[Zone].Hurtzone.GetComponent<HurtZone>().CompanionVisual;
         ZoneSprite.color = Color.Lerp(StartColor, EndColor, ChargePerc);
-        ZoneSprite02.color = Color.Lerp(StartColor, EndColor, ChargePerc);
+        //ZoneSprite02.color = Color.Lerp(StartColor, EndColor, ChargePerc);
 
 
 
@@ -361,8 +361,9 @@ public class FutureDoorManager : MonoBehaviour
         //Begin activating hurt zone
         CurrentLerpTime = 0;
         DoorSets[RD].Hurtzone.SetActive(true);
-        while (DoorSets[RD].Hurtzone.GetComponent<SpriteRenderer>().color.a < EndColor.a)
+        while (DoorSets[RD].Hurtzone.GetComponentInChildren<SpriteRenderer>().color.a < EndColor.a)
         {
+            Debug.Log(EndColor.a);
             ChargeHurtZone(RD);
             yield return new WaitForFixedUpdate();
         }
@@ -375,7 +376,7 @@ public class FutureDoorManager : MonoBehaviour
         yield return new WaitForSeconds(TimeHurtZoneLasts);
 
         DoorSets[RD].Hurtzone.GetComponent<BoxCollider2D>().enabled = false;
-        DoorSets[RD].Hurtzone.GetComponent<SpriteRenderer>().color = StartColor;
+        DoorSets[RD].Hurtzone.GetComponentInChildren <SpriteRenderer>().color = StartColor;
         DoorSets[RD].Hurtzone.SetActive(false);
         DoorSets[RD].Light.sprite = LightSprites[0];
 
@@ -407,7 +408,7 @@ public class FutureDoorManager : MonoBehaviour
 
         DoorSets[RD1].Hurtzone.SetActive(true);
         DoorSets[RD2].Hurtzone.SetActive(true);
-        while (DoorSets[RD1].Hurtzone.GetComponent<SpriteRenderer>().color.a < EndColor.a)
+        while (DoorSets[RD1].Hurtzone.GetComponentInChildren<SpriteRenderer>().color.a < EndColor.a)
         {
             ChargeHurtZone(RD1);
             ChargeHurtZone(RD2);
@@ -427,8 +428,8 @@ public class FutureDoorManager : MonoBehaviour
 
         DoorSets[RD1].Hurtzone.GetComponent<BoxCollider2D>().enabled = false;
         DoorSets[RD2].Hurtzone.GetComponent<BoxCollider2D>().enabled = false;
-        DoorSets[RD1].Hurtzone.GetComponent<SpriteRenderer>().color = StartColor;
-        DoorSets[RD2].Hurtzone.GetComponent<SpriteRenderer>().color = StartColor;
+        DoorSets[RD1].Hurtzone.GetComponentInChildren<SpriteRenderer>().color = StartColor;
+        DoorSets[RD2].Hurtzone.GetComponentInChildren<SpriteRenderer>().color = StartColor;
         DoorSets[RD1].Hurtzone.SetActive(false);
         DoorSets[RD2].Hurtzone.SetActive(false);
 
