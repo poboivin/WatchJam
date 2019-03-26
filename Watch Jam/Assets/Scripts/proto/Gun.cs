@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.Events;
 
 
 
@@ -42,7 +43,14 @@ public partial class Gun : MonoBehaviour,IGun
     public float angle;
     public float x;
     public float y;
+    [HideInInspector]
+    public UnityEvent OnAmmoUpdate;
 
+
+    public int GetcurrentAmmo()
+    {
+        return myAmmo.CurrentAmmo;
+    }
     
     void Awake()
     {
@@ -125,8 +133,12 @@ public partial class Gun : MonoBehaviour,IGun
             }
             else if (myAmmo.CurrentAmmo > 0 )
             {
+
                 myAmmo.CurrentAmmo--;
+                OnAmmoUpdate.Invoke();
                 prefab = rocket;
+               
+
             }
             
 

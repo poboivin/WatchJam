@@ -31,6 +31,10 @@ public class TimeController : MonoBehaviour
 
     
     private float AmmoTimer = 0;
+    public float GetAmmoTimer()
+    {
+        return AmmoTimer;
+    }
     [Header("ammo reload per second")]
     public float stopTimeAmmoFactor = 2f;
     public float passiveAmmoFactor = 2f;

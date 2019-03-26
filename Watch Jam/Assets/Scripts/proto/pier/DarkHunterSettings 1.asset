@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: DarkHunterSettings 1
   m_EditorClassIdentifier: 
   noLimits: 1
-  unlimitedAmmo: 1
+  unlimitedAmmo: 0
   gunKnockBack: 0
   bulletKnockBack: 200
   bulletDamage: 3
@@ -31,7 +31,7 @@ MonoBehaviour:
   timeStopAmmoRegen: 0
   rewindAmmoRegen: 0
   passiveAmmoRegen: 1
-  rewindAmmoFactor: 4
+  rewindAmmoFactor: 0
   TwiceAsFastRewind: 0
   ImmobileRecord: 0
   gameMode: 1
