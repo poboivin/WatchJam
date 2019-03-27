@@ -19,15 +19,21 @@ public class NewMelee : MonoBehaviour
     public TimeRewindController myTimeRewindController;
 
     PlayerControl myPlayerControl;
-    public float VelocityMagnitude = 50;
+    public float meleeVelocityMagnitude = 10;
+    private float dashVelocityMagnitude = 40;
+    public float minDashVelocityMagnitude = 40;
+    public float fullDashVelocityMagnitude = 80;
     public float Duration = .15f;
     public float Timer;
     public bool active = false;
     public float leftOverFactor = .33f;
     Vector3 dir = Vector3.right;
     Vector3 oldScale;
-    public float chargeTimer = 1;
+    public float dashChargeTimer = .5f;
+    public float fullChargeTime = 2.0f;
+    private float chargeRatio;
     public float chargeTimeStamp ;
+
     public bool temp = false;
     private Transform groundCheck;          // A position marking where to check if the player is grounded.
     public int dashCount;
@@ -36,7 +42,8 @@ public class NewMelee : MonoBehaviour
 
     public GameObject dashUI;
     public GameObject dashDirIndicator;
-    public float cooldown = 1.5f;
+    public float maxFreezingCooldown = 2.5f;
+    public bool isFrozen = false;
     Vector3 dashDir = Vector3.right;
 
     private List<Collider2D> ignored;
@@ -52,23 +59,22 @@ public class NewMelee : MonoBehaviour
         myTimeRewindController = GetComponent<TimeRewindController>();
         oldScale = transform.localScale;
         groundCheck = transform.Find("groundCheck");
-
     }
     private void OnTriggerEnter(Collider other)
     {
-         Debug.Log(other.name);
-        //if (active)
-        //{
-        //    LifeSpan otherPlayer = other.gameObject.GetComponent<LifeSpan>();
+         Debug.LogFormat( "hit {0} in dash", other.name );
+        if( active )
+        {
+            LifeSpan otherPlayer = other.gameObject.GetComponent<LifeSpan>();
 
-        //    if (otherPlayer)
-        //    {
-        //        otherPlayer.SubstactLife(Settings.s.meleeDamage);
-        //        Vector3 dir = otherPlayer.transform.position - this.transform.position;
+            if( otherPlayer )
+            {
+                otherPlayer.SubstactLife( Settings.s.meleeDamage );
+                Vector3 dir = otherPlayer.transform.position - this.transform.position;
 
-        //        otherPlayer.GetComponent<TimeController>().AddForce(this.GetComponent<Rigidbody2D>().velocity.normalized * Settings.s.bulletKnockBack);
-        //    }
-        //}
+                otherPlayer.GetComponent<TimeController>().AddForce( this.GetComponent<Rigidbody2D>().velocity.normalized * Settings.s.bulletKnockBack );
+            }
+        }
 
     }
     private void OnCollisionEnter2D(Collision2D collision)
@@ -80,15 +86,11 @@ public class NewMelee : MonoBehaviour
 
             if (otherPlayer)
             {
-                if(currentState == state.melee)
-                {
-                    otherPlayer.SubstactLife(Settings.s.meleeDamage);
-                    Vector3 dir = otherPlayer.transform.position - this.transform.position;
-
-                    otherPlayer.GetComponent<TimeController>().AddForce(this.GetComponent<Rigidbody2D>().velocity.normalized * Settings.s.bulletKnockBack);
-                }
-             
-
+                //Debug.LogFormat( "hit {0} in {1}", otherPlayer.name, currentState.ToString() );
+                    
+                otherPlayer.SubstactLife(Settings.s.meleeDamage);
+                Vector3 dir = otherPlayer.transform.position - this.transform.position;
+                otherPlayer.GetComponent<TimeController>().AddForce(this.GetComponent<Rigidbody2D>().velocity.normalized * Settings.s.bulletKnockBack);
 
                 if (ignored == null)
                 {
@@ -105,48 +107,82 @@ public class NewMelee : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if( dashDirIndicator )
-        {
-            dashDir = new Vector2( myTimeController.myInputManager.GetAxis( Settings.c.MoveXAxis ), myTimeController.myInputManager.GetAxis( Settings.c.MoveYAxis ) );
-            //Debug.LogFormat( "Dash Dir = {0}", dashDir.ToString() );
-            //float angle = Vector2.SignedAngle( Vector2.right, dashDir );
-            //dashDirIndicator.transform.LookAt( dashDir, Vector3.forward );
-        }
-
-        grounded = Physics2D.Linecast(transform.position, groundCheck.position, 1 << LayerMask.NameToLayer("Ground"));
-        if (grounded && active == false)
-        {
-            dashCount = 0;
-            //conter = 0;
-            // active = false;
-        }
-        if (myTimeController.myInputManager.GetButtonDown(Settings.c.TimeStop))
-        {
-            chargeTimeStamp = Time.time;
-            
-        }
-        if (myTimeController.myInputManager.GetButtonUp(Settings.c.TimeStop) && active == false)
-        {
-            if(Time.time - chargeTimeStamp >= chargeTimer)
+        if( active == false && isFrozen == false )
+       {
+            if( myTimeController.myInputManager.GetButtonDown( Settings.c.TimeStop ) )
             {
-                currentState = state.melee;
-                activate();
+                chargeTimeStamp = Time.time;
 
             }
-            else
+            grounded = Physics2D.Linecast( transform.position, groundCheck.position, 1 << LayerMask.NameToLayer( "Ground" ) );
+            if( grounded )
             {
-                currentState = state.dash;
-                if(dashCount < offgroundDashLimit)
+                dashCount = 0;
+                //conter = 0;
+                // active = false;
+            }
+
+            if( myTimeController.isStopped == true )
+            {
+                dashDir = new Vector2( myTimeController.myInputManager.GetAxis( Settings.c.MoveXAxis ),
+                    myTimeController.myInputManager.GetAxis( Settings.c.MoveYAxis ) );
+
+                // if there is no direction controlled, aiming where the player facing at
+                if( dashDir.sqrMagnitude == 0.0f )
                 {
-                    dashCount++;
+                    if( myPlayerControl.facingRight )
+                        dashDir = Vector2.right;
+                    else
+                        dashDir = Vector2.left;
+                }
+
+                float elapsedTime = Time.time - chargeTimeStamp;
+                elapsedTime = Mathf.Clamp( elapsedTime, dashChargeTimer, fullChargeTime );
+                chargeRatio = ( elapsedTime / ( fullChargeTime - dashChargeTimer ) );
+                // dashVelocityMagnitude is in between min and full velocity 
+                dashVelocityMagnitude = fullDashVelocityMagnitude * chargeRatio + minDashVelocityMagnitude * ( 1 - chargeRatio );
+
+                if( dashDirIndicator && dashCount < offgroundDashLimit )
+                {
+                    if( dashDirIndicator.activeSelf == false )
+                        dashDirIndicator.SetActive( true );
+
+                    float theta_rad = Mathf.Atan2( dashDir.y, dashDir.x );
+                    float angle = ( ( theta_rad / Mathf.PI * 180 ) + 360 ) % 360;
+                    //Debug.LogFormat( "Dash Dir = {0}, Angle = {1}", dashDir.ToString(), angle );
+
+                    dashDirIndicator.transform.localRotation = Quaternion.Euler( new Vector3( 0, 0, angle ) );
+                    dashDirIndicator.transform.localScale = new Vector3( 2.0f, 1.3f, 1.0f ) * ( 0.5f + chargeRatio );
+                }
+            }
+
+            if( isFrozen == false && myTimeController.myInputManager.GetButtonUp( Settings.c.TimeStop ) )
+            {
+                if( dashDirIndicator )
+                    dashDirIndicator.SetActive( false );
+
+                if( Time.time - chargeTimeStamp < dashChargeTimer )
+                {
+                    currentState = state.melee;
                     activate();
+                }
+                else
+                {
+                    currentState = state.dash;
+                    if( dashCount < offgroundDashLimit )
+                    {
+                        dashCount++;
+                        activate();
+                    }
                 }
             }
         }
-       
+        
         if (active == true && myTimeController.isStopped == false)
         {
-            myTimeController.myRigidbody2D.velocity = dir.normalized * VelocityMagnitude;
+            float velocityImpact = currentState == state.melee ? meleeVelocityMagnitude : dashVelocityMagnitude;
+            myTimeController.myRigidbody2D.velocity = dir.normalized * velocityImpact;
+
             Timer += Time.deltaTime;
             if (currentState == state.melee)
             {
@@ -158,6 +194,12 @@ public class NewMelee : MonoBehaviour
 
                 deactivate();
                 myTimeController.myRigidbody2D.velocity *= leftOverFactor;
+
+                if( dashDir.sqrMagnitude != 0.0f )
+                {
+                    // make it frozen for freezing cool down time
+                    StartCoroutine( FreezePlayer() );
+                }
             }
         }
         else
@@ -186,12 +228,14 @@ public class NewMelee : MonoBehaviour
             }
             ignored.Clear();
         }
-
     }
+    
     public void activate()
     {
         active = true;
-        dir = new Vector2(myTimeController.myInputManager.GetAxis(Settings.c.MoveXAxis), myTimeController.myInputManager.GetAxis(Settings.c.MoveYAxis));
+
+        dir = new Vector2( myTimeController.myInputManager.GetAxis( Settings.c.MoveXAxis ),
+                        myTimeController.myInputManager.GetAxis( Settings.c.MoveYAxis ) );
         myTimeStopController.enabled = false;
         myTimeRewindController.enabled = false;
         if (currentState == state.melee)
@@ -222,9 +266,19 @@ public class NewMelee : MonoBehaviour
 
         GameObject dashMelee = Instantiate( dashUI, gameObject.transform );
         if( dashMelee)
-            Object.Destroy( dashMelee, cooldown );
+            Object.Destroy( dashMelee, maxFreezingCooldown * chargeRatio );
 
         oldScale = transform.localScale;
-        myTimeController.myRigidbody2D.velocity = dir.normalized * VelocityMagnitude;
+        float velocityImpact = currentState == state.melee ? meleeVelocityMagnitude : dashVelocityMagnitude;
+        myTimeController.myRigidbody2D.velocity = dir.normalized * velocityImpact;
+    }
+
+    IEnumerator FreezePlayer()
+    {
+        isFrozen = true;
+        myTimeController.myRigidbody2D.constraints = RigidbodyConstraints2D.FreezeAll;
+        yield return new WaitForSeconds( maxFreezingCooldown * chargeRatio );
+        myTimeController.myRigidbody2D.constraints = RigidbodyConstraints2D.FreezeRotation;
+        isFrozen = false;
     }
 }

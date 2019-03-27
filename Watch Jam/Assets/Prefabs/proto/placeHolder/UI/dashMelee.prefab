@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1352123968283001799}
   - component: {fileID: 1352123968283001798}
   - component: {fileID: 788537034331173069}
+  - component: {fileID: 5020368259656516922}
   m_Layer: 0
   m_Name: dashMelee
   m_TagString: Untagged
@@ -112,3 +113,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b449f46f11156b54ba9496c8ee7b95e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  freezingTime: 1
+--- !u!61 &5020368259656516922
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1352123968283001797}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 4.216339, y: 1.1332664}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 30.000002, y: 30.000002}
+    newSize: {x: 30.000002, y: 30.000002}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 20.378584, y: 17.09323}
+  m_EdgeRadius: 0
