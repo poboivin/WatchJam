@@ -13,6 +13,7 @@ public class LifeSpan : MonoBehaviour
 	KinematicPlayerControl2 myPlayerControl2;
 
     Rigidbody2D myRigidbody2D;
+    [SerializeField]
     Animator myAnimator;
     Text myText;
     Gun myGun;
@@ -96,7 +97,8 @@ public class LifeSpan : MonoBehaviour
         {
             var decreasedLife = Mathf.Min( currentLife, amount );
             SetLife(currentLife - decreasedLife);
-            
+            myAnimator.SetTrigger("HurtTrigger");
+            Debug.Log("Hurt Trigger");
 
             //LEAVING THIS OUT TILL I FIX IT
             //if (HealthShatter != null)

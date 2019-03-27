@@ -131,7 +131,7 @@ public class PlayerUI : MonoBehaviour
 
         KunaiAmountLeft = (float)Ammo.GetcurrentAmmo() / 3; //Will remove hardcoding
 
-        Debug.Log(KunaiAmountLeft);
+       
 
         if (KunaiAmountLeft > .75)
         {

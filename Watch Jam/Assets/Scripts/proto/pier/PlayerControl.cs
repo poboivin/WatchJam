@@ -6,7 +6,7 @@ public class PlayerControl : MonoBehaviour,ImouseAble
     [HideInInspector]
     public PierInputManager myInputManager;
   //  public PierInputManager.ButtonName jumpButton;
-    [HideInInspector]
+   // [HideInInspector]
 
     public Animator myAnimator;
     [HideInInspector]
@@ -36,7 +36,7 @@ public class PlayerControl : MonoBehaviour,ImouseAble
     
     void Awake()
 	{
-        myAnimator = gameObject.GetComponentInChildren<Animator>();
+        //myAnimator = gameObject.GetComponentInChildren<Animator>();
         myTimeController = gameObject.GetComponent<TimeController>();
         myInputManager = gameObject.GetComponent<PierInputManager>();
            // Setting up references.
@@ -52,21 +52,26 @@ public class PlayerControl : MonoBehaviour,ImouseAble
         // If the jump button is pressed and the player is grounded then the player should jump.
         if ((myInputManager.GetButtonDown(Settings.c.jumpButton) || myInputManager.GetButtonDown(Settings.c.AltjumpButton)) && grounded)
 			jump = true;
-        myAnimator.SetBool("Jumping", grounded);
+            
+        
         
 	}
 
 
 	void FixedUpdate ()
 	{
+        myAnimator.SetBool("Grounded",grounded);
         myAnimator.SetFloat("Y Velocity", GetComponent<Rigidbody2D>().velocity.y);
 		// Cache the horizontal input.
 		float h = myInputManager.GetAxis( Settings.c.MoveXAxis);
+        float h2 = myInputManager.GetAxis(Settings.c.MainAimXAxis);
+
 
         // The Speed animator parameter is set to the absolute value of the horizontal input.
         if (grounded && myTimeController.isStopped == false)
         {
             myAnimator.SetFloat("Velocity", Mathf.Abs(h));
+            
 
         }
         else
@@ -98,7 +103,7 @@ public class PlayerControl : MonoBehaviour,ImouseAble
             // GetComponent<Rigidbody2D>().AddForce(new Vector2(Mathf.Sign(GetComponent<Rigidbody2D>().velocity.x) * maxSpeed, GetComponent<Rigidbody2D>().velocity.y));
         }
         // If the input is moving the player right and the player is facing left...
-        if (h > 0 && heroBody.transform.localScale.x < 0)
+        if (h2 > 0 && heroBody.transform.localScale.x < 0)
         {
             Vector3 theScale = heroBody.transform.localScale;
             theScale.x *= -1;
@@ -106,7 +111,7 @@ public class PlayerControl : MonoBehaviour,ImouseAble
         }
 
         // Otherwise if the input is moving the player left and the player is facing right...
-        else if(h < 0 && heroBody.transform.localScale.x > 0)
+        else if(h2 < 0 && heroBody.transform.localScale.x > 0)
         {
             Vector3 theScale = heroBody.transform.localScale;
             theScale.x *= -1;
@@ -135,6 +140,7 @@ public class PlayerControl : MonoBehaviour,ImouseAble
     {
         if(grounded == true)
         {
+            myAnimator.SetTrigger("JumpTrigger");
             remaningForce = jumpForce * (JumpMultiplier); ;
             int i = Random.Range(0, jumpClips.Length);
             AudioSource.PlayClipAtPoint(jumpClips[i], transform.position);
