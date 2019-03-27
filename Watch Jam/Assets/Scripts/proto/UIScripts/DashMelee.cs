@@ -19,25 +19,13 @@ public class DashMelee : MonoBehaviour
         
     }
 
-    private void OnTriggerEnter2D( Collider2D collision )
+    private void OnTriggerEnter2D( Collider2D collider )
     {
-        LifeSpan otherPlayer = collision.GetComponent<Collider2D>().gameObject.GetComponent<LifeSpan>();
-
-        if( otherPlayer )
+        NewMelee player = gameObject.GetComponentInParent<NewMelee>();
+        if( player )
         {
-            //Debug.LogFormat( "hit {0} in {1}", otherPlayer.name, currentState.ToString() );
-
-            otherPlayer.SubstactLife( Settings.s.meleeDamage );
-            Vector3 dir = otherPlayer.transform.position - gameObject.transform.position;
-            otherPlayer.GetComponent<TimeController>().AddForce( gameObject.GetComponentInParent<Rigidbody2D>().velocity.normalized * Settings.s.bulletKnockBack );
-            if( ignored == null )
-            {
-                ignored = new List<Collider2D>();
-            }
-
-            ignored.Add( collision.GetComponent<Collider2D>() );
-            Physics2D.IgnoreCollision( gameObject.GetComponent<Collider2D>(), collision.GetComponent<Collider2D>(), true );
-
+            Debug.LogFormat( "hit {0} with effect", collider.name );
+            player.DamagePlayer( collider );
         }
     }
 }

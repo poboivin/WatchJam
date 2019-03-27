@@ -79,31 +79,36 @@ public class NewMelee : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-       // Debug.Log(collision.collider.name);
         if (active)
         {
-            LifeSpan otherPlayer = collision.collider.gameObject.GetComponent<LifeSpan>();
-
-            if (otherPlayer)
-            {
-                //Debug.LogFormat( "hit {0} in {1}", otherPlayer.name, currentState.ToString() );
-                    
-                otherPlayer.SubstactLife(Settings.s.meleeDamage);
-                Vector3 dir = otherPlayer.transform.position - this.transform.position;
-                otherPlayer.GetComponent<TimeController>().AddForce(this.GetComponent<Rigidbody2D>().velocity.normalized * Settings.s.bulletKnockBack);
-
-                if (ignored == null)
-                {
-                    ignored = new List<Collider2D>();
-                }
-
-                ignored.Add(collision.collider);
-                Physics2D.IgnoreCollision(this.GetComponent<Collider2D>(), collision.collider,true);
-                
-            }
+            Debug.LogFormat( "hit {0} with body", collision.collider.name );
+            DamagePlayer( collision.collider );
         }
-      
     }
+
+    public void DamagePlayer( Collider2D collider )
+    {
+        LifeSpan otherPlayer = collider.gameObject.GetComponent<LifeSpan>();
+        if( otherPlayer )
+        {
+            if( ignored == null )
+            {
+                ignored = new List<Collider2D>();
+            }
+
+            if( ignored.Contains( collider ) )
+                return;
+
+            otherPlayer.SubstactLife( Settings.s.meleeDamage );
+            Vector3 dir = otherPlayer.transform.position - this.transform.position;
+            otherPlayer.GetComponent<TimeController>().AddForce( this.GetComponent<Rigidbody2D>().velocity.normalized * Settings.s.bulletKnockBack );
+
+            ignored.Add( collider );
+            foreach( Collider2D subCollider in GetComponentsInChildren<Collider2D>() )
+                Physics2D.IgnoreCollision( subCollider, collider, true );
+        }
+    }
+
     // Update is called once per frame
     void Update()
     {
