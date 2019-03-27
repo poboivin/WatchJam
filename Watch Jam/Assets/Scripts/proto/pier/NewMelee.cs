@@ -62,19 +62,19 @@ public class NewMelee : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-         Debug.LogFormat( "hit {0} in dash", other.name );
-        if( active )
-        {
-            LifeSpan otherPlayer = other.gameObject.GetComponent<LifeSpan>();
+         Debug.LogFormat( "hit {0} in new melee", other.name );
+        //if( active )
+        //{
+        //    LifeSpan otherPlayer = other.gameObject.GetComponent<LifeSpan>();
 
-            if( otherPlayer )
-            {
-                otherPlayer.SubstactLife( Settings.s.meleeDamage );
-                Vector3 dir = otherPlayer.transform.position - this.transform.position;
+        //    if( otherPlayer )
+        //    {
+        //        otherPlayer.SubstactLife( Settings.s.meleeDamage );
+        //        Vector3 dir = otherPlayer.transform.position - this.transform.position;
 
-                otherPlayer.GetComponent<TimeController>().AddForce( this.GetComponent<Rigidbody2D>().velocity.normalized * Settings.s.bulletKnockBack );
-            }
-        }
+        //        otherPlayer.GetComponent<TimeController>().AddForce( this.GetComponent<Rigidbody2D>().velocity.normalized * Settings.s.bulletKnockBack );
+        //    }
+        //}
 
     }
     private void OnCollisionEnter2D(Collision2D collision)
