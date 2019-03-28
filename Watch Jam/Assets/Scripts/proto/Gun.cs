@@ -30,7 +30,9 @@ public partial class Gun : MonoBehaviour,IGun
     public Rigidbody2D rocket;              // Prefab of the rocket.
     private Rigidbody2D OriginalRocket;              // Prefab of the rocket.
 
-    public float speed = 20f;				// The speed the rocket will fire at.
+    public float speed = 20f;	
+    [HideInInspector]
+    // The speed the rocket will fire at.
     public float fireRate = 0.3f;
     private float nextFire = 0f;
     public Transform gunPivot;
@@ -57,6 +59,7 @@ public partial class Gun : MonoBehaviour,IGun
     
     void Awake()
     {
+        fireRate = Settings.s.fireRate;
         bullets = new List<bulletInfo>();
         myInputManager = GetComponentInParent<PierInputManager>();
         myLifeSpan = GetComponentInParent<LifeSpan>();

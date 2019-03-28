@@ -19,8 +19,9 @@ MonoBehaviour:
   bulletDamage: 3
   meleeDamage: 9
   meleeKnockBack: 10
+  fireRate: 0.5
   totalLife: 9
-  stopTimeStoreBullet: 0
+  stopTimeStoreBullet: 1
   airControl: 1
   timeStopStore: 0
   timeStopKillVelocity: 1
@@ -32,6 +33,8 @@ MonoBehaviour:
   rewindAmmoRegen: 0
   passiveAmmoRegen: 1
   rewindAmmoFactor: 0
+  passiveAmmoFactor: 1
+  stopTimeAmmoFactor: 1
   TwiceAsFastRewind: 0
   ImmobileRecord: 0
   gameMode: 1

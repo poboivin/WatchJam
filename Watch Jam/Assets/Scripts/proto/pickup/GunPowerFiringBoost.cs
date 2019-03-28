@@ -12,7 +12,7 @@ class GunPowerFiringBoost : GunPowerGeneric
     public GunPowerFiringBoost( Gun playerGun, PickupFireBoost shotInfo )
         : base( playerGun, shotInfo.boostedBulletCount )
     {
-        oldFireRate = playerGun.fireRate;
+        oldFireRate = Settings.s.fireRate;
         newFireRate = shotInfo.fireRate;
     }
 
