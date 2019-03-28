@@ -30,7 +30,9 @@ public partial class Gun : MonoBehaviour,IGun
     public Rigidbody2D rocket;              // Prefab of the rocket.
     private Rigidbody2D OriginalRocket;              // Prefab of the rocket.
 
-    public float speed = 20f;				// The speed the rocket will fire at.
+    public float speed = 20f;	
+    [HideInInspector]
+    // The speed the rocket will fire at.
     public float fireRate = 0.3f;
     private float nextFire = 0f;
     public Transform gunPivot;
@@ -45,6 +47,9 @@ public partial class Gun : MonoBehaviour,IGun
     public float y;
     [HideInInspector]
     public UnityEvent OnAmmoUpdate;
+    [SerializeField]
+    Animator ArmAnimator;
+
 
 
     public int GetcurrentAmmo()
@@ -54,6 +59,7 @@ public partial class Gun : MonoBehaviour,IGun
     
     void Awake()
     {
+        fireRate = Settings.s.fireRate;
         bullets = new List<bulletInfo>();
         myInputManager = GetComponentInParent<PierInputManager>();
         myLifeSpan = GetComponentInParent<LifeSpan>();
@@ -82,7 +88,7 @@ public partial class Gun : MonoBehaviour,IGun
         }
       
 
-        float theta_rad = Mathf.Atan2(y, x);
+        float theta_rad = Mathf.Atan2(y,Mathf.Abs( x));
         float theta_deg = (theta_rad / Mathf.PI * 180) + (theta_rad > 0 ? 0 : 360);
         angle = theta_deg;//(angle + 360) % 360;
 
@@ -94,7 +100,7 @@ public partial class Gun : MonoBehaviour,IGun
         //    theScale.x *= -1;
         //    gunPivot.transform.localScale = theScale;
         //}
-        //else if(!myPlayerControl.facingRight && gunPivot.transform.localScale.x > 0.0f)
+        //else if (!myPlayerControl.facingRight && gunPivot.transform.localScale.x > 0.0f)
         //{
         //    Debug.Log("facing Left");
         //    Vector3 theScale = gunPivot.transform.localScale;
@@ -103,7 +109,7 @@ public partial class Gun : MonoBehaviour,IGun
 
         //}
 
-        if( specialGunPower != null )
+        if ( specialGunPower != null )
         {
             specialGunPower.Update();
         }
@@ -133,7 +139,7 @@ public partial class Gun : MonoBehaviour,IGun
             }
             else if (myAmmo.CurrentAmmo > 0 )
             {
-
+                ArmAnimator.SetTrigger("Attack");
                 myAmmo.CurrentAmmo--;
                 OnAmmoUpdate.Invoke();
                 prefab = rocket;
@@ -154,8 +160,13 @@ public partial class Gun : MonoBehaviour,IGun
                 //{
                      // ... instantiate the rocket facing right and set it's velocity to the right. 
                     Rigidbody2D bulletInstance = Instantiate(prefab, transform.position, Quaternion.Euler(new Vector3(0, 0, 0))) as Rigidbody2D;
-                    dir = new Vector2(transform.right.x, transform.right.y) * speed;
 
+                    dir = new Vector2(transform.right.x, transform.right.y) * speed;
+                    if (myPlayerControl.facingRight == false)
+                    {
+                        dir *=-1;
+
+                    }
                     if (prefab == rocket)
                     {
                         bulletInstance.GetComponent<BulletLeach>().myOwner = myLifeSpan;
