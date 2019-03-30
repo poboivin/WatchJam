@@ -54,7 +54,14 @@ public partial class Gun : MonoBehaviour,IGun
 
     public int GetcurrentAmmo()
     {
-        return myAmmo.CurrentAmmo;
+        if (myAmmo == null)
+        {
+            return 0;
+        }
+        else
+        {
+            return myAmmo.CurrentAmmo;
+        }
     }
     
     void Awake()

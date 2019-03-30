@@ -21,7 +21,7 @@ public class LifeSpan : MonoBehaviour
     public Image lifeDisplay;
     [SerializeField]
     private float currentLife = 0;
-    public SpriteRenderer sp;
+    public SpriteRenderer[] sp;
     public AudioClip clip;
     public AudioSource source;
     //NEW UI Items
@@ -32,11 +32,14 @@ public class LifeSpan : MonoBehaviour
     public float HurtStartTime;
     [HideInInspector]
     public UnityEvent OnLifeUpdate;
+    [SerializeField]
     bool invincible;
-    public float invincibleDuration = 1.5f;
+    public float invincibleDuration = 1.0f;
+
+
     public void SetInvincibility(bool var)
     { 
-        invincible = var;
+       // invincible = var;
     }
 	// Use this for initialization
 	void Start ()
@@ -53,15 +56,14 @@ public class LifeSpan : MonoBehaviour
 		myGun2 = GetComponentInChildren<GunCopy2>();
         myText = GetComponentInChildren<Text>();
 
-        StartCoroutine( ChangeInvincibleCoroutine() );
+        sp = GetComponentsInChildren<SpriteRenderer>();
+
+        StartCoroutine( ChangeInvincibleCoroutine(invincibleDuration) );
+
+        
     }
 
-    IEnumerator ChangeInvincibleCoroutine()
-    {
-        invincible = true;
-        yield return new WaitForSeconds( invincibleDuration );
-        invincible = false;
-    }
+    
 
     private void SetLife(float amount)
     {
@@ -90,6 +92,8 @@ public class LifeSpan : MonoBehaviour
     {
         if( invincible)
         {
+            Debug.LogWarning("not hurt");
+
             return 0.0f;
         }
            
@@ -123,6 +127,7 @@ public class LifeSpan : MonoBehaviour
             //StopCoroutine(ianCoroutine());
 
 
+            StartCoroutine(ChangeInvincibleCoroutine(invincibleDuration));
             return decreasedLife;
         }
     }
@@ -193,17 +198,6 @@ public class LifeSpan : MonoBehaviour
         }
     }
 
-    public IEnumerator Flasher()
-    {
-        if (sp != null)
-        {
-            sp.material.SetFloat("_FlashAmount", 1);
-            yield return new WaitForSeconds(0.2f);
-
-            sp.material.SetFloat("_FlashAmount", 0);
-        }
-
-    }
 
     public IEnumerator ShowHealthShatter()
     {
@@ -218,6 +212,33 @@ public class LifeSpan : MonoBehaviour
         ShatterActive = false;
        
 
+    }
+
+    IEnumerator ChangeInvincibleCoroutine(float invulDur)
+    {
+        
+        invincible = true;
+        if (sp != null)
+        {
+            
+
+            for (int i = 0; i < (invulDur/0.2f); i++)
+            {
+                //Debug.Log(invincible);
+                foreach (SpriteRenderer spr in sp)
+                {
+                    spr.material.SetColor("_Tint", new Color(0.4f, 0.4f, 0.4f, 1.0f));
+                }
+                yield return new WaitForSeconds(0.1f);
+                foreach (SpriteRenderer spr in sp)
+                {
+                    spr.material.SetColor("_Tint", new Color(0.0f, 0.0f, 0.0f, 0.0f));
+                }
+                yield return new WaitForSeconds(0.1f);
+            }
+        }
+
+        invincible = false;
     }
 
 

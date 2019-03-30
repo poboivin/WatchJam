@@ -18,6 +18,8 @@ public class NewMelee : MonoBehaviour
 
     public TimeRewindController myTimeRewindController;
 
+    public PlayerControl playerController; 
+
     PlayerControl myPlayerControl;
     public float VelocityMagnitude = 50;
     public float Duration = .15f;
@@ -100,7 +102,7 @@ public class NewMelee : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        grounded = Physics2D.Linecast(transform.position, groundCheck.position, 1 << LayerMask.NameToLayer("Ground"));
+        grounded = playerController.grounded;
         if (grounded && active == false)
         {
             dashCount = 0;

@@ -23,8 +23,10 @@ public class PlayerControl : MonoBehaviour,ImouseAble
     public float normalJumpForce = 1500f;
 
 	private int tauntIndex;					// The index of the taunts array indicating the most recent taunt.
-	private Transform groundCheck;			// A position marking where to check if the player is grounded.
-	private bool grounded = false;          // Whether or not the player is grounded.
+	private Transform groundCheck1;
+    private Transform groundCheck2;
+    private Transform groundCheck3;          // A position marking where to check if the player is grounded.
+    public bool grounded = false;          // Whether or not the player is grounded.
                                             //private Animator anim;					// Reference to the player's animator component.
 
     public float MagicNum = 6;
@@ -33,6 +35,13 @@ public class PlayerControl : MonoBehaviour,ImouseAble
     public int PortalEntry = 0;
 
     public GameObject heroBody;
+    public Collider2D myCollider;
+
+    public LayerMask playerMask;
+
+    public bool BouceOffPlayers = true;
+    public float BounceOffYValue = 5.0f;
+    public float BounceOffXValue = 2.5f;
     
     void Awake()
 	{
@@ -40,21 +49,39 @@ public class PlayerControl : MonoBehaviour,ImouseAble
         myTimeController = gameObject.GetComponent<TimeController>();
         myInputManager = gameObject.GetComponent<PierInputManager>();
            // Setting up references.
-        groundCheck = transform.Find("groundCheck");
-	}
+        groundCheck1 = transform.Find("groundCheck1");
+        groundCheck2 = transform.Find("groundCheck2");
+        groundCheck3 = transform.Find("groundCheck3");
+    }
 
 
     void Update()
     {
-        // The player is grounded if a linecast to the groundcheck position hits anything on the ground layer.
-        grounded = Physics2D.Linecast(transform.position, groundCheck.position, 1 << LayerMask.NameToLayer("Ground"));
+
+        if (Physics2D.Linecast(transform.position, groundCheck1.position, 1 << LayerMask.NameToLayer("Ground")) ||
+            Physics2D.Linecast(transform.position, groundCheck2.position, 1 << LayerMask.NameToLayer("Ground")) ||
+            Physics2D.Linecast(transform.position, groundCheck3.position, 1 << LayerMask.NameToLayer("Ground")))
+        {
+            grounded = true;
+        }
+        else
+        {
+            grounded = false;
+            if(BouceOffPlayers)
+            {
+                BounceOff();
+            }
+            else
+            {
+
+            }
+            
+        }
 
         // If the jump button is pressed and the player is grounded then the player should jump.
         if ((myInputManager.GetButtonDown(Settings.c.jumpButton) || myInputManager.GetButtonDown(Settings.c.AltjumpButton)) && grounded)
 			jump = true;
             
-        
-        
 	}
 
 
@@ -225,5 +252,34 @@ public class PlayerControl : MonoBehaviour,ImouseAble
     void ImouseAble.setEnable(bool val)
     {
         this.enabled = val;
+    }
+
+    void BounceOff()
+    {
+        RaycastHit2D[] groundhit1 = Physics2D.LinecastAll(transform.position, groundCheck1.position, playerMask);
+        RaycastHit2D[] groundhit2 = Physics2D.LinecastAll(transform.position, groundCheck2.position, playerMask);
+        RaycastHit2D[] groundhit3 = Physics2D.LinecastAll(transform.position, groundCheck3.position, playerMask);
+
+        foreach (RaycastHit2D r1 in groundhit1)
+        {
+            if (r1.collider != null && r1.collider != myCollider)
+            {
+                GetComponent<Rigidbody2D>().AddForce(new Vector2(BounceOffXValue, BounceOffYValue),ForceMode2D.Impulse);
+            }
+        }
+        foreach (RaycastHit2D r2 in groundhit2)
+        {
+            if (r2.collider != null && r2.collider != myCollider)
+            {
+                GetComponent<Rigidbody2D>().AddForce(new Vector2(0.0f, BounceOffYValue*2), ForceMode2D.Impulse);
+            }
+        }
+        foreach (RaycastHit2D r3 in groundhit3)
+        {
+            if (r3.collider != null && r3.collider != myCollider)
+            {
+                GetComponent<Rigidbody2D>().AddForce(new Vector2(-BounceOffXValue, BounceOffYValue), ForceMode2D.Impulse);
+            }
+        }
     }
 }
