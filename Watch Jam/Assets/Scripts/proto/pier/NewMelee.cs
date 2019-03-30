@@ -15,6 +15,7 @@ public class NewMelee : MonoBehaviour
     [HideInInspector]
     public TimeStopController myTimeStopController;
     [HideInInspector]
+    Rigidbody2D myRigidbody;
 
     public TimeRewindController myTimeRewindController;
 
@@ -48,6 +49,7 @@ public class NewMelee : MonoBehaviour
 
     private List<Collider2D> ignored;
     private bool grounded = false;
+    float oldGravityScale;
     // Start is called before the first frame update
     void Start()
     {
@@ -59,6 +61,8 @@ public class NewMelee : MonoBehaviour
         myTimeRewindController = GetComponent<TimeRewindController>();
         oldScale = transform.localScale;
         groundCheck = transform.Find("groundCheck");
+        myRigidbody = GetComponent<Rigidbody2D>();
+        oldGravityScale = myRigidbody.gravityScale;
     }
     private void OnTriggerEnter(Collider other)
     {
@@ -129,9 +133,7 @@ public class NewMelee : MonoBehaviour
 
             if( myTimeController.isStopped == true )
             {
-                dashDir = new Vector2( myTimeController.myInputManager.GetAxis( Settings.c.MoveXAxis ),
-                    myTimeController.myInputManager.GetAxis( Settings.c.MoveYAxis ) );
-
+                dashDir = GetAimingDirection();
                 // if there is no direction controlled, aiming where the player facing at
                 if( dashDir.sqrMagnitude == 0.0f )
                 {
@@ -157,7 +159,7 @@ public class NewMelee : MonoBehaviour
                     //Debug.LogFormat( "Dash Dir = {0}, Angle = {1}", dashDir.ToString(), angle );
 
                     dashDirIndicator.transform.localRotation = Quaternion.Euler( new Vector3( 0, 0, angle ) );
-                    dashDirIndicator.transform.localScale = new Vector3( 2.0f, 1.3f, 1.0f ) * ( 0.5f + chargeRatio );
+                    dashDirIndicator.transform.localScale = new Vector3( 2.0f, 2.0f, 1.0f ) * chargeRatio;
                 }
             }
 
@@ -198,7 +200,7 @@ public class NewMelee : MonoBehaviour
                 transform.localScale = oldScale;
 
                 deactivate();
-                myTimeController.myRigidbody2D.velocity *= leftOverFactor;
+                myRigidbody.velocity *= leftOverFactor;
 
                 if( dashDir.sqrMagnitude != 0.0f )
                 {
@@ -227,9 +229,7 @@ public class NewMelee : MonoBehaviour
                 if(c!= null)
                 {
                     Physics2D.IgnoreCollision(this.GetComponent<Collider2D>(), c, false);
-
                 }
-
             }
             ignored.Clear();
         }
@@ -239,12 +239,9 @@ public class NewMelee : MonoBehaviour
     {
         active = true;
 
-        dir = new Vector2( myTimeController.myInputManager.GetAxis( Settings.c.MoveXAxis ),
-                        myTimeController.myInputManager.GetAxis( Settings.c.MoveYAxis ) );
+        dir = GetAimingDirection();
         myTimeStopController.enabled = false;
         myTimeRewindController.enabled = false;
-        if (currentState == state.melee)
-        {
             myLifeSpan.SetInvincibility(true);
             if (dir.sqrMagnitude == 0)
             {
@@ -257,7 +254,6 @@ public class NewMelee : MonoBehaviour
                     dir = Vector3.right;
                 }
             }
-        }
        
         if (myTimeController.isStopped)
         {
@@ -281,9 +277,34 @@ public class NewMelee : MonoBehaviour
     IEnumerator FreezePlayer()
     {
         isFrozen = true;
-        myTimeController.myRigidbody2D.constraints = RigidbodyConstraints2D.FreezeAll;
+        myRigidbody.gravityScale = 0.01f;
+        myRigidbody.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation;
         yield return new WaitForSeconds( maxFreezingCooldown * chargeRatio );
-        myTimeController.myRigidbody2D.constraints = RigidbodyConstraints2D.FreezeRotation;
+        myRigidbody.constraints = RigidbodyConstraints2D.FreezeRotation;
+        RestoreGravityScale();
         isFrozen = false;
+    }
+
+    public void RestoreGravityScale()
+    {
+        myRigidbody.gravityScale = oldGravityScale;
+    }
+
+    Vector2 GetAimingDirection()
+    {
+        Vector2 aimingDir = new Vector2( 0.0f, 0.0f ) ;
+        if( myInputManager.GetAxis( Settings.c.MainAimXAxis ) != 0 || 
+            myInputManager.GetAxis( Settings.c.MainAimYAxis ) != 0 )
+        {
+            aimingDir.x = myInputManager.GetAxis( Settings.c.MainAimXAxis );
+            aimingDir.y = myInputManager.GetAxis( Settings.c.MainAimYAxis );
+        }
+        else if( myInputManager.GetAxis( Settings.c.AltAimXAxis ) != 0 || 
+            myInputManager.GetAxis( Settings.c.AltAimYAxis ) != 0 )
+        {
+            aimingDir.x = myInputManager.GetAxis( Settings.c.AltAimXAxis );
+            aimingDir.y = myInputManager.GetAxis( Settings.c.AltAimYAxis );
+        }
+        return aimingDir;
     }
 }
