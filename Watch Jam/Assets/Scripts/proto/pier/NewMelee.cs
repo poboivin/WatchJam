@@ -81,7 +81,7 @@ public class NewMelee : MonoBehaviour
     {
         if (active)
         {
-            Debug.LogFormat( "hit {0} with body", collision.collider.name );
+            //Debug.LogFormat( "hit {0} with body", collision.collider.name );
             DamagePlayer( collision.collider );
         }
     }
