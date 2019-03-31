@@ -137,6 +137,12 @@ public partial class Gun : MonoBehaviour,IGun
             {
                 prefab = rocket;
             }
+            else if( specialGunPower != null && specialGunPower.numSpecialBullets > 0 )
+            {
+                // deduct the ammo count in gun power's FireBullet function
+                // also disable the gun power if its ammo becomes zero
+                prefab = rocket;
+            }
             else if (myAmmo.CurrentAmmo > 0 )
             {
                 ArmAnimator.SetTrigger("Attack");
@@ -146,7 +152,12 @@ public partial class Gun : MonoBehaviour,IGun
                
 
             }
-            
+            /*
+            if( specialGunPower != null )
+                Debug.LogFormat( "Ammo = {0}, Special = {1}", myAmmo.CurrentAmmo, specialGunPower.numSpecialBullets );
+            else
+                Debug.LogFormat( "Ammo = {0}", myAmmo.CurrentAmmo );
+            */
 
             if (prefab != null)
             {

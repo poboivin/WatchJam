@@ -13,7 +13,8 @@ public class pickup : MonoBehaviour
         bounce,         // Bullet can bounce the wall
         pierce,
         thicc,
-		warp
+		warp,
+        timedBomb
     }
     public pickUpType type;
     public Rigidbody2D Grenade;              // Prefab of the rocket.
@@ -144,6 +145,22 @@ public class pickup : MonoBehaviour
 					}
 				}
 			}
+            else if( type == pickUpType.timedBomb )
+            {
+                Gun playerGun = collision.GetComponentInChildren<Gun>();
+                if( playerGun != null )
+                {
+                    PickupTimedBomb bombInfo = gameObject.GetComponent<PickupTimedBomb>();
+                    if( bombInfo != null )
+                    {
+                        playerGun.SetGunPower( new GunPowerTimedBomb( playerGun, bombInfo ) );
+                        if( Grenade != null )
+                        {
+                            playerGun.rocket = Grenade;
+                        }
+                    }
+                }
+            }
 
             Destroy( gameObject);
             //play pickup sound
