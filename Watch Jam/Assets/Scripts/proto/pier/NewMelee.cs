@@ -21,11 +21,13 @@ public class NewMelee : MonoBehaviour
     private float currentDashForce = 0;
     public float minDashForce = 0;
     public float fullDashForce = 4000;
+    
     public float DashingDuration = .2f;
     private float Timer;
     public bool active = false;
     public Vector2 leftOverFactor = new Vector2( 0.2f, 0.0f );
     Vector3 oldScale;
+    public float minChargeTime = 0.25f;
     public float fullChargeTime = 2.0f;
     private float chargeRatio;
     private float chargeStartTimeStamp;
@@ -79,7 +81,7 @@ public class NewMelee : MonoBehaviour
     {
         if (active)
         {
-            //Debug.LogFormat( "hit {0} with body", collision.collider.name );
+            Debug.LogFormat( "hit {0} with body", collision.collider.name );
             DamagePlayer( collision.collider );
         }
     }
@@ -243,45 +245,53 @@ public class NewMelee : MonoBehaviour
     
     public void activate()
     {
-        active = true;
-
-        myTimeStopController.enabled = false;
-        myTimeRewindController.enabled = false;
-        myLifeSpan.SetInvincibility( true );
-
-        dashDir = GetAimingDirection();
-        if ( dashDir.sqrMagnitude == 0)
+        if( chargeRatio == 0.0f )
         {
-            if (myPlayerControl.facingRight)
+            deactivate();
+
+        }
+        else
+        {
+            active = true;
+
+            myTimeStopController.enabled = false;
+            myTimeRewindController.enabled = false;
+            myLifeSpan.SetInvincibility( true );
+
+            dashDir = GetAimingDirection();
+            if( dashDir.sqrMagnitude == 0 )
             {
-                dashDir = Vector3.right;
+                if( myPlayerControl.facingRight )
+                {
+                    dashDir = Vector3.right;
+                }
+                else
+                {
+                    dashDir = Vector3.left;
+                }
             }
-            else
+
+            if( myTimeController.isStopped )
             {
-                dashDir = Vector3.left;
+                myTimeController.StopTimeStop();
             }
+            if( myTimeController.isRewinding )
+            {
+                myTimeController.StopRewind();
+
+            }
+
+            GameObject dashMelee = Instantiate( dashUI, gameObject.transform );
+            if( dashMelee )
+                Destroy( dashMelee, maxFreezingCooldown * chargeRatio );
+
+            oldScale = transform.localScale;
+
+            // change the way of dashing to give a force instead of chainging a velocity
+            // this way becomes easier to control the gravity scale
+            //Debug.LogFormat( "Dash force = {0}", currentDashForce );
+            myRigidbody.AddForce( dashDir.normalized * currentDashForce );
         }
-       
-        if (myTimeController.isStopped)
-        {
-            myTimeController.StopTimeStop();
-        }
-        if (myTimeController.isRewinding)
-        {
-            myTimeController.StopRewind();
-
-        }
-
-        GameObject dashMelee = Instantiate( dashUI, gameObject.transform );
-        if( dashMelee)
-            Destroy( dashMelee, maxFreezingCooldown * chargeRatio );
-
-        oldScale = transform.localScale;
-
-        // change the way of dashing to give a force instead of chainging a velocity
-        // this way becomes easier to control the gravity scale
-        //Debug.LogFormat( "Dash force = {0}", currentDashForce );
-        myRigidbody.AddForce( dashDir.normalized * currentDashForce );
     }
 
     IEnumerator FreezePlayer()
@@ -326,6 +336,7 @@ public class NewMelee : MonoBehaviour
         float elapsedTime = Time.time - chargeStartTimeStamp;
         elapsedTime = Mathf.Clamp( elapsedTime, 0, fullChargeTime );
         float ratio = elapsedTime / fullChargeTime;
-        return ratio;
+        float minRatio = minChargeTime / fullChargeTime;
+        return ratio >= minRatio ? ratio : 0.0f;
     }
 }

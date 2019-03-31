@@ -1252,26 +1252,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6915440f3bec8c4a961fa135b825161, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentState: 0
   myInputManager: {fileID: 0}
   myLifeSpan: {fileID: 0}
   myTimeController: {fileID: 0}
   myTimeStopController: {fileID: 0}
   myTimeRewindController: {fileID: 0}
-  meleeVelocityMagnitude: 10
-  minDashVelocityMagnitude: 40
-  fullDashVelocityMagnitude: 100
-  Duration: 0.2
-  Timer: 0
+  minDashForce: 0
+  fullDashForce: 4000
+  DashingDuration: 0.2
   active: 0
-  leftOverFactor: 0.33
-  dashChargeTimer: 0.5
+  leftOverFactor: {x: 0.2, y: 0}
   fullChargeTime: 2
-  chargeTimeStamp: 0
   temp: 0
   dashCount: 0
   offgroundDashLimit: 1
-  meleeCount: 0
   dashUI: {fileID: 1352123968283001797, guid: d3d2f2923ea042f4dbffc96e2b1b2e91, type: 3}
   dashDirIndicator: {fileID: 9082213948539277738}
   maxFreezingCooldown: 2.5
@@ -2414,7 +2408,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2390286352921460744}
   m_LocalRotation: {x: -0, y: -0, z: -0.00000008742278, w: -1}
-  m_LocalPosition: {x: 0.44, y: 0, z: 0}
+  m_LocalPosition: {x: 1.73, y: 0, z: 0}
   m_LocalScale: {x: 0.037276506, y: 0.037276506, z: 0.037276506}
   m_Children: []
   m_Father: {fileID: 4213523560083696120}

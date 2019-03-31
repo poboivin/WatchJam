@@ -24,7 +24,8 @@ public class DashMelee : MonoBehaviour
         NewMelee player = gameObject.GetComponentInParent<NewMelee>();
         if( player )
         {
-            Debug.LogFormat( "hit {0} with effect", collider.name );
+            //Debug.LogFormat( "hit {0} with effect", collider.name );
+            // this effect only appears in dash state
             player.DamagePlayer( collider );
         }
     }
