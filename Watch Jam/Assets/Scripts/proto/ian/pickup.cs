@@ -14,7 +14,7 @@ public class pickup : MonoBehaviour
         pierce,
         thicc,
 		warp,
-        warpAndPierce
+        timedBomb
     }
     public pickUpType type;
     public Rigidbody2D Grenade;              // Prefab of the rocket.
@@ -145,21 +145,17 @@ public class pickup : MonoBehaviour
 					}
 				}
 			}
-            else if (type == pickUpType.warpAndPierce)
+            else if( type == pickUpType.timedBomb )
             {
-                Debug.Log("hi.");
                 Gun playerGun = collision.GetComponentInChildren<Gun>();
-                if (playerGun != null)
+                if( playerGun != null )
                 {
-                    Debug.Log("hi..");
-                    PickupWarpAndPierce warpInfo = gameObject.GetComponent<PickupWarpAndPierce>();
-                    if (warpInfo != null)
+                    PickupTimedBomb bombInfo = gameObject.GetComponent<PickupTimedBomb>();
+                    if( bombInfo != null )
                     {
-                        Debug.Log("hi...");
-                        playerGun.SetGunPower(new GunPowerWarpAndPierce(playerGun, warpInfo));
-                        if (Grenade != null)
+                        playerGun.SetGunPower( new GunPowerTimedBomb( playerGun, bombInfo ) );
+                        if( Grenade != null )
                         {
-                            Debug.Log("hi....");
                             playerGun.rocket = Grenade;
                         }
                     }
