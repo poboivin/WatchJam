@@ -17,7 +17,7 @@ MonoBehaviour:
   gunKnockBack: 0
   bulletKnockBack: 200
   bulletDamage: 3
-  meleeDamage: 9
+  meleeDamage: 2
   meleeKnockBack: 10
   totalLife: 9
   stopTimeStoreBullet: 0
