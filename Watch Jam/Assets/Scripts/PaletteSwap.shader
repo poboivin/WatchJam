@@ -11,6 +11,7 @@
 		_Out2("Out2", Color) = (1,1,1,1)
 		_In3("in3", Color) = (1,1,1,1)
 		_Out3("Out3", Color) = (1,1,1,1)
+		_Tint("InvulTint", Color) = (0,0,0,0)
 	}
 	SubShader
 	{
@@ -38,6 +39,7 @@
 			fixed4 _Out2;
 			fixed4 _In3;
 			fixed4 _Out3;
+			fixed4 _Tint;
 
 			struct appdata
 			{
@@ -90,6 +92,8 @@
 					col = _Out3;*/
 
 				UNITY_APPLY_FOG(i.fogCoord, col);
+
+				col += _Tint;
 
 				return col;
 
