@@ -58,7 +58,8 @@ public class AfterImage : MonoBehaviour
 			myMineRenderer.positionCount = myTimeController.myTimeBody.pointsInTime.Count + 1;
 			Vector3 start = transform.position;
 			myMineRenderer.SetPosition (0, transform.position);
-			for (int i = 0; i < myTimeController.myTimeBody.pointsInTime.Count; i++) {
+			for (int i = 0; i < myTimeController.myTimeBody.pointsInTime.Count; i++)
+            {
 				myMineRenderer.SetPosition (i + 1, myTimeController.myTimeBody.pointsInTime [i].Position);
 			}
 			if (myRewindController.useNewRewind)
@@ -70,10 +71,8 @@ public class AfterImage : MonoBehaviour
 						ghostImage = new GameObject ();
 					}
                     else
-                    {
 						ghostImage.SetActive (true);
 
-                    }
 					isSpawned = true;
 					if (!ghostImage.GetComponent (typeof(SpriteRenderer)))
                     {
@@ -81,14 +80,10 @@ public class AfterImage : MonoBehaviour
 						ghostRenderer.sprite = sprite.sprite;
 						ghostRenderer.sortingLayerID = sprite.sortingLayerID;
 					}
-                    if (ghostImage)
-                    {
-                        ghostImage.transform.position = myTimeController.myTimeBody.pointsInTime[myTimeController.myTimeBody.pointsInTime.Count - 1].Position;
-                        ghostImage.transform.localScale = sprite.transform.lossyScale;
+					ghostImage.transform.position = myTimeController.myTimeBody.pointsInTime [myTimeController.myTimeBody.pointsInTime.Count - 1].Position;
+					ghostImage.transform.localScale = sprite.transform.lossyScale;
 
-                    }
-
-                }
+				}
 			}
 
 		} else
@@ -97,12 +92,8 @@ public class AfterImage : MonoBehaviour
 
 	public void DisableGhost(){
 		myMineRenderer.enabled = false;
-        if (ghostImage)
-        {
-            ghostImage.SetActive(false);
-
-        }
-    }
+		ghostImage.SetActive (false);
+	}
     // Use this for initialization
     public void Update()
     {

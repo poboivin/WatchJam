@@ -28,6 +28,7 @@ public class TimeController : MonoBehaviour
     public bool isRewinding = false;
     [SerializeField]
     public bool isStopped = false;
+    public bool LoseTimeWhileStopped = true;
 
     
     private float AmmoTimer = 0;
@@ -168,6 +169,10 @@ public class TimeController : MonoBehaviour
                 {
                     myTimeBody.isRecording = false;
                    // Debug.Log("im an not recording");
+                   if ((myInputManager.GetAxis(Settings.c.Rewind) > 0.6) && (myTimeBody.pointsInTime.Count >= 1) && LoseTimeWhileStopped)
+                    {
+                        myTimeBody.pointsInTime.RemoveAt(myTimeBody.pointsInTime.Count - 1);
+                    }
                 }
                 else
                 {

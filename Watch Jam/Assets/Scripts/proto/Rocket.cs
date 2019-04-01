@@ -86,6 +86,7 @@ public class Rocket : MonoBehaviour
 			rb.velocity = Vector2.zero;
 			rb.isKinematic = true;
 			rocketTime = TimeAlive - destroyWaitTime;
+            GetComponent<BoxCollider2D>().enabled = false;
         }
         else if (col.tag == "Bullet")
         {

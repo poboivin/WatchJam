@@ -529,6 +529,10 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 1872719758022782, guid: da8b1dc51172f2b49ba4ce19dbfef718, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 114762429445593054, guid: da8b1dc51172f2b49ba4ce19dbfef718,
         type: 3}
       propertyPath: RecordTime
@@ -539,8 +543,9 @@ PrefabInstance:
       propertyPath: isRewinding
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1872719758022782, guid: da8b1dc51172f2b49ba4ce19dbfef718, type: 3}
-      propertyPath: m_IsActive
+    - target: {fileID: 114155541732015876, guid: da8b1dc51172f2b49ba4ce19dbfef718,
+        type: 3}
+      propertyPath: useNewRewind
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -2740,12 +2745,6 @@ Transform:
 --- !u!1 &425707041 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1182606819714146, guid: 70b05e8a84d42d54f93ed47bad434476,
-    type: 3}
-  m_PrefabInstance: {fileID: 1611326793}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &425707058 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4449791751353212, guid: 70b05e8a84d42d54f93ed47bad434476,
     type: 3}
   m_PrefabInstance: {fileID: 1611326793}
   m_PrefabAsset: {fileID: 0}
@@ -6000,7 +5999,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   inputManager: {fileID: 608063792}
-  SpawnButton: 3
+  SpawnButton: 2
   HeroPrefab: {fileID: 0}
 --- !u!4 &608063794
 Transform:
@@ -7623,36 +7622,6 @@ Transform:
   - {fileID: 862032109}
   m_Father: {fileID: 0}
   m_RootOrder: 35
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &846817034
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 846817035}
-  m_Layer: 9
-  m_Name: groundCheck3
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &846817035
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 846817034}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.98904604, z: 0}
-  m_LocalScale: {x: 0.99999994, y: 0.99999994, z: 1}
-  m_Children: []
-  m_Father: {fileID: 425707058}
-  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &847778942
 GameObject:
@@ -12558,10 +12527,6 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1006094657532404, guid: 70b05e8a84d42d54f93ed47bad434476, type: 3}
-      propertyPath: m_Name
-      value: groundCheck1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 70b05e8a84d42d54f93ed47bad434476, type: 3}
 --- !u!1 &1642965253
@@ -15078,36 +15043,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2067532227}
   m_CullTransparentMesh: 0
---- !u!1 &2087218568
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2087218569}
-  m_Layer: 9
-  m_Name: groundCheck2
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2087218569
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2087218568}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.98904604, z: 0}
-  m_LocalScale: {x: 0.99999994, y: 0.99999994, z: 1}
-  m_Children: []
-  m_Father: {fileID: 425707058}
-  m_RootOrder: 8
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2088480905
 GameObject:
   m_ObjectHideFlags: 0

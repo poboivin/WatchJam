@@ -37,21 +37,21 @@ public class TimeRewindController : MonoBehaviour
     private bool controllerTriggered = false;
 	// Update is called once per frame
 	void Update () {
-		if (useNewRewind) {
+		
 			if (myTimeController.isRewinding == false &&
 			    myInputManager.GetAxis (Settings.c.Rewind) > 0.6f &&
 			    canShowTrail &&
 			    (myAmmo.CurrentAmmo < myAmmo.MaxAmmo || Settings.s.noLimits)) {
-				if (myTimeBody.pointsInTime.Count >= myTimeBody.RecordTime * 25) {
-					myAfterImage.DrawLine ();
 
-				}
+                if (myTimeBody.pointsInTime.Count >= 1)
+                      myAfterImage.DrawLine();
 
 				controllerTriggered = true;
 			}
 
 			if (myInputManager.GetAxis (Settings.c.TimeStop) > 0.5f) {
-				canShowTrail = false;
+                myAfterImage.DisableGhost();
+                canShowTrail = false;
 				controllerTriggered = false;
 			}
 			if (controllerTriggered == true &&
@@ -78,32 +78,7 @@ public class TimeRewindController : MonoBehaviour
 			if (myTimeController.isRewinding == false && controllerTriggered == true) {
 
 			}
-		}
-		else 
-		{
-			if( myTimeController.isRewinding == false &&
-				controllerTriggered == false &&
-				myInputManager.GetAxis(Settings.c.Rewind) > 0.6f && 
-				( myAmmo.CurrentAmmo < myAmmo.MaxAmmo || Settings.s.noLimits ) )
-			{
-				if( myTimeBody.pointsInTime.Count >= 60 )
-				{
-					myTimeController.StartRewind();
-				}
-				controllerTriggered = true;
-			}
-
-			if( myTimeController.isRewinding == true &&
-				controllerTriggered == true &&
-				myInputManager.GetAxis(Settings.c.Rewind) < 0.1f )
-			{
-				myTimeController.StopRewind();
-				controllerTriggered = false;
-			}
-
-			// release trigger in case more than two rewind events happen at the same time.
-			if( myTimeController.isRewinding == false && controllerTriggered == true )
-				controllerTriggered = false;
-		}
+		
+		
     }
 }
