@@ -87,8 +87,12 @@ public class PlayerControl : MonoBehaviour,ImouseAble
 
 	void FixedUpdate ()
 	{
-        myAnimator.SetBool("Grounded",grounded);
-        myAnimator.SetFloat("Y Velocity", GetComponent<Rigidbody2D>().velocity.y);
+        if(myAnimator != null)
+        {
+            myAnimator.SetBool("Grounded", grounded);
+            myAnimator.SetFloat("Y Velocity", GetComponent<Rigidbody2D>().velocity.y);
+        }
+       
 		// Cache the horizontal input.
 		float h = myInputManager.GetAxis( Settings.c.MoveXAxis);
         float h2 = myInputManager.GetAxis(Settings.c.MainAimXAxis);
@@ -97,14 +101,20 @@ public class PlayerControl : MonoBehaviour,ImouseAble
         // The Speed animator parameter is set to the absolute value of the horizontal input.
         if (grounded && myTimeController.isStopped == false)
         {
-            myAnimator.SetFloat("Velocity", Mathf.Abs(h));
-            
+            if(myAnimator != null)
+            {
+                myAnimator.SetFloat("Velocity", Mathf.Abs(h));
+
+            }
+
 
         }
         else
         {
-            myAnimator.SetFloat("Velocity", 0);
-
+            if (myAnimator != null)
+            {
+                myAnimator.SetFloat("Velocity", 0);
+            }
         }
         // If the player is changing direction (h has a different sign to velocity.x) or hasn't reached maxSpeed yet...
         if (h * GetComponent<Rigidbody2D>().velocity.x < maxSpeed)
@@ -167,7 +177,11 @@ public class PlayerControl : MonoBehaviour,ImouseAble
     {
         if(grounded == true)
         {
-            myAnimator.SetTrigger("JumpTrigger");
+            if(myAnimator != null)
+            {
+                myAnimator.SetTrigger("JumpTrigger");
+
+            }
             remaningForce = jumpForce * (JumpMultiplier); ;
             int i = Random.Range(0, jumpClips.Length);
             AudioSource.PlayClipAtPoint(jumpClips[i], transform.position);

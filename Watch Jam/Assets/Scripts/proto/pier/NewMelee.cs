@@ -150,9 +150,9 @@ public class NewMelee : MonoBehaviour
                 chargeStartTimeStamp = Time.time;
             }
 
-            grounded = Physics2D.Linecast( transform.position, groundCheck.position, 1 << LayerMask.NameToLayer( "Ground" ) );
+            grounded = myPlayerControl.grounded;
             // can dash?
-            if( isFrozen == false )
+            if ( isFrozen == false )
             {
                 if( grounded )
                 {
