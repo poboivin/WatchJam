@@ -94,7 +94,8 @@ public class TimeBody : MonoBehaviour, IRewindAble
 
 	public void doInstantRewind(){
 		rb.position = pointsInTime [pointsInTime.Count - 1].Position;
-		pointsInTime.Clear ();
+        rb.velocity = Vector2.zero;
+        pointsInTime.RemoveRange(0, pointsInTime.Count - 1);
 	}
 
     public void stopRewind()

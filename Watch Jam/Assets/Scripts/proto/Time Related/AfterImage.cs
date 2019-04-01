@@ -58,17 +58,24 @@ public class AfterImage : MonoBehaviour
 			myMineRenderer.positionCount = myTimeController.myTimeBody.pointsInTime.Count + 1;
 			Vector3 start = transform.position;
 			myMineRenderer.SetPosition (0, transform.position);
-			for (int i = 0; i < myTimeController.myTimeBody.pointsInTime.Count; i++) {
+			for (int i = 0; i < myTimeController.myTimeBody.pointsInTime.Count; i++)
+            {
 				myMineRenderer.SetPosition (i + 1, myTimeController.myTimeBody.pointsInTime [i].Position);
 			}
-			if (myRewindController.useNewRewind) {
-				foreach (SpriteRenderer sprite in sprites) {
-					if (!isSpawned) {
+			if (myRewindController.useNewRewind)
+            {
+				foreach (SpriteRenderer sprite in sprites)
+                {
+					if (!isSpawned)
+                    {
 						ghostImage = new GameObject ();
-					} else
+					}
+                    else
 						ghostImage.SetActive (true);
+
 					isSpawned = true;
-					if (!ghostImage.GetComponent (typeof(SpriteRenderer))) {
+					if (!ghostImage.GetComponent (typeof(SpriteRenderer)))
+                    {
 						SpriteRenderer ghostRenderer = ghostImage.AddComponent<SpriteRenderer> ();
 						ghostRenderer.sprite = sprite.sprite;
 						ghostRenderer.sortingLayerID = sprite.sortingLayerID;

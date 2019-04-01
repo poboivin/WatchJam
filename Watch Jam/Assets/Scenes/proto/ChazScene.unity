@@ -543,6 +543,11 @@ PrefabInstance:
       propertyPath: isRewinding
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114155541732015876, guid: da8b1dc51172f2b49ba4ce19dbfef718,
+        type: 3}
+      propertyPath: useNewRewind
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: da8b1dc51172f2b49ba4ce19dbfef718, type: 3}
 --- !u!1 &50698217
