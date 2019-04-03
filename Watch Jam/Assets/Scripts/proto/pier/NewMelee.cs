@@ -46,6 +46,9 @@ public class NewMelee : MonoBehaviour
     private List<Collider2D> ignored;
     private bool grounded = false;
     float oldGravityScale;
+    public AudioSource myAudioSource;
+    public SoundBite meleeClip;
+
     // Start is called before the first frame update
     void Start()
     {

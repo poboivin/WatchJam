@@ -17,7 +17,7 @@ public class PlayerControl : MonoBehaviour,ImouseAble
 	public float maxSpeed = 5f;				// The fastest the player can travel in the x axis.
 	public AudioClip[] jumpClips;			// Array of clips for when the player jumps.
 	public float jumpForce = 1000f;			// Amount of force added when the player jumps.
-	public AudioClip[] taunts;				// Array of clips for when the player taunts.
+	public AudioClip[] footsteps;			// Array of clips for when the player is running.
 	public float tauntProbability = 50f;	// Chance of a taunt happening.
 	public float tauntDelay = 1f;			// Delay for when the taunt should happen.
     public float normalJumpForce = 1500f;
@@ -136,7 +136,8 @@ public class PlayerControl : MonoBehaviour,ImouseAble
         {
             // ... set the player's velocity to the maxSpeed in the x axis.
             GetComponent<Rigidbody2D>().velocity  = (new Vector2(Mathf.Sign(GetComponent<Rigidbody2D>().velocity.x) * maxSpeed, GetComponent<Rigidbody2D>().velocity.y));
-
+            
+            
             // GetComponent<Rigidbody2D>().AddForce(new Vector2(Mathf.Sign(GetComponent<Rigidbody2D>().velocity.x) * maxSpeed, GetComponent<Rigidbody2D>().velocity.y));
         }
         // If the input is moving the player right and the player is facing left...
@@ -227,7 +228,7 @@ public class PlayerControl : MonoBehaviour,ImouseAble
 	}
 
 
-	public IEnumerator Taunt()
+	/*public IEnumerator Taunt()
 	{
 		// Check the random chance of taunting.
 		float tauntChance = Random.Range(0f, 100f);
@@ -243,26 +244,26 @@ public class PlayerControl : MonoBehaviour,ImouseAble
 				tauntIndex = TauntRandom();
 
 				// Play the new taunt.
-				GetComponent<AudioSource>().clip = taunts[tauntIndex];
+				//GetComponent<AudioSource>().clip = taunts[tauntIndex];
 				GetComponent<AudioSource>().Play();
 			}
 		}
-	}
+	}*/
 
 
-	int TauntRandom()
+	/*int TauntRandom()
 	{
 		// Choose a random index of the taunts array.
-		int i = Random.Range(0, taunts.Length);
+		//int i = Random.Range(0, taunts.Length);
 
 		// If it's the same as the previous taunt...
-		if(i == tauntIndex)
+		//if(i == tauntIndex)
 			// ... try another random taunt.
-			return TauntRandom();
-		else
+			//return TauntRandom();
+		//else
 			// Otherwise return this index.
-			return i;
-	}
+			//return i;
+	}*/
     void ImouseAble.setEnable(bool val)
     {
         this.enabled = val;
