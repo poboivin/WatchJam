@@ -94,7 +94,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4383004accee7494fba3cf64d65513c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosion: {fileID: 100000, guid: 42404bf7d14c342f69690c9961a7530d, type: 3}
+  explosion: {fileID: 153390, guid: 3c2d41265118fc14f8065fbfc45391d0, type: 3}
   TimeAlive: 4
   destroyWaitTime: 3
   myOwner: {fileID: 0}
