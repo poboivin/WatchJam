@@ -17,12 +17,13 @@ public class AfterImage : MonoBehaviour
 	GameObject ghostImage;
 	public bool showAfterImage = true;
 	public bool showTrail = true;
-
+    Material material;
     void Start()
     {
         myTimeController = GetComponent<TimeController>();
         myMineRenderer = GetComponent<LineRenderer>();
 		myRewindController = GetComponent<TimeRewindController> ();
+        material = GetComponentInChildren<Animator>().GetComponent<SpriteRenderer>().material;
         timer = delay;
 
     }
@@ -78,7 +79,9 @@ public class AfterImage : MonoBehaviour
                     {
 						SpriteRenderer ghostRenderer = ghostImage.AddComponent<SpriteRenderer> ();
 						ghostRenderer.sprite = sprite.sprite;
-						ghostRenderer.sortingLayerID = sprite.sortingLayerID;
+                        ghostRenderer.material = material;
+
+                        ghostRenderer.sortingLayerID = sprite.sortingLayerID;
 					}
 					ghostImage.transform.position = myTimeController.myTimeBody.pointsInTime [myTimeController.myTimeBody.pointsInTime.Count - 1].Position;
 					ghostImage.transform.localScale = sprite.transform.lossyScale;
@@ -90,10 +93,15 @@ public class AfterImage : MonoBehaviour
 			DisableGhost ();
     }
 
-	public void DisableGhost(){
+	public void DisableGhost()
+    {
 		myMineRenderer.enabled = false;
-		ghostImage.SetActive (false);
-	}
+        if(ghostImage != null)
+        {
+            ghostImage.SetActive(false);
+
+        }
+    }
     // Use this for initialization
     public void Update()
     {

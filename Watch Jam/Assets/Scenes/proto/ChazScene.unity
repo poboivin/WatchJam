@@ -548,6 +548,11 @@ PrefabInstance:
       propertyPath: useNewRewind
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114155541732015876, guid: da8b1dc51172f2b49ba4ce19dbfef718,
+        type: 3}
+      propertyPath: myAfterImage
+      value: 
+      objectReference: {fileID: 1578768733}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: da8b1dc51172f2b49ba4ce19dbfef718, type: 3}
 --- !u!1 &50698217
@@ -11986,6 +11991,18 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 37576212}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1578768733 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114165931933754966, guid: da8b1dc51172f2b49ba4ce19dbfef718,
+    type: 3}
+  m_PrefabInstance: {fileID: 37576212}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1578768721}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 197e2bca2096e9a46a743bd79452266e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1581632119
 GameObject:
   m_ObjectHideFlags: 0
