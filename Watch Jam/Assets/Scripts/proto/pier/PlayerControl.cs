@@ -57,7 +57,8 @@ public class PlayerControl : MonoBehaviour,ImouseAble
 
     void Update()
     {
-        if (GetComponent<Rigidbody2D>().velocity.y<= 0)
+        grounded = false;
+        if (GetComponent<Rigidbody2D>().velocity.y <= 0.1f)
         {
           if (Physics2D.Linecast(transform.position, groundCheck1.position, 1 << LayerMask.NameToLayer("Ground")) ||
                     Physics2D.Linecast(transform.position, groundCheck2.position, 1 << LayerMask.NameToLayer("Ground")) ||
