@@ -33,7 +33,7 @@ MonoBehaviour:
   rewindAmmoRegen: 0
   passiveAmmoRegen: 1
   rewindAmmoFactor: 0
-  passiveAmmoFactor: 1
+  passiveAmmoFactor: 0.5
   stopTimeAmmoFactor: 1
   TwiceAsFastRewind: 0
   ImmobileRecord: 0

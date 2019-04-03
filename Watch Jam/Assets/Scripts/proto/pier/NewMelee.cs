@@ -301,7 +301,7 @@ public class NewMelee : MonoBehaviour
     {
         //Debug.Log( "Freeze" );
         isFrozen = true;
-        myRigidbody.gravityScale = 0.01f;
+        myRigidbody.gravityScale = 0;
         myRigidbody.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation;
         yield return new WaitForSeconds( maxFreezingCooldown * chargeRatio );
         //Debug.Log( "Unfreeze" );

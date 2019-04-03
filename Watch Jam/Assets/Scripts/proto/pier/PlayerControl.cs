@@ -57,26 +57,29 @@ public class PlayerControl : MonoBehaviour,ImouseAble
 
     void Update()
     {
-
-        if (Physics2D.Linecast(transform.position, groundCheck1.position, 1 << LayerMask.NameToLayer("Ground")) ||
-            Physics2D.Linecast(transform.position, groundCheck2.position, 1 << LayerMask.NameToLayer("Ground")) ||
-            Physics2D.Linecast(transform.position, groundCheck3.position, 1 << LayerMask.NameToLayer("Ground")))
+        if (GetComponent<Rigidbody2D>().velocity.y<= 0)
         {
-            grounded = true;
-        }
-        else
-        {
-            grounded = false;
-            if(BouceOffPlayers)
-            {
-                BounceOff();
-            }
-            else
-            {
+          if (Physics2D.Linecast(transform.position, groundCheck1.position, 1 << LayerMask.NameToLayer("Ground")) ||
+                    Physics2D.Linecast(transform.position, groundCheck2.position, 1 << LayerMask.NameToLayer("Ground")) ||
+                    Physics2D.Linecast(transform.position, groundCheck3.position, 1 << LayerMask.NameToLayer("Ground")))
+                {
+                    grounded = true;
+                }
+                else
+                {
+                    grounded = false;
+                    if(BouceOffPlayers)
+                    {
+                        BounceOff();
+                    }
+                    else
+                    {
 
-            }
+                    }
             
+                }
         }
+      
 
         // If the jump button is pressed and the player is grounded then the player should jump.
         if ((myInputManager.GetButtonDown(Settings.c.jumpButton) || myInputManager.GetButtonDown(Settings.c.AltjumpButton)) && grounded)
