@@ -17,7 +17,7 @@ MonoBehaviour:
   gunKnockBack: 0.03
   bulletKnockBack: 200
   bulletDamage: 3
-  meleeDamage: 2
+  meleeDamage: 3
   meleeKnockBack: 10
   fireRate: 0.5
   totalLife: 9

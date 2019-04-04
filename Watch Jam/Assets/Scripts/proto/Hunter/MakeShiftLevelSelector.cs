@@ -46,11 +46,13 @@ public class MakeShiftLevelSelector : MonoBehaviour
     public void LoadJapanLevel()
     {
         SceneManager.LoadScene(0);
+        ToggleUI(false);
     }
 
     public void LoadFuturisticLevel()
     {
         SceneManager.LoadScene(1);
+        ToggleUI(false);
     }
 
 

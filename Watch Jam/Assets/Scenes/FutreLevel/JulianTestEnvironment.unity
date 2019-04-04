@@ -6532,6 +6532,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3633503289520409639, guid: 914fccd295edb2e44ac0cb159c91284f,
+        type: 3}
+      propertyPath: invincibleDuration
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3744234792323944211, guid: 914fccd295edb2e44ac0cb159c91284f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -6586,11 +6591,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3633503289520409639, guid: 914fccd295edb2e44ac0cb159c91284f,
-        type: 3}
-      propertyPath: invincibleDuration
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2820180906561672566, guid: 914fccd295edb2e44ac0cb159c91284f,
         type: 3}
@@ -7206,6 +7206,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Required Per Level
+      objectReference: {fileID: 0}
+    - target: {fileID: 3188322284495072677, guid: c9397afb1dda8744989ed56a07e41494,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1262378066695467244, guid: c9397afb1dda8744989ed56a07e41494,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 276905631, guid: c9397afb1dda8744989ed56a07e41494, type: 3}
       propertyPath: m_IsActive
@@ -8115,11 +8125,6 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 253
       objectReference: {fileID: 0}
-    - target: {fileID: 3188322284495072677, guid: c9397afb1dda8744989ed56a07e41494,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 1563783392169802908, guid: c9397afb1dda8744989ed56a07e41494,
         type: 3}
       propertyPath: m_AnchorMin.y
@@ -8289,11 +8294,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_SizeDelta.y
       value: 253
-      objectReference: {fileID: 0}
-    - target: {fileID: 1262378066695467244, guid: c9397afb1dda8744989ed56a07e41494,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5912442070863110694, guid: c9397afb1dda8744989ed56a07e41494,
         type: 3}
@@ -11904,7 +11904,7 @@ MonoBehaviour:
   NextDoorOpenRange:
   - 15
   - 25
-  TimeHurtZoneLasts: 3.5
+  TimeHurtZoneLasts: 4
   DelayBeforeDoorOpens: 1
   LerpTime: 5.2
   LerpTimeChargeup: 1.5
