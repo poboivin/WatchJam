@@ -32,6 +32,7 @@ public class FutureDoorManager : MonoBehaviour
     public AudioSource AS;
     public AudioClip DoorOpenClip;
     public AudioClip DoorCloseClip;
+    public float doorAudio = 0.3f;
     //index 0 = Right Door set
     //index 1 = Middle Door Set
     //index 2 = Left Door set
@@ -121,7 +122,7 @@ public class FutureDoorManager : MonoBehaviour
         {
             CurrentLerpTime = LerpTime;
         }
-        AS.PlayOneShot(DoorOpenClip,0.3f);
+        AS.PlayOneShot(DoorOpenClip, doorAudio);
         float perc = CurrentLerpTime / LerpTime;
         DoorSets[doors].DoorLeft.transform.position = Vector3.Lerp(DoorSets[doors].StartLeftPosition, DoorSets[doors].EndLeftPosition, perc);
         DoorSets[doors].DoorRight.transform.position = Vector3.Lerp(DoorSets[doors].StartRightPosition, DoorSets[doors].EndRightPosition, perc);
@@ -137,7 +138,7 @@ public class FutureDoorManager : MonoBehaviour
         {
             CurrentLerpTime = LerpTime;
         }
-        AS.PlayOneShot(DoorCloseClip,0.3f);
+        AS.PlayOneShot(DoorCloseClip, doorAudio);
         float perc = CurrentLerpTime / LerpTime;
         DoorSets[doors].DoorLeft.transform.position = Vector3.Lerp(DoorSets[doors].EndLeftPosition, DoorSets[doors].StartLeftPosition, perc);
         DoorSets[doors].DoorRight.transform.position = Vector3.Lerp(DoorSets[doors].EndRightPosition, DoorSets[doors].StartRightPosition, perc);
