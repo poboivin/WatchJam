@@ -428,7 +428,8 @@ AudioSource:
   m_GameObject: {fileID: 1299442683569232}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 243389526532620720, guid: eefec3ec2fb994b4ea6ba6c7cc7eab91,
+    type: 2}
   m_audioClip: {fileID: 8300000, guid: 71c2c0e8ae6c44d459723bef91c9bbbf, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.273
@@ -704,15 +705,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: fc55d077383484ac0ad66aa17fcd746f, type: 3}
   - {fileID: 8300000, guid: dafa1cc4eb8714341a7c595abfba35d8, type: 3}
   jumpForce: 7.3
-  taunts:
-  - {fileID: 8300000, guid: 27cbebf9d650249e5b032494eae5322c, type: 3}
-  - {fileID: 8300000, guid: 986fa1b8984964da79d1be0597332fb2, type: 3}
-  - {fileID: 8300000, guid: 18cb2f6181960417299fa419548cade6, type: 3}
-  - {fileID: 8300000, guid: 0c92f302b5186464187ab9b6adcd1282, type: 3}
-  - {fileID: 8300000, guid: 57d899f9f78ef4493b0b79dbc9d55e40, type: 3}
-  - {fileID: 8300000, guid: 0695e43dc27f94eecbf41013ef61b603, type: 3}
-  - {fileID: 8300000, guid: f00d6706bf8224fe39835855574f94c7, type: 3}
-  - {fileID: 8300000, guid: ddd0ca15e5d0a42b98f08337c1690bb1, type: 3}
+  footsteps: []
   tauntProbability: 50
   tauntDelay: 1
   normalJumpForce: 1500
@@ -899,7 +892,8 @@ AudioSource:
   m_GameObject: {fileID: 1471837378760992}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 243035539702865170, guid: eefec3ec2fb994b4ea6ba6c7cc7eab91,
+    type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -1204,6 +1198,10 @@ MonoBehaviour:
   dashDirIndicator: {fileID: 4012910779379144479}
   maxFreezingCooldown: 1
   isFrozen: 0
+  myAudioSource: {fileID: 0}
+  meleeClip:
+    clip: {fileID: 0}
+    volume: 0
 --- !u!1 &1487633664938674
 GameObject:
   m_ObjectHideFlags: 0
