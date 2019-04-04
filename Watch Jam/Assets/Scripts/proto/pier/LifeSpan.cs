@@ -25,7 +25,7 @@ public class LifeSpan : MonoBehaviour
     public AudioClip clip;
     public AudioSource source;
     //NEW UI Items
-    public Image HealthBar;
+    public AboveHeadHealthbar HealthBar;
     public Image HealthShatter;
     bool ShatterActive;
     [HideInInspector]
@@ -103,6 +103,7 @@ public class LifeSpan : MonoBehaviour
             SetLife(currentLife - decreasedLife);
             myAnimator.SetTrigger("HurtTrigger");
             Debug.Log("Hurt Trigger");
+            HealthBar.UpdateUI(currentLife);
 
             //LEAVING THIS OUT TILL I FIX IT
             //if (HealthShatter != null)

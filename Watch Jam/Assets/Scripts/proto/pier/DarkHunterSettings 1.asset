@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   noLimits: 1
   unlimitedAmmo: 0
-  gunKnockBack: 0
+  gunKnockBack: 0.03
   bulletKnockBack: 200
   bulletDamage: 3
   meleeDamage: 2
@@ -23,14 +23,14 @@ MonoBehaviour:
   totalLife: 9
   stopTimeStoreBullet: 1
   airControl: 1
-  timeStopStore: 0
+  timeStopStore: 1
   timeStopKillVelocity: 1
   rewindKillVelocity: 1
   lifeDecay: 0
-  lifeSteal: 0
+  lifeSteal: 1
   rewindInvincibility: 1
-  timeStopAmmoRegen: 0
-  rewindAmmoRegen: 0
+  timeStopAmmoRegen: 1
+  rewindAmmoRegen: 1
   passiveAmmoRegen: 1
   rewindAmmoFactor: 0
   passiveAmmoFactor: 0.5

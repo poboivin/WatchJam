@@ -31,25 +31,33 @@ public class HurtZone : MonoBehaviour
     }
 
 
-
-
-    private void OnTriggerStay2D(Collider2D collision)
-    {
-        if (collision.gameObject.GetComponent<LifeSpan>())
-        {
-            collision.gameObject.GetComponent<LifeSpan>().Hurtzone(HurtRate);
-        }
-            
-    }
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.GetComponent<LifeSpan>())
         {
-            collision.gameObject.GetComponent<LifeSpan>().HurtStartTime=Time.time;
-
+            collision.gameObject.GetComponent<LifeSpan>().SubstactLife(9);
         }
     }
+
+
+
+    //private void OnTriggerStay2D(Collider2D collision)
+    //{
+    //    if (collision.gameObject.GetComponent<LifeSpan>())
+    //    {
+    //        collision.gameObject.GetComponent<LifeSpan>().Hurtzone(HurtRate);
+    //    }
+
+    //}
+
+    //private void OnTriggerEnter2D(Collider2D collision)
+    //{
+    //    if (collision.gameObject.GetComponent<LifeSpan>())
+    //    {
+    //        collision.gameObject.GetComponent<LifeSpan>().HurtStartTime=Time.time;
+
+    //    }
+    //}
 
 
 
