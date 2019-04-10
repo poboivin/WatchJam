@@ -81,7 +81,7 @@ public class Rocket : MonoBehaviour
         else if (col.tag == "ground" || col.tag == "Obstacle")
         {
 			//Debug.Log ("hi");
-			GetComponentInChildren<Animator> ().enabled = false;
+			//GetComponentInChildren<Animator> ().enabled = false;
 			Rigidbody2D rb = GetComponent<Rigidbody2D> ();
 			rb.velocity = Vector2.zero;
 			rb.isKinematic = true;

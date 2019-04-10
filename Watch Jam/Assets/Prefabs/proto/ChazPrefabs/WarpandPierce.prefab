@@ -123,7 +123,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1236261554518910652}
   - component: {fileID: 8102571344048389907}
-  - component: {fileID: 1769995828401957883}
   m_Layer: 0
   m_Name: kunaiSprite
   m_TagString: Untagged
@@ -138,13 +137,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6952664232172061900}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.181, y: 0, z: 0}
-  m_LocalScale: {x: 0.0074553015, y: 0.0074553015, z: 0.0074553015}
+  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
+  m_LocalPosition: {x: -0.0073, y: 0, z: 0}
+  m_LocalScale: {x: 0.031752076, y: 0.031752076, z: 0.031752076}
   m_Children: []
   m_Father: {fileID: 6599664030172397333}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 --- !u!212 &8102571344048389907
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -182,8 +181,8 @@ SpriteRenderer:
   m_SortingLayerID: -1783731295
   m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 5d2f88424f09e164a96f3476f619d707, type: 3}
-  m_Color: {r: 0.8773585, g: 0.1448469, b: 0.1448469, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 0acc798e719c0e34f8cfb37dcd5232b5, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -193,22 +192,3 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!95 &1769995828401957883
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6952664232172061900}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 05e5b29b94defb8498dad37604ead095, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0

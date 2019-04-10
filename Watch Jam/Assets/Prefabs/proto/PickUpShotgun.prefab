@@ -104,6 +104,7 @@ GameObject:
   - component: {fileID: 7848810153506645468}
   - component: {fileID: 4556924784749096514}
   - component: {fileID: 3212591869011935575}
+  - component: {fileID: 1776578686689166066}
   m_Layer: 11
   m_Name: PickUpShotgun
   m_TagString: pickup
@@ -119,8 +120,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2367833396255048694}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.8734245, y: -4.4444904, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -7.8734245, y: -4.4446, z: 0}
+  m_LocalScale: {x: 1.0017538, y: 1.0017538, z: 1.0017538}
   m_Children:
   - {fileID: 5462080118207755035}
   m_Father: {fileID: 0}
@@ -163,7 +164,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: f66fb5b9a8657c646970be3272e4d955, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 6cd0f32cafe30ea48983cbb854830a3f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -191,7 +192,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.62, y: 1.62}
+    oldSize: {x: 5, y: 5}
     newSize: {x: 0.32, y: 0.34}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -230,3 +231,22 @@ MonoBehaviour:
   numOfBulletsInOneShot: 4
   angle: 30
   damageMultiplier: 0.5
+--- !u!95 &1776578686689166066
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2367833396255048694}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 5995a0b959d79d54e9e3d9dee719f706, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
