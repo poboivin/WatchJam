@@ -48,9 +48,12 @@ public class GameResultUIScript : MonoBehaviour
             }
         }
         inputManagers = FindObjectsOfType<PierInputManager>();
-        foreach( var input in inputManagers )
+        if( inputManagers != null )
         {
-            input.DisableButtonsOnPopup();
+            foreach( var input in inputManagers )
+            {
+                input.DisableButtonsOnPopup();
+            }
         }
     }
 
@@ -59,9 +62,12 @@ public class GameResultUIScript : MonoBehaviour
         //Debug.Log( "Button clicked : " + buttonId );
         if( buttonId == 0 )
         {
-            foreach( var input in inputManagers )
+            if( inputManagers != null )
             {
-                input.EnableButtonsOnPopup();
+                foreach( var input in inputManagers )
+                {
+                    input.EnableButtonsOnPopup();
+                }
             }
 
             // close game result UI, and restart the game
