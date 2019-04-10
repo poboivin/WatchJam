@@ -32,9 +32,11 @@ public class TimeController : MonoBehaviour
 
     
     private float AmmoTimer = 0;
+    public float GetAmmoTimer()
+    {
+        return AmmoTimer;
+    }
     [Header("ammo reload per second")]
-    public float stopTimeAmmoFactor = 2f;
-    public float passiveAmmoFactor = 2f;
  
     public Vector2 storedMomentum;
     //private bool rt_pressed = false; //right trigger
@@ -126,7 +128,7 @@ public class TimeController : MonoBehaviour
         }
         else if (isStopped)
         {
-            AmmoTimer += Time.deltaTime * stopTimeAmmoFactor;
+            AmmoTimer += Time.deltaTime * Settings.s.stopTimeAmmoFactor;
             if (AmmoTimer >= 1)
             {
                 if (Settings.s.timeStopAmmoRegen == true)
@@ -183,7 +185,7 @@ public class TimeController : MonoBehaviour
 
             if (Settings.s.passiveAmmoRegen == true)
             {
-                AmmoTimer += Time.deltaTime * passiveAmmoFactor;
+                AmmoTimer += Time.deltaTime * Settings.s.passiveAmmoFactor;
                 if (AmmoTimer >= 1)
                 {
                     myAmmo.CurrentAmmo++;

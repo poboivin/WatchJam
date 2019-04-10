@@ -13,7 +13,9 @@ public class FutureDoorManager : MonoBehaviour
         public GameObject DoorLeft;
         public GameObject DoorRight;
         public SpriteRenderer Light;
-        public Sprite[] LightSprites;
+        public GameObject Hurtzone;
+        
+       
 
         [HideInInspector]
         public Vector3 StartLeftPosition;
@@ -27,28 +29,47 @@ public class FutureDoorManager : MonoBehaviour
         
 
     }
-    
+    public AudioSource AS;
+    public AudioClip DoorOpenClip;
+    public AudioClip DoorCloseClip;
+    public float doorAudio = 0.3f;
     //index 0 = Right Door set
     //index 1 = Middle Door Set
     //index 2 = Left Door set
     public Doors[] DoorSets;
+    public Sprite[] LightSprites;
 
     //Lerp Values
     float CurrentLerpTime;
-    float LerpTime = 3f;
-    //Times For doors to trigger
-    float MidOpenTime=15;
-    bool MidOpen;
-    float LeftRightOpenTime=60;
 
+    [SerializeField]
+    Color StartColor;
+[SerializeField]
+    Color EndColor;
+    
+    
     
 
+    //Delay Variables
 
+    [SerializeField]
+    float[] NextDoorOpenRange;
+    [SerializeField]
+    float TimeHurtZoneLasts;
+    [SerializeField]
+    float DelayBeforeDoorOpens;
+    [SerializeField]
+    float LerpTime = 3f;
+    [SerializeField]
+    float LerpTimeChargeup = 3f;
+    [SerializeField]
+    float PressureDoorStart=80f;
+    int PreviousDoor;
 
 
     //-4.1
 
-    
+
 
     // Start is called before the first frame update
     void Start()
@@ -96,28 +117,53 @@ public class FutureDoorManager : MonoBehaviour
     public void LerpDoorsOpen(int doors)
     {
         CurrentLerpTime += Time.deltaTime;
+       
         if (CurrentLerpTime > LerpTime)
         {
             CurrentLerpTime = LerpTime;
         }
-
+        AS.PlayOneShot(DoorOpenClip, doorAudio);
         float perc = CurrentLerpTime / LerpTime;
         DoorSets[doors].DoorLeft.transform.position = Vector3.Lerp(DoorSets[doors].StartLeftPosition, DoorSets[doors].EndLeftPosition, perc);
         DoorSets[doors].DoorRight.transform.position = Vector3.Lerp(DoorSets[doors].StartRightPosition, DoorSets[doors].EndRightPosition, perc);
     }
 
+
     public void LerpDoorsClosed(int doors)
     {
       
         CurrentLerpTime += Time.deltaTime;
+        
         if (CurrentLerpTime > LerpTime)
         {
             CurrentLerpTime = LerpTime;
         }
-
+        AS.PlayOneShot(DoorCloseClip, doorAudio);
         float perc = CurrentLerpTime / LerpTime;
         DoorSets[doors].DoorLeft.transform.position = Vector3.Lerp(DoorSets[doors].EndLeftPosition, DoorSets[doors].StartLeftPosition, perc);
         DoorSets[doors].DoorRight.transform.position = Vector3.Lerp(DoorSets[doors].EndRightPosition, DoorSets[doors].StartRightPosition, perc);
+    }
+
+
+
+    public void ChargeHurtZone(int Zone)
+    {
+       // Debug.Log("Hurt Zone ACtive");
+        CurrentLerpTime += Time.deltaTime;
+
+        if (CurrentLerpTime > LerpTimeChargeup)
+        {
+            CurrentLerpTime = LerpTimeChargeup;
+        }
+        float ChargePerc = CurrentLerpTime / LerpTimeChargeup;
+
+        SpriteRenderer ZoneSprite = DoorSets[Zone].Hurtzone.GetComponentInChildren<SpriteRenderer>();
+        //SpriteRenderer ZoneSprite02 = DoorSets[Zone].Hurtzone.GetComponent<HurtZone>().CompanionVisual;
+        ZoneSprite.color = Color.Lerp(StartColor, EndColor, ChargePerc);
+        //ZoneSprite02.color = Color.Lerp(StartColor, EndColor, ChargePerc);
+
+
+
     }
 
 
@@ -125,20 +171,54 @@ public class FutureDoorManager : MonoBehaviour
 
        IEnumerator TriggerDoorOpening()
        {
-        yield return new WaitForSeconds(Random.Range(5,10));
+        //Wait a random amount of time to trigger next doors
+        yield return new WaitForSeconds(Random.Range(NextDoorOpenRange[0], NextDoorOpenRange[1]));
 
-        int DoorToOpen = Random.Range(1, 2);
-
-        switch (DoorToOpen)
+        if (Time.time < PressureDoorStart)
         {
-            case 1:
-                StartCoroutine(OpenCloseMiddleDoors());
-                break;
+            int DoorToOpen = Random.Range(0, 3);
+            while (DoorToOpen == PreviousDoor)
+            {
+                //Ensures last door open isn't the same
+                DoorToOpen = Random.Range(0, 3);
+            }
 
-            case 2:
-                StartCoroutine(OpenCloseLeftRightDoors());
-                break;
+            PreviousDoor = DoorToOpen;
+
+
+            StartCoroutine(OpenCloseRandomDoor(DoorToOpen));
         }
+
+        else
+        {
+            int Door1 = Random.Range(0, 3);
+            int Door2 = Random.Range(0, 3);
+
+            while(Door1 == Door2)
+            {
+                 Door1 = Random.Range(0, 3);
+                 Door2 = Random.Range(0, 3);
+            }
+
+            StartCoroutine(OpenCloseRandomMultipleDoors(Door1, Door2));
+
+
+        }
+
+       
+
+        //int DoorToOpen = Random.Range(1, 3);
+        //Debug.Log(DoorToOpen);
+        //switch (DoorToOpen)
+        //{
+        //    case 1:
+        //        StartCoroutine(OpenCloseMiddleDoors());
+        //        break;
+
+        //    case 2:
+        //        StartCoroutine(OpenCloseLeftRightDoors());
+        //        break;
+        //}
 
        }
 
@@ -162,20 +242,41 @@ public class FutureDoorManager : MonoBehaviour
 
     IEnumerator OpenCloseMiddleDoors()
     {
-        Debug.Log("middleDoors");
+        DoorSets[1].Light.sprite = LightSprites[1];
+
+        yield return new WaitForSeconds(DelayBeforeDoorOpens);
+
+
         while (DoorSets[1].DoorLeft.transform.position.x > DoorSets[1].EndLeftPosition.x)
         {
             LerpDoorsOpen(1);
             yield return new WaitForFixedUpdate();
         }
 
-        yield return new WaitForSeconds(5);
+        CurrentLerpTime = 0;
+        DoorSets[1].Hurtzone.SetActive(true);
+        while (DoorSets[1].Hurtzone.GetComponent<SpriteRenderer>().color.a< EndColor.a)
+        {
+            ChargeHurtZone(1);
+            yield return new WaitForFixedUpdate();
+        }
 
-        while(DoorSets[1].DoorLeft.transform.position.x< DoorSets[1].StartLeftPosition.x)
+        CurrentLerpTime = 0;
+        DoorSets[1].Hurtzone.GetComponent<BoxCollider2D>().enabled = true; 
+
+        yield return new WaitForSeconds(TimeHurtZoneLasts);
+
+        DoorSets[1].Hurtzone.GetComponent<BoxCollider2D>().enabled = false;
+        DoorSets[1].Hurtzone.GetComponent<SpriteRenderer>().color = StartColor;
+        DoorSets[1].Hurtzone.SetActive(false);
+        DoorSets[1].Light.sprite = LightSprites[0];
+
+        while (DoorSets[1].DoorLeft.transform.position.x< DoorSets[1].StartLeftPosition.x)
         {
             LerpDoorsClosed(1);
             yield return new WaitForFixedUpdate();
         }
+        CurrentLerpTime = 0;
         StartCoroutine(TriggerDoorOpening());
         yield break;
 
@@ -185,7 +286,10 @@ public class FutureDoorManager : MonoBehaviour
 
     IEnumerator OpenCloseLeftRightDoors()
     {
-        Debug.Log("LeftRight Doors");
+        DoorSets[0].Light.sprite = LightSprites[1];
+        DoorSets[2].Light.sprite = LightSprites[1];
+
+        yield return new WaitForSeconds(DelayBeforeDoorOpens);
         //Switch Light Color Red
         while (DoorSets[0].DoorLeft.transform.position.x > DoorSets[0].EndLeftPosition.x)
         {
@@ -193,11 +297,35 @@ public class FutureDoorManager : MonoBehaviour
             LerpDoorsOpen(2);
             yield return new WaitForFixedUpdate();
         }
+        CurrentLerpTime = 0;
+
+        DoorSets[0].Hurtzone.SetActive(true);
+        DoorSets[2].Hurtzone.SetActive(true);
+        while (DoorSets[0].Hurtzone.GetComponent<SpriteRenderer>().color.a < EndColor.a)
+        {
+            ChargeHurtZone(0);
+            ChargeHurtZone(2);
+            yield return new WaitForFixedUpdate();
+        }
+
+        DoorSets[0].Hurtzone.GetComponent<BoxCollider2D>().enabled = true;
+        DoorSets[2].Hurtzone.GetComponent<BoxCollider2D>().enabled = true;
+        CurrentLerpTime = 0;
 
         //Turn on electricity
-        yield return new WaitForSeconds(5);
-        //Turn Off Electricity
-        //Swithc Light Color Green
+        yield return new WaitForSeconds(TimeHurtZoneLasts);
+      
+
+        DoorSets[0].Light.sprite = LightSprites[0];
+        DoorSets[2].Light.sprite = LightSprites[0];
+
+        DoorSets[0].Hurtzone.GetComponent<BoxCollider2D>().enabled = false;
+        DoorSets[2].Hurtzone.GetComponent<BoxCollider2D>().enabled = false;
+        DoorSets[0].Hurtzone.GetComponent<SpriteRenderer>().color = StartColor;
+        DoorSets[2].Hurtzone.GetComponent<SpriteRenderer>().color = StartColor;
+        DoorSets[0].Hurtzone.SetActive(false);
+        DoorSets[2].Hurtzone.SetActive(false);
+
 
 
         while (DoorSets[0].DoorLeft.transform.position.x < DoorSets[0].StartLeftPosition.x)
@@ -206,7 +334,7 @@ public class FutureDoorManager : MonoBehaviour
             LerpDoorsClosed(2);
             yield return new WaitForFixedUpdate();
         }
-
+        CurrentLerpTime = 0;
         StartCoroutine(TriggerDoorOpening());
         yield break;
 
@@ -215,27 +343,117 @@ public class FutureDoorManager : MonoBehaviour
     }
 
 
-
-
-
-
-    IEnumerator CloseDoors(int doors)
+    IEnumerator OpenCloseRandomDoor(int RD)
     {
-        
-        while(DoorSets[doors].DoorLeft.transform.position.x != DoorSets[doors].StartLeftPosition.x)
+        //Turn Door Lights To Red and activate caution strip
+        DoorSets[RD].Light.sprite = LightSprites[1];
+
+        yield return new WaitForSeconds(DelayBeforeDoorOpens);
+
+        //Begin opening doors
+
+        while (DoorSets[RD].DoorLeft.transform.position.x > DoorSets[RD].EndLeftPosition.x)
         {
-           
-            LerpDoorsClosed(doors);
+            LerpDoorsOpen(RD);
             yield return new WaitForFixedUpdate();
         }
+        //Begin activating hurt zone
+        CurrentLerpTime = 0;
+        DoorSets[RD].Hurtzone.SetActive(true);
+        while (DoorSets[RD].Hurtzone.GetComponentInChildren<SpriteRenderer>().color.a < EndColor.a)
+        {
+            Debug.Log(EndColor.a);
+            ChargeHurtZone(RD);
+            yield return new WaitForFixedUpdate();
+        }
+
+        CurrentLerpTime = 0;
+       
+        //active hurtzone for x amount of time
+        DoorSets[RD].Hurtzone.GetComponent<BoxCollider2D>().enabled = true;
+
+        yield return new WaitForSeconds(TimeHurtZoneLasts);
+
+        DoorSets[RD].Hurtzone.GetComponent<BoxCollider2D>().enabled = false;
+        DoorSets[RD].Hurtzone.GetComponentInChildren <SpriteRenderer>().color = StartColor;
+        DoorSets[RD].Hurtzone.SetActive(false);
+        DoorSets[RD].Light.sprite = LightSprites[0];
+
+        while (DoorSets[RD].DoorLeft.transform.position.x < DoorSets[RD].StartLeftPosition.x)
+        {
+            LerpDoorsClosed(RD);
+            yield return new WaitForFixedUpdate();
+        }
+        CurrentLerpTime = 0;
+        StartCoroutine(TriggerDoorOpening());
         yield break;
+
     }
 
+    IEnumerator OpenCloseRandomMultipleDoors(int RD1,int RD2)
+    {
+        DoorSets[RD1].Light.sprite = LightSprites[1];
+        DoorSets[RD2].Light.sprite = LightSprites[1];
+
+        yield return new WaitForSeconds(DelayBeforeDoorOpens);
+        //Switch Light Color Red
+        while (DoorSets[RD1].DoorLeft.transform.position.x > DoorSets[RD1].EndLeftPosition.x)
+        {
+            LerpDoorsOpen(RD1);
+            LerpDoorsOpen(RD2);
+            yield return new WaitForFixedUpdate();
+        }
+        CurrentLerpTime = 0;
+
+        DoorSets[RD1].Hurtzone.SetActive(true);
+        DoorSets[RD2].Hurtzone.SetActive(true);
+        while (DoorSets[RD1].Hurtzone.GetComponentInChildren<SpriteRenderer>().color.a < EndColor.a)
+        {
+            ChargeHurtZone(RD1);
+            ChargeHurtZone(RD2);
+            yield return new WaitForFixedUpdate();
+        }
+
+        DoorSets[RD1].Hurtzone.GetComponent<BoxCollider2D>().enabled = true;
+        DoorSets[RD2].Hurtzone.GetComponent<BoxCollider2D>().enabled = true;
+        CurrentLerpTime = 0;
+
+        //Turn on electricity
+        yield return new WaitForSeconds(TimeHurtZoneLasts);
+
+
+        DoorSets[RD1].Light.sprite = LightSprites[0];
+        DoorSets[RD2].Light.sprite = LightSprites[0];
+
+        DoorSets[RD1].Hurtzone.GetComponent<BoxCollider2D>().enabled = false;
+        DoorSets[RD2].Hurtzone.GetComponent<BoxCollider2D>().enabled = false;
+        DoorSets[RD1].Hurtzone.GetComponentInChildren<SpriteRenderer>().color = StartColor;
+        DoorSets[RD2].Hurtzone.GetComponentInChildren<SpriteRenderer>().color = StartColor;
+        DoorSets[RD1].Hurtzone.SetActive(false);
+        DoorSets[RD2].Hurtzone.SetActive(false);
 
 
 
+        while (DoorSets[RD1].DoorLeft.transform.position.x < DoorSets[RD1].StartLeftPosition.x)
+        {
+            LerpDoorsClosed(RD1);
+            LerpDoorsClosed(RD2);
+            yield return new WaitForFixedUpdate();
+        }
+        CurrentLerpTime = 0;
+        StartCoroutine(TriggerDoorOpening());
+        yield break;
 
 
 
-
+    }
 }
+
+
+
+
+
+
+
+
+

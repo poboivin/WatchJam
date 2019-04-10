@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7187618749738853730}
   - component: {fileID: 2953908654037015898}
   - component: {fileID: 2998579858617338906}
+  - component: {fileID: 1177031019203844075}
   m_Layer: 12
   m_Name: Future_BrokenBothSides
   m_TagString: ground
@@ -91,7 +92,7 @@ BoxCollider2D:
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_UsedByEffector: 0
+  m_UsedByEffector: 1
   m_UsedByComposite: 0
   m_Offset: {x: -0.0054938793, y: 0.18576574}
   m_SpriteTilingProperty:
@@ -106,3 +107,22 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.5840125, y: 0.6068392}
   m_EdgeRadius: 0
+--- !u!251 &1177031019203844075
+PlatformEffector2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5329672613460580568}
+  m_Enabled: 1
+  m_UseColliderMask: 1
+  m_ColliderMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RotationalOffset: 0
+  m_UseOneWay: 1
+  m_UseOneWayGrouping: 0
+  m_SurfaceArc: 180
+  m_UseSideFriction: 0
+  m_UseSideBounce: 0
+  m_SideArc: 1

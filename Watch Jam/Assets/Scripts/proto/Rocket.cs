@@ -12,7 +12,7 @@ public class Rocket : MonoBehaviour
 
     private void Start()
     {
-        GetComponentInChildren<Animator>().Play("KunaiLoop");
+        //GetComponentInChildren<Animator>().Play("KunaiLoop");
     }
 
     void Update()
@@ -27,7 +27,7 @@ public class Rocket : MonoBehaviour
 	}
 
 
-	public void OnExplode()
+	public virtual void OnExplode()
 	{
         //gameObject.GetComponent<CameraShake>().Shake(0.1f, 0.2f);
 
@@ -80,7 +80,7 @@ public class Rocket : MonoBehaviour
 
         else if (col.tag == "ground" || col.tag == "Obstacle")
         {
-			Debug.Log ("hi");
+			//Debug.Log ("hi");
 			GetComponentInChildren<Animator> ().enabled = false;
 			Rigidbody2D rb = GetComponent<Rigidbody2D> ();
 			rb.velocity = Vector2.zero;

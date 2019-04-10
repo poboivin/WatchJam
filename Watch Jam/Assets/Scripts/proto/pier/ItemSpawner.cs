@@ -9,6 +9,9 @@ public class ItemSpawner : MonoBehaviour
     public Transform ItemPrefab;
     public float SpawnDelay = 5f;
     private float spawnTimer = 0;
+    public bool willSpawnItem = false;
+    public bool isSpawned = false;
+
 	// Use this for initialization
 	void Start ()
     {
@@ -18,15 +21,23 @@ public class ItemSpawner : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
     {
-		if( Item == null)
+        if (!isSpawned && willSpawnItem)
         {
-            spawnTimer += Time.deltaTime;
-
-            if(spawnTimer >= SpawnDelay)
-            {
-                spawnTimer = 0;
-                Item = Instantiate(ItemPrefab, SpawnLoc.position, SpawnLoc.rotation);
-            }
+            Item = Instantiate(ItemPrefab, SpawnLoc.position, SpawnLoc.rotation);
+            isSpawned = true;
+            willSpawnItem = false;
         }
-	}
+
+        if (Item == null)
+        {
+            isSpawned = false;
+        }
+
+    }
+
+    void Spawn()
+    {
+
+    }
+
 }

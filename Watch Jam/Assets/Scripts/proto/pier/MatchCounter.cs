@@ -14,7 +14,7 @@ public class MatchCounter : MonoBehaviour
 
     private GameTimer timer;
 
-    public GameObject[] playerSpawners;
+    public PlayerSpawn[] playerSpawners;
 	// Use this for initialization
     public static void Register(TimeController player)
     {
@@ -46,6 +46,7 @@ public class MatchCounter : MonoBehaviour
                         var playerPos = hitter.gameObject.transform.position;
                         playerPos.y += 2;
                         Instantiate( _Instance.killEffect, playerPos, Quaternion.identity );
+                        Debug.Log("spawned kill effect");
                         break;
                     }
                 }
@@ -80,11 +81,39 @@ public class MatchCounter : MonoBehaviour
 
         if( player.PlayerId != PierInputManager.PlayerNumber.PC )
         {
-            var spawner = playerSpawners[( int )player.PlayerId].GetComponent<PlayerSpawn>();
+            var spawner = playerSpawners[( int )player.PlayerId];
             var newHero = Instantiate( spawner.HeroPrefab, spawner.transform.position, Quaternion.identity );
             Destroy( player.gameObject );
             newHero.gameObject.SetActive( true );
             Register( newHero.GetComponent<TimeController>() );
+
+            var healthHuds = FindObjectsOfType<PlayerUI>();
+            foreach (PlayerUI p in healthHuds)
+            {
+                if (p.PlayerId == player.PlayerId)
+                {
+                    var  Health = newHero.GetComponent<LifeSpan>();
+                    if (Health != null)
+                    {
+                       // Debug.Break();
+                        p.linkHealth(Health);
+                    }
+
+                    var Ammo = newHero.GetComponentInChildren<Gun>();
+
+                    if(Ammo != null)
+                    {
+                        p.LinkAmmo(Ammo);
+                    }
+
+                    var TC = newHero.GetComponent<TimeController>();
+                    if (TC != null)
+                    {
+                        p.LinkTimeController(TC);
+                    }
+                }
+            }
+
         }
     }
 
@@ -92,6 +121,7 @@ public class MatchCounter : MonoBehaviour
     {
         _Instance = this;
         timer = GetComponent<GameTimer>();
+       /// playerSpawners = FindObjectsOfType<PlayerSpawn>();
     }
 
     public void GameOver()

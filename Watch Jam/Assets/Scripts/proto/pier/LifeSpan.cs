@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Events;
 
 public class LifeSpan : MonoBehaviour
 {
@@ -9,71 +10,101 @@ public class LifeSpan : MonoBehaviour
     TimeRewindController myTimeRewindController;
     TimeStopController myTimeStopController;
     PlayerControl myPlayerControl;
-	KinematicPlayerControl2 myPlayerControl2;
+
+    Dash myDash;
 
     Rigidbody2D myRigidbody2D;
+    [SerializeField]
     Animator myAnimator;
     Text myText;
     Gun myGun;
-	GunCopy2 myGun2;
+
     public Image lifeDisplay;
     [SerializeField]
     private float currentLife = 0;
-    public SpriteRenderer sp;
+    public SpriteRenderer[] sp;
     public AudioClip clip;
     public AudioSource source;
     //NEW UI Items
     public Image HealthBar;
     public Image HealthShatter;
     bool ShatterActive;
-
+    [HideInInspector]
+    public float HurtStartTime;
+    [HideInInspector]
+    public UnityEvent OnLifeUpdate;
+    [SerializeField]
     bool invincible;
-    public float invincibleDuration = 1.5f;
+    public float invincibleDuration = 1.0f;
+
+
     public void SetInvincibility(bool var)
     { 
-        invincible = var;
+       // invincible = var;
     }
 	// Use this for initialization
 	void Start ()
     {
         myAnimator = gameObject.GetComponentInChildren<Animator>();
-        currentLife = Settings.s.totalLife;
+        SetLife(Settings.s.totalLife);
+       
         myTimeController = gameObject.GetComponent<TimeController>();
+        myTimeRewindController = gameObject.GetComponent<TimeRewindController>();
         myRigidbody2D = GetComponent<Rigidbody2D>();
         myPlayerControl = GetComponent<PlayerControl>();
-		myPlayerControl2 = GetComponent<KinematicPlayerControl2>();
 
+        myDash = GetComponent<Dash>();
         myGun = GetComponentInChildren<Gun>();
-		myGun2 = GetComponentInChildren<GunCopy2>();
+
         myText = GetComponentInChildren<Text>();
 
-        StartCoroutine( ChangeInvincibleCoroutine() );
+        sp = GetComponentsInChildren<SpriteRenderer>();
+
+        StartCoroutine( ChangeInvincibleCoroutine(invincibleDuration) );
+
+        
     }
 
-    IEnumerator ChangeInvincibleCoroutine()
+    
+
+    private void SetLife(float amount)
     {
-        invincible = true;
-        yield return new WaitForSeconds( invincibleDuration );
-        invincible = false;
+        currentLife = amount;
+        OnLifeUpdate.Invoke();
+    }
+
+    public float GetLife()
+    {
+        return currentLife;
     }
 
 	public void AddLife(float amount)
     {
-        currentLife += amount;
-        if(currentLife > Settings.s.totalLife)
+        
+        SetLife(currentLife + amount);
+
+        if (currentLife > Settings.s.totalLife)
         {
-            currentLife = Settings.s.totalLife;
+           // currentLife = Settings.s.totalLife;
+            SetLife(Settings.s.totalLife);
         }
     }
 
     public float SubstactLife(float amount)
     {
-        if( invincible )
+        if( invincible)
+        {
+            Debug.LogWarning("not hurt");
+
             return 0.0f;
+        }
+           
         else
         {
             var decreasedLife = Mathf.Min( currentLife, amount );
-            currentLife -= decreasedLife;
+            SetLife(currentLife - decreasedLife);
+            myAnimator.SetTrigger("HurtTrigger");
+            Debug.Log("Hurt Trigger");
 
             //LEAVING THIS OUT TILL I FIX IT
             //if (HealthShatter != null)
@@ -98,6 +129,7 @@ public class LifeSpan : MonoBehaviour
             //StopCoroutine(ianCoroutine());
 
 
+            StartCoroutine(ChangeInvincibleCoroutine(invincibleDuration));
             return decreasedLife;
         }
     }
@@ -112,10 +144,10 @@ public class LifeSpan : MonoBehaviour
                 Death();
         }
         //lifeDisplay.fillAmount = currentLife / Settings.s.totalLife;
-        if (HealthBar != null)
-        {
-            HealthBar.fillAmount = currentLife / Settings.s.totalLife;
-        }
+        //if (HealthBar != null)
+        //{
+        //    HealthBar.fillAmount = currentLife / Settings.s.totalLife;
+        //}
        
 
         if(myText != null)
@@ -135,16 +167,15 @@ public class LifeSpan : MonoBehaviour
     {
         MatchCounter.Remove(myTimeController);
         myAnimator.enabled = false;
-		try {
-			myPlayerControl2.enabled = false;
-			myGun2.enabled = false;
-		}
-		catch {
-			myPlayerControl.enabled = false;
-			myGun.enabled = false;
-		}
+
+		myPlayerControl.enabled = false;
+		myGun.enabled = false;
+
         myRigidbody2D.freezeRotation = false;
         myTimeController.enabled = false;
+        myTimeController.myInputManager.enabled = false;
+        myTimeRewindController.enabled = false;
+        myDash.enabled = false;
         if ( myTimeController.isStopped)
         {
             myTimeController.StopTimeStop();
@@ -157,17 +188,16 @@ public class LifeSpan : MonoBehaviour
         this.enabled = false;
     }
 
-    public IEnumerator ianCoroutine()
+
+    public void Hurtzone(float HurtRate)
     {
-        if (sp != null)
+        if (Time.time - HurtStartTime > HurtRate)
         {
-            sp.material.SetFloat("_FlashAmount", 1);
-            yield return new WaitForSeconds(0.2f);
-
-            sp.material.SetFloat("_FlashAmount", 0);
+            SubstactLife(1);
+            HurtStartTime = Time.time;
         }
-
     }
+
 
     public IEnumerator ShowHealthShatter()
     {
@@ -182,6 +212,33 @@ public class LifeSpan : MonoBehaviour
         ShatterActive = false;
        
 
+    }
+
+    IEnumerator ChangeInvincibleCoroutine(float invulDur)
+    {
+        
+        invincible = true;
+        if (sp != null)
+        {
+            
+
+            for (int i = 0; i < (invulDur/0.2f); i++)
+            {
+                //Debug.Log(invincible);
+                foreach (SpriteRenderer spr in sp)
+                {
+                    spr.material.SetColor("_Tint", new Color(0.4f, 0.4f, 0.4f, 1.0f));
+                }
+                yield return new WaitForSeconds(0.1f);
+                foreach (SpriteRenderer spr in sp)
+                {
+                    spr.material.SetColor("_Tint", new Color(0.0f, 0.0f, 0.0f, 0.0f));
+                }
+                yield return new WaitForSeconds(0.1f);
+            }
+        }
+
+        invincible = false;
     }
 
 
