@@ -13,7 +13,7 @@ public class Settings : MonoBehaviour
 	// Use this for initialization
 	void Awake ()
     {
-        DontDestroyOnLoad(gameObject);
+        //DontDestroyOnLoad(gameObject);
         if (Settings._Instance == null)
         {
             Settings._Instance = this;

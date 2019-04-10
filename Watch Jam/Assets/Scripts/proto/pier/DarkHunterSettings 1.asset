@@ -21,22 +21,22 @@ MonoBehaviour:
   meleeKnockBack: 10
   fireRate: 0.5
   totalLife: 9
-  stopTimeStoreBullet: 1
+  stopTimeStoreBullet: 0
   airControl: 1
   timeStopStore: 1
   timeStopKillVelocity: 1
   rewindKillVelocity: 1
   lifeDecay: 0
-  lifeSteal: 1
+  lifeSteal: 0
   rewindInvincibility: 1
   timeStopAmmoRegen: 1
   rewindAmmoRegen: 1
   passiveAmmoRegen: 1
   rewindAmmoFactor: 0
-  passiveAmmoFactor: 0.5
+  passiveAmmoFactor: 1
   stopTimeAmmoFactor: 1
   TwiceAsFastRewind: 0
   ImmobileRecord: 0
-  gameMode: 1
+  gameMode: 0
   playerRespawnTime: 3
   timeLimitInSceonds: 120

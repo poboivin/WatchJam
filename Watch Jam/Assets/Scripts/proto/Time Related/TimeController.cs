@@ -171,6 +171,7 @@ public class TimeController : MonoBehaviour
                    // Debug.Log("im an not recording");
                    if ((myInputManager.GetAxis(Settings.c.Rewind) > 0.6) && (myTimeBody.pointsInTime.Count >= 1) && LoseTimeWhileStopped)
                     {
+                        Debug.Log("scream");
                         myTimeBody.pointsInTime.RemoveAt(myTimeBody.pointsInTime.Count - 1);
                     }
                 }

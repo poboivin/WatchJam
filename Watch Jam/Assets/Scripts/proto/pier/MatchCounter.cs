@@ -15,6 +15,7 @@ public class MatchCounter : MonoBehaviour
     private GameTimer timer;
 
     public PlayerSpawn[] playerSpawners;
+    public int sceneToLoad = 0;
 	// Use this for initialization
     public static void Register(TimeController player)
     {
@@ -135,7 +136,7 @@ public class MatchCounter : MonoBehaviour
         }
         if( players != null )
             players.Clear();
-        //SceneManager.LoadScene(1);
+        SceneManager.LoadScene(sceneToLoad);
     }
 	// Update is called once per frame
 	void Update ()

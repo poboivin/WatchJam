@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class Ammo : MonoBehaviour
 {
-    public int MaxAmmo = 6;
+    public int MaxAmmo = 3;
     public int CurrentAmmo;
    // public bool HasGrenade = false;
     [HideInInspector]
