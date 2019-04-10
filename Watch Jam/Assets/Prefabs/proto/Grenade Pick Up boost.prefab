@@ -136,7 +136,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fireRate: 0.1
-  boostedBulletCount: 8
+  boostedBulletCount: 9
+  maxBulletsOneShot: 3
 --- !u!1 &724895941105197299
 GameObject:
   m_ObjectHideFlags: 0

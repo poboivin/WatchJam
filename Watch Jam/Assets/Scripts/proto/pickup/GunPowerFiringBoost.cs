@@ -16,12 +16,15 @@ class GunPowerFiringBoost : GunPowerGeneric
     Quaternion firingRotation;
     Vector2 bulletVelocity;
     float firingTimer;
+    int maxBulletAtOnce;
+    int numBulletShot = 1;
 
     public GunPowerFiringBoost( Gun playerGun, PickupFireBoost shotInfo )
         : base( playerGun, shotInfo.boostedBulletCount )
     {
         oldFireRate = Settings.s.fireRate;
         newFireRate = shotInfo.fireRate;
+        maxBulletAtOnce = shotInfo.maxBulletsOneShot;
     }
 
     public override void Activate()
@@ -61,6 +64,12 @@ class GunPowerFiringBoost : GunPowerGeneric
                     {
                         enableAbility = false;
                         startFiring = false;
+                    }
+                    numBulletShot++;
+                    if( numBulletShot >= maxBulletAtOnce )
+                    {
+                        startFiring = false;
+                        numBulletShot = 1;
                     }
                     firingTimer = 0.0f;
                 }

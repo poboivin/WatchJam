@@ -9,4 +9,7 @@ public class PickupFireBoost : MonoBehaviour
 
     [SerializeField]
     public int boostedBulletCount = 10;
+
+    [SerializeField]
+    public int maxBulletsOneShot = 3;
 }
