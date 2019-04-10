@@ -75,6 +75,8 @@ public class TimeController : MonoBehaviour
     private void Start()
     {
         MatchCounter.Register( this );
+        // initially fully loaded
+        myAmmo.CurrentAmmo = myAmmo.MaxAmmo;
     }
 
     public void OnDrawGizmos()
