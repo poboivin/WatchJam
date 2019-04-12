@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2223257584664484334}
   - component: {fileID: 2080044700173002939}
   - component: {fileID: 1506901553280101472}
-  - component: {fileID: 1805657807}
+  - component: {fileID: 7964422420011952897}
   m_Layer: 0
   m_Name: KunaiPierce
   m_TagString: Bullet
@@ -95,7 +95,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myOwner: {fileID: 0}
---- !u!114 &1805657807
+  damageMultiplier: 1
+  knockbackMultiplier: 1
+--- !u!114 &7964422420011952897
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -104,11 +106,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1805657806}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d96a5f56323e7ef47989ff317275c7df, type: 3}
+  m_Script: {fileID: 11500000, guid: 23fe47ec2174c9e4c9b83a541a518087, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   explosion: {fileID: 100000, guid: 42404bf7d14c342f69690c9961a7530d, type: 3}
   TimeAlive: 4
+  destroyWaitTime: 3
   myOwner: {fileID: 0}
 --- !u!1 &6952664232172061900
 GameObject:
