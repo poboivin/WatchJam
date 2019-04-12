@@ -89,26 +89,27 @@ public class PlayerUI : MonoBehaviour
   
     private void UpdateUI()
     {
-        float Percentage = Health.GetLife() / Settings.s.totalLife;
-        HealthBar.rectTransform.anchoredPosition = Vector3.Lerp( new Vector3(-194, -79.9f, 0) , new Vector3(-2.3f, 5.6f, 0) ,Percentage);
-
-        if (Percentage > .67)
+        if( Health != null )
         {
-            HealthBar.sprite = BarColors[0];
-        }
+            float Percentage = Health.GetLife() / Settings.s.totalLife;
+            HealthBar.rectTransform.anchoredPosition = Vector3.Lerp( new Vector3( -194, -79.9f, 0 ), new Vector3( -2.3f, 5.6f, 0 ), Percentage );
 
-        else if (Percentage > .34)
-        {
-            HealthBar.sprite = BarColors[1];
-        }
-
-        else if (Percentage < .34)
-        {
-            HealthBar.sprite = BarColors[2];
-        }
-
-          
+            if( Percentage > .67 )
+            {
+                HealthBar.sprite = BarColors[0];
             }
+
+            else if( Percentage > .34 )
+            {
+                HealthBar.sprite = BarColors[1];
+            }
+
+            else if( Percentage < .34 )
+            {
+                HealthBar.sprite = BarColors[2];
+            }
+        }
+    }
 
 
 
@@ -128,55 +129,55 @@ public class PlayerUI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-        KunaiAmountLeft = (float)Ammo.GetcurrentAmmo() / 3; //Will remove hardcoding
-
-       
-
-        if (KunaiAmountLeft > .75)
+        if( Ammo != null )
         {
-            for (int i = 0; i < 3; i++)
+            KunaiAmountLeft = ( float )Ammo.GetcurrentAmmo() / 3; //Will remove hardcoding
+
+            if( KunaiAmountLeft > .75 )
             {
-                KunaiSprites[i].fillAmount = 1;
-            }
-        }
-        else if (KunaiAmountLeft > .45)
-        {
-            for (int i = 0; i < 3; i++)
-            {
-                if (i > 1)
-                {
-                    KunaiSprites[i].fillAmount = 0;
-                }
-                else
+                for( int i = 0; i < 3; i++ )
                 {
                     KunaiSprites[i].fillAmount = 1;
                 }
-
             }
-        }
-        else if (KunaiAmountLeft > 0)
-        {
-            for (int i = 0; i < 3; i++)
+            else if( KunaiAmountLeft > .45 )
             {
-                if (i > 0)
+                for( int i = 0; i < 3; i++ )
+                {
+                    if( i > 1 )
+                    {
+                        KunaiSprites[i].fillAmount = 0;
+                    }
+                    else
+                    {
+                        KunaiSprites[i].fillAmount = 1;
+                    }
+
+                }
+            }
+            else if( KunaiAmountLeft > 0 )
+            {
+                for( int i = 0; i < 3; i++ )
+                {
+                    if( i > 0 )
+                    {
+                        KunaiSprites[i].fillAmount = 0;
+                    }
+                    else
+                    {
+                        KunaiSprites[i].fillAmount = 1;
+                    }
+
+                }
+            }
+            else
+            {
+                //Debug.Log(KunaiSprites.Length,this.gameObject);
+
+                for( int i = 0; i < 3; i++ )
                 {
                     KunaiSprites[i].fillAmount = 0;
                 }
-                else
-                {
-                    KunaiSprites[i].fillAmount = 1;
-                }
-
-            }
-        }
-        else
-        {
-            //Debug.Log(KunaiSprites.Length,this.gameObject);
-
-            for (int i = 0; i < 3; i++)
-            {
-                KunaiSprites[i].fillAmount = 0;
             }
         }
     }
