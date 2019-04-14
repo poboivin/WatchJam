@@ -13,9 +13,11 @@ public class TimeRewindController : MonoBehaviour
     public PierInputManager myInputManager;
 	public AfterImage myAfterImage;
 	public bool useNewRewind = true;
-
 	private bool canShowTrail = true;
-
+    AudioSource myAudioSource;
+    public AudioClip rewindHold;
+    public AudioClip rewindRelease;
+    private bool isPlaying = false;
 
    // public PierInputManager.ButtonName Rewind;
 
@@ -26,6 +28,9 @@ public class TimeRewindController : MonoBehaviour
         myAmmo = GetComponent<Ammo>();
         myInputManager = GetComponent<PierInputManager>();
 		myAfterImage  = GetComponent<AfterImage>();
+
+        AudioSource[] sources = GetComponents<AudioSource>();
+        myAudioSource = sources[1];
     }
 
     // Use this for initialization
@@ -42,21 +47,36 @@ public class TimeRewindController : MonoBehaviour
 			    myInputManager.GetAxis (Settings.c.Rewind) > 0.6f &&
 			    canShowTrail &&
 			    (myAmmo.CurrentAmmo < myAmmo.MaxAmmo || Settings.s.noLimits)) {
-
+                
                 if (myTimeBody.pointsInTime.Count >= 1)
                       myAfterImage.DrawLine();
 
+            if (!isPlaying)
+            {
+                isPlaying = true;
+                myAudioSource.loop = true;
+                myAudioSource.clip = rewindHold;
+                myAudioSource.Play();
+            }
 				controllerTriggered = true;
 			}
 
 			if (myInputManager.GetAxis (Settings.c.TimeStop) > 0.5f) {
+                isPlaying = false;
+                myAudioSource.Stop();
+                myAudioSource.loop = false;
                 myAfterImage.DisableGhost();
                 canShowTrail = false;
 				controllerTriggered = false;
 			}
 			if (controllerTriggered == true &&
 			    myInputManager.GetAxis (Settings.c.Rewind) < 0.1f) {
-			
+
+                isPlaying = false;
+                myAudioSource.Stop();
+                myAudioSource.loop = false;
+
+                myAudioSource.PlayOneShot(rewindRelease);
 				myAfterImage.DisableGhost ();
 				//myTimeController.StartRewind();
 				myTimeBody.doInstantRewind ();

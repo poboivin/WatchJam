@@ -672,6 +672,7 @@ GameObject:
   - component: {fileID: 2053101745769930948}
   - component: {fileID: 3877401182317152646}
   - component: {fileID: 1502538421927400455}
+  - component: {fileID: 981472361}
   m_Layer: 9
   m_Name: Arata
   m_TagString: Player
@@ -776,8 +777,8 @@ MonoBehaviour:
   LoseTimeWhileStopped: 1
   storedMomentum: {x: 0, y: 0}
   timeScale: 0
-  rewindEffect: {fileID: 8300000, guid: 09e530d46a97f9144a45c7a0d8e738de, type: 3}
-  stopEffect: {fileID: 8300000, guid: 8eae6a08cfd81c549a0cb0aa1ce6787f, type: 3}
+  rewindEffect: {fileID: 0}
+  stopEffect: {fileID: 0}
   OnStartTimeStop:
     m_PersistentCalls:
       m_Calls: []
@@ -864,7 +865,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   invincible: 0
-  invincibleDuration: 1.5
+  invincibleDuration: 1
 --- !u!114 &114438419210549924
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1125,6 +1126,8 @@ MonoBehaviour:
   myInputManager: {fileID: 0}
   myAfterImage: {fileID: 0}
   useNewRewind: 1
+  rewindHold: {fileID: 8300000, guid: bf6e05072118b1242a0e4696e073086f, type: 3}
+  rewindRelease: {fileID: 8300000, guid: 5a45464d337c5724b8ed8061834d7273, type: 3}
 --- !u!114 &114711443651000632
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1215,10 +1218,104 @@ MonoBehaviour:
   dashDirIndicator: {fileID: 4012910779379144479}
   maxFreezingCooldown: 1
   isFrozen: 0
-  myAudioSource: {fileID: 82859984026221270}
-  meleeClip:
-    clip: {fileID: 8300000, guid: 5aca8b6b33526474f8ab368a7b25b749, type: 3}
-    volume: 1
+  meleeClip: {fileID: 8300000, guid: 5aca8b6b33526474f8ab368a7b25b749, type: 3}
+  meleeCharge: {fileID: 8300000, guid: 6e2162e332ece6e4eb8c1409ce2e63c0, type: 3}
+--- !u!82 &981472361
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1471837378760992}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &1487633664938674
 GameObject:
   m_ObjectHideFlags: 0
@@ -2750,6 +2847,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4908a6217b8b1184683c729cf6ef492d, type: 3}
+--- !u!114 &7219801761257423643 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4121868342702035600, guid: 4908a6217b8b1184683c729cf6ef492d,
+    type: 3}
+  m_PrefabInstance: {fileID: 6701974275916812683}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &7219801761242361469 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4121868343450075126, guid: 4908a6217b8b1184683c729cf6ef492d,
@@ -2762,6 +2871,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69beae94c5e600949a1524d5855346db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!224 &7434852154729910060 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 4192803685277540007, guid: 4908a6217b8b1184683c729cf6ef492d,
+    type: 3}
+  m_PrefabInstance: {fileID: 6701974275916812683}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &7219801761052922554 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4121868343573431089, guid: 4908a6217b8b1184683c729cf6ef492d,
@@ -2770,24 +2885,6 @@ MonoBehaviour:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!224 &7434852154729910060 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 4192803685277540007, guid: 4908a6217b8b1184683c729cf6ef492d,
-    type: 3}
-  m_PrefabInstance: {fileID: 6701974275916812683}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &7219801761257423643 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4121868342702035600, guid: 4908a6217b8b1184683c729cf6ef492d,
-    type: 3}
-  m_PrefabInstance: {fileID: 6701974275916812683}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 

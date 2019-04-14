@@ -2350,10 +2350,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Arata
       objectReference: {fileID: 0}
-    - target: {fileID: 1471837378760992, guid: f72500af9a672d84c8f2c098ac80f822, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4341528592502370, guid: f72500af9a672d84c8f2c098ac80f822, type: 3}
       propertyPath: m_LocalPosition.x
       value: 2.7912273
@@ -2398,21 +2394,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 212439672104138776, guid: f72500af9a672d84c8f2c098ac80f822,
-        type: 3}
-      propertyPath: m_Color.a
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114163193378147670, guid: f72500af9a672d84c8f2c098ac80f822,
-        type: 3}
-      propertyPath: invincibleDuration
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1502538421927400455, guid: f72500af9a672d84c8f2c098ac80f822,
-        type: 3}
-      propertyPath: playerController
-      value: 
-      objectReference: {fileID: 1625585436}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f72500af9a672d84c8f2c098ac80f822, type: 3}
 --- !u!1 &507044282
@@ -8570,18 +8551,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94a705887e8486f4393b338b3aac7bb2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1625585436 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 114779728051434770, guid: f72500af9a672d84c8f2c098ac80f822,
-    type: 3}
-  m_PrefabInstance: {fileID: 499775048}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 981472345}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6804babace5cc47dd8b61abb292c4be2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1634000215
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10793,6 +10762,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1247658360459244, guid: 63e86b35f005cd24481364dd811ed7b6, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4847261105860934, guid: 63e86b35f005cd24481364dd811ed7b6, type: 3}
       propertyPath: m_LocalPosition.x
       value: -21.133863

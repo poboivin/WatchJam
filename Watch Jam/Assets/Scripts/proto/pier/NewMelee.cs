@@ -46,8 +46,10 @@ public class NewMelee : MonoBehaviour
     private List<Collider2D> ignored;
     private bool grounded = false;
     float oldGravityScale;
-    public AudioSource myAudioSource;
-    public SoundBite meleeClip;
+    AudioSource myAudioSource;
+    public AudioClip meleeClip;
+    public AudioClip meleeCharge;
+    private bool isPlaying = false;
 
     // Start is called before the first frame update
     void Start()
@@ -62,6 +64,9 @@ public class NewMelee : MonoBehaviour
         groundCheck = transform.Find("groundCheck");
         myRigidbody = GetComponent<Rigidbody2D>();
         oldGravityScale = myRigidbody.gravityScale;
+
+        AudioSource[] sources = GetComponents<AudioSource>();
+        myAudioSource = sources[0];
     }
     private void OnTriggerEnter(Collider other)
     {
@@ -131,7 +136,15 @@ public class NewMelee : MonoBehaviour
 
         if( dashDirIndicator && dashCount < offgroundDashLimit )
         {
-            if( dashDirIndicator.activeSelf == false )
+            if (!isPlaying)
+            {
+                isPlaying = true;
+                myAudioSource.loop = true;
+                myAudioSource.clip = meleeCharge;
+                myAudioSource.Play();
+            }
+
+            if ( dashDirIndicator.activeSelf == false )
                 dashDirIndicator.SetActive( true );
 
             float theta_rad = Mathf.Atan2( dashDir.y, dashDir.x );
@@ -171,7 +184,9 @@ public class NewMelee : MonoBehaviour
                 // start to dash
                 if( myTimeController.myInputManager.GetButtonUp( Settings.c.TimeStop ) )
                 {
-                    if( dashDirIndicator )
+                    
+
+                    if ( dashDirIndicator )
                         dashDirIndicator.SetActive( false );
 
                     if( grounded )
@@ -181,6 +196,7 @@ public class NewMelee : MonoBehaviour
                     else if( dashCount < offgroundDashLimit )
                     {
                         dashCount++;
+                       
                         activate();
                     }
                 }
@@ -248,7 +264,10 @@ public class NewMelee : MonoBehaviour
     
     public void activate()
     {
-        if( chargeRatio == 0.0f )
+        isPlaying = false;
+        myAudioSource.Stop();
+        myAudioSource.loop = false;
+        if ( chargeRatio == 0.0f )
         {
             deactivate();
 
@@ -293,6 +312,7 @@ public class NewMelee : MonoBehaviour
             // change the way of dashing to give a force instead of chainging a velocity
             // this way becomes easier to control the gravity scale
             //Debug.LogFormat( "Dash force = {0}", currentDashForce );
+            myAudioSource.PlayOneShot(meleeClip);
             myRigidbody.AddForce( dashDir.normalized * currentDashForce );
         }
     }
