@@ -20,6 +20,7 @@ class GunPowerThicc : GunPowerGeneric
 
         // TODO : needs to change this bar to the other effect
         gun.SpecialBar.ToggleRapidFireBar( true );
+        gun.SpecialBar.ChangeBarColor(3);
     }
 
     // restore everthing back to original abilities of the normal gun.

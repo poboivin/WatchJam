@@ -32,6 +32,8 @@ class GunPowerFiringBoost : GunPowerGeneric
         base.Activate();
         gun.fireRate = newFireRate;
         gun.SpecialBar.ToggleRapidFireBar( true );
+
+        gun.SpecialBar.ChangeBarColor(4);
         Debug.Log( "Activate" );
     }
 

@@ -16,6 +16,8 @@ class GunPowerBulletBounce : GunPowerGeneric
         base.Activate();
         // TODO : needs to change this bar to the other effect
         gun.SpecialBar.ToggleRapidFireBar( true );
+        gun.SpecialBar.ChangeBarColor(0);
+
     }
 
     public override void Deactivate()

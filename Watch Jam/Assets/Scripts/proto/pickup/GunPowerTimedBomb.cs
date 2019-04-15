@@ -21,6 +21,7 @@ class GunPowerTimedBomb : GunPowerGeneric
     {
         base.Activate();
         gun.SpecialBar.ToggleRapidFireBar( true );
+        gun.SpecialBar.ChangeBarColor(5);
     }
 
     public override void Deactivate()

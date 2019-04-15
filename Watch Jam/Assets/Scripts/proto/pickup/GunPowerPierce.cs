@@ -18,6 +18,7 @@ class GunPowerPierce : GunPowerGeneric
         base.Activate();
         // TODO : needs to change this bar to the other effect
         gun.SpecialBar.ToggleRapidFireBar( true );
+        gun.SpecialBar.ChangeBarColor(1);
     }
 
     // restore everthing back to original abilities of the normal gun.

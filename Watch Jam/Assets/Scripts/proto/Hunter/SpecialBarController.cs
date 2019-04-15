@@ -11,6 +11,8 @@ public class SpecialBarController : MonoBehaviour
     public GameObject StasisBar;
     public Image StatisFill;
 
+    public Color[] AmmoBarFills;
+
 
 
     // Start is called before the first frame update
@@ -30,6 +32,9 @@ public class SpecialBarController : MonoBehaviour
     {
 //        Debug.Log(AmountLeft);
         RapidFireFill.fillAmount = AmountLeft / 10;
+
+        //Set Bar Color
+
     }
 
 
@@ -45,6 +50,13 @@ public class SpecialBarController : MonoBehaviour
             RapidFireBar.SetActive(false);
         }
 
+    }
+
+    public void ChangeBarColor(int C)
+    {
+        RapidFireFill.color = AmmoBarFills[C];
+        
+        
     }
 
 

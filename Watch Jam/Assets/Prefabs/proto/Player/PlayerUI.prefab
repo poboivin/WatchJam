@@ -92,7 +92,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &3569233259421412450
 RectTransform:
   m_ObjectHideFlags: 0
@@ -102,7 +102,7 @@ RectTransform:
   m_GameObject: {fileID: 2812645488904324732}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.08619864, y: 0.20470232, z: 0.01785212}
+  m_LocalScale: {x: 0.0017232212, y: 0.004092261, z: 0.00035688674}
   m_Children:
   - {fileID: 5922271571675220627}
   - {fileID: 8123527966581798312}
@@ -111,7 +111,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0.088, y: 0.577}
   m_SizeDelta: {x: 220, y: 12}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5118427963292118310
@@ -471,14 +471,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.16552131, g: 0.16042188, b: 0.3301887, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 80208564c04cd19448028e08b01377ce, type: 3}
+  m_Sprite: {fileID: 21300000, guid: f75ecb008a1134443bb99c87c77071fd, type: 3}
   m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -589,7 +589,7 @@ RectTransform:
   m_GameObject: {fileID: 4121868342636907669}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.0073381094, y: 0.0013471765, z: 0.00029887076}
+  m_LocalScale: {x: 0.0036115565, y: 0.0009696848, z: 0.0003180401}
   m_Children:
   - {fileID: 4121868342118260091}
   - {fileID: 4121868342029954179}
@@ -598,7 +598,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.06997442, y: 0.018}
+  m_AnchoredPosition: {x: 0.185, y: -0.137}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4121868342636907670
@@ -748,7 +748,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4121868343009535368
 Transform:
   m_ObjectHideFlags: 0
@@ -834,6 +834,13 @@ MonoBehaviour:
   RapidFireFill: {fileID: 4121868342118260090}
   StasisBar: {fileID: 4121868342152819413}
   StatisFill: {fileID: 4121868341962137974}
+  AmmoBarFills:
+  - {r: 0.5882353, g: 0.28235295, b: 0.7176471, a: 1}
+  - {r: 0.8867924, g: 0.8867924, b: 0.8867924, a: 1}
+  - {r: 0.39215684, g: 0.9831793, b: 1, a: 1}
+  - {r: 0.061428007, g: 0.6509434, b: 0.03991636, a: 1}
+  - {r: 0.9583334, g: 1, b: 0, a: 1}
+  - {r: 0.7803922, g: 0.058823533, b: 0.2509804, a: 1}
 --- !u!1 &4122687317387558947
 GameObject:
   m_ObjectHideFlags: 0
@@ -846,6 +853,7 @@ GameObject:
   - component: {fileID: 4191395262294626197}
   - component: {fileID: 4083462990143785287}
   - component: {fileID: 4082131534347363559}
+  - component: {fileID: 1862428843646098809}
   m_Layer: 9
   m_Name: PlayerUI
   m_TagString: Untagged
@@ -860,7 +868,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4122687317387558947}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 5.0081997, y: 5.0081997, z: 71.78419}
   m_Children:
@@ -935,6 +943,24 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &1862428843646098809
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4122687317387558947}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9945600e1a197824f8e53b258ba87669, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HealthUI: {fileID: 2812645488904324732}
+  HealthBar: {fileID: 4846900032603052608}
+  BarColors:
+  - {fileID: 21300000, guid: 3b3b03e8b4ccdc94f8b5e35e96319e9f, type: 3}
+  - {fileID: 21300006, guid: 33e468d8779dde64da9623b19de53095, type: 3}
+  - {fileID: 21300008, guid: 33e468d8779dde64da9623b19de53095, type: 3}
 --- !u!1 &7158229632547363170
 GameObject:
   m_ObjectHideFlags: 0
