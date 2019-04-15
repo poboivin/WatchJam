@@ -11,8 +11,10 @@ public class MatchCounter : MonoBehaviour
     public GameObject killEffect;
     public static List<TimeController> players;
     public static MatchCounter _Instance;
+    public GameObject gameEndScreen;
 
     private GameTimer timer;
+    private static GameStatisticsManager statisticsManager;
 
     public PlayerSpawn[] playerSpawners;
     public int sceneToLoad = 0;
@@ -24,6 +26,7 @@ public class MatchCounter : MonoBehaviour
             players = new List<TimeController>();
         }
         players.Add(player);
+        Debug.LogFormat( "Register player {0}, num = {1}, mode = {2}", player.ToString(), players.Count, Settings.s.gameMode );
         if( Settings.s.gameMode == GameMode.TimeLimit && players.Count == 1 )
         {
             _Instance.timer.StartTimer();
@@ -34,7 +37,6 @@ public class MatchCounter : MonoBehaviour
     {
         players.Remove(player);
 
-        var statisticsManager = FindObjectOfType<GameStatisticsManager>();
         if( statisticsManager && player.PlayerId != PierInputManager.PlayerNumber.PC )
         {
             var killer = statisticsManager.PlayerDied( ( int )player.PlayerId );
@@ -125,25 +127,33 @@ public class MatchCounter : MonoBehaviour
        /// playerSpawners = FindObjectsOfType<PlayerSpawn>();
     }
 
+    private void Start()
+    {
+        statisticsManager = FindObjectOfType<GameStatisticsManager>();
+    }
+
     public void GameOver()
     {
         Debug.Log("game over");
 
-        var gameEndUI = FindObjectOfType<GameResultUIScript>();
-        if( gameEndUI )
+        bool loadEndScreen = false;
+        if( gameEndScreen != null )
         {
-            gameEndUI.ShowGameResultUI();
+            GameObject gameEndScreenObject = Instantiate( gameEndScreen );
+            gameEndScreenObject.GetComponent<GameResultUIScript>().ShowGameResultUI();
+            loadEndScreen = true;
         }
         if( players != null )
             players.Clear();
-        SceneManager.LoadScene(sceneToLoad);
+
+        if( loadEndScreen == false )
+            SceneManager.LoadScene(sceneToLoad);
     }
 	// Update is called once per frame
 	void Update ()
     {
         if( Settings.s.gameMode == GameMode.TimeLimit && timer != null && timer.hitTimer )
         {
-            var statisticsManager = FindObjectOfType<GameStatisticsManager>();
             if( statisticsManager )
             {
                 int maxPlayerKills = 0;
