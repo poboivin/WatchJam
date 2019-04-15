@@ -286,7 +286,23 @@ public class NewMelee : MonoBehaviour
 
             GameObject dashMelee = Instantiate( dashUI, gameObject.transform );
             if( dashMelee )
+            {
+                string stateName;
+
+                if( dashDir.x > 0 )
+                    stateName = "dashMeleeFlip";
+                else if( dashDir.x < 0 )
+                    stateName = "dash";
+                else
+                {
+                    if( myPlayerControl.facingRight )
+                        stateName = "dashMeleeFlip";
+                    else
+                        stateName = "dash";
+                }
+                dashMelee.GetComponent<Animator>().Play( stateName );
                 Destroy( dashMelee, maxFreezingCooldown * chargeRatio );
+            }
 
             oldScale = transform.localScale;
 
