@@ -47,7 +47,7 @@ public class RocketThicc : Rocket
 
         else if (col.tag == "ground" || col.tag == "Obstacle")
         {
-            GetComponentInChildren<Animator>().enabled = false;
+            //GetComponentInChildren<Animator>().enabled = false;
             Rigidbody2D rb = GetComponent<Rigidbody2D>();
             rb.velocity = Vector2.zero;
             rb.isKinematic = true;

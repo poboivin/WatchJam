@@ -38,7 +38,7 @@ SpriteRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1053442727614926}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -127,8 +127,9 @@ MonoBehaviour:
   Item: {fileID: 0}
   SpawnLoc: {fileID: 4377363368684908}
   ItemPrefab: {fileID: 4992701788097358, guid: c5d50a9927c07f94f8d42d4044fe50e5, type: 3}
-  pickuptype: 7
   SpawnDelay: 5
+  willSpawnItem: 0
+  isSpawned: 0
 --- !u!1 &1698596256519504
 GameObject:
   m_ObjectHideFlags: 0
