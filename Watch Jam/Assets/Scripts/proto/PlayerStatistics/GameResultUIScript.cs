@@ -16,7 +16,7 @@ public class GameResultUIScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        mainPanel.SetActive( false );
+        //mainPanel.SetActive( false );
     }
 
     // Update is called once per frame
@@ -73,6 +73,7 @@ public class GameResultUIScript : MonoBehaviour
             // close game result UI, and restart the game
             mainPanel.SetActive( false );
             Scene scene = SceneManager.GetActiveScene();
+
             SceneManager.LoadScene( scene.name );
         }
     }

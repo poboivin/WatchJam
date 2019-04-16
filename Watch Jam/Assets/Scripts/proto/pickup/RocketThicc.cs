@@ -5,7 +5,7 @@ public class RocketThicc : Rocket
 {
     private void Start()
     {
-        GetComponentInChildren<Animator>().Play("KunaiLoop");
+       // GetComponentInChildren<Animator>().Play("KunaiLoop");
     }
 
     void OnTriggerEnter2D(Collider2D col)

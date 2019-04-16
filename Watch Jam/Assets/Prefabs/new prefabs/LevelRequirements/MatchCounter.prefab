@@ -53,11 +53,14 @@ MonoBehaviour:
   source: {fileID: 5329049277059372435}
   killEffect: {fileID: 5131123969236219464, guid: 4c1769777289bf4429ef89ba0c5cb430,
     type: 3}
+  gameEndScreen: {fileID: 5150104807705934405, guid: 9f729042844e45c4aa1ad3cb1f7fc619,
+    type: 3}
   playerSpawners:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  sceneToLoad: 0
 --- !u!82 &5329049277059372435
 AudioSource:
   m_ObjectHideFlags: 0
