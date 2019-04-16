@@ -44,6 +44,9 @@ public class pickup : MonoBehaviour
     {
         if (collision.tag == "Player")
         {
+
+            collision.GetComponent<PlayerControl>().PlayPickUp();
+
             if (type == pickUpType.grenade)
             {
                 Ammo player = collision.GetComponent<Ammo>();

@@ -22,4 +22,10 @@ public class PlayerSpawn : MonoBehaviour
             OnPlayerSpawn.Invoke();
         }
 	}
+
+
+   public void PlaySpawnAudio()
+    {
+        GetComponent<AudioSource>().Play();
+    }
 }

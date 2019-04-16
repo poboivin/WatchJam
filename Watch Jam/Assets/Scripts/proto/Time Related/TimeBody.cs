@@ -12,6 +12,8 @@ public class TimeBody : MonoBehaviour, IRewindAble
     public float RecordTime = 5f;
     public float lifeStart = 0;
     public bool isRecording = true;
+    public AudioSource AS;
+    public AudioClip Teleport;
 	// Use this for initialization
 	void Start () {
         rb = gameObject.GetComponent<Rigidbody2D>();
@@ -93,6 +95,8 @@ public class TimeBody : MonoBehaviour, IRewindAble
     }
 
 	public void doInstantRewind(){
+        AS.clip = Teleport;
+        AS.Play();
 		rb.position = pointsInTime [pointsInTime.Count - 1].Position;
         rb.velocity = Vector2.zero;
         pointsInTime.RemoveRange(0, pointsInTime.Count - 1);

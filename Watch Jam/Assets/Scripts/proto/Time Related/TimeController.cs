@@ -14,7 +14,7 @@ public class TimeController : MonoBehaviour
     [HideInInspector]
     public PierInputManager myInputManager;
     [HideInInspector]
-    public AudioSource  myAudioSource;
+    //public AudioSource  myAudioSource;
     public AfterImage myAfterImage;
 
     private float _timeScale = 1;
@@ -43,10 +43,12 @@ public class TimeController : MonoBehaviour
     public float timeScale;
     public AudioClip rewindEffect;
     public AudioClip stopEffect;
+    public AudioClip DashEffect;
 
     public UnityEvent OnStartTimeStop;
     public UnityEvent OnStopTimeStop;
     public Animator AC;
+    public AudioSource MyAudioSource;
 
     public PierInputManager.PlayerNumber PlayerId
     {
@@ -66,7 +68,7 @@ public class TimeController : MonoBehaviour
         myTimeBody = GetComponent<TimeBody>();
         myAmmo = GetComponent<Ammo>();
         myInputManager = GetComponent<PierInputManager>();
-        myAudioSource = GetComponent<AudioSource>();
+        
         myAfterImage = GetComponent<AfterImage>();
         originalGravityScale = myRigidbody2D.gravityScale;
         originalMass = myRigidbody2D.mass;
@@ -232,8 +234,8 @@ public class TimeController : MonoBehaviour
 
         if(rewindEffect != null)
         {
-            myAudioSource.clip = rewindEffect;
-            myAudioSource.Play();
+            //myAudioSource.clip = rewindEffect;
+           // myAudioSource.Play();
         }
         if(Settings.s.rewindInvincibility == true)
         {
@@ -255,15 +257,16 @@ public class TimeController : MonoBehaviour
         //    }
 
         //}
+    
 
         if (EffectController != null)
         {
             EffectController.ToggleRewindTime(false);
         }
 
-        if (rewindEffect != null && myAudioSource.clip == rewindEffect)
+        if (rewindEffect != null && MyAudioSource.clip == rewindEffect)
         {
-            StartCoroutine(SoundOffRoutine(myAudioSource, 0.5f));
+            StartCoroutine(SoundOffRoutine(MyAudioSource, 0.5f));
         }
         //player layer
         gameObject.layer = 9;
@@ -301,8 +304,11 @@ public class TimeController : MonoBehaviour
         }
         if (stopEffect != null)
         {
-            myAudioSource.clip = stopEffect;
-            myAudioSource.Play();
+            //myAudioSource.clip = stopEffect;
+            //myAudioSource.Play();
+
+            MyAudioSource.clip = stopEffect;
+            MyAudioSource.Play();
         }
         storedMomentum = Vector2.zero;
         isStopped = true;
@@ -328,9 +334,11 @@ public class TimeController : MonoBehaviour
             //}
 
         }
-        if (stopEffect != null && myAudioSource.clip == stopEffect)
+        if (stopEffect != null && MyAudioSource.clip == stopEffect)
         {
-            StartCoroutine(SoundOffRoutine(myAudioSource, 0.5f));
+            //StartCoroutine(SoundOffRoutine(MyAudioSource, 0.5f));
+            MyAudioSource.clip = DashEffect;
+            MyAudioSource.Play();
         }
         isStopped = false;
         //timeFactor = 1;

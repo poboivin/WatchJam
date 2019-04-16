@@ -42,6 +42,9 @@ public class PlayerControl : MonoBehaviour,ImouseAble
     public bool BouceOffPlayers = true;
     public float BounceOffYValue = 5.0f;
     public float BounceOffXValue = 2.5f;
+
+    public AudioSource AS;
+    public AudioClip pickupsound;
     
     void Awake()
 	{
@@ -300,5 +303,13 @@ public class PlayerControl : MonoBehaviour,ImouseAble
                 GetComponent<Rigidbody2D>().AddForce(new Vector2(-BounceOffXValue, BounceOffYValue), ForceMode2D.Impulse);
             }
         }
+    }
+
+
+    public void PlayPickUp()
+    {
+        AS.clip = pickupsound;
+        AS.Play();
+        Debug.Log("PLAY SHIT");
     }
 }
