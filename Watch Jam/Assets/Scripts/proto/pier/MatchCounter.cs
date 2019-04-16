@@ -141,6 +141,7 @@ public class MatchCounter : MonoBehaviour
         {
             GameObject gameEndScreenObject = Instantiate(gameEndScreen);
             gameEndScreenObject.GetComponent<GameResultUIScript>().ShowGameResultUI();
+            gameEndScreen.GetComponent<GameResultUIScript>().SceneLoad = sceneToLoad;
             loadEndScreen = true;
         }
         if (players != null)

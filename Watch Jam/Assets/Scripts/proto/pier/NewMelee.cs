@@ -48,6 +48,7 @@ public class NewMelee : MonoBehaviour
     float oldGravityScale;
     public AudioSource myAudioSource;
     public SoundBite meleeClip;
+    public Animator AC;
 
     // Start is called before the first frame update
     void Start()
@@ -303,6 +304,7 @@ public class NewMelee : MonoBehaviour
         isFrozen = true;
         myRigidbody.gravityScale = 0;
         myRigidbody.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation;
+        AC.SetTrigger("EndDash");
         yield return new WaitForSeconds( maxFreezingCooldown * chargeRatio );
         //Debug.Log( "Unfreeze" );
         myRigidbody.constraints = RigidbodyConstraints2D.FreezeRotation;

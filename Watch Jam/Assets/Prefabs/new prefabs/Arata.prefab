@@ -335,7 +335,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 6.21, y: 5.72}
+  m_Size: {x: 6.6, y: 4.33}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -678,7 +678,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &4341528592502370
 Transform:
   m_ObjectHideFlags: 0
@@ -799,6 +799,7 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
+  AC: {fileID: 95167947199929560}
 --- !u!114 &114762429445593054
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1219,6 +1220,7 @@ MonoBehaviour:
   meleeClip:
     clip: {fileID: 8300000, guid: 5aca8b6b33526474f8ab368a7b25b749, type: 3}
     volume: 1
+  AC: {fileID: 95167947199929560}
 --- !u!1 &1487633664938674
 GameObject:
   m_ObjectHideFlags: 0

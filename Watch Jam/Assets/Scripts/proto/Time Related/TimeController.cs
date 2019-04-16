@@ -46,6 +46,7 @@ public class TimeController : MonoBehaviour
 
     public UnityEvent OnStartTimeStop;
     public UnityEvent OnStopTimeStop;
+    public Animator AC;
 
     public PierInputManager.PlayerNumber PlayerId
     {
@@ -312,6 +313,7 @@ public class TimeController : MonoBehaviour
         myRigidbody2D.angularVelocity = 0;
         myTimeBody.isRecording = false;
         OnStartTimeStop.Invoke();
+        AC.SetTrigger("StopTrigger");
     }
     public void StopTimeStop()
     {
@@ -336,9 +338,10 @@ public class TimeController : MonoBehaviour
         if(Settings.s.timeStopKillVelocity == false)
         {
             myRigidbody2D.velocity = oldVelocity;
+            
         }
         myTimeBody.isRecording = true;
-
+        AC.SetTrigger("MeleeTrigger");
         AddForce(storedMomentum);
         storedMomentum = Vector2.zero;
         OnStopTimeStop.Invoke();
@@ -381,6 +384,7 @@ public class TimeController : MonoBehaviour
         newTimeScale = 1;
         myRigidbody2D.mass = originalMass;
         myRigidbody2D.gravityScale = originalGravityScale;
+        
     }
     public void SetTimeScale(float scale)
     {
