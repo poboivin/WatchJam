@@ -679,7 +679,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4341528592502370
 Transform:
   m_ObjectHideFlags: 0
@@ -873,6 +873,8 @@ MonoBehaviour:
       Culture=neutral, PublicKeyToken=null
   invincible: 0
   invincibleDuration: 1
+  DeathParticle: {fileID: 5037728721768797367, guid: 2f4c14c64af9d2f478d74bca1165e3e1,
+    type: 3}
 --- !u!114 &114438419210549924
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2461,7 +2463,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4012910779379144479}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -1}
+  m_LocalPosition: {x: 0.23, y: 0, z: -1}
   m_LocalScale: {x: 0.7, y: 0.7, z: 1}
   m_Children:
   - {fileID: 89861366323085467}
@@ -2508,7 +2510,6 @@ GameObject:
   m_Component:
   - component: {fileID: 89861366323085467}
   - component: {fileID: 6965621367759831225}
-  - component: {fileID: 8823981898302451653}
   m_Layer: 0
   m_Name: kunaiSprite
   m_TagString: Untagged
@@ -2523,13 +2524,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4966585853930929704}
-  m_LocalRotation: {x: -0, y: -0, z: -0.00000008742278, w: -1}
-  m_LocalPosition: {x: 1.73, y: 0, z: 0}
-  m_LocalScale: {x: 0.037276506, y: 0.037276506, z: 0.037276506}
+  m_LocalRotation: {x: -0, y: -0, z: 0.707107, w: -0.7071066}
+  m_LocalPosition: {x: 0.873, y: 0, z: 0}
+  m_LocalScale: {x: 0.22971061, y: 0.25932527, z: 0.36033037}
   m_Children: []
   m_Father: {fileID: 3234128414741277767}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90.00001}
 --- !u!212 &6965621367759831225
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2567,8 +2568,8 @@ SpriteRenderer:
   m_SortingLayerID: -1783731295
   m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300004, guid: 5d2f88424f09e164a96f3476f619d707, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 42f8a2fcd3eafa441bc9c7d67c29e66e, type: 3}
+  m_Color: {r: 0.08962262, g: 0.87367576, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -2578,25 +2579,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!95 &8823981898302451653
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4966585853930929704}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 05e5b29b94defb8498dad37604ead095, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &5433481110041821962
 GameObject:
   m_ObjectHideFlags: 0
@@ -2857,12 +2839,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9945600e1a197824f8e53b258ba87669, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!224 &7434852154729910060 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 4192803685277540007, guid: 4908a6217b8b1184683c729cf6ef492d,
-    type: 3}
-  m_PrefabInstance: {fileID: 6701974275916812683}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &7219801761242361469 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4121868343450075126, guid: 4908a6217b8b1184683c729cf6ef492d,
@@ -2875,3 +2851,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69beae94c5e600949a1524d5855346db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!224 &7434852154729910060 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 4192803685277540007, guid: 4908a6217b8b1184683c729cf6ef492d,
+    type: 3}
+  m_PrefabInstance: {fileID: 6701974275916812683}
+  m_PrefabAsset: {fileID: 0}

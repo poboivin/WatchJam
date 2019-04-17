@@ -44,11 +44,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   items:
-  - {fileID: 4894875042397678, guid: 555cec6f1ac5a814bae53a9e762949b0, type: 3}
+  - {fileID: 2731888059444072478, guid: 7adac8534030182479db7e9348b47353, type: 3}
   - {fileID: 3679715052090136394, guid: bc1a50952ce66ae4bbde8f3264deced4, type: 3}
   - {fileID: 3677648540436673732, guid: ac4fedcd89c0f0d49b2cf205ff3728b9, type: 3}
   - {fileID: 8557103262203676889, guid: a97d6d2712dc84e46b170922c89c2fa8, type: 3}
-  - {fileID: 2731888059444072478, guid: 7adac8534030182479db7e9348b47353, type: 3}
   minSpawnWait: 5
   maxSpawnWait: 10
   maxItemsSpawned: 3

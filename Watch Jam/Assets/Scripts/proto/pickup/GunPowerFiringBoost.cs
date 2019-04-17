@@ -56,6 +56,8 @@ class GunPowerFiringBoost : GunPowerGeneric
                 firingTimer += Time.deltaTime;
                 if( firingTimer > newFireRate )
                 {
+                    Debug.Log(bulletPrefab);
+
                     GameObject newBullet = UnityEngine.Object.Instantiate( bulletPrefab, gun.gameObject.transform.position, firingRotation );
                     if( newBullet )
                     {

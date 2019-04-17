@@ -8,11 +8,13 @@ using UnityEngine.UI;
 /// </summary>
 public class PlayerRecordUIScript : MonoBehaviour
 {
-    [SerializeField] PierInputManager.PlayerNumber playerId;
-    [SerializeField] Sprite largeSprite;
-    [SerializeField] Sprite smallSprite;
-    [SerializeField] Image largeImage;
-    [SerializeField] Image smallImage;
+    public PierInputManager.PlayerNumber playerId;
+    public Sprite largeSprite;
+    public Sprite smallSprite;
+    [SerializeField]
+    Image largeImage;
+    [SerializeField]
+    Image smallImage;
     [SerializeField] Text numKillsInLarge;
     [SerializeField] Text numDeathsInLarge;
     [SerializeField] Text numKillsInSmall;
@@ -55,10 +57,10 @@ public class PlayerRecordUIScript : MonoBehaviour
                 numDeathsInLarge.text = statisticInfo.NumOfDeaths.ToString();
             if( numDeathsInSmall )
                 numDeathsInSmall.text = statisticInfo.NumOfDeaths.ToString();
-            if( largeImage )
+           /* if( largeImage )
                 largeImage.gameObject.SetActive( statisticInfo.IsWonGame );
             if( smallImage )
-                smallImage.gameObject.SetActive( !statisticInfo.IsWonGame );
+                smallImage.gameObject.SetActive( !statisticInfo.IsWonGame );*/
         }
     }
 

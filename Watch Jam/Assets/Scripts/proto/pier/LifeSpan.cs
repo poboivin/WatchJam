@@ -36,6 +36,7 @@ public class LifeSpan : MonoBehaviour
     [SerializeField]
     bool invincible;
     public float invincibleDuration = 1.0f;
+    public Transform DeathParticle;
 
 
     public void SetInvincibility(bool var)
@@ -168,29 +169,36 @@ public class LifeSpan : MonoBehaviour
     }
     void Death()
     {
+        //DESTROY ACTOR
+        Instantiate(DeathParticle, transform.position,Quaternion.identity);
         MatchCounter.Remove(myTimeController);
-        myAnimator.enabled = false;
-		try {
-			myPlayerControl2.enabled = false;
-			myGun2.enabled = false;
-		}
-		catch {
-			myPlayerControl.enabled = false;
-			myGun.enabled = false;
-		}
-        myRigidbody2D.freezeRotation = false;
-        myTimeController.enabled = false;
-        myTimeController.myInputManager.enabled = false;
-        if ( myTimeController.isStopped)
-        {
-            myTimeController.StopTimeStop();
-        }
-        if ( myTimeController.isRewinding)
-        {
-            myTimeController.StopRewind();
-        }
-        
-        this.enabled = false;
+
+        Destroy(gameObject);
+
+        //myAnimator.enabled = false;
+        //try
+        //{
+        //    myPlayerControl2.enabled = false;
+        //    myGun2.enabled = false;
+        //}
+        //catch
+        //{
+        //    myPlayerControl.enabled = false;
+        //    myGun.enabled = false;
+        //}
+        //myRigidbody2D.freezeRotation = false;
+        //myTimeController.enabled = false;
+        //myTimeController.myInputManager.enabled = false;
+        //if (myTimeController.isStopped)
+        //{
+        //    myTimeController.StopTimeStop();
+        //}
+        //if (myTimeController.isRewinding)
+        //{
+        //    myTimeController.StopRewind();
+        //}
+
+        //this.enabled = false;
     }
 
 

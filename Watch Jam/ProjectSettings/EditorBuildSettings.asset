@@ -17,7 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/ShowCase/FutureLevelShocase.unity
     guid: 9c3323b9929c30d43bea6c41205a1a63
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/FutreLevel/new futureLevel.unity
     guid: eb35e814d8f49084aaf70531f9dffb8d
   m_configObjects: {}

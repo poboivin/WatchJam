@@ -11,6 +11,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: red Arata Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 1471837378760992, guid: f72500af9a672d84c8f2c098ac80f822, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4341528592502370, guid: f72500af9a672d84c8f2c098ac80f822, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -75,5 +79,25 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 27d964e3720d09d4ca494e55d12a5676, type: 2}
+    - target: {fileID: 4012910779379144479, guid: f72500af9a672d84c8f2c098ac80f822,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6965621367759831225, guid: f72500af9a672d84c8f2c098ac80f822,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 0.6862745
+      objectReference: {fileID: 0}
+    - target: {fileID: 6965621367759831225, guid: f72500af9a672d84c8f2c098ac80f822,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0.21960786
+      objectReference: {fileID: 0}
+    - target: {fileID: 6965621367759831225, guid: f72500af9a672d84c8f2c098ac80f822,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0.18823531
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f72500af9a672d84c8f2c098ac80f822, type: 3}

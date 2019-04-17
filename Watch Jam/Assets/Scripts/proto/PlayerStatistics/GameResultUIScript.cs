@@ -50,6 +50,38 @@ public class GameResultUIScript : MonoBehaviour
         var statisticsManager = FindObjectOfType<GameStatisticsManager>();
         if (statisticsManager)
         {
+            PierInputManager.PlayerNumber Winner;
+            PierInputManager.PlayerNumber NotWinner;
+
+            foreach (var panel in playerPanel)
+            {
+                PlayerStatisticInfo statisticInfo = statisticsManager.GetPlayerStatisticInfo((int)panel.playerId);
+                if (statisticInfo.IsWonGame)
+                {
+                    if(panel != playerPanel[0])
+                    {
+                        Winner = panel.playerId;
+                        NotWinner = playerPanel[0].playerId;
+                        Sprite large = panel.largeSprite;
+                        Sprite small = panel.smallSprite;
+
+                        panel.smallSprite = playerPanel[0].smallSprite;
+                        panel.largeSprite = playerPanel[0].largeSprite;
+
+                        playerPanel[0].smallSprite = small;
+                        playerPanel[0].largeSprite = large;
+
+                        playerPanel[0].playerId = Winner;
+                        panel.playerId = NotWinner;
+
+                    }
+
+
+                }
+            }
+           // PlayerStatisticInfo statisticInfo    = statisticsManager.GetPlayerStatisticInfo((int)playerPanel[0].playerId);
+            
+
             foreach (var panel in playerPanel)
             {
                 panel.UpdateStatisticInfo();

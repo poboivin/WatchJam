@@ -741,14 +741,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2731888059444072478, guid: 7adac8534030182479db7e9348b47353,
         type: 3}
+    - target: {fileID: 1053442727614926, guid: 6bc34fae8f3bca64c84d901ec4d96a37, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 212680978059998114, guid: 6bc34fae8f3bca64c84d901ec4d96a37,
         type: 3}
       propertyPath: m_Enabled
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1053442727614926, guid: 6bc34fae8f3bca64c84d901ec4d96a37, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6bc34fae8f3bca64c84d901ec4d96a37, type: 3}
@@ -1497,14 +1497,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 3677648540436673732, guid: ac4fedcd89c0f0d49b2cf205ff3728b9,
         type: 3}
+    - target: {fileID: 1053442727614926, guid: 6bc34fae8f3bca64c84d901ec4d96a37, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 212680978059998114, guid: 6bc34fae8f3bca64c84d901ec4d96a37,
         type: 3}
       propertyPath: m_Enabled
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1053442727614926, guid: 6bc34fae8f3bca64c84d901ec4d96a37, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6bc34fae8f3bca64c84d901ec4d96a37, type: 3}
@@ -5995,6 +5995,16 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3575600909782041095, guid: c62d5bd5d34b6b6479e966c2ccb107c1,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -1046
+      objectReference: {fileID: 0}
+    - target: {fileID: 549927656257227655, guid: c62d5bd5d34b6b6479e966c2ccb107c1,
+        type: 3}
+      propertyPath: m_UiScaleMode
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c62d5bd5d34b6b6479e966c2ccb107c1, type: 3}
 --- !u!1001 &1028825038
@@ -9881,6 +9891,47 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4587924606856685385, guid: c9397afb1dda8744989ed56a07e41494,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 356306391, guid: c9397afb1dda8744989ed56a07e41494, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4587924607269831240, guid: c9397afb1dda8744989ed56a07e41494,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4587924606445651658, guid: c9397afb1dda8744989ed56a07e41494,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4587924606445651658, guid: c9397afb1dda8744989ed56a07e41494,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4587924606445651658, guid: c9397afb1dda8744989ed56a07e41494,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 160
+      objectReference: {fileID: 0}
+    - target: {fileID: 2079392052, guid: c9397afb1dda8744989ed56a07e41494, type: 3}
+      propertyPath: Health
+      value: 
+      objectReference: {fileID: 1625585431}
+    - target: {fileID: 2079392052, guid: c9397afb1dda8744989ed56a07e41494, type: 3}
+      propertyPath: PlayerTimeController
+      value: 
+      objectReference: {fileID: 1625585434}
+    - target: {fileID: 2079392052, guid: c9397afb1dda8744989ed56a07e41494, type: 3}
+      propertyPath: Ammo
+      value: 
+      objectReference: {fileID: 1308980619}
     - target: {fileID: 276905631, guid: c9397afb1dda8744989ed56a07e41494, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -9892,11 +9943,6 @@ PrefabInstance:
     - target: {fileID: 882467131, guid: c9397afb1dda8744989ed56a07e41494, type: 3}
       propertyPath: m_IsActive
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4587924607269831240, guid: c9397afb1dda8744989ed56a07e41494,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 276905633, guid: c9397afb1dda8744989ed56a07e41494, type: 3}
       propertyPath: Health
@@ -9934,42 +9980,6 @@ PrefabInstance:
       propertyPath: Ammo
       value: 
       objectReference: {fileID: 622810756}
-    - target: {fileID: 2079392052, guid: c9397afb1dda8744989ed56a07e41494, type: 3}
-      propertyPath: Health
-      value: 
-      objectReference: {fileID: 1625585431}
-    - target: {fileID: 2079392052, guid: c9397afb1dda8744989ed56a07e41494, type: 3}
-      propertyPath: PlayerTimeController
-      value: 
-      objectReference: {fileID: 1625585434}
-    - target: {fileID: 2079392052, guid: c9397afb1dda8744989ed56a07e41494, type: 3}
-      propertyPath: Ammo
-      value: 
-      objectReference: {fileID: 1308980619}
-    - target: {fileID: 4587924606445651658, guid: c9397afb1dda8744989ed56a07e41494,
-        type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4587924606445651658, guid: c9397afb1dda8744989ed56a07e41494,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4587924606445651658, guid: c9397afb1dda8744989ed56a07e41494,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 160
-      objectReference: {fileID: 0}
-    - target: {fileID: 4587924606856685385, guid: c9397afb1dda8744989ed56a07e41494,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 356306391, guid: c9397afb1dda8744989ed56a07e41494, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c9397afb1dda8744989ed56a07e41494, type: 3}
 --- !u!1001 &1484601682
@@ -13655,7 +13665,7 @@ MonoBehaviour:
   DelayBeforeDoorOpens: 1
   LerpTime: 4.3
   LerpTimeChargeup: 1.5
-  PressureDoorStart: 120
+  PressureDoorStart: 180
 --- !u!4 &2088293642
 Transform:
   m_ObjectHideFlags: 0

@@ -230,7 +230,7 @@ MonoBehaviour:
   numTotalShots: 8
   numOfBulletsInOneShot: 4
   angle: 30
-  damageMultiplier: 0.5
+  damageMultiplier: 1
 --- !u!95 &1776578686689166066
 Animator:
   serializedVersion: 3

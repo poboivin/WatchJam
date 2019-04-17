@@ -34,8 +34,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -16.1, y: -31}
-  m_SizeDelta: {x: 26.78, y: 22}
+  m_AnchoredPosition: {x: 122, y: 6.9000015}
+  m_SizeDelta: {x: 82.76999, y: 50.809998}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &279481283286928094
 CanvasRenderer:
@@ -67,7 +67,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 20
+    m_FontSize: 30
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 2
@@ -105,7 +105,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3885138256910380255}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -169,8 +169,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerId: 0
-  largeSprite: {fileID: 21300000, guid: b4badf2d341f27340a543150043994b2, type: 3}
-  smallSprite: {fileID: 21300000, guid: 69a312b115e4073418631ce9e5b1d137, type: 3}
+  largeSprite: {fileID: 21300000, guid: 7154e9d026bcfe448bc699500f80d2c8, type: 3}
+  smallSprite: {fileID: 21300000, guid: 2483be9899142e24f8de8fbb3541a759, type: 3}
   largeImage: {fileID: 3933221402637771719}
   smallImage: {fileID: 5947427647648670928}
   numKillsInLarge: {fileID: 3256248518607919743}
@@ -194,7 +194,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &8669462522956886716
 RectTransform:
   m_ObjectHideFlags: 0
@@ -211,10 +211,10 @@ RectTransform:
   m_Father: {fileID: 3885138256910380254}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 300, y: 150}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8250224964042552136
 CanvasRenderer:
@@ -244,9 +244,9 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 69a312b115e4073418631ce9e5b1d137, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 2483be9899142e24f8de8fbb3541a759, type: 3}
   m_Type: 0
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
@@ -287,10 +287,10 @@ RectTransform:
   m_Father: {fileID: 3885138256910380254}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 300, y: 300}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: -9.7500515}
+  m_SizeDelta: {x: 150, y: 130.50009}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6812806716770300910
 CanvasRenderer:
@@ -320,9 +320,9 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: b4badf2d341f27340a543150043994b2, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 7154e9d026bcfe448bc699500f80d2c8, type: 3}
   m_Type: 0
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
@@ -361,10 +361,10 @@ RectTransform:
   m_Father: {fileID: 7635145067215410678}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -4.9, y: -92.4}
-  m_SizeDelta: {x: 27.19, y: 22.39}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 515, y: 202}
+  m_SizeDelta: {x: 95.70001, y: 59.419983}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7745952241127457397
 CanvasRenderer:
@@ -396,11 +396,11 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 20
+    m_FontSize: 50
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 1
-    m_MaxSize: 40
+    m_MaxSize: 50
     m_Alignment: 0
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -440,10 +440,10 @@ RectTransform:
   m_Father: {fileID: 7635145067215410678}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -29.88, y: -75.45}
-  m_SizeDelta: {x: 32.28, y: 24.92}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 463.4, y: 251.6}
+  m_SizeDelta: {x: 97.390015, y: 59.419983}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2225466243170479447
 CanvasRenderer:
@@ -475,11 +475,11 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 20
+    m_FontSize: 50
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 1
-    m_MaxSize: 40
+    m_MaxSize: 63
     m_Alignment: 0
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -521,8 +521,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -1.5, y: -50}
-  m_SizeDelta: {x: 26.97, y: 23.36}
+  m_AnchoredPosition: {x: 146.3, y: -21.099998}
+  m_SizeDelta: {x: 72.48999, y: 50.884995}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4146337089500380467
 CanvasRenderer:
@@ -554,7 +554,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 20
+    m_FontSize: 30
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 2
