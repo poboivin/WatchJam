@@ -32,7 +32,7 @@ public class TimeRewindController : MonoBehaviour
     void Start () {
 		
 	}
-
+  
     // this trigger variable checks if the time power activates here or somewhere else.
     private bool controllerTriggered = false;
 	// Update is called once per frame

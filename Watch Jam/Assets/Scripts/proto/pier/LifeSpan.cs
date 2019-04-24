@@ -245,7 +245,7 @@ public class LifeSpan : MonoBehaviour
                 yield return new WaitForSeconds(0.1f);
                 foreach (SpriteRenderer spr in sp)
                 {
-                    spr.material.SetColor("_Tint", new Color(0.0f, 0.0f, 0.0f, 0.0f));
+                    spr.material.SetColor("_Tint", new Color(0.0f, 0.0f, 0.0f, 1.0f));
                 }
                 yield return new WaitForSeconds(0.1f);
             }

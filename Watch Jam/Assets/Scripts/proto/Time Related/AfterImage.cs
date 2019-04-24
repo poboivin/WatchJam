@@ -78,8 +78,13 @@ public class AfterImage : MonoBehaviour
 					if (!ghostImage.GetComponent (typeof(SpriteRenderer)))
                     {
 						SpriteRenderer ghostRenderer = ghostImage.AddComponent<SpriteRenderer> ();
-						ghostRenderer.sprite = sprite.sprite;
+
+                       // ghostRenderer.color = new Color(ghostRenderer.color.r, ghostRenderer.color.g, ghostRenderer.color.b, .65f);
+
+                        ghostRenderer.sprite = sprite.sprite;
                         ghostRenderer.material = material;
+                 //       ghostRenderer.material.
+                        ghostRenderer.material.SetColor("_Tint", new Color(0.0f, 0.0f, 0.0f, .45f));
 
                         ghostRenderer.sortingLayerID = sprite.sortingLayerID;
 					}
@@ -101,6 +106,11 @@ public class AfterImage : MonoBehaviour
             ghostImage.SetActive(false);
 
         }
+    }
+    public void OnDisable()
+    {
+        DisableGhost();
+
     }
     // Use this for initialization
     public void Update()
