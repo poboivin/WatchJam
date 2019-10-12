@@ -48,7 +48,7 @@ public class FutureDoorManager : MonoBehaviour
 
     [SerializeField]
     Color StartColor;
-[SerializeField]
+    [SerializeField]
     Color EndColor;
     
      //Delay Variables
@@ -70,6 +70,7 @@ public class FutureDoorManager : MonoBehaviour
     //TIMER VARIABLES
     float WaitStart;
     float BeamStartTime=.15f;
+    float TimeRoundStarted;
 
 
     //-4.1
@@ -79,6 +80,7 @@ public class FutureDoorManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        TimeRoundStarted = Time.time;
         //set up of all doors to be lerped
         for (int i = 0; i < DoorSets.Length; i++)
         {
@@ -178,8 +180,8 @@ public class FutureDoorManager : MonoBehaviour
        {
         //Wait a random amount of time to trigger next doors
         yield return new WaitForSeconds(Random.Range(NextDoorOpenRange[0], NextDoorOpenRange[1]));
-
-        if (Time.time < PressureDoorStart)
+        
+        if (Time.time-TimeRoundStarted < PressureDoorStart)
         {
             int DoorToOpen = Random.Range(0, 3);
             while (DoorToOpen == PreviousDoor)
